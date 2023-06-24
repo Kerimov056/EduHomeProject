@@ -43,28 +43,112 @@ public class DashboardController : Controller
         }
         if (!blogViewModel.ImagePath.FormatFile("image"))
         {
-            ModelState.AddModelError("Image", "duz yaz gijdila");
+            ModelState.AddModelError("Image", "Select correct image format!");
             return View(blogViewModel);
         }
-        if (blogViewModel.ImagePath.FormatLenght(100))
+        if (!blogViewModel.ImagePath.FormatLenght(100))
         {
-            ModelState.AddModelError("Image", "duz yaz gijdila");
+            ModelState.AddModelError("Image", "Size must be less than 100 kb");
             return View(blogViewModel);
         }
 
         //D:\work2\Asp.net MVC\EduHome\EduHome.UI\wwwroot\assets\img\slider\
-        string file_name = Guid.NewGuid().ToString()+blogViewModel.ImagePath.FileName;
-        string filePath = Path.Combine("assets", "img", "slider", file_name);
-        string path = Path.Combine(_env.WebRootPath, filePath);
-        using (FileStream fileStream = new FileStream(path,FileMode.CreateNew))
-        {
-            await blogViewModel.ImagePath.CopyToAsync(fileStream);
-        }
-        
+        string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
+
         Blog blogg = _mapper.Map<Blog>(blogViewModel);
-        blogg.ImagePath= filePath;
+        blogg.ImagePath = filePath;
         await _context.Blogs.AddAsync(blogg);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
+    }
+
+
+    public async Task<IActionResult> Edit(int id)
+    {
+        if (id == null || id == 0)
+        {
+            return NotFound();
+        }
+        var blog = _context.Blogs.Find(id);
+        if (blog == null)
+        {
+            return NotFound();
+        }
+        return View();
+    }
+
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public async Task<IActionResult> Edit(int id,Blog blog)
+    //{
+    //    if (id == null || id==0)
+    //    {
+    //        return NotFound();
+    //    }
+    //    if (ModelState.IsValid)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    var blogMap = _mapper.Map<BlogViewModel>(blog);
+    //    blog.ImagePath = blogMap.ImagePath.ToString();
+    //    blog.Name= blogMap.Name;
+    //    blog.PersonName=blogMap.PersonName;
+    //    blog.Data_Time=blogMap.Data_Time;
+    //    blog.MessageNum=blogMap.MessageNum;
+
+    //    _context.Blogs.Update(blog);
+    //    _context.SaveChanges();
+    //    return RedirectToAction("Index");
+    //}
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, Blog blog)
+    {
+        if (id == null || id == 0)
+        {
+            return BadRequest();
+        }
+        if (ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
+        Blog? blog1 = await _context.Blogs.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
+
+        if (blog1 == null)
+        {
+            return NotFound();
+        }
+        _context.Entry(blog).State = EntityState.Modified;
+        _context.SaveChangesAsync();
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Delete(int id)
+    {
+        var blog = _context.Blogs.Find(id);
+        if (blog is null)
+        {
+            return NotFound();
+        }
+        return View();
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+
+    public IActionResult DeletePost(int id)
+    {
+        var blog = _context.Blogs.Find(id);
+        if (blog is null)
+        {
+            return NotFound();
+        }
+        _context.Blogs.Remove(blog);
+        _context.SaveChangesAsync();
+        return RedirectToAction("Index");
     }
 }

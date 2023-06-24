@@ -16,7 +16,7 @@ public static class FileExtension
 
     public async static Task<string> CopyFileAsync(this IFormFile formFile,string root,params string[] folders)
     {
-        string file_name = Guid.NewGuid().ToString() + formFile.FileName;
+        string file_name = DateTime.Now.ToString("dd MMM yyyy") + formFile.FileName;
         string folder = String.Empty;
         foreach (var item in folders)
         {

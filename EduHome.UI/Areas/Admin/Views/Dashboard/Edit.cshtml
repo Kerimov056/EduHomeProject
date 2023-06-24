@@ -1,6 +1,6 @@
 ﻿@model Blog
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
 <div class="main-content">
@@ -11,13 +11,12 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title mb-4" style="color:green;font-size:20px">Create Blog</h4>
-                            <form method="post" asp-action="Edit">
+                            <h4 class="card-title mb-4" style="color:green;font-size:20px">Update Blogs</h4>
+                            <form method="post" asp-action="Edit" enctype="multipart/form-data">
                                 <div class="row mb-4">
                                     <label asp-for="ImagePath" class="col-sm-3 col-form-label">Image</label>
                                     <div class="col-sm-9">
-                                        <img src="@Model.ImagePath"/>
-                                        <input asp-for="ImagePath" accept="image/*" type="file" accept="image/*" class="form-control">
+                                        <input asp-for="ImagePath" type="file" accept="image/*" class="form-control">
                                         <span asp-validation-for="ImagePath" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -25,7 +24,7 @@
                                 <div class="row mb-4">
                                     <label asp-for="Name" class="col-sm-3 col-form-label">Name</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="Name" type="text" placeholder="Name" class="form-control">
+                                        <input asp-for="Name" type="text" accept="image/*" placeholder="Name" class="form-control">
                                         <span asp-validation-for="Name" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -77,9 +76,8 @@
     </div>
 </div>
 
-
 @section Scripts
-{
+    {
     @{
         <partial name="_ValidationScript" />
     }
