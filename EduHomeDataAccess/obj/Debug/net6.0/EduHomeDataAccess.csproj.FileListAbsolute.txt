@@ -1,0 +1,14 @@
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\bin\Debug\net6.0\EduHomeDataAccess.deps.json
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\bin\Debug\net6.0\EduHomeDataAccess.dll
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\bin\Debug\net6.0\EduHomeDataAccess.pdb
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.csproj.AssemblyReference.cache
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.AssemblyInfoInputs.cache
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.AssemblyInfo.cs
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.csproj.CoreCompileInputs.cache
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.dll
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\refint\EduHomeDataAccess.dll
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.pdb
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\ref\EduHomeDataAccess.dll
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\bin\Debug\net6.0\EduHomeDataAccess.runtimeconfig.json
+D:\work2\Asp.net MVC\EduHome\EduHomeDataAccess\obj\Debug\net6.0\EduHomeDataAccess.genruntimeconfig.cache
