@@ -1,8 +1,8 @@
 ﻿using EduHome.Core.Entities;
 
-namespace EduHome.UI.HomeVM;
+namespace EduHome.UI.ViewModel;
 
-public class HomeVM
+public class HomeViewModel
 {
     public IEnumerable<Blog> blogs { get; set; }
     public IEnumerable<Slider> sliders { get; set; }

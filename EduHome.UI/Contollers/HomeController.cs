@@ -1,4 +1,5 @@
-﻿using EduHomeDataAccess.Database;
+﻿using EduHome.UI.ViewModel;
+using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,11 +17,13 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        HomeVM homeVm = new()
+        HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
+            sliders = await _context.Sliders.ToListAsync()
         };
-        return View(homeVm);
+        
+        return View(homeViewModel);
     }
 
 }
