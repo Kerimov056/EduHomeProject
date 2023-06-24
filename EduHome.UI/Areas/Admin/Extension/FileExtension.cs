@@ -9,14 +9,15 @@ public static class FileExtension
         return formFile.ContentType.Contains(fileType);
     }
 
-    public static bool FormatLenght(this IFormFile formFile,int kb)
+    public static bool FormatLength(this IFormFile formFile, int kb)
     {
-        return formFile.Length/1024 <= kb;
+        return formFile.Length / 1024 <= kb;
     }
+
 
     public async static Task<string> CopyFileAsync(this IFormFile formFile,string root,params string[] folders)
     {
-        string file_name = DateTime.Now.ToString("dd MMM yyyy") + formFile.FileName;
+        string file_name = Guid.NewGuid().ToString() + formFile.FileName;
         string folder = String.Empty;
         foreach (var item in folders)
         {
@@ -24,7 +25,7 @@ public static class FileExtension
         }
         string filePath = Path.Combine(folder, file_name);
         string path = Path.Combine(root, filePath);
-        using (FileStream fileStream = new FileStream(path, FileMode.CreateNew))
+        using (FileStream fileStream = new FileStream(path, FileMode.Create))
         {
             await formFile.CopyToAsync(fileStream);
         }

@@ -14,7 +14,8 @@
                             <h4 class="card-title mb-4" style="color:red;font-size:20px">Delete Products</h4>
                             <form method="post" asp-action="Delete">
                                 <input asp-for="Id" hidden />
-                                <div class="row mb-4">
+                                <img width="200px" src="/@Model.ImagePath"/>
+                                <div class="row mb-4" style="margin-top:20px">
                                     <label asp-for="ImagePath" class="col-sm-3 col-form-label">Image</label>
                                     <div class="col-sm-9">
                                         <input asp-for="ImagePath" disabled type="text" class="form-control">

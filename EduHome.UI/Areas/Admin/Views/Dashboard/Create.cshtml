@@ -1,4 +1,4 @@
-﻿@model Blog
+﻿@model BlogViewModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -12,11 +12,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4" style="color:green;font-size:20px">Create Blog</h4>
-                            <form method="post" asp-action="Edit">
+                            <form method="post" enctype="multipart/form-data">
                                 <div class="row mb-4">
                                     <label asp-for="ImagePath" class="col-sm-3 col-form-label">Image</label>
                                     <div class="col-sm-9">
-                                        <img src="@Model.ImagePath"/>
                                         <input asp-for="ImagePath" accept="image/*" type="file" accept="image/*" class="form-control">
                                         <span asp-validation-for="ImagePath" class="text-danger"></span>
                                     </div>
@@ -42,7 +41,7 @@
                                 <div class="row mb-4">
                                     <label asp-for="Data_Time" class="col-sm-3 col-form-label">Date Time</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="Data_Time" type="text" class="form-control" placeholder="Time">
+                                        <input asp-for="Data_Time" disabled type="text" class="form-control" placeholder="Time">
                                         <span asp-validation-for="Data_Time" class="text-danger"></span>
                                     </div>
                                 </div>

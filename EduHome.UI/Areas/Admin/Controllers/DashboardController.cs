@@ -27,7 +27,7 @@ public class DashboardController : Controller
         return View(await _context.Blogs.ToListAsync());
     }
 
-    public async Task<IActionResult> Create()
+    public IActionResult Create()
     {
         return View();
     }
@@ -43,23 +43,23 @@ public class DashboardController : Controller
         }
         if (!blogViewModel.ImagePath.FormatFile("image"))
         {
-            ModelState.AddModelError("Image", "Select correct image format!");
+            ModelState.AddModelError("ImagePath", "Select correct image format!");
             return View(blogViewModel);
         }
-        if (!blogViewModel.ImagePath.FormatLenght(100))
+        if (!blogViewModel.ImagePath.FormatLength(100))
         {
-            ModelState.AddModelError("Image", "Size must be less than 100 kb");
+            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
             return View(blogViewModel);
         }
-
         //D:\work2\Asp.net MVC\EduHome\EduHome.UI\wwwroot\assets\img\slider\
         string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-
         Blog blogg = _mapper.Map<Blog>(blogViewModel);
-        blogg.ImagePath = filePath;
-        await _context.Blogs.AddAsync(blogg);
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        blogg.ImagePath= filePath;
+        blogg.Data_Time = DateTime.Now;
+
+        _context.Blogs.Add(blogg);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
 
 
@@ -70,7 +70,7 @@ public class DashboardController : Controller
             return NotFound();
         }
         var blog = _context.Blogs.Find(id);
-        if (blog == null)
+        if (blog is null)
         {
             return NotFound();
         }
@@ -81,23 +81,23 @@ public class DashboardController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, Blog blog)
     {
-        if (id == null || id == 0)
+        if (id!=blog.Id)
         {
             return BadRequest();
         }
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
             return NotFound();
         }
 
-        Blog? blog1 = await _context.Blogs.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
+        Blog? blog1 = await _context.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>b.Id==id);
 
         if (blog1 == null)
         {
             return NotFound();
         }
         _context.Entry(blog).State = EntityState.Modified;
-        _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 

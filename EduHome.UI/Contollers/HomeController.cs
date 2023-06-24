@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace EduHome.UI.Contollers;
 
 public class HomeController : Controller
@@ -15,6 +16,11 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Blogs.ToListAsync());
+        HomeVM homeVm = new()
+        {
+            blogs = await _context.Blogs.ToListAsync(),
+        };
+        return View(homeVm);
     }
+
 }
