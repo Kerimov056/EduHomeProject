@@ -481,6 +481,1194 @@
       "PackagePath": "staticwebassets\\assets\\js\\vendor\\modernizr-3.11.2.min.js"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\css\\app.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\css\\app.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\css\\icons.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\css\\icons.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\boxicons.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\boxicons.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\boxicons.html",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\boxicons.html"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\boxicons.ttf",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\boxicons.ttf"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\boxicons.woff",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\boxicons.woff"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\boxiconsd41d.svg",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\boxiconsd41d.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\dripicons-v2.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\dripicons-v2.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\dripicons-v2.svg",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\dripicons-v2.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\dripicons-v2.ttf",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\dripicons-v2.ttf"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\dripicons-v2.woff",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\dripicons-v2.woff"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\dripicons-v2d41d.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\dripicons-v2d41d.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-brands-400.html",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-brands-400.html"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-brands-400d41d.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-regular-400.html",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-regular-400.html"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-regular-400d41d.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-solid-900.html",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-solid-900.html"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\fa-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\fa-solid-900d41d.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\materialdesignicons-webfontd41d.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\materialdesignicons-webfontd41d.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\materialdesignicons-webfonte910.eot",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\materialdesignicons-webfonte910.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\materialdesignicons-webfonte910.html",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\materialdesignicons-webfonte910.html"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\materialdesignicons-webfonte910.ttf",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\materialdesignicons-webfonte910.ttf"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\fonts\\materialdesignicons-webfonte910.woff",
+      "PackagePath": "staticwebassets\\assetsf\\fonts\\materialdesignicons-webfonte910.woff"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\brands\\bitbucket.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\brands\\bitbucket.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\brands\\dribbble.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\brands\\dribbble.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\brands\\dropbox.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\brands\\dropbox.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\brands\\github.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\brands\\github.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\brands\\mail_chimp.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\brands\\mail_chimp.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\brands\\slack.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\brands\\slack.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\clients\\1.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\clients\\1.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\clients\\2.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\clients\\2.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\clients\\3.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\clients\\3.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\clients\\4.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\clients\\4.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\clients\\5.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\clients\\5.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\clients\\6.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\clients\\6.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\coming-soon.svg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\coming-soon.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\companies\\img-1.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\companies\\img-1.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\companies\\img-2.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\companies\\img-2.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\companies\\img-3.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\companies\\img-3.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\companies\\img-4.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\companies\\img-4.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\companies\\img-5.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\companies\\img-5.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\companies\\img-6.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\companies\\img-6.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\crypto\\blog\\img-1.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\crypto\\blog\\img-1.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\crypto\\blog\\img-2.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\crypto\\blog\\img-2.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\crypto\\blog\\img-3.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\crypto\\blog\\img-3.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\crypto\\features-img\\img-1.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\crypto\\features-img\\img-1.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\crypto\\features-img\\img-2.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\crypto\\features-img\\img-2.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\error-img.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\error-img.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\favicon.ico",
+      "PackagePath": "staticwebassets\\assetsf\\images\\favicon.ico"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\flags\\germany.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\flags\\germany.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\flags\\italy.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\flags\\italy.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\flags\\russia.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\flags\\russia.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\flags\\spain.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\flags\\spain.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\flags\\us.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\flags\\us.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\layouts\\layout-1.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\layouts\\layout-1.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\layouts\\layout-2.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\layouts\\layout-2.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\layouts\\layout-3.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\layouts\\layout-3.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\layouts\\layout-4.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\layouts\\layout-4.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\logo-dark.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\logo-dark.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\logo-light.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\logo-light.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\logo-light.svg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\logo-light.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\logo.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\maintenance.svg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\maintenance.svg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\megamenu-img.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\megamenu-img.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\1d213d6c-f8de-4866-8e53-4c1b5d3f1e59WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\1d213d6c-f8de-4866-8e53-4c1b5d3f1e59WIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\25112640-1b88-4d6d-8335-3b7538428b5eWIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\25112640-1b88-4d6d-8335-3b7538428b5eWIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\355b3c5c-fd8f-4e1f-b44a-3dd3b607f3d4WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\355b3c5c-fd8f-4e1f-b44a-3dd3b607f3d4WIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\Microsoft.AspNetCore.Http.FormFile",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\Microsoft.AspNetCore.Http.FormFile"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\ac07f9ee-3bfc-4a42-8e13-b579f479d2e8WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\ac07f9ee-3bfc-4a42-8e13-b579f479d2e8WIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\bcf5ea23-2a09-4398-a1bc-82017cd948a6image.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\bcf5ea23-2a09-4398-a1bc-82017cd948a6image.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\c765c20e-371b-4499-a265-f82f9c79ddb6WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\c765c20e-371b-4499-a265-f82f9c79ddb6WIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\e4a52740-2d89-4a0f-b327-86eb11f2d862WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\e4a52740-2d89-4a0f-b327-86eb11f2d862WIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-1.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-1.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-2.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-2.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-3.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-3.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-4.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-4.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-5.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-5.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-6.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-6.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-7.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-7.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\product\\img-8.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\product\\img-8.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\profile-img.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\profile-img.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\small\\img-1.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\small\\img-1.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\small\\img-2.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\small\\img-2.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\small\\img-3.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\small\\img-3.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\small\\img-4.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\small\\img-4.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\small\\img-5.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\small\\img-5.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\small\\img-6.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\small\\img-6.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\small\\img-7.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\small\\img-7.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-1.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-1.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-2.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-2.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-3.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-3.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-4.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-4.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-5.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-5.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-6.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-6.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-7.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-7.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\users\\avatar-8.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\images\\users\\avatar-8.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\images\\verification-img.png",
+      "PackagePath": "staticwebassets\\assetsf\\images\\verification-img.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\app.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\app.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\alerts.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\alerts.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\apexcharts.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\apexcharts.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\auth-2-carousel.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\auth-2-carousel.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\bootstrap-toastr.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\bootstrap-toastr.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\calendar.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\calendar.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\calendars-full.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\calendars-full.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\calendars.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\calendars.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\chartjs.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\chartjs.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\coming-soon.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\coming-soon.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\crypto-dashboard.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\crypto-dashboard.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\crypto-exchange.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\crypto-exchange.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\crypto-kyc-app.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\crypto-kyc-app.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\crypto-orders.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\crypto-orders.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\crypto-wallet.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\crypto-wallet.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\dashboard-blog.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\dashboard-blog.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\dashboard.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\dashboard.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\datatables.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\datatables.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\echarts.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\echarts.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\ecommerce-cart.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\ecommerce-cart.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\ecommerce-select2.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\ecommerce-select2.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\email-editor.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\email-editor.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\file-manager.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\file-manager.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\flot.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\flot.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\fontawesome.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\fontawesome.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\form-advanced.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\form-advanced.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\form-editor.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\form-editor.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\form-mask.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\form-mask.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\form-repeater.int.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\form-repeater.int.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\form-validation.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\form-validation.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\form-wizard.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\form-wizard.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\form-xeditable.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\form-xeditable.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\gmaps.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\gmaps.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\ico-landing.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\ico-landing.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\jquery-knob.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\jquery-knob.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\leaflet-map.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\leaflet-map.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\leaflet-us-states.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\leaflet-us-states.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\lightbox.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\lightbox.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\materialdesign.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\materialdesign.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\modal.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\modal.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\product-filter-range.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\product-filter-range.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\profile.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\profile.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\project-overview.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\project-overview.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\range-sliders.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\range-sliders.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\rating-init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\rating-init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\saas-dashboard.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\saas-dashboard.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\schedules.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\schedules.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\session-timeout.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\session-timeout.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\sparklines.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\sparklines.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\sweet-alerts.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\sweet-alerts.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\table-editable.int.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\table-editable.int.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\table-responsive.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\table-responsive.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\task-create.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\task-create.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\task-form.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\task-form.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\task-kanban.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\task-kanban.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\tasklist.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\tasklist.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\timeline.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\timeline.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\toastr.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\toastr.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\tui-charts.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\tui-charts.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\two-step-verification.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\two-step-verification.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\validation.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\validation.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\js\\pages\\vector-maps.init.js",
+      "PackagePath": "staticwebassets\\assetsf\\js\\pages\\vector-maps.init.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@chenfengyuan\\datepicker\\datepicker.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@chenfengyuan\\datepicker\\datepicker.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@chenfengyuan\\datepicker\\datepicker.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@chenfengyuan\\datepicker\\datepicker.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@curiosityx\\bootstrap-session-timeout\\index.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@curiosityx\\bootstrap-session-timeout\\index.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\bootstrap\\main.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\bootstrap\\main.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\bootstrap\\main.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\bootstrap\\main.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\core\\main.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\core\\main.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\core\\main.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\core\\main.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\daygrid\\main.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\daygrid\\main.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\daygrid\\main.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\daygrid\\main.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\interaction\\main.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\interaction\\main.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\timegrid\\main.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\timegrid\\main.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\@fullcalendar\\timegrid\\main.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\@fullcalendar\\timegrid\\main.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-au-mill-en.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-au-mill-en.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-ca-lcc-en.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-ca-lcc-en.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-in-mill-en.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-in-mill-en.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-uk-mill-en.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-uk-mill-en.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-il-chicago-mill-en.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-il-chicago-mill-en.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-merc-en.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-merc-en.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-world-mill-en.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-world-mill-en.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\rwd-table\\rwd-table.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\rwd-table\\rwd-table.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\admin-resources\\rwd-table\\rwd-table.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\admin-resources\\rwd-table\\rwd-table.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\apexcharts\\apexcharts.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\apexcharts\\apexcharts.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-datepicker\\css\\bootstrap-datepicker.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-datepicker\\css\\bootstrap-datepicker.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-datepicker\\js\\bootstrap-datepicker.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-datepicker\\js\\bootstrap-datepicker.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-editable\\css\\bootstrap-editable.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-editable\\css\\bootstrap-editable.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-editable\\img\\clear.png",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-editable\\img\\clear.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-editable\\img\\loading.gif",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-editable\\img\\loading.gif"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-editable\\js\\index.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-editable\\js\\index.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-maxlength\\bootstrap-maxlength.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-maxlength\\bootstrap-maxlength.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-rating\\bootstrap-rating.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-rating\\bootstrap-rating.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-rating\\bootstrap-rating.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-rating\\bootstrap-rating.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-timepicker\\css\\bootstrap-timepicker.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-timepicker\\css\\bootstrap-timepicker.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-timepicker\\js\\bootstrap-timepicker.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-timepicker\\js\\bootstrap-timepicker.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\chance\\chance.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\chance\\chance.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\chart.js\\Chart.bundle.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\chart.js\\Chart.bundle.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-bs4\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-bs4\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-bs4\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-bs4\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-buttons-bs4\\css\\buttons.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-buttons-bs4\\css\\buttons.bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-buttons-bs4\\js\\buttons.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-buttons-bs4\\js\\buttons.bootstrap4.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-buttons\\js\\buttons.colVis.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-buttons\\js\\buttons.colVis.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-buttons\\js\\buttons.html5.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-buttons\\js\\buttons.html5.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-buttons\\js\\buttons.print.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-buttons\\js\\buttons.print.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-buttons\\js\\dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-buttons\\js\\dataTables.buttons.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-responsive-bs4\\css\\responsive.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-responsive-bs4\\css\\responsive.bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-responsive-bs4\\js\\responsive.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-responsive-bs4\\js\\responsive.bootstrap4.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net-responsive\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net-responsive\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\datatables.net\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\datatables.net\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\dragula\\dragula.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\dragula\\dragula.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\dragula\\dragula.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\dragula\\dragula.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\dropzone\\min\\dropzone.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\dropzone\\min\\dropzone.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\dropzone\\min\\dropzone.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\dropzone\\min\\dropzone.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\echarts\\echarts.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\echarts\\echarts.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot-charts\\jquery.flot.crosshair.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot-charts\\jquery.flot.crosshair.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot-charts\\jquery.flot.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot-charts\\jquery.flot.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot-charts\\jquery.flot.pie.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot-charts\\jquery.flot.pie.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot-charts\\jquery.flot.resize.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot-charts\\jquery.flot.resize.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot-charts\\jquery.flot.selection.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot-charts\\jquery.flot.selection.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot-charts\\jquery.flot.stack.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot-charts\\jquery.flot.stack.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot-charts\\jquery.flot.time.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot-charts\\jquery.flot.time.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\flot.curvedLines\\curvedLines.html",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\flot.curvedLines\\curvedLines.html"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\gmaps\\gmaps.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\gmaps\\gmaps.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\inputmask\\min\\jquery.inputmask.bundle.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\inputmask\\min\\jquery.inputmask.bundle.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\ion-rangeslider\\css\\ion.rangeSlider.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\ion-rangeslider\\css\\ion.rangeSlider.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\ion-rangeslider\\js\\ion.rangeSlider.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\ion-rangeslider\\js\\ion.rangeSlider.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery-countdown\\jquery.countdown.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery-countdown\\jquery.countdown.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery-knob\\jquery.knob.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery-knob\\jquery.knob.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery-sparkline\\jquery.sparkline.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery-sparkline\\jquery.sparkline.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery-steps\\build\\jquery.steps.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery-steps\\build\\jquery.steps.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery-ui-dist\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery-ui-dist\\jquery-ui.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery-validation\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery-validation\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery.easing\\jquery.easing.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery.easing\\jquery.easing.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery.flot.tooltip\\js\\jquery.flot.tooltip.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery.flot.tooltip\\js\\jquery.flot.tooltip.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery.repeater\\jquery.repeater.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery.repeater\\jquery.repeater.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\jszip\\jszip.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\jszip\\jszip.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\leaflet\\images\\layers-2x.png",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\leaflet\\images\\layers-2x.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\leaflet\\images\\layers.png",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\leaflet\\images\\layers.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\leaflet\\images\\marker-icon.png",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\leaflet\\images\\marker-icon.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\leaflet\\leaflet.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\leaflet\\leaflet.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\leaflet\\leaflet.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\leaflet\\leaflet.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\magnific-popup\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\magnific-popup\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\magnific-popup\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\magnific-popup\\magnific-popup.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\masonry-layout\\masonry.pkgd.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\masonry-layout\\masonry.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\metismenu\\metisMenu.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\metismenu\\metisMenu.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\moment\\min\\moment.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\moment\\min\\moment.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\node-waves\\waves.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\node-waves\\waves.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\owl.carousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\owl.carousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\owl.carousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\owl.carousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\owl.carousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\owl.carousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\owl.carousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\owl.carousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\parsleyjs\\parsley.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\parsleyjs\\parsley.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\pdfmake\\build\\pdfmake.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\pdfmake\\build\\pdfmake.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\pdfmake\\build\\vfs_fonts.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\pdfmake\\build\\vfs_fonts.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\select2\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\select2\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\select2\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\select2\\js\\select2.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\simplebar\\simplebar.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\simplebar\\simplebar.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\spectrum-colorpicker2\\spectrum.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\spectrum-colorpicker2\\spectrum.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\spectrum-colorpicker2\\spectrum.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\spectrum-colorpicker2\\spectrum.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\summernote\\font\\summernote.eot",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\summernote\\font\\summernote.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\summernote\\font\\summernote.html",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\summernote\\font\\summernote.html"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\summernote\\font\\summernote.ttf",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\summernote\\font\\summernote.ttf"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\summernote\\font\\summernote.woff",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\summernote\\font\\summernote.woff"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\summernote\\font\\summernoted41d.eot",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\summernote\\font\\summernoted41d.eot"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\summernote\\summernote-bs4.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\summernote\\summernote-bs4.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\sweetalert2\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\sweetalert2\\sweetalert2.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\sweetalert2\\sweetalert2.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\sweetalert2\\sweetalert2.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\table-edits\\build\\table-edits.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\table-edits\\build\\table-edits.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tinymce\\tinymce.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tinymce\\tinymce.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\toastr\\build\\toastr.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\toastr\\build\\toastr.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\toastr\\build\\toastr.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\toastr\\build\\toastr.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-calendar\\tui-calendar.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-calendar\\tui-calendar.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-calendar\\tui-calendar.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-calendar\\tui-calendar.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-chart\\maps\\usa.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-chart\\maps\\usa.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-chart\\tui-chart-all.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-chart\\tui-chart-all.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-chart\\tui-chart.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-chart\\tui-chart.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-date-picker\\tui-date-picker.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-date-picker\\tui-date-picker.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-date-picker\\tui-date-picker.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-date-picker\\tui-date-picker.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-dom\\tui-dom.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-dom\\tui-dom.min.js"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-time-picker\\tui-time-picker.min.css",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-time-picker\\tui-time-picker.min.css"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assetsf\\libs\\tui-time-picker\\tui-time-picker.min.js",
+      "PackagePath": "staticwebassets\\assetsf\\libs\\tui-time-picker\\tui-time-picker.min.js"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.EduHome.UI.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

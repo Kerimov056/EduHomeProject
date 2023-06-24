@@ -1,5 +1,6 @@
 ﻿using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.UI.Contollers;
 
@@ -12,8 +13,8 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        return View(await _context.Blogs.ToListAsync());
     }
 }
