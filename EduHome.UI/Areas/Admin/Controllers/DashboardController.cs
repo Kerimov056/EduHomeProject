@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EduHome.Core.Entities;
 using EduHome.UI.Areas.Admin.AutoMapper;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
@@ -38,15 +39,30 @@ public class DashboardController : Controller
         {
             return View(blogViewModel);
         }
-        if (!blogViewModel.ImagePath.ContentType)
+        if (!blogViewModel.ImagePath.ContentType.Contains("image"))
         {
-
+            ModelState.AddModelError("Image", "duz yaz gijdila");
+            return View(blogViewModel);
         }
         if (blogViewModel.ImagePath.Length/1024>100)
         {
             ModelState.AddModelError("Image", "duz yaz gijdila");
             return View(blogViewModel);
         }
-        return RedirectToAction("Index");
+
+        //D:\work2\Asp.net MVC\EduHome\EduHome.UI\wwwroot\assets\img\slider\
+        string file_name = Guid.NewGuid().ToString()+blogViewModel.ImagePath.FileName;
+        string filePath = Path.Combine("assets", "img", "slider", file_name);
+        string path = Path.Combine(_env.WebRootPath, filePath);
+        using (FileStream fileStream = new FileStream(path,FileMode.CreateNew))
+        {
+            await blogViewModel.ImagePath.CopyToAsync(fileStream);
+        }
+        
+        Blog blogg = _mapper.Map<Blog>(blogViewModel);
+        blogg.ImagePath= filePath;
+        await _context.Blogs.AddAsync(blogg);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
     }
 }

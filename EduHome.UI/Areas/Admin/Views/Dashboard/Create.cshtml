@@ -1,0 +1,78 @@
+﻿@model BlogViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4" style="color:green;font-size:20px">Create Produscts</h4>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="row mb-4">
+                                    <label asp-for="ImagePath" class="col-sm-3 col-form-label">Main Image</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="ImagePath" type="file" accept="image/*" class="form-control">
+                                        <span asp-validation-for="ImagePath" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label asp-for="Name" class="col-sm-3 col-form-label">Hover Image</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Name" type="text" accept="image/*" class="form-control">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-4">
+                                    <label asp-for="PersonName" class="col-sm-3 col-form-label">Name</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="PersonName" type="text" class="form-control" placeholder="Name">
+                                        <span asp-validation-for="PersonName" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label asp-for="Data_Time" class="col-sm-3 col-form-label">Price</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Data_Time" type="text" class="form-control" placeholder="$">
+                                        <span asp-validation-for="Data_Time" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label asp-for="MessageNum" class="col-sm-3 col-form-label">Star</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="MessageNum" type="text" class="form-control" placeholder="Stars">
+                                        <span asp-validation-for="MessageNum" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row justify-content-end">
+                                    <div class="col-sm-9">
+                                        <div>
+                                            <button type="submit" class="btn btn-outline-success w-md">Submit</button>
+                                            <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                                                Back to List
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- end card body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
