@@ -255,3 +255,4 @@ D:\work2\Asp.net MVC\EduHome\EduHome.UI\bin\Debug\net6.0\Microsoft.AspNetCore.Mv
 D:\work2\Asp.net MVC\EduHome\EduHome.UI\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 D:\work2\Asp.net MVC\EduHome\EduHome.UI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 D:\work2\Asp.net MVC\EduHome\EduHome.UI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\work2\Asp.net MVC\EduHome\EduHome.UI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

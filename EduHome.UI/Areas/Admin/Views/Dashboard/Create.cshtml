@@ -14,7 +14,7 @@
                             <h4 class="card-title mb-4" style="color:green;font-size:20px">Create Produscts</h4>
                             <form method="post" enctype="multipart/form-data">
                                 <div class="row mb-4">
-                                    <label asp-for="ImagePath" class="col-sm-3 col-form-label">Main Image</label>
+                                    <label asp-for="ImagePath" class="col-sm-3 col-form-label">Image</label>
                                     <div class="col-sm-9">
                                         <input asp-for="ImagePath" type="file" accept="image/*" class="form-control">
                                         <span asp-validation-for="ImagePath" class="text-danger"></span>
@@ -22,7 +22,7 @@
                                 </div>
 
                                 <div class="row mb-4">
-                                    <label asp-for="Name" class="col-sm-3 col-form-label">Hover Image</label>
+                                    <label asp-for="Name" class="col-sm-3 col-form-label">Name</label>
                                     <div class="col-sm-9">
                                         <input asp-for="Name" type="text" accept="image/*" class="form-control">
                                         <span asp-validation-for="Name" class="text-danger"></span>
@@ -31,25 +31,25 @@
 
 
                                 <div class="row mb-4">
-                                    <label asp-for="PersonName" class="col-sm-3 col-form-label">Name</label>
+                                    <label asp-for="PersonName" class="col-sm-3 col-form-label">Person Name</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="PersonName" type="text" class="form-control" placeholder="Name">
+                                        <input asp-for="PersonName" type="text" class="form-control" placeholder="Person Name">
                                         <span asp-validation-for="PersonName" class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <div class="row mb-4">
-                                    <label asp-for="Data_Time" class="col-sm-3 col-form-label">Price</label>
+                                    <label asp-for="Data_Time" class="col-sm-3 col-form-label">Date Time</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="Data_Time" type="text" class="form-control" placeholder="$">
+                                        <input asp-for="Data_Time" type="text" class="form-control" placeholder="Time">
                                         <span asp-validation-for="Data_Time" class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <div class="row mb-4">
-                                    <label asp-for="MessageNum" class="col-sm-3 col-form-label">Star</label>
+                                    <label asp-for="MessageNum" class="col-sm-3 col-form-label">Message Box</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="MessageNum" type="text" class="form-control" placeholder="Stars">
+                                        <input asp-for="MessageNum" type="text" class="form-control" placeholder="Message Number">
                                         <span asp-validation-for="MessageNum" class="text-danger"></span>
                                     </div>
                                 </div>

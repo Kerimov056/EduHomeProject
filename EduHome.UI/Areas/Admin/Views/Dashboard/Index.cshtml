@@ -11,8 +11,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body" style="font-size:18px">
-                            <h4 class="card-title" style="font-size:18px;color:green">Products</h4>
-                            <a asp-area="Admin" asp-action="Create" class="btn btn-outline-success" style="font-size:16px;"><i class="bx bx-plus-circle"></i> Create new Product</a>
+                            <h4 class="card-title" style="font-size:18px;color:green">Blogs</h4>
+                            <a asp-area="Admin" asp-action="Create" class="btn btn-outline-success" style="font-size:16px;"><i class="bx bx-plus-circle"></i> Create new Blog</a>
                             <div class="table-rep-plugin">
                                 <div class="table-responsive mb-0" data-pattern="priority-columns">
                                     <table id="tech-companies-1" class="table table-striped">
@@ -35,7 +35,7 @@
                                                     <th>@Count</th>
                                                     <td><img src="@item.ImagePath" style="width:100px" /></td>
                                                     <td>@item.PersonName</td>
-                                                    <td>@item.Data_Time</td>
+                                                    <td>@item.Data_Time.ToString("dd MMM yyyy")</td>
                                                     <td>@item.MessageNum</td>
                                                     <td>@item.Name</td>
                                                     <td><a asp-area="Admin" asp-action="Edit" asp-route-id="@item.Id" style="cursor:pointer;color:deepskyblue"><i class="bx bx-edit"></i>Edit</a></td>
