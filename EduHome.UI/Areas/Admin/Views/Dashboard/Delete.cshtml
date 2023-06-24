@@ -1,0 +1,77 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4" style="color:red;font-size:20px">Delete Products</h4>
+                            <form method="post" asp-action="Delete">
+                                <input asp-for="Id" hidden />
+                                <div class="row mb-4">
+                                    <label asp-for="ImagePath" class="col-sm-3 col-form-label">Image</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="ImagePath" disabled type="text" class="form-control">
+                                        <span asp-validation-for="ImagePath" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label asp-for="Name" class="col-sm-3 col-form-label">Name</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Name" disabled type="text" class="form-control">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label asp-for="PersonName" class="col-sm-3 col-form-label">Person Name</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="PersonName" type="text" disabled class="form-control">
+                                        <span asp-validation-for="PersonName" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label asp-for="Data_Time" class="col-sm-3 col-form-label">Date Time</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Data_Time" type="text" disabled class="form-control">
+                                        <span asp-validation-for="Data_Time" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label asp-for="MessageNum" class="col-sm-3 col-form-label">Message Num</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="MessageNum" disabled type="text" class="form-control">
+                                        <span asp-validation-for="MessageNum" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row justify-content-end">
+                                    <div class="col-sm-9">
+                                        <div>
+                                            <button type="submit" class="btn btn-danger w-md">Delete</button>
+                                            <a asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                                                Back to List
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- end card body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

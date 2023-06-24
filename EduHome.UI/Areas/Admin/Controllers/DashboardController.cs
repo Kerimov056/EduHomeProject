@@ -74,34 +74,8 @@ public class DashboardController : Controller
         {
             return NotFound();
         }
-        return View();
+        return View(blog);
     }
-
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public async Task<IActionResult> Edit(int id,Blog blog)
-    //{
-    //    if (id == null || id==0)
-    //    {
-    //        return NotFound();
-    //    }
-    //    if (ModelState.IsValid)
-    //    {
-    //        return NotFound();
-    //    }
-
-    //    var blogMap = _mapper.Map<BlogViewModel>(blog);
-    //    blog.ImagePath = blogMap.ImagePath.ToString();
-    //    blog.Name= blogMap.Name;
-    //    blog.PersonName=blogMap.PersonName;
-    //    blog.Data_Time=blogMap.Data_Time;
-    //    blog.MessageNum=blogMap.MessageNum;
-
-    //    _context.Blogs.Update(blog);
-    //    _context.SaveChanges();
-    //    return RedirectToAction("Index");
-    //}
-
 
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -127,6 +101,32 @@ public class DashboardController : Controller
         return RedirectToAction("Index");
     }
 
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public async Task<IActionResult> Edit(int id, Blog blog)
+    //{
+    //    if (id == null || id == 0)
+    //    {
+    //        return NotFound();
+    //    }
+    //    if (ModelState.IsValid)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    var blogMap = _mapper.Map<BlogViewModel>(blog);
+    //    blog.ImagePath = blogMap.ImagePath.ToString();
+    //    blog.Name = blogMap.Name;
+    //    blog.PersonName = blogMap.PersonName;
+    //    blog.Data_Time = blogMap.Data_Time;
+    //    blog.MessageNum = blogMap.MessageNum;
+
+    //    _context.Blogs.Update(blog);
+    //    _context.SaveChanges();
+    //    return RedirectToAction("Index");
+    //}
+
+
     public IActionResult Delete(int id)
     {
         var blog = _context.Blogs.Find(id);
@@ -134,7 +134,7 @@ public class DashboardController : Controller
         {
             return NotFound();
         }
-        return View();
+        return View(blog);
     }
 
     [HttpPost, ActionName("Delete")]
