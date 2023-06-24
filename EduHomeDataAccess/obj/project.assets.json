@@ -782,6 +782,20 @@
             "rid": "win"
           }
         }
+      },
+      "EduHome.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.18",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.18"
+        },
+        "compile": {
+          "bin/placeholder/EduHome.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EduHome.Core.dll": {}
+        }
       }
     }
   },
@@ -2003,10 +2017,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "EduHome.Core/1.0.0": {
+      "type": "project",
+      "path": "../EduHome.Core/EduHome.Core.csproj",
+      "msbuildProject": "../EduHome.Core/EduHome.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "EduHome.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.18",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.18",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.18"
@@ -2038,7 +2058,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj": {
+              "projectPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
