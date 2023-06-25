@@ -2,8 +2,10 @@
 
 namespace EduHome.UI.Areas.Admin.ViewModel;
 
-public class NoticeViewModel
+public class InfoViewModel
 {
+    [Required]
+    public string? Title { get; set; }
     [Required]
     public string? Description { get; set; }
 }
