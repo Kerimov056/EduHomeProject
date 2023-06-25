@@ -1,0 +1,43 @@
+﻿@model Notice
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4" style="color:darkgray;font-size:20px">Create Notice</h4>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="row mb-4">
+                                    <label asp-for="Date_Time" class="col-sm-3 col-form-label">Description</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Date_Time" disabled type="text" class="form-control">
+                                        <span asp-validation-for="Date_Time" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <label asp-for="Description" class="col-sm-3 col-form-label">Description</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Description" disabled type="text" class="form-control">
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-dark waves-effect waves-light"><a asp-action="Index" style="color:white">Back To List</a></button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- end card body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

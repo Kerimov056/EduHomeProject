@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RstLts8IAtrCNmFJMQp+StG9/o+YW4UgSuH0ENx4Ckc=",
+  "Hash": "ynRYLxis6UOLLDUTowA6flStRlyJpBJfuNzfYn7Q5Gs=",
   "Source": "EduHome.UI",
   "BasePath": "_content/EduHome.UI",
   "Mode": "Default",
@@ -1545,6 +1545,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\slider\\00645706-9767-4c94-ab2d-296270813809WIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\15fdad97-2796-4795-ae24-6704b1bf69acrussia.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/slider/15fdad97-2796-4795-ae24-6704b1bf69acrussia.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\slider\\15fdad97-2796-4795-ae24-6704b1bf69acrussia.jpg"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\24 Haz 20231-1-768x546.jpg",

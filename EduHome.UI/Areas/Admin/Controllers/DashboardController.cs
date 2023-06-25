@@ -87,7 +87,7 @@ public class DashboardController : Controller
         }
         if (!ModelState.IsValid)
         {
-            return NotFound();
+            return View(blog);
         }
 
         Blog? blog1 = await _context.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>b.Id==id);
@@ -151,4 +151,7 @@ public class DashboardController : Controller
         _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
+    //--------------------------------------------------------------------------
+
+
 }
