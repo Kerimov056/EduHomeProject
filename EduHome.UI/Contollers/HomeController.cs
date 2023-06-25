@@ -22,7 +22,8 @@ public class HomeController : Controller
             blogs = await _context.Blogs.ToListAsync(),
             sliders = await _context.Sliders.ToListAsync(),
             notice = await _context .Notices.ToListAsync(),
-            info = await _context .Infos.ToListAsync()
+            info = await _context .Infos.ToListAsync(),
+            courses = await _context.Coursess.ToListAsync()
         };
         
         return View(homeViewModel);

@@ -11,5 +11,8 @@ namespace EduHomeDataAccess.Database
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Notice> Notices { get; set; }
         public DbSet<Info> Infos { get; set; }
+        public DbSet<Courses> Coursess { get; set; }
+        public DbSet<CoursesDetails> CoursesDetailss { get; set; }
+        public DbSet<Categories> Categoriess { get; set; }
     }
 }
