@@ -71,7 +71,7 @@ public class InfoController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id,Info info)
+    public async Task<IActionResult> Edit(int id, Info info)
     {
         if (!ModelState.IsValid)
         {
@@ -82,8 +82,8 @@ public class InfoController : Controller
             return BadRequest();
         }
 
-        Info? info1 = await _context.Infos.AsNoTracking().FirstOrDefaultAsync(i=>i.Id==id);
-        
+        Info? info1 = await _context.Infos.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+
         if (info1 == null)
         {
             return NotFound();
@@ -93,4 +93,33 @@ public class InfoController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+
+    public async Task<IActionResult> Delete(int id)
+    {
+        if (id == 0 || id == null)
+        {
+            return NotFound();
+        }
+        var product = _context.Infos.Find(id);
+        if (product is null)
+        {
+            return NotFound();
+        }
+        return View(product);
+    }
+
+    [HttpPost,ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+
+    public async Task<IActionResult> DeletePost(int id)
+    {
+        var product = _context.Infos.Find(id);
+        if (id == null)
+        {
+            return NotFound();
+        }
+        _context.Infos.Remove(product);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
 }
