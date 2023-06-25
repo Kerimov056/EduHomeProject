@@ -1,6 +1,8 @@
 ﻿@model HomeViewModel
 @{
     ViewData["Title"] = "Index";
+    int Count = 1;
+    int info = 1;
 }
 
 <section id="slider-container" class="slider-area">
@@ -8,25 +10,25 @@
         @foreach (var slider in Model.sliders)
         {
             <div class="single-slide item" style="background-image: url(@slider.ImagePath)">
-            <!-- Start Slider Content -->
-            <div class="slider-content-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7 col-md-offset-left-5">
-                            <div class="slide-content-wrapper">
-                                <div class="slide-content">
+                <!-- Start Slider Content -->
+                <div class="slider-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-offset-left-5">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-content">
                                         <h3>@slider.Name</h3>
                                         <h2>@slider.NameTwo</h2>
                                         <p>@slider.Information</p>
-                                    <a class="default-btn" href="about.html">Learn more</a>
+                                        <a class="default-btn" href="about.html">Learn more</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Start Slider Content -->
             </div>
-            <!-- Start Slider Content -->
-        </div>
         }
     </div>
 </section>
@@ -38,58 +40,26 @@
             <div class="col-md-6">
                 <div class="notice-left">
                     <h3>notice board</h3>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>5, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>4, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left pb-75">
-                        <h4>3, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>5, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>4, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left pb-70">
-                        <h4>3, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>5, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>4, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left pb-70">
-                        <h4>3, June 2023</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
+                    @foreach (var notice in Model.notice)
+                    {
+                        <div class="@(Count%3==0 ? "single-notice-left mb-25 pb-25" : "single-notice-left pb-75" )">
+                            <h4>@notice.Date_Time.ToString("dd MMM yyyy")</h4>
+                            <p>@notice.Description</p>
+                        </div>
+                        Count++;
+                    }
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="notice-right">
-                    <div class="single-notice-right mb-25 pb-25">
-                        <h3>PROFESSIONAL TEACHER</h3>
-                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
-                    </div>
-                    <div class="single-notice-right mb-25 pb-25">
-                        <h3>Online courses</h3>
-                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
-                    </div>
-                    <div class="single-notice-right">
-                        <h3>easy to addmission</h3>
-                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
-                    </div>
+                    @foreach (var infos in Model.info)
+                    {
+                        <div class="@(info%3==0 ? "single-notice-right" : "single-notice-right  mb-25 pb-25") ">
+                        <h3>@infos.Name</h3>
+                        <p>@infos.Description</p>
+                        </div>
+                        info++;
+                    }
                 </div>
             </div>
         </div>
@@ -374,26 +344,26 @@
             @foreach (var blog in Model.blogs)
             {
                 <div class="col-lg-4 col-md-6">
-                <div class="single-blog">
-                    <div class="blog-img">
+                    <div class="single-blog">
+                        <div class="blog-img">
                             <a href="blog-details.html"><img src="@blog.ImagePath" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
+                            <div class="blog-hover">
+                                <a href="blog-details.html"><i class="fa fa-link"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
+                        <div class="blog-content">
+                            <div class="blog-top">
                                 <p>@blog.PersonName  /  @blog.Data_Time.ToString("dd MMM yyyy")  /  <i class="fa fa-comments-o"></i>@blog.MessageNum</p>
-                        </div>
-                        <div class="blog-bottom">
+                            </div>
+                            <div class="blog-bottom">
                                 <h2><a href="blog-details.html">@blog.Name</a></h2>
-                            <a href="blog-details.html">read more</a>
+                                <a href="blog-details.html">read more</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             }
-            
+
         </div>
     </div>
 </div>

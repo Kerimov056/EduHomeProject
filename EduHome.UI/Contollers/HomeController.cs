@@ -20,7 +20,9 @@ public class HomeController : Controller
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
-            sliders = await _context.Sliders.ToListAsync()
+            sliders = await _context.Sliders.ToListAsync(),
+            notice = await _context .Notices.ToListAsync(),
+            info = await _context .Infos.ToListAsync()
         };
         
         return View(homeViewModel);

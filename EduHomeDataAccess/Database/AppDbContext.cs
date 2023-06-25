@@ -9,5 +9,7 @@ namespace EduHomeDataAccess.Database
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Notice> Notices { get; set; }
+        public DbSet<Info> Infos { get; set; }
     }
 }
