@@ -1,11 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EduHomeDataAccess.Database;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
-
+[Area("Admin")]
 public class InfoController : Controller
 {
-    public IActionResult Index()
+    private readonly AppDbContext _context;
+    public InfoController(AppDbContext context)
     {
-        return View();
+        _context= context;
+    }
+    public async Task<IActionResult> Index()
+    {
+        return View(await _context.Infos.ToListAsync());
     }
 }
