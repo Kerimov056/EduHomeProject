@@ -188,15 +188,38 @@ public class CoursesController : Controller
         {
             return NotFound();
         }
-        return View(course);
+
+        if (id == 0 || id == null)
+        {
+            return NotFound();
+        }
+        var cours = _context.Coursess.Find(id);
+        if (cours is null)
+        {
+            return NotFound();
+        }
+        ViewBag.coursId = cours.Id;
+        HomeViewModel homeViewModel = new()
+        {
+            blogs = await _context.Blogs.ToListAsync(),
+            courses = await _context.Coursess.Include(c => c.CoursesDetails).ToListAsync()
+        };
+        return View(homeViewModel);
     }
 
     [HttpPost,ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> DeletePost(int id)
     {
-        
+        var cours = await _context.Coursess.FindAsync(id);
+        if (cours is null)
+        {
+            return NotFound();
+        }
+        var coursDetails = cours.CoursesDetails;
+        _context.Coursess.Remove(cours);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index");
     }
-
-
 }

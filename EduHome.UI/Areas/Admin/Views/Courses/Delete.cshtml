@@ -1,0 +1,82 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="background-color:slategrey;height:1800px">
+                    @foreach (var item in Model.courses)
+                    {
+                        if (item.Id == ViewBag.coursId)
+                        {
+                            <form method="post">
+                                <div style="display:flex;justify-content:center;">
+                                    <div>
+                                        <img style="width:450px" src="/@item.ImagePath"></img>
+                                    </div>
+                                </div>
+                                <div style="margin-top:40px;display:flex;justify-content:center;">
+                                    <div style="width:1000px">
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Course Name</span><span>@item.Name</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Date and Time</span><span>@item.CoursesDetails.Starts.ToString("dd MMM yyyy")</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>DURATION</span><span>@item.CoursesDetails.Month</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Hours</span><span>@item.CoursesDetails.Hours</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>SKILL LEVEL</span><span>@item.CoursesDetails.Level</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>LANGUAGE</span><span>@item.CoursesDetails.Language</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>STUDENTS</span><span>@item.CoursesDetails.Students</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>ASSESMENTS</span><span>@item.CoursesDetails.Assesments</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>COURSE FEE</span><span>$@item.CoursesDetails.CourseFee</span></div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:70px">
+                                    <div style="color:white;font-size:18px">
+                                        <p style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">@item.Name</p>
+                                        <p>@item.Descripton</p>
+                                    </div><br /><br />
+                                    <div style="color:white;font-size:16px">
+                                        <p style="color:black;font-size:28px;font-weight:570">ABOUT COURSE</p>
+                                        <p>@item.CoursesDetails.AboutCoursDescription</p>
+                                    </div><br /><br />
+                                    <div style="color:white;font-size:16px">
+                                        <p style="color:black;font-size:28px;font-weight:570">HOW TO APPLY</p>
+                                        <p>@item.CoursesDetails.ToApplyDescription</p>
+                                    </div><br /><br />
+                                    <div style="color:white;font-size:16px">
+                                        <p style="color:black;font-size:28px;font-weight:570">CERTIFICATION</p>
+                                        <p>@item.CoursesDetails.CertificationDescription</p>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:80px">
+                                    <div class="mb-3 row">
+                                        <button type="submit" class="btn btn-danger waves-effect waves-light">Delete</button>
+                                        <a asp-controller="Courses" asp-action="Index" class="btn btn-secondary" style="width:1250px;margin-top:15px">
+                                            Back to List
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            break;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
