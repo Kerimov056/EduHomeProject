@@ -20,6 +20,7 @@
     </div>
 </div>
 <!-- Banner Area End -->
+<form method="post">
 @foreach (var item in Model.courses)
 {
     if (item.Id == ViewBag.id)
@@ -47,8 +48,8 @@
                                     </div>
                                     <div class="single-course-left">
                                         <h3>@item.CoursesDetails.Certification</h3>
-                                        <p class="margin">@item.CoursesDetails.CertificationDescription.Substring(0,200)</p>
-                                        @*<p>@item.CoursesDetails.CertificationDescription.Substring(200)</p>*@
+                                        <p class="margin">@item.CoursesDetails.CertificationDescription.Substring(0,223)</p>
+                                        <p>@item.CoursesDetails.CertificationDescription.Substring(223)</p>
                                     </div>
                                 </div>
                                 <div class="course-details-right">
@@ -161,6 +162,7 @@
         break;
     }
 }
+</form>
 
 <!-- Blog Start -->
 <!-- Blog End -->

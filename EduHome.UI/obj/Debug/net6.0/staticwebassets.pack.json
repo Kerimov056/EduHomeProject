@@ -241,6 +241,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\course\\courses-details.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\p233.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\course\\p233.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\event-details.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\event\\event-details.jpg"
     },
