@@ -81,7 +81,7 @@ public class CoursesController : Controller
         string filePath = await courseFullDetailsViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
         Courses courses = _mapper.Map<Courses>(courseFullDetailsViewModel);
         courses.ImagePath = filePath;
-
+                            
         _context.Coursess.Add(courses);
         _context.SaveChanges();
         return RedirectToAction("Index");
