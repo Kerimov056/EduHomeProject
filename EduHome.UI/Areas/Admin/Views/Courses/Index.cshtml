@@ -22,7 +22,7 @@
                                                 <th>Count</th>
                                                 <th data-priority="1">Image</th>
                                                 <th data-priority="3">Cours</th>
-                                                <th data-priority="3">Descripton</th>
+                                                <th data-priority="3">Category</th>
                                                 <th data-priority="3" style="color:dodgerblue">Details</th>
                                                 <th data-priority="3" style="color:deepskyblue">Edit</th>
                                                 <th data-priority="3" style=" color:red">Delete</th>
@@ -35,7 +35,7 @@
                                                     <th>@Count</th>
                                                     <td><img src="/@item.ImagePath" style="width:100px" /></td>
                                                     <td>@item.Name</td>
-                                                    <td>@item.Descripton.Substring(0,120)</td>
+                                                    <td>@item.Categories.Categorie</td>
                                                     <td><a asp-area="Admin" asp-action="Details" asp-route-id="@item.Id"><i style="margin-left:15px" class="fa-solid fa-circle-info fa-beat-fade"></i></a></td>
                                                     <td><a asp-area="Admin" asp-action="Edit" asp-route-id="@item.Id" style="cursor:pointer;color:deepskyblue"><i style="margin-left:15px" class="fa-solid fa-pen-to-square fa-beat-fade"></i></a></td>
                                                     <td><a asp-area="Admin" asp-action="Delete" asp-route-id="@item.Id" style="cursor:pointer;color:red"><i style="margin-left:15px" class="fa-solid fa-trash fa-beat-fade"></i></a></td>

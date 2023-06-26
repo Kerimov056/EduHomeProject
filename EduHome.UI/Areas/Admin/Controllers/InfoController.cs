@@ -20,7 +20,7 @@ public class InfoController : Controller
 
     public async Task<IActionResult> Create(int id)
     {
-        return View();
+        return View(); 
     }
 
     [HttpPost]
