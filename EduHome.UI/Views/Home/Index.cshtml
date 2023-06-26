@@ -55,8 +55,8 @@
                     @foreach (var infos in Model.info)
                     {
                         <div class="@(info%3==0 ? "single-notice-right" : "single-notice-right  mb-25 pb-25") ">
-                        <h3>@infos.Name</h3>
-                        <p>@infos.Description</p>
+                            <h3>@infos.Name</h3>
+                            <p>@infos.Description</p>
                         </div>
                         info++;
                     }
@@ -97,22 +97,22 @@
             @foreach (var cours in Model.courses)
             {
                 <div class="col-lg-4 col-md-6">
-                <div class="single-course">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img src="/@cours.ImagePath" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3><a>@cours.Name</a></h3>
-                        <p>@cours.Descripton.Substring(0,120)</p>
-                        <a class="default-btn">read more</a>
+                    <div class="single-course">
+                        <div class="course-img">
+                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id">
+                                <img src="/@cours.ImagePath" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id">@cours.Name</a></h3>
+                            <p>@cours.Descripton.Substring(0,120)</p>
+                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id" class="default-btn">read more</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             }
         </div>
     </div>
