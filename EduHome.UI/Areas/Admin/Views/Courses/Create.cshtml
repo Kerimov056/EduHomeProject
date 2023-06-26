@@ -1,4 +1,5 @@
-﻿@{
+﻿@model CourseFullDetailsViewModel
+@{
     ViewData["Title"] = "Create";
 }
 
@@ -13,98 +14,146 @@
                         <div class="card-body">
                             <form method="post" enctype="multipart/form-data">
                                 <div class="mb-3 row">
-                                    <label class="col-md-2 col-form-label">Image</label>
+                                    <label asp-for="ImagePath" class="col-md-2 col-form-label">Image</label>
                                     <div class="col-md-10">
-                                        <input accept="image/*" type="file" accept="image/*" class="form-control">
-                                        <span class="text-danger"></span>
+                                        <input asp-for="ImagePath" accept="image/*" type="file" accept="image/*" class="form-control">
+                                        <span asp-validation-for="ImagePath" class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">Course Name</label>
+                                    <label asp-for="Cours" for="example-tel-input" class="col-md-2 col-form-label">Course Name</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" type="text">
+                                        <input asp-for="Cours" class="form-control" type="text">
                                     </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">Description</label>
+                                    <label asp-for="Description" for="example-tel-input" class="col-md-2 col-form-label">Description</label>
                                     <div class="col-md-10">
-                                    <textarea id="textarea" class="form-control" maxlength="225" rows="3"
-                                              placeholder="This textarea has a limit of 225 chars."></textarea>
+                                        <textarea asp-for="Description" id="textarea" class="form-control" maxlength="225" rows="3"
+                                                  placeholder="This textarea has a limit of 300 chars."></textarea>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">About Cours</label>
+                                    <label asp-for="AboutCours" for="example-tel-input" class="col-md-2 col-form-label">About Cours</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" type="text">
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">About Cours Description</label>
-                                    <div class="col-md-10">
-                                    <textarea id="textarea" class="form-control" maxlength="225" rows="3"
-                                              placeholder="This textarea has a limit of 225 chars."></textarea>
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" type="text">
+                                        <input asp-for="AboutCours" value="About Cours" class="form-control" type="text">
                                     </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY Description</label>
+                                    <label asp-for="AboutCoursDescription" for="example-tel-input" class="col-md-2 col-form-label">About Cours Description</label>
                                     <div class="col-md-10">
-                                    <textarea id="textarea" class="form-control" maxlength="225" rows="3"
-                                              placeholder="This textarea has a limit of 225 chars."></textarea>
+                                        <textarea asp-for="AboutCoursDescription" id="textarea" class="form-control" maxlength="225" rows="3"
+                                                  placeholder="This textarea has a limit of 225 chars."></textarea>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">Certification</label>
+                                    <label asp-for="ToApply" for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" type="text">
+                                        <input asp-for="ToApply" value="HOW TO APPLY" class="form-control" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="ToApplyDescription" for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY Description</label>
+                                    <div class="col-md-10">
+                                        <textarea asp-for="ToApplyDescription" id="textarea" class="form-control" maxlength="225" rows="3"
+                                                  placeholder="This textarea has a limit of 225 chars."></textarea>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label asp-for="Certification" for="example-tel-input" class="col-md-2 col-form-label">Certification</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Certification" value="Certification" class="form-control" type="text">
                                     </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label for="example-tel-input" class="col-md-2 col-form-label">Certification Description</label>
+                                    <label asp-for="CertificationDescription" for="example-tel-input" class="col-md-2 col-form-label">Certification Description</label>
                                     <div class="col-md-10">
-                                    <textarea id="textarea" class="form-control" maxlength="225" rows="3"
-                                              placeholder="This textarea has a limit of 225 chars."></textarea>
+                                        <textarea asp-for="CertificationDescription" id="textarea" class="form-control" maxlength="225" rows="3"
+                                                  placeholder="This textarea has a limit of 225 chars."></textarea>
                                     </div>
                                 </div>
 
-
                                 <div class="mb-3 row">
-                                    <label for="example-number-input" class="col-md-2 col-form-label">STUDENTS</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" type="number" value="42" placeholder="Enter Number" id="example-number-input">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="example-datetime-local-input" class="col-md-2 col-form-label">
+                                    <label asp-for="Starts" for="example-datetime-local-input" class="col-md-2 col-form-label">
                                         Date and
                                         Time
                                     </label>
                                     <div class="col-md-10">
-                                        <input class="form-control" type="datetime-local" value="2023-08-19T13:45:00"
+                                        <input asp-for="Starts" class="form-control" type="datetime-local" value="2023-08-19T13:45:00"
                                                id="example-datetime-local-input">
                                     </div>
                                 </div>
 
+                                <div class="mb-3 row">
+                                    <label asp-for="Month" for="example-number-input" class="col-md-2 col-form-label">DURATION</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Month" class="form-control" type="number" value="1" placeholder="Enter Number" id="example-number-input">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Hours" for="example-number-input" class="col-md-2 col-form-label">Hours</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Hours" class="form-control" type="number" value="1" placeholder="Enter Number" id="example-number-input">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Level" for="example-tel-input" class="col-md-2 col-form-label">SKILL LEVEL</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Level" class="form-control" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Language" for="example-tel-input" class="col-md-2 col-form-label">LANGUAGE</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Language" class="form-control" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Students" for="example-number-input" class="col-md-2 col-form-label">STUDENTS</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Students" class="form-control" type="number" value="1" placeholder="Enter Number" id="example-number-input">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Assesments" for="example-tel-input" class="col-md-2 col-form-label">ASSESMENTS</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Assesments" class="form-control" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="CourseFee" for="example-number-input" class="col-md-2 col-form-label">COURSE FEE</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="CourseFee" class="form-control" type="number" value="1" placeholder="Enter Number" id="example-number-input">
+                                    </div>
+                                </div>
 
                                 <div class="mb-3 row">
                                     <label class="col-md-2 col-form-label">Select</label>
                                     <div class="col-md-10">
                                         <select class="form-select">
-                                            <option>Select</option>
-                                            <option>Large select</option>
-                                            <option>Small select</option>
+                                            @foreach (var category in ViewBag.catagory)
+                                            {
+                                                <option value="@category.Id">@category.Categorie</option>
+                                            }
                                         </select>
                                     </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <button type="submit" class="btn btn-outline-success w-md">Submit</button>
+                                    <a asp-controller="Courses" asp-action="Index" class="btn btn-secondary" style="width:1250px;margin-top:15px">
+                                        Back to List
+                                    </a>
                                 </div>
                             </form>
                         </div>
@@ -117,15 +166,10 @@
 
 
 
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScript" />
+    }
+}
 
-@*
-
-<div class="mb-4">
-    <label>Default Functionality</label>
-    <div class="input-group" id="datepicker1">
-        <input type="text" class="form-control" placeholder="dd M, yyyy"
-               data-date-format="dd M, yyyy" data-date-container='#datepicker1' data-provide="datepicker">
-
-        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-    </div><!-- input-group -->
-</div>*@

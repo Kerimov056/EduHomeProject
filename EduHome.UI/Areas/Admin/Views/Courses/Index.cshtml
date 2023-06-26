@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Courses>
+﻿@model HomeViewModel
 @{
     ViewData["Title"] = "Index";
     int Count = 1;
@@ -29,7 +29,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var item in Model)
+                                            @foreach (var item in Model.courses)
                                             {
                                                 <tr style="font-size:18px;">
                                                     <th>@Count</th>

@@ -27,7 +27,6 @@ public class CourseDetailsController : Controller
             return NotFound();
         }
         ViewBag.Id = cart.Id;
-        //var AllProduc = await _context.Coursess.Include(c => c.CoursesDetails).ToListAsync();
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
@@ -40,11 +39,3 @@ public class CourseDetailsController : Controller
 
 
 
-
-
-//HomeViewModel homeViewModel = new()
-//{
-//    categories = await _context.Categoriess.ToListAsync(),
-//    courses_details = await _context.CoursesDetailss.ToListAsync(),
-//    courses = await _context.Coursess.ToListAsync()
-//};

@@ -21,7 +21,7 @@ public class CourseFullDetailsViewModel
     public string CertificationDescription { get; set; } = null!;
     public DateTime Starts { get; set; }
     [Required]
-    public int Month { get; set; }
+    public int Month { get; set; }  
     [Required]
     public int Hours { get; set; }
     [Required, MaxLength(25)]
