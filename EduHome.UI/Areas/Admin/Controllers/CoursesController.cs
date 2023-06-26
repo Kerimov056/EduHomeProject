@@ -21,7 +21,34 @@ public class CoursesController : Controller
         _mapper = mapper;
     }
 
-    
+    public async Task<IActionResult> Index()
+    {
+        HomeViewModel homeViewModel = new()
+        {
+            blogs = await _context.Blogs.ToListAsync(),
+            courses = await _context.Coursess.Include(c => c.Categories).ToListAsync()
+        };
+        return View(homeViewModel);
+    }
+    public async Task<IActionResult> Details(int id)
+    {
+        if (id == 0 || id == null)
+        {
+            return NotFound();
+        }
+        var cours = _context.Coursess.Find(id);
+        if (cours is null)
+        {
+            return NotFound();
+        }
+        ViewBag.coursId = cours.Id;
+        HomeViewModel homeViewModel = new()
+        {
+            blogs = await _context.Blogs.ToListAsync(),
+            courses = await _context.Coursess.Include(c => c.CoursesDetails).ToListAsync()
+        };
+        return View(homeViewModel);
+    }
 
     //----------------------------------------------------------------------------------
 
@@ -60,29 +87,32 @@ public class CoursesController : Controller
         }
 
         string filePath = await courseFullDetailsViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
-        Courses courses = new();
-        courses.ImagePath = filePath;
-        courses.Name = courseFullDetailsViewModel.Cours;
-        courses.Descripton = courseFullDetailsViewModel.Description;
-        courses.CategoriesId = CatagoryId;
+        Courses courses = new Courses
+        {
+            ImagePath = filePath,
+            Name = courseFullDetailsViewModel.Cours,
+            Descripton = courseFullDetailsViewModel.Description,
+            CategoriesId = CatagoryId,
+            CoursesDetails = new CoursesDetails
+            {
+                AboutCours = courseFullDetailsViewModel.AboutCours,
+                AboutCoursDescription = courseFullDetailsViewModel.AboutCoursDescription,
+                ToApply = courseFullDetailsViewModel.ToApply,
+                ToApplyDescription = courseFullDetailsViewModel.ToApplyDescription,
+                Certification = courseFullDetailsViewModel.Certification,
+                CertificationDescription = courseFullDetailsViewModel.CertificationDescription,
+                Starts = courseFullDetailsViewModel.Starts,
+                Month = courseFullDetailsViewModel.Month,
+                Hours = courseFullDetailsViewModel.Hours,
+                Level = courseFullDetailsViewModel.Level,
+                Language = courseFullDetailsViewModel.Language,
+                Students = courseFullDetailsViewModel.Students,
+                Assesments = courseFullDetailsViewModel.Assesments,
+                CourseFee = courseFullDetailsViewModel.CourseFee
+            }
+        };
 
-        CoursesDetails coursesDetails = new();
-        coursesDetails.AboutCours = courseFullDetailsViewModel.AboutCours;
-        coursesDetails.AboutCoursDescription = courseFullDetailsViewModel.AboutCoursDescription;
-        coursesDetails.ToApply = courseFullDetailsViewModel.ToApply;
-        coursesDetails.ToApplyDescription = courseFullDetailsViewModel.ToApplyDescription;
-        coursesDetails.Certification = courseFullDetailsViewModel.Certification;
-        coursesDetails.CertificationDescription = courseFullDetailsViewModel.CertificationDescription;
-        coursesDetails.Starts = courseFullDetailsViewModel.Starts;
-        coursesDetails.Month = courseFullDetailsViewModel.Month;
-        coursesDetails.Hours = courseFullDetailsViewModel.Hours;
-        coursesDetails.Level = courseFullDetailsViewModel.Level;
-        coursesDetails.Language = courseFullDetailsViewModel.Language;
-        coursesDetails.Students = courseFullDetailsViewModel.Students;
-        coursesDetails.Assesments = courseFullDetailsViewModel.Assesments;
-        coursesDetails.CourseFee = courseFullDetailsViewModel.CourseFee;
 
-        _context.CoursesDetailss.Add(coursesDetails);
         _context.Coursess.Add(courses);
         _context.SaveChanges();
         return RedirectToAction("Index");
@@ -92,32 +122,5 @@ public class CoursesController : Controller
 
 
 
-    public async Task<IActionResult> Index()
-    {
-        HomeViewModel homeViewModel = new()
-        {
-            blogs = await _context.Blogs.ToListAsync(),
-            courses = await _context.Coursess.Include(c => c.Categories).ToListAsync()
-        };
-        return View(homeViewModel);
-    }
-    public async Task<IActionResult> Details(int id)
-    {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var cours = _context.Coursess.Find(id);
-        if (cours is null)
-        {
-            return NotFound();
-        }
-        ViewBag.coursId = cours.Id;
-        HomeViewModel homeViewModel = new()
-        {
-            blogs = await _context.Blogs.ToListAsync(),
-            courses = await _context.Coursess.Include(c => c.CoursesDetails).ToListAsync()
-        };
-        return View(homeViewModel);
-    }
+   
 }

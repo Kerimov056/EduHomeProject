@@ -273,6 +273,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\course\\courses-details.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\d84332cb-0916-425d-8d2b-95b4aaae36e6germany.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\course\\d84332cb-0916-425d-8d2b-95b4aaae36e6germany.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\e8fffaea-fa8b-4f53-a1de-ec0719f0e05fus.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\course\\e8fffaea-fa8b-4f53-a1de-ec0719f0e05fus.jpg"
     },
