@@ -3,6 +3,7 @@
     ViewData["Title"] = "Index";
     int Count = 1;
     int info = 1;
+    int cours_count = 1;
 }
 
 <section id="slider-container" class="slider-area">
@@ -96,23 +97,31 @@
         <div class="row">
             @foreach (var cours in Model.courses)
             {
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-course">
-                        <div class="course-img">
-                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id">
-                                <img src="/@cours.ImagePath" alt="course">
-                                <div class="course-hover">
-                                    <i class="fa fa-link"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="course-content">
-                            <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id">@cours.Name</a></h3>
-                            <p>@(cours.Descripton.Length > 120 ? cours.Descripton.Substring(0, 120) : cours.Descripton)</p>
-                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id" class="default-btn">read more</a>
+                if (cours_count<=3)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-course">
+                            <div class="course-img">
+                                <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id">
+                                    <img src="/@cours.ImagePath" alt="course">
+                                    <div class="course-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="course-content">
+                                <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id">@cours.Name</a></h3>
+                                <p>@(cours.Descripton.Length > 120 ? cours.Descripton.Substring(0, 120) : cours.Descripton)</p>
+                                <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@cours.Id" class="default-btn">read more</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+                else
+                {
+                    break;
+                }
+                cours_count++;
             }
         </div>
     </div>

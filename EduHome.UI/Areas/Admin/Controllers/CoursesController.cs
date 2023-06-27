@@ -78,6 +78,7 @@ public class CoursesController : Controller
             return View(courseFullDetailsViewModel);
         }
 
+
         var category = await _context.Categoriess.FindAsync(CatagoryId);
         if (category == null)
         {
