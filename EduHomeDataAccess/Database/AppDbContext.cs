@@ -10,6 +10,7 @@ namespace EduHomeDataAccess.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Burda Upcomming ve Speakers arasindaki Many-to-Many
             modelBuilder.Entity<UpcommingSpeakers>().HasKey(us => new
             {
                 us.Speakers.Id,
@@ -20,6 +21,19 @@ namespace EduHomeDataAccess.Database
                 m.UpcommingId);
             modelBuilder.Entity<UpcommingSpeakers>().HasOne(m => m.Speakers).WithMany(us => us.UpcommingSpeakers).HasForeignKey(m =>
                 m.UpcommingId);
+
+
+            //Burda Company ve Speakers arasindaki Many-to-Many
+            modelBuilder.Entity<CompanySpeakers>().HasKey(cs => new
+            {
+                cs.SpeakersId,
+                cs.CompanyId
+            });
+
+            modelBuilder.Entity<CompanySpeakers>().HasOne(m => m.Company).WithMany(cs => cs.CompanySpeakers).HasForeignKey(m =>
+                m.CompanyId);
+            modelBuilder.Entity<CompanySpeakers>().HasOne(m => m.Speakers).WithMany(cs => cs.CompanySpeakers).HasForeignKey(m =>
+                m.SpeakersId);
 
             base.OnModelCreating(modelBuilder);
         }

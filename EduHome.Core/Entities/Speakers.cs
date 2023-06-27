@@ -9,5 +9,7 @@ public class Speakers : IEntity
     public string Name { get; set ; } = null!;
     public string WhereWorks { get; set; } = null!;
     public List<UpcommingSpeakers> UpcommingSpeakers { get; set; }
+    public List<CompanySpeakers> CompanySpeakers { get; set; }
+
 
 }

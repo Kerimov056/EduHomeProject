@@ -12,6 +12,7 @@ public class UpcommingSpeakers
 
    //Spekars
    public int SpeakersId { get; set; }
+   [ForeignKey("SpeakersId")]
    public Speakers Speakers { get; set; }
 
 }
