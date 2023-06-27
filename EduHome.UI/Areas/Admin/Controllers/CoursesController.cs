@@ -135,46 +135,36 @@ public class CoursesController : Controller
             return NotFound();
         }
 
-        var courseViewModel = _mapper.Map<CourseFullDetailsViewModel>(course);
 
-        return View(courseViewModel);
+        return View(course);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, CourseFullDetailsViewModel courseViewModel, int CatagoryId)
+    public async Task<IActionResult> Edit(int id, CourseFullDetailsViewModel viewModel)
     {
+        if (id == 0)
+        {
+            return NotFound();
+        }
+
         if (!ModelState.IsValid)
         {
-            return View(courseViewModel);
+            return View(viewModel);
         }
 
-        if (id == null)
-        {
-            return BadRequest();
-        }
-
-        var category = await _context.Categoriess.FindAsync(CatagoryId);
-        if (category == null)
-        {
-            ModelState.AddModelError("CatagoryId", "Invalid category selected!");
-            ViewBag.catagory = await _context.Categoriess.ToListAsync();
-            return View(courseViewModel);
-        }
-
-        Courses course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(n => n.Id == id);
+        Courses course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(c => c.Id == id);
         if (course == null)
         {
             return NotFound();
         }
 
-        _mapper.Map(courseViewModel, course);
-        course.CategoriesId = CatagoryId;
-
+        _mapper.Map(viewModel, course);
         await _context.SaveChangesAsync();
 
         return RedirectToAction("Index");
     }
+
 
 
     public async Task<IActionResult> Delete(int id)
@@ -224,3 +214,15 @@ public class CoursesController : Controller
         return RedirectToAction("Index");
     }
 }
+
+
+
+
+
+//var category = await _context.Categoriess.FindAsync(CatagoryId);
+//if (category == null)
+//{
+//    ModelState.AddModelError("CatagoryId", "Invalid category selected!");
+//    ViewBag.catagory = await _context.Categoriess.ToListAsync();
+//    return View(courseViewModel);
+//}

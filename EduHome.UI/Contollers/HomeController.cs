@@ -24,6 +24,8 @@ public class HomeController : Controller
             notice = await _context .Notices.ToListAsync(),
             info = await _context .Infos.ToListAsync(),
             courses = await _context.Coursess.ToListAsync()
+            // = await _context.Upcommings.ToListAsync(),
+            //upcommingCategories = await _context.upcommingCategories.ToListAsync()
         };
         
         return View(homeViewModel);

@@ -56,9 +56,11 @@ public class DashboardController : Controller
         Blog blogg = _mapper.Map<Blog>(blogViewModel);
         blogg.ImagePath= filePath;
         blogg.Data_Time = DateTime.Now;
+        blogg.Description = blogViewModel.Decs;
+
 
         _context.Blogs.Add(blogg);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 

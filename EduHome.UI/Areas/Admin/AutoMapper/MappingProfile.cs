@@ -14,6 +14,8 @@ public class MappingProfile:Profile
 
 		//course
 		CreateMap<Courses, CourseFullDetailsViewModel>();
+		CreateMap<CoursesDetails, CourseFullDetailsViewModel>();
 		CreateMap<CourseFullDetailsViewModel, Courses>();
+		CreateMap<CourseFullDetailsViewModel, CoursesDetails>();
 	}
 }

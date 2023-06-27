@@ -12,6 +12,8 @@ public class Blog : IEntity
     public string Name { get ; set ; } = null!;
     [Required, MaxLength(30)]
     public string PersonName { get; set; } = null!;
+    [Required,MaxLength(1200)]
+    public string Description { get; set; } = null!;
     public DateTime Data_Time { get; set; }
     public int MessageNum { get; set; }
 }

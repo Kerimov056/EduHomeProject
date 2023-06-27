@@ -9,6 +9,7 @@ public class BlogViewModel
     public string Name { get; set; } = null!;
     [Required, MaxLength(30)]
     public string PersonName { get; set; } = null!;
+    public string Decs { get; set; } = null!;
     public DateTime Data_Time { get; set; }
     public int MessageNum { get; set; }
 }

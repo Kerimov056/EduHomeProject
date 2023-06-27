@@ -33,6 +33,11 @@ namespace EduHomeDataAccess.Migrations
                     b.Property<DateTime>("Data_Time")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1200)
+                        .HasColumnType("nvarchar(1200)");
+
                     b.Property<string>("ImagePath")
                         .IsRequired()
                         .HasMaxLength(400)
@@ -186,6 +191,159 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("CoursesDetailss");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.EvCompany", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EvCompanys");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.EvCompanySpeakers", b =>
+                {
+                    b.Property<int>("EvSpeakersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EvCompanyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EvSpeakersId", "EvCompanyId");
+
+                    b.HasIndex("EvCompanyId");
+
+                    b.ToTable("EvCompanySpeakerss");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriesId");
+
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Event_Spkears", b =>
+                {
+                    b.Property<int>("EvSpeakersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EvSpeakersId", "EventId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("Event_Spkearss");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.EventDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Decsription")
+                        .IsRequired()
+                        .HasMaxLength(900)
+                        .HasColumnType("nvarchar(900)");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId")
+                        .IsUnique();
+
+                    b.ToTable("EventDetailss");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.EvSpeakers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EvSpeakerss");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Hecne", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Hecne");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Info", b =>
                 {
                     b.Property<int>("Id")
@@ -279,15 +437,97 @@ namespace EduHomeDataAccess.Migrations
                     b.Navigation("Courses");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.EvCompanySpeakers", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.EvCompany", "EvCompany")
+                        .WithMany("EvCompanySpeakers")
+                        .HasForeignKey("EvCompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.EvSpeakers", "EvSpeakers")
+                        .WithMany("EvCompanySpeakers")
+                        .HasForeignKey("EvSpeakersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EvCompany");
+
+                    b.Navigation("EvSpeakers");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Event", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.Categories", "Categories")
+                        .WithMany("Events")
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categories");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Event_Spkears", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.EvSpeakers", "EvSpeakers")
+                        .WithMany("Event_Spkears")
+                        .HasForeignKey("EvSpeakersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.Event", "Event")
+                        .WithMany("Event_Spkears")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EvSpeakers");
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.EventDetails", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.Event", "Event")
+                        .WithOne("EventDetails")
+                        .HasForeignKey("EduHome.Core.Entities.EventDetails", "EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Categories", b =>
                 {
                     b.Navigation("Courses");
+
+                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
                 {
                     b.Navigation("CoursesDetails")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.EvCompany", b =>
+                {
+                    b.Navigation("EvCompanySpeakers");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Event", b =>
+                {
+                    b.Navigation("EventDetails")
+                        .IsRequired();
+
+                    b.Navigation("Event_Spkears");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.EvSpeakers", b =>
+                {
+                    b.Navigation("EvCompanySpeakers");
+
+                    b.Navigation("Event_Spkears");
                 });
 #pragma warning restore 612, 618
         }

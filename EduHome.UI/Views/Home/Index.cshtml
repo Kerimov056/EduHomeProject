@@ -4,6 +4,8 @@
     int Count = 1;
     int info = 1;
     int cours_count = 1;
+    int upcomming_count = 4;
+    int upcoming_num = 4;
 }
 
 <section id="slider-container" class="slider-area">
@@ -97,7 +99,7 @@
         <div class="row">
             @foreach (var cours in Model.courses)
             {
-                if (cours_count<=3)
+                if (cours_count <= 3)
                 {
                     <div class="col-lg-4 col-md-6">
                         <div class="single-course">
@@ -128,7 +130,7 @@
 </div>
 <!-- Courses Area End -->
 <!-- Event Area Start -->
-<div class="event-area one text-center pt-140 pb-150">
+@*<div class="event-area one text-center pt-140 pb-150">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -139,149 +141,57 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">20 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">MICRO BIOLOGICAL WORKSHOP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">18 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">ADVANCE PHP WORKSHOP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
+            @foreach (var item in Model.upcommings)
+            {
+                if (upcomming_count % upcoming_num == 0 && upcomming_count % 2 == 0)
+                {
+                    <div class="col-lg-6">
+                        <div class="@(upcomming_count%4==0 ? "single-event mb-35":"single-event")">
+                            <div class="event-date">
+                                <h3><a href="event-details.html"><span>@item.time.ToString("MMMM dd")</span></a></h3>
+                            </div>
+                            <div class="event-content text-start">
+                                <div class="event-content-left">
+                                    <h4><a href="event-details.html">@item.Name</a></h4>
+                                    <ul>
+                                        <li><i class="fa fa-clock-o"></i>@item.time.ToString("h:mm tt")</li>
+                                        <li><i class="fa fa-map-marker"></i>@item.Location</li>
+                                    </ul>
+                                </div>
+                                <div class="event-content-right">
+                                    <a class="default-btn" href="event-details.html">join now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">16 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">LEARN ENGLISH HISTORY</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">14 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">GLOBAL ECONOMIC CONFERENCE</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
+                }
+                else
+                {
+                    <div class="col-lg-6 pt-5 pt-lg-0">
+                        <div class="@(upcomming_count%4==0 ? "single-event mb-35":"single-event")">
+                            <div class="event-date">
+                                <h3><a href="event-details.html"><span>@item.time.ToString("MMMM dd")</span></a></h3>
+                            </div>
+                            <div class="event-content text-start">
+                                <div class="event-content-left">
+                                    <h4><a href="event-details.html">@item.Name</a></h4>
+                                    <ul>
+                                        <li><i class="fa fa-clock-o"></i>@item.time.ToString("h:mm tt")</li>
+                                        <li><i class="fa fa-map-marker"></i>@item.Location</li>
+                                    </ul>
+                                </div>
+                                <div class="event-content-right">
+                                    <a class="default-btn" href="event-details.html">join now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-6 pt-5 pt-lg-0">
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">12 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">MATHEMATICAL WORKSHOP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">10 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">WORDPRESS AUTHOR MEET UP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">08 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">DIGITAL MARKETING ANALYSIS</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">06 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-start">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">WROKSHOP ON UI &amp; UX</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                }
+                upcomming_count++;
+            }
         </div>
     </div>
-</div>
+</div>*@
 <!-- Event Area End -->
 <!-- Testimonial Area Start -->
 <div class="testimonial-area pt-110 pb-105 text-center">
@@ -323,19 +233,22 @@
             {
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog">
+                        <a asp-controller="BlogDetails" asp-action="Index" asp-route-id="@blog.Id">
                         <div class="blog-img">
-                            <a href="blog-details.html"><img src="@blog.ImagePath" alt="blog"></a>
+                                <img src="@blog.ImagePath" alt="blog">
                             <div class="blog-hover">
                                 <a href="blog-details.html"><i class="fa fa-link"></i></a>
                             </div>
+                           
                         </div>
+                            </a>
                         <div class="blog-content">
                             <div class="blog-top">
                                 <p>@blog.PersonName  /  @blog.Data_Time.ToString("dd MMM yyyy")  /  <i class="fa fa-comments-o"></i>@blog.MessageNum</p>
                             </div>
                             <div class="blog-bottom">
                                 <h2><a href="blog-details.html">@blog.Name</a></h2>
-                                <a href="blog-details.html">read more</a>
+                                <a asp-controller="BlogDetails" asp-action="Index" asp-route-id="@blog.Id">read more</a>
                             </div>
                         </div>
                     </div>
