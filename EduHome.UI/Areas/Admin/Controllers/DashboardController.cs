@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
 using EduHome.UI.Areas.Admin.AutoMapper;
+using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
@@ -14,17 +15,20 @@ public class DashboardController : Controller
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
     private readonly IWebHostEnvironment _env;
+    private readonly IBlogsService _service;
 
-    public DashboardController(AppDbContext context, IMapper mapper, IWebHostEnvironment env)
+    public DashboardController(AppDbContext context, IMapper mapper, IWebHostEnvironment env, IBlogsService service)
     {
         _context = context;
         _mapper = mapper;
         _env = env;
+        _service = service;
     }
 
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Blogs.ToListAsync());
+        var data = _service.GetBlogs();
+        return View(data);
     }
 
     public IActionResult Create()

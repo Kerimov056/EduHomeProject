@@ -8,5 +8,6 @@ public class EvCompany : IEntity
     public int Id { get; set; }
     [Required,MaxLength(50)]
     public string Name { get; set; }
-    public List<EvCompanySpeakers> EvCompanySpeakers { get; set; }
+    public virtual ICollection<EvCompanySpeakers> EvCompanySpeakers { get; set; }
+
 }
