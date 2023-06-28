@@ -27,9 +27,10 @@ public class DashboardController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var data = _service.GetBlogs();
+        var data = await _service.GetBlogs();
         return View(data);
     }
+
 
     public IActionResult Create()
     {
@@ -102,35 +103,9 @@ public class DashboardController : Controller
         {
             return NotFound();
         }
-        _context.Entry(blog).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
+        _service.Update(id,blog);
         return RedirectToAction("Index");
     }
-
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public async Task<IActionResult> Edit(int id, Blog blog)
-    //{
-    //    if (id == null || id == 0)
-    //    {
-    //        return NotFound();
-    //    }
-    //    if (ModelState.IsValid)
-    //    {
-    //        return NotFound();
-    //    }
-
-    //    var blogMap = _mapper.Map<BlogViewModel>(blog);
-    //    blog.ImagePath = blogMap.ImagePath.ToString();
-    //    blog.Name = blogMap.Name;
-    //    blog.PersonName = blogMap.PersonName;
-    //    blog.Data_Time = blogMap.Data_Time;
-    //    blog.MessageNum = blogMap.MessageNum;
-
-    //    _context.Blogs.Update(blog);
-    //    _context.SaveChanges();
-    //    return RedirectToAction("Index");
-    //}
 
 
     public IActionResult Delete(int id)
@@ -153,8 +128,7 @@ public class DashboardController : Controller
         {
             return NotFound();
         }
-        _context.Blogs.Remove(blog);
-        _context.SaveChangesAsync();
+        _service.Delete(blog);
         return RedirectToAction("Index");
     }
     //--------------------------------------------------------------------------
