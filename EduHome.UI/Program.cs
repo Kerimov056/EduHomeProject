@@ -7,6 +7,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IBlogsService, BlogsServices>();
+builder.Services.AddScoped<INoticeService, NoticesServices>();
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );

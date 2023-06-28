@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +12,16 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 public class NoticeController : Controller
 {
     private readonly AppDbContext _context;
-    public NoticeController(AppDbContext context)
+    private readonly INoticeService _service;
+    public NoticeController(AppDbContext context, INoticeService service)
     {
         _context = context;
+        _service = service;
     }
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Notices.ToListAsync());
+        var notice = await _service.GetNotices();
+        return View(notice);
     }
 
     public async Task<IActionResult> Create()
@@ -92,8 +96,7 @@ public class NoticeController : Controller
             return NotFound();
         }
         notice.Date_Time= DateTime.Now;
-        _context.Entry(notice).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
+        _service.Update(id,notice);
         return RedirectToAction(nameof(Index));
     }
 
@@ -124,10 +127,8 @@ public class NoticeController : Controller
             return NotFound();
         }
 
-        _context.Notices.Remove(notice);
-        await _context.SaveChangesAsync();
+        _service.Delete(notice);
         return RedirectToAction(nameof(Index));
     }
-
 
 }

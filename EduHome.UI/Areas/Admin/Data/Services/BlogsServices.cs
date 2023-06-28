@@ -48,8 +48,5 @@ public class BlogsServices : IBlogsService
         return(IEnumerable<Blog>)newBlog;
     }
 
-    //Task<IEnumerable<Blog>> IBlogsService.Update(int id, Blog newBlog)
-    //{
-    //    throw new NotImplementedException();
-    //}
+   
 }
