@@ -8,13 +8,13 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IBlogsService, BlogsServices>();
 builder.Services.AddScoped<INoticeService, NoticesServices>();
+builder.Services.AddScoped<IInfoService, InfosServices>();
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
-//services.AddDbContext<IBlogsService, BlogsServices>();
 
 
 var app = builder.Build();

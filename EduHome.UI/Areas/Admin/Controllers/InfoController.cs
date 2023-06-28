@@ -1,4 +1,5 @@
 ﻿using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
@@ -9,13 +10,16 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 public class InfoController : Controller
 {
     private readonly AppDbContext _context;
-    public InfoController(AppDbContext context)
+    private readonly IInfoService _service;
+    public InfoController(AppDbContext context, IInfoService service)
     {
         _context = context;
+        _service = service;
     }
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Infos.ToListAsync());
+        var info = await _service.GetInfo();
+        return View(info);
     }
 
     public async Task<IActionResult> Create(int id)
@@ -88,8 +92,8 @@ public class InfoController : Controller
         {
             return NotFound();
         }
-        _context.Entry(info).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
+
+        _service.Update(id,info);
         return RedirectToAction(nameof(Index));
     }
 
@@ -118,8 +122,8 @@ public class InfoController : Controller
         {
             return NotFound();
         }
-        _context.Infos.Remove(product);
-        await _context.SaveChangesAsync();
+
+        _service.Delete(product);
         return RedirectToAction(nameof(Index));
     }
 }
