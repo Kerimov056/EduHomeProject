@@ -10,5 +10,4 @@ public class Categories : IEntity
     [Required,MaxLength(50)]
     public string Categorie { get; set; } = null!;
     public List<Courses> Courses { get; set; }
-    public List<Event> Events { get; set; }
 }

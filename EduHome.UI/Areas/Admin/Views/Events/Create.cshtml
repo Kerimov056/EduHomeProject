@@ -1,0 +1,81 @@
+﻿@model EventsViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row" style="margin-top:20px">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="mb-3 row">
+                                    <label asp-for="Image" class="col-md-2 col-form-label">Image</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Image" accept="image/*" type="file" accept="image/*" class="form-control">
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Name" for="example-tel-input" class="col-md-2 col-form-label">Event Name</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Name" class="form-control" type="text">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Location" for="example-tel-input" class="col-md-2 col-form-label">Location</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Location" class="form-control" type="text">
+                                        <span asp-validation-for="Location" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Description" for="example-tel-input" class="col-md-2 col-form-label">Description</label>
+                                    <div class="col-md-10">
+                                        <textarea asp-for="Description" id="textarea" class="form-control" maxlength="225" rows="3"
+                                                  placeholder="This textarea has a limit of 1200 chars."></textarea>
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="DateTime" for="example-datetime-local-input" class="col-md-2 col-form-label">
+                                        Date and
+                                        Time
+                                    </label>
+                                    <div class="col-md-10">
+                                        <input asp-for="DateTime" class="form-control" type="datetime-local" value="@DateTime.Now"
+                                               id="example-datetime-local-input">
+                                        <span asp-validation-for="DateTime" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <button style="margin-top:30px" type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
+                                    <button style="margin-top:20px" type="button" class="btn btn-dark waves-effect waves-light">
+                                        <a asp-action="Index" style="color:white">Back To List</a>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScript" />
+    }
+}

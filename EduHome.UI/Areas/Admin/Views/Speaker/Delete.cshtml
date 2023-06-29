@@ -1,0 +1,66 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+<div style="margin-top:80px;background-color:cadetblue">
+    <div style="display:flex;margin-top:50px;justify-content:center;align-items:center">
+        <div style="width:1000px;display:grid;grid-template-columns:auto auto">
+            @foreach (var speakers in Model.speakers)
+            {
+                if (ViewBag.SpkearId == speakers.Id)
+                {
+                    <form method="post">
+                        <div style="margin-left:50px">
+                            <div>
+                                <div style="width:400px" class="card overflow-hidden">
+                                    <div class="bg-primary bg-soft">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <div class="text-primary p-3">
+                                                    <h5 class="text-primary">Welcome Back !</h5>
+                                                    <p>It will seem like simplified</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 align-self-end">
+                                                <img src="/assets/img/about/profile-img.png" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="avatar-md profile-user-wid mb-4">
+                                                    <img style="object-fit:cover" src="/@speakers.ImagePath" alt="" class="img-thumbnail rounded-circle">
+                                                </div>
+                                                <h5 class="font-size-15 text-truncate">@speakers.Name</h5>
+                                                <p class="text-muted mb-0 text-truncate">@speakers.Postions</p>
+                                            </div>
+
+                                            <div class="col-sm-8">
+                                                <div class="pt-4">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="font-size-15">@speakers.JobName</h5>
+                                                            <p class="text-muted mb-0">Event</p>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <h5 class="font-size-15">$1245</h5>
+                                                            <p class="text-muted mb-0">Revenue</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-4">
+                                                        <button type="submit" class="btn btn-danger waves-effect waves-light">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                }
+            }
+        </div>
+    </div>
+</div>

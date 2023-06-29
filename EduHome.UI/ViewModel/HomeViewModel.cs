@@ -11,12 +11,10 @@ public class HomeViewModel
     public IEnumerable<Courses> courses { get; set; }
     public IEnumerable<Categories> categories { get; set; }
     public IEnumerable<CoursesDetails> courses_details { get; set; }
-    //public IEnumerable<Upcomming> upcommings { get; set; }
-    //public IEnumerable<UpcommingCategory> upcommingCategories { get; set; }
-    //public IEnumerable<UpcommingDetails> upcomming_details { get; set; }
-    //public IEnumerable<Speakers> speakers { get; set; }
-    //public IEnumerable<Company> companies { get; set; }
-    //public IEnumerable<CompanySpeakers> companySpeakers { get; set; }
+    public IEnumerable<Events> events { get; set; }
+    public IEnumerable<EventsDetails> eventsDetails { get; set; }
+    public IEnumerable<Speakers> speakers { get; set; }
+    public IEnumerable<Events_Speakers> events_Speakers { get; set; }
 
 
 }

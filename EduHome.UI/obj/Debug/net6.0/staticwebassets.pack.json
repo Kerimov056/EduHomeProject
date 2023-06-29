@@ -129,6 +129,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\about\\about.png"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\about\\profile-img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\about\\profile-img.png"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\banner\\banner.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\banner\\banner.jpg"
     },
@@ -221,6 +225,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\course\\56cf9a67-d436-4794-a1f0-db443ee1655cus.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\5c83fdc4-b107-480d-b7f8-b293d9160688blog4.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\course\\5c83fdc4-b107-480d-b7f8-b293d9160688blog4.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\68071b8e-c52d-4043-a7a9-6e515b385a43p233.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\course\\68071b8e-c52d-4043-a7a9-6e515b385a43p233.jpg"
     },
@@ -297,12 +305,56 @@
       "PackagePath": "staticwebassets\\assets\\img\\course\\e8fffaea-fa8b-4f53-a1de-ec0719f0e05fus.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\ea740329-a204-4815-9088-59a7f324a1dablog8.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\course\\ea740329-a204-4815-9088-59a7f324a1dablog8.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\f3383cfe-da14-4d37-aeac-a027d02d5533italy.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\course\\f3383cfe-da14-4d37-aeac-a027d02d5533italy.jpg"
     },
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\p233.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\course\\p233.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\1180950b-f48a-43ce-8f07-568639526791Ekran görüntüsü 2023-03-04 044041.png",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\1180950b-f48a-43ce-8f07-568639526791Ekran görüntüsü 2023-03-04 044041.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\4265a99e-8362-40b0-b8ec-8a55a4f9f166MEn.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\4265a99e-8362-40b0-b8ec-8a55a4f9f166MEn.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\484afb36-5c07-4f0e-9b65-e278ece9bdccp233.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\484afb36-5c07-4f0e-9b65-e278ece9bdccp233.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\48fd66bb-6920-468a-a78a-d96ffab3408bMEn.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\48fd66bb-6920-468a-a78a-d96ffab3408bMEn.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\7b77dfbf-e5dd-4131-b2b7-267baa1b59f6Ekran görüntüsü 2023-03-04 044027.png",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\7b77dfbf-e5dd-4131-b2b7-267baa1b59f6Ekran görüntüsü 2023-03-04 044027.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\a05a45c4-0f3b-4ea8-8668-a320a7ad5dbcEkran görüntüsü 2023-03-04 044041.png",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\a05a45c4-0f3b-4ea8-8668-a320a7ad5dbcEkran görüntüsü 2023-03-04 044041.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\bc3658b3-7ee8-45bb-a73f-4210e19f2d38Ekran görüntüsü 2023-03-04 044041.png",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\bc3658b3-7ee8-45bb-a73f-4210e19f2d38Ekran görüntüsü 2023-03-04 044041.png"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\d5002191-d9ba-4f3d-9110-d55c39f4c8aeevent5.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\d5002191-d9ba-4f3d-9110-d55c39f4c8aeevent5.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\d9f17aeb-adda-4f4a-9487-ad2e18d9bbbcevent11.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\d9f17aeb-adda-4f4a-9487-ad2e18d9bbbcevent11.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\e1eab811-40ce-4d61-b6e3-75f5b0f908d3event10.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\e1eab811-40ce-4d61-b6e3-75f5b0f908d3event10.jpg"
     },
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\event-details.jpg",
@@ -355,6 +407,10 @@
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\event9.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\event\\event9.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\fbeb13ee-3208-49f8-b851-a0805e81711devent3.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\event\\fbeb13ee-3208-49f8-b851-a0805e81711devent3.jpg"
     },
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\event\\speaker1.jpg",

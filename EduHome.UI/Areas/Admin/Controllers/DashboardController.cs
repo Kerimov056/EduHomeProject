@@ -7,6 +7,7 @@ using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
@@ -59,7 +60,7 @@ public class DashboardController : Controller
         //D:\work2\Asp.net MVC\EduHome\EduHome.UI\wwwroot\assets\img\slider\
         string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
         Blog blogg = _mapper.Map<Blog>(blogViewModel);
-        blogg.ImagePath= filePath;
+        blogg.ImagePath = filePath;
         blogg.Data_Time = DateTime.Now;
         blogg.Description = blogViewModel.Decs;
 
@@ -86,26 +87,55 @@ public class DashboardController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, Blog blog)
+    public async Task<IActionResult> Edit(int id, IFormFile imageFile, BlogViewModel blogViewModel)
     {
-        if (id!=blog.Id)
+        if (id == 0)
         {
             return BadRequest();
         }
         if (!ModelState.IsValid)
         {
-            return View(blog);
+            return View(blogViewModel);
+        }
+        if (imageFile != null)
+        {
+            if (!blogViewModel.ImagePath.FormatFile("image"))
+            {
+                ModelState.AddModelError("ImagePath", "Select correct image format!");
+                return View(blogViewModel);
+            }
+            if (!blogViewModel.ImagePath.FormatLength(100))
+            {
+                ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
+                return View(blogViewModel);
+            }
         }
 
-        Blog? blog1 = await _context.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>b.Id==id);
+        Blog blog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
 
-        if (blog1 == null)
+        if (blog == null)
         {
             return NotFound();
         }
-        _service.Update(id,blog);
+
+        if (imageFile != null)
+        {
+            string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
+            blog.ImagePath = filePath;
+        }
+
+        blog.Data_Time = DateTime.Now;
+        blog.Description = blogViewModel.Decs;
+        blog.MessageNum = blogViewModel.MessageNum;
+        blog.PersonName = blogViewModel.PersonName;
+        blog.Name = blogViewModel.Name;
+
+        _context.Update(blog);
+        await _context.SaveChangesAsync();
+
         return RedirectToAction("Index");
     }
+
 
 
     public IActionResult Delete(int id)
@@ -135,3 +165,7 @@ public class DashboardController : Controller
 
 
 }
+
+
+// simdi ben Edit methodunu yaziyorum ve bana blogViewModel'den IFormFile tipinden bir image geliyor ve ben onu string
+// s

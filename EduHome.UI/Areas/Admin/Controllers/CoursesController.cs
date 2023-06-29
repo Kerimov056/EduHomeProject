@@ -6,6 +6,7 @@ using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
@@ -129,19 +130,58 @@ public class CoursesController : Controller
         }
 
         ViewBag.catagory = await _context.Categoriess.ToListAsync();
-        Courses course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(n => n.Id == id);
+        Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(n => n.Id == id);
         if (course == null)
         {
             return NotFound();
         }
 
 
-        return View(course);
+        CourseFullDetailsViewModel viewModel = new CourseFullDetailsViewModel
+        {
+            Description = course.Descripton,
+            Cours = course.Name,
+            //ImagePath = course.ImagePath,
+            AboutCours = course.CoursesDetails.AboutCours,
+            AboutCoursDescription = course.CoursesDetails.AboutCoursDescription,
+            ToApply = course.CoursesDetails.ToApply,
+            ToApplyDescription = course.CoursesDetails.ToApplyDescription,
+            Certification = course.CoursesDetails.Certification,
+            CertificationDescription = course.CoursesDetails.CertificationDescription,
+            Starts = course.CoursesDetails.Starts,
+            Month = course.CoursesDetails.Month,
+            Hours = course.CoursesDetails.Hours,
+            Level = course.CoursesDetails.Level,
+            Language = course.CoursesDetails.Language,
+            Students = course.CoursesDetails.Students,
+            Assesments = course.CoursesDetails.Assesments,
+            CourseFee = course.CoursesDetails.CourseFee
+        };
+
+        //if (!ModelState.IsValid)
+        //{
+        //    return View(viewModel);
+        //}
+        //if (!viewModel.ImagePath.FormatFile("image"))
+        //{
+        //    ModelState.AddModelError("ImagePath", "Select correct image format!");
+        //    return View(viewModel);
+        //}
+        //if (!viewModel.ImagePath.FormatLength(100))
+        //{
+        //    ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
+        //    return View(viewModel);
+        //}
+        //string filePath = await viewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
+
+        //viewModel.ImagePath = FileExtension.ConvertToIFormFile(course.ImagePath);
+
+        return View(viewModel);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, CourseFullDetailsViewModel viewModel)
+    public async Task<IActionResult> Edit(int id, CourseFullDetailsViewModel viewModel, int CategorId)
     {
         if (id == 0)
         {
@@ -152,18 +192,64 @@ public class CoursesController : Controller
         {
             return View(viewModel);
         }
+        if (!viewModel.ImagePath.FormatFile("image"))
+        {
+            ModelState.AddModelError("ImagePath", "Select correct image format!");
+            return View(viewModel);
+        }
+        if (!viewModel.ImagePath.FormatLength(100))
+        {
+            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
+            return View(viewModel);
+        }
 
-        Courses course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(c => c.Id == id);
+        Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(c => c.Id == id);
         if (course == null)
         {
             return NotFound();
         }
 
-        _mapper.Map(viewModel, course);
-        await _context.SaveChangesAsync();
+        
+        
+        
+        string filePath = await viewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
+        
 
+
+        var category = await _context.Categoriess.FindAsync(CategorId);
+        if (category == null)
+        {
+            ModelState.AddModelError("CatagoryId", "Invalid category selected!");
+            ViewBag.catagory = await _context.Categoriess.ToListAsync();
+            return View(viewModel);
+        }
+
+
+        course.ImagePath = filePath;
+        course.Descripton = viewModel.Description;
+        course.Name = viewModel.Cours;
+        course.CategoriesId = CategorId;
+        course.CoursesDetails.AboutCours = viewModel.AboutCours;
+        course.CoursesDetails.AboutCoursDescription = viewModel.AboutCoursDescription;
+        course.CoursesDetails.ToApply = viewModel.ToApply;
+        course.CoursesDetails.ToApplyDescription = viewModel.ToApplyDescription;
+        course.CoursesDetails.Certification = viewModel.Certification;
+        course.CoursesDetails.CertificationDescription = viewModel.CertificationDescription;
+        course.CoursesDetails.Starts = viewModel.Starts;
+        course.CoursesDetails.Month = viewModel.Month;
+        course.CoursesDetails.Hours = viewModel.Hours;
+        course.CoursesDetails.Level = viewModel.Level;
+        course.CoursesDetails.Language = viewModel.Language;
+        course.CoursesDetails.Students = viewModel.Students;
+        course.CoursesDetails.Assesments = viewModel.Assesments;
+        course.CoursesDetails.CourseFee = viewModel.CourseFee;
+
+
+        _context.Entry(course).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
+
 
 
 
@@ -180,10 +266,6 @@ public class CoursesController : Controller
             return NotFound();
         }
 
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
         var cours = _context.Coursess.Find(id);
         if (cours is null)
         {
@@ -198,7 +280,7 @@ public class CoursesController : Controller
         return View(homeViewModel);
     }
 
-    [HttpPost,ActionName("Delete")]
+    [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeletePost(int id)
     {
@@ -217,12 +299,3 @@ public class CoursesController : Controller
 
 
 
-
-
-//var category = await _context.Categoriess.FindAsync(CatagoryId);
-//if (category == null)
-//{
-//    ModelState.AddModelError("CatagoryId", "Invalid category selected!");
-//    ViewBag.catagory = await _context.Categoriess.ToListAsync();
-//    return View(courseViewModel);
-//}

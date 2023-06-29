@@ -191,86 +191,48 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("CoursesDetailss");
                 });
 
-            modelBuilder.Entity("EduHome.Core.Entities.EvCompany", b =>
+            modelBuilder.Entity("EduHome.Core.Entities.Events", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EvCompanys");
-                });
-
-            modelBuilder.Entity("EduHome.Core.Entities.EvCompanySpeakers", b =>
-                {
-                    b.Property<int>("EvSpeakersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EvCompanyId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EvSpeakersId", "EvCompanyId");
-
-                    b.HasIndex("EvCompanyId");
-
-                    b.ToTable("EvCompanySpeakerss");
-                });
-
-            modelBuilder.Entity("EduHome.Core.Entities.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(46)
+                        .HasColumnType("nvarchar(46)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriesId");
-
-                    b.ToTable("Events");
+                    b.ToTable("Eventss");
                 });
 
-            modelBuilder.Entity("EduHome.Core.Entities.Event_Spkears", b =>
+            modelBuilder.Entity("EduHome.Core.Entities.Events_Speakers", b =>
                 {
-                    b.Property<int>("EvSpeakersId")
+                    b.Property<int>("EventsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("EventId")
+                    b.Property<int>("SpeakersId")
                         .HasColumnType("int");
 
-                    b.HasKey("EvSpeakersId", "EventId");
+                    b.HasKey("EventsId", "SpeakersId");
 
-                    b.HasIndex("EventId");
+                    b.HasIndex("SpeakersId");
 
-                    b.ToTable("Event_Spkearss");
+                    b.ToTable("EventsDetails");
                 });
 
-            modelBuilder.Entity("EduHome.Core.Entities.EventDetails", b =>
+            modelBuilder.Entity("EduHome.Core.Entities.EventsDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -278,12 +240,12 @@ namespace EduHomeDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Decsription")
+                    b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(900)
-                        .HasColumnType("nvarchar(900)");
+                        .HasMaxLength(1300)
+                        .HasColumnType("nvarchar(1300)");
 
-                    b.Property<int>("EventId")
+                    b.Property<int>("EventsId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
@@ -291,57 +253,12 @@ namespace EduHomeDataAccess.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("EventId")
+                    b.HasIndex("EventsId")
                         .IsUnique();
 
-                    b.ToTable("EventDetailss");
-                });
-
-            modelBuilder.Entity("EduHome.Core.Entities.EvSpeakers", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EvSpeakerss");
-                });
-
-            modelBuilder.Entity("EduHome.Core.Entities.Hecne", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Hecne");
+                    b.ToTable("EventsDetailss");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Info", b =>
@@ -415,6 +332,35 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("Sliders");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.Speakers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Postions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Speakerss");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
                 {
                     b.HasOne("EduHome.Core.Entities.Categories", "Categories")
@@ -437,71 +383,39 @@ namespace EduHomeDataAccess.Migrations
                     b.Navigation("Courses");
                 });
 
-            modelBuilder.Entity("EduHome.Core.Entities.EvCompanySpeakers", b =>
+            modelBuilder.Entity("EduHome.Core.Entities.Events_Speakers", b =>
                 {
-                    b.HasOne("EduHome.Core.Entities.EvCompany", "EvCompany")
-                        .WithMany("EvCompanySpeakers")
-                        .HasForeignKey("EvCompanyId")
+                    b.HasOne("EduHome.Core.Entities.Events", "Events")
+                        .WithMany("Events_Speakers")
+                        .HasForeignKey("EventsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EduHome.Core.Entities.EvSpeakers", "EvSpeakers")
-                        .WithMany("EvCompanySpeakers")
-                        .HasForeignKey("EvSpeakersId")
+                    b.HasOne("EduHome.Core.Entities.Speakers", "Speakers")
+                        .WithMany("Events_Speakers")
+                        .HasForeignKey("SpeakersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("EvCompany");
+                    b.Navigation("Events");
 
-                    b.Navigation("EvSpeakers");
+                    b.Navigation("Speakers");
                 });
 
-            modelBuilder.Entity("EduHome.Core.Entities.Event", b =>
+            modelBuilder.Entity("EduHome.Core.Entities.EventsDetails", b =>
                 {
-                    b.HasOne("EduHome.Core.Entities.Categories", "Categories")
-                        .WithMany("Events")
-                        .HasForeignKey("CategoriesId")
+                    b.HasOne("EduHome.Core.Entities.Events", "Events")
+                        .WithOne("Details")
+                        .HasForeignKey("EduHome.Core.Entities.EventsDetails", "EventsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Categories");
-                });
-
-            modelBuilder.Entity("EduHome.Core.Entities.Event_Spkears", b =>
-                {
-                    b.HasOne("EduHome.Core.Entities.EvSpeakers", "EvSpeakers")
-                        .WithMany("Event_Spkears")
-                        .HasForeignKey("EvSpeakersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EduHome.Core.Entities.Event", "Event")
-                        .WithMany("Event_Spkears")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EvSpeakers");
-
-                    b.Navigation("Event");
-                });
-
-            modelBuilder.Entity("EduHome.Core.Entities.EventDetails", b =>
-                {
-                    b.HasOne("EduHome.Core.Entities.Event", "Event")
-                        .WithOne("EventDetails")
-                        .HasForeignKey("EduHome.Core.Entities.EventDetails", "EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Event");
+                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Categories", b =>
                 {
                     b.Navigation("Courses");
-
-                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
@@ -510,24 +424,17 @@ namespace EduHomeDataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EduHome.Core.Entities.EvCompany", b =>
+            modelBuilder.Entity("EduHome.Core.Entities.Events", b =>
                 {
-                    b.Navigation("EvCompanySpeakers");
-                });
-
-            modelBuilder.Entity("EduHome.Core.Entities.Event", b =>
-                {
-                    b.Navigation("EventDetails")
+                    b.Navigation("Details")
                         .IsRequired();
 
-                    b.Navigation("Event_Spkears");
+                    b.Navigation("Events_Speakers");
                 });
 
-            modelBuilder.Entity("EduHome.Core.Entities.EvSpeakers", b =>
+            modelBuilder.Entity("EduHome.Core.Entities.Speakers", b =>
                 {
-                    b.Navigation("EvCompanySpeakers");
-
-                    b.Navigation("Event_Spkears");
+                    b.Navigation("Events_Speakers");
                 });
 #pragma warning restore 612, 618
         }

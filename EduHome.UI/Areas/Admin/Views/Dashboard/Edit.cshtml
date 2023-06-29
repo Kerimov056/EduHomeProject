@@ -12,12 +12,12 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4" style="color:green;font-size:20px">Update Blogs</h4>
-                            <form method="post" asp-action="Edit">
+                            <form method="post" asp-action="Edit" asp-route-id="@Model.Id" enctype="multipart/form-data">
                                 <img width="200px" src="/@Model.ImagePath" />
                                 <div class="row mb-4" style="margin-top:20px">
                                     <label asp-for="ImagePath" for="horizontal-firstname-input" class="col-sm-3 col-form-label">Main Image</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="ImagePath" type="text" class="form-control" id="horizontal-firstname-input" placeholder="Main Image (URL)">
+                                        <input asp-for="ImagePath" type="file" class="form-control" id="horizontal-firstname-input" placeholder="Main Image (URL)">
                                         <span asp-validation-for="ImagePath" class="text-danger"></span>
                                     </div>
                                 </div>
