@@ -87,6 +87,8 @@ public class SpeakerController : Controller
         }
 
         await _context.SaveChangesAsync();
+        var eventList = _context.Eventss.ToList();
+        ViewBag.Eventsss = new SelectList(eventList, "Id", "Name");
 
         return RedirectToAction(nameof(Index));
     }
@@ -108,15 +110,6 @@ public class SpeakerController : Controller
         ViewBag.DetailSpkearId = spkear.Id;
 
         ViewBag.FullEvent = await _context.Eventss.ToListAsync();
-
-        var evDet = await _context.EventsDetails.ToListAsync();
-        foreach (var item in evDet)
-        {
-            if (item.SpeakersId == spkear.Id)
-            {
-                ViewBag.event_Id = item.EventsId;
-            }
-        }
 
 
         HomeViewModel model = new()
@@ -152,7 +145,7 @@ public class SpeakerController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, SpeakerViewModel speakerViewModel,int EventId)
+    public async Task<IActionResult> Edit(int id, SpeakerViewModel speakerViewModel, int EventId)
     {
         if (id == 0 || id == null)
         {
@@ -174,44 +167,40 @@ public class SpeakerController : Controller
         }
         string filePath = await speakerViewModel.Image.CopyFileAsync(_env.WebRootPath, "assets", "img", "event");
 
-        Speakers? spkear = await _context.Speakerss.FindAsync(id);
+        Speakers spkear = await _context.Speakerss.FindAsync(id);
         if (spkear is null)
         {
             return NotFound();
         }
+
+        // Speaker bilgilerini güncelle
         spkear.Name = speakerViewModel.Name;
         spkear.ImagePath = filePath;
         spkear.Postions = speakerViewModel.Postions;
         spkear.JobName = speakerViewModel.JobName;
 
+        // Speaker'ın Event'lerini güncelle
+        var existingEvents = await _context.EventsDetails.Where(e => e.SpeakersId == id).ToListAsync();
+        _context.EventsDetails.RemoveRange(existingEvents);
 
-        _context.Entry(spkear).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
-
-
-        var selectEvent = speakerViewModel.SelectedEventIds;
-
-        if (selectEvent is null)
+        if (speakerViewModel.SelectedEventIds != null)
         {
-            return View(speakerViewModel);
-        }
-
-        var ExisEvent = await _context.EventsDetails.Where(e => e.SpeakersId == id)
-            .ToListAsync();
-        _context.EventsDetails.RemoveRange(ExisEvent);
-
-        foreach (var item in selectEvent)
-        {
-            var event_spkear = new Events_Speakers
+            foreach (var eventId in speakerViewModel.SelectedEventIds)
             {
-                EventsId = item,
-                SpeakersId = id
-            };
-            _context.EventsDetails.Add(event_spkear);
+                var eventSpeaker = new Events_Speakers
+                {
+                    EventsId = eventId,
+                    SpeakersId = id
+                };
+                _context.EventsDetails.Add(eventSpeaker);
+            }
         }
+
+        await _context.SaveChangesAsync();
 
         return RedirectToAction(nameof(Index));
     }
+
 
     public async Task<IActionResult> Delete(int id)
     {

@@ -1,6 +1,7 @@
 ﻿@model HomeViewModel
 @{
     ViewData["Title"] = "Details";
+    int count = 1;
 }
 
 
@@ -30,7 +31,8 @@
                                     {
                                         if (evs.SpeakersId == item.Id)
                                         {
-                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event</span><span>@evs.Events.Name</span></div>
+                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event(@count)</span><span>@evs.Events.Name</span></div>
+                                            count++;
                                         }
                                     }
                                     <hr />
