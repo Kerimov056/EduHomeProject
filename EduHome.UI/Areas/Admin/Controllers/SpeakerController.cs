@@ -173,15 +173,13 @@ public class SpeakerController : Controller
             return NotFound();
         }
 
-        // Speaker bilgilerini güncelle
         spkear.Name = speakerViewModel.Name;
-        spkear.ImagePath = filePath;
+        spkear.ImagePath = filePath; 
         spkear.Postions = speakerViewModel.Postions;
         spkear.JobName = speakerViewModel.JobName;
 
-        // Speaker'ın Event'lerini güncelle
-        var existingEvents = await _context.EventsDetails.Where(e => e.SpeakersId == id).ToListAsync();
-        _context.EventsDetails.RemoveRange(existingEvents);
+        var exisEvents = await _context.EventsDetails.Where(e => e.SpeakersId == id).ToListAsync();
+        _context.EventsDetails.RemoveRange(exisEvents);
 
         if (speakerViewModel.SelectedEventIds != null)
         {

@@ -13,6 +13,9 @@
                         <div class="card-body">
                             <h4 class="card-title mb-4" style="color:green;font-size:20px">Create Blog</h4>
                             <form method="post" enctype="multipart/form-data">
+                                <div style="margin-bottom:30px" class="form-group text-center">
+                                    <img id="ImageView" />
+                                </div>
                                 <div class="row mb-4">
                                     <label asp-for="ImagePath" class="col-sm-3 col-form-label">Image</label>
                                     <div class="col-sm-9">
@@ -76,9 +79,26 @@
 </div>
 
 
+
 @section Scripts
-{
+    {
     @{
         <partial name="_ValidationScript" />
     }
+    <script>
+        $("#ImagePath").on("change", function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#ImageView').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+            var image = document.getElementById('ImageView');
+            image.style.width = '250px';
+            image.style.borderRadius = '50%';
+        });
+
+    </script>
 }

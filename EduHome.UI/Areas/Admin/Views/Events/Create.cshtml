@@ -11,6 +11,9 @@
                     <div class="card">
                         <div class="card-body">
                             <form method="post" enctype="multipart/form-data">
+                                <div style="margin-bottom:30px" class="form-group text-center">
+                                    <img id="ImageView" />
+                                </div>
                                 <div class="mb-3 row">
                                     <label asp-for="Image" class="col-md-2 col-form-label">Image</label>
                                     <div class="col-md-10">
@@ -73,9 +76,26 @@
 
 
 
+
 @section Scripts
     {
     @{
         <partial name="_ValidationScript" />
     }
+    <script>
+        $("#Image").on("change", function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#ImageView').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+            var image = document.getElementById('ImageView');
+            image.style.width = '250px';
+            image.style.borderRadius = '50%';
+        });
+
+    </script>
 }
