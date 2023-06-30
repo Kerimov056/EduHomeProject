@@ -26,12 +26,11 @@
                                     <hr />
                                     <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Job Name</span><span>@item.JobName</span></div>
                                     <hr />
-                                    @foreach (var events in ViewBag.FullEvent)
+                                    @foreach (var evs in Model.events_Speakers)
                                     {
-                                        if (events.Id == ViewBag.event_Id)
+                                        if (evs.SpeakersId == item.Id)
                                         {
-                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event</span><span>@events.Name</span></div>
-                                            break;
+                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event</span><span>@evs.Events.Name</span></div>
                                         }
                                     }
                                     <hr />
