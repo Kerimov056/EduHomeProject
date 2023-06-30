@@ -81,7 +81,7 @@ public class CoursesController : Controller
 
 
         var category = await _context.Categoriess.FindAsync(CatagoryId);
-        if (category == null)
+        if (category is null)
         {
             ModelState.AddModelError("CatagoryId", "Invalid category selected!");
             ViewBag.catagory = await _context.Categoriess.ToListAsync();

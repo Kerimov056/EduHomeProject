@@ -1,7 +1,10 @@
-﻿namespace EduHome.Core.Entities;
+﻿using EduHome.Core.Interface;
 
-public class Events_Speakers
+namespace EduHome.Core.Entities;
+
+public class Events_Speakers:IEntity
 {
+    public int Id { get ; set ; }
     public int EventsId { get; set; }
     public Events Events { get; set; }
 

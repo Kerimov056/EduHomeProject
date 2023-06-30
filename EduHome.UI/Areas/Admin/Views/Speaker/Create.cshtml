@@ -14,13 +14,13 @@
                                 <div class="mb-3 row">
                                     <label asp-for="Image" class="col-md-2 col-form-label">Image</label>
                                     <div class="col-md-10">
-                                        <input asp-for="Image" accept="image/*" type="file" accept="image/*" class="form-control">
+                                        <input asp-for="Image" accept="image/*" type="file" class="form-control">
                                         <span asp-validation-for="Image" class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label asp-for="Name" for="example-tel-input" class="col-md-2 col-form-label">Person Name</label>
+                                    <label asp-for="Name" class="col-md-2 col-form-label">Person Name</label>
                                     <div class="col-md-10">
                                         <input asp-for="Name" class="form-control" type="text">
                                         <span asp-validation-for="Name" class="text-danger"></span>
@@ -28,7 +28,7 @@
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label asp-for="Postions" for="example-tel-input" class="col-md-2 col-form-label">Postions</label>
+                                    <label asp-for="Postions" class="col-md-2 col-form-label">Positions</label>
                                     <div class="col-md-10">
                                         <input asp-for="Postions" class="form-control" type="text">
                                         <span asp-validation-for="Postions" class="text-danger"></span>
@@ -36,12 +36,26 @@
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label asp-for="JobName" for="example-tel-input" class="col-md-2 col-form-la">JobName</label>
+                                    <label asp-for="JobName" class="col-md-2 col-form-la">JobName</label>
                                     <div class="col-md-10">
                                         <input asp-for="JobName" class="form-control" type="text">
                                         <span asp-validation-for="JobName" class="text-danger"></span>
                                     </div>
                                 </div>
+
+                                <div class="mb-3 row">
+                                    <label>Select Events:</label>
+                                    @if (ViewBag.Eventsss != null)
+                                    {
+                                        foreach (var eventItem in ViewBag.Eventsss)
+                                        {
+                                            <div>
+                                                <input type="checkbox" name="SelectedEventIds" value="@eventItem.Id" /> @eventItem.Name
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
 
                                 <div class="mb-3 row">
                                     <button style="margin-top:30px" type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
@@ -57,8 +71,6 @@
         </div>
     </div>
 </div>
-
-
 
 @section Scripts
     {

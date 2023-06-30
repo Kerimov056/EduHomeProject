@@ -13,4 +13,5 @@ public class SpeakerViewModel
     public string Postions { get; set; } = null!;
     [Required, MaxLength(40)]
     public string JobName { get; set; } = null!;
+    public List<int>? SelectedEventIds { get; set; }
 }

@@ -1,0 +1,56 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="background-color:slategrey;">
+                    @foreach (var item in Model.speakers)
+                    {
+                        if (item.Id == ViewBag.DetailSpkearId)
+                        {
+                            <div style="display:flex;justify-content:center;">
+                                <div>
+                                    <img style="width:450px" src="/@item.ImagePath"></img>
+                                </div>
+                            </div>
+                            <div style="margin-top:40px;display:flex;justify-content:center;">
+                                <div style="width:1000px">
+                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Name</span><span>@item.Name</span></div>
+                                    <hr />
+                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Postions</span><span>@item.Postions</span></div>
+                                    <hr />
+                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Job Name</span><span>@item.JobName</span></div>
+                                    <hr />
+                                    @foreach (var events in ViewBag.FullEvent)
+                                    {
+                                        if (events.Id == ViewBag.event_Id)
+                                        {
+                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event</span><span>@events.Name</span></div>
+                                            break;
+                                        }
+                                    }
+                                    <hr />
+                                </div>
+                            </div>
+
+                            <div style="margin-top:80px">
+                                <div class="mb-3 row">
+                                    <a asp-controller="Speaker" asp-action="Index" class="btn btn-secondary" style="width:1250px;margin-top:15px">
+                                        Back to List
+                                    </a>
+                                </div>
+                            </div>
+
+                            break;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -225,6 +225,9 @@ namespace EduHomeDataAccess.Migrations
                     b.Property<int>("SpeakersId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.HasKey("EventsId", "SpeakersId");
 
                     b.HasIndex("SpeakersId");

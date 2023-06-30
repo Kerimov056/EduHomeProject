@@ -36,6 +36,7 @@
                                                     <td>@item.Postions</td>
                                                     <td>@item.JobName</td>
                                                     <td style="display:flex;justify-content:center;weight:190px;">
+                                                        <button type="button" class="btn btn-primary waves-effect waves-light" style="margin-left:10px"><a style="color:white" asp-action="Details" asp-route-id="@item.Id">Details</a></button>
                                                         <button type="button" class="btn btn-warning waves-effect waves-light" style="margin-left:10px"><a style="color:white" asp-action="Edit" asp-route-id="@item.Id">Edit</a></button>
                                                         <button type="button" class="btn btn-danger waves-effect waves-light" style="margin-left:10px"><a asp-action="Delete" asp-route-id="@item.Id" style="color:white">Delete</a></button>
                                                     </td>

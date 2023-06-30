@@ -45,6 +45,19 @@
                                 </div>
 
                                 <div class="mb-3 row">
+                                    <label>Select Events:</label>
+                                    @if (ViewBag.Eventsss != null)
+                                    {
+                                        foreach (var eventItem in ViewBag.Eventsss)
+                                        {
+                                            <div>
+                                                <input type="checkbox" name="SelectedEventIds" value="@eventItem.Id" /> @eventItem.Name
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                                <div class="mb-3 row">
                                     <button style="margin-top:30px" type="submit" class="btn btn-success waves-effect waves-light">Submit</button>
                                     <button style="margin-top:20px" type="button" class="btn btn-dark waves-effect waves-light">
                                         <a asp-action="Index" style="color:white">Back To List</a>
