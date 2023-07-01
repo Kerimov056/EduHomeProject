@@ -17,6 +17,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddScoped(typeof(IEntityBaseRepository<>), typeof(EntityBaseRepository<>));
 builder.Services.AddScoped(typeof(ICoursesBaseRepository<>), typeof(CoursesBaseRepository<>));
 
+builder.Services.AddScoped<ISpkearServices, SpkearServices>();
 builder.Services.AddScoped<ICoursesServices, CoursesServices>();
 builder.Services.AddScoped<IBlogsService, BlogsServices>();
 builder.Services.AddScoped<INoticeService, NoticesServices>();

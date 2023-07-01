@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
@@ -16,17 +17,19 @@ public class SpeakerController : Controller
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
-    public SpeakerController(AppDbContext context, IWebHostEnvironment env, IMapper mapper)
+    private readonly ISpkearServices _spkearServices;
+    public SpeakerController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ISpkearServices spkearServices)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
+        _spkearServices = spkearServices;
     }
     public async Task<IActionResult> Index()
     {
         HomeViewModel model = new()
         {
-            speakers = await _context.Speakerss.ToArrayAsync()
+            speakers = await _spkearServices.GetSpeakers()
         };
         return View(model);
     }
@@ -72,7 +75,7 @@ public class SpeakerController : Controller
         Speakers speakers = _mapper.Map<Speakers>(speakerViewModel);
         speakers.ImagePath = filePath;
 
-        _context.Speakerss.Add(speakers);
+        await _spkearServices.CreateAsync(speakers);
         await _context.SaveChangesAsync();
 
         foreach (var eventId in SelectedEventIds)
@@ -87,6 +90,7 @@ public class SpeakerController : Controller
         }
 
         await _context.SaveChangesAsync();
+
         var eventList = _context.Eventss.ToList();
         ViewBag.Eventsss = new SelectList(eventList, "Id", "Name");
 
@@ -229,7 +233,7 @@ public class SpeakerController : Controller
             return NotFound();
         }
 
-        _context.Entry(speaker).State = EntityState.Deleted;
+        await _spkearServices.DeleteAsync(id);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
