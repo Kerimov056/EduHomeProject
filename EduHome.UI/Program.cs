@@ -22,6 +22,7 @@ builder.Services.AddScoped<IBlogsService, BlogsServices>();
 builder.Services.AddScoped<INoticeService, NoticesServices>();
 builder.Services.AddScoped<IInfoService, InfosServices>();
 builder.Services.AddScoped<ISliderServices, SliderServices>();
+builder.Services.AddScoped<IEventServices, EventServices>();
 
 
 

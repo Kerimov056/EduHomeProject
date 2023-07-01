@@ -1,4 +1,5 @@
 ﻿using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
@@ -13,17 +14,19 @@ public class EventsController : Controller
 {
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
-    public EventsController(AppDbContext context, IWebHostEnvironment env)
+    private readonly IEventServices _eventServices; 
+    public EventsController(AppDbContext context, IWebHostEnvironment env, IEventServices eventServices)
     {
         _context = context;
         _env = env;
+        _eventServices = eventServices;
     }
 
     public async Task<IActionResult> Index()
     {
         HomeViewModel model = new()
         {
-            events = await _context.Eventss.ToListAsync()
+            events = await _eventServices.GetEvent()
         };
         return View(model);
     }
@@ -100,8 +103,8 @@ public class EventsController : Controller
             }
         };
 
-        _context.Eventss.Add(events);
-        _context.SaveChanges();
+        await _eventServices.CreateAsync(events);
+        await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 
@@ -167,7 +170,7 @@ public class EventsController : Controller
         events.Details.ImagePath = filePath;
         events.Details.Description = eventsViewModel.Description;
 
-        _context.Entry(events).State = EntityState.Modified;
+        await _eventServices.EditAsync(id,events);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
@@ -213,7 +216,8 @@ public class EventsController : Controller
         {
             return NotFound();
         }
-        _context.Entry(events).State= EntityState.Deleted;
+
+        await _eventServices.DeleteAsync(id);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OMAkzQN+8Vj6fPa5s9ETSw6sMz4YeHZ6qfodNd95GW4=",
+  "Hash": "SihgRe68oHuTok57VTYCjA41+A04qVprI3E7Piu0XFE=",
   "Source": "EduHome.UI",
   "BasePath": "_content/EduHome.UI",
   "Mode": "Default",
@@ -1190,6 +1190,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\7cdcfb2d-da85-4094-b08f-6196f370fef1Ekran görüntüsü 2023-03-04 044027.png"
     },
     {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\856ece9c-05b0-4cd1-a45d-ca26cfe1c3f4Ekran görüntüsü 2023-03-04 044041.png",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/856ece9c-05b0-4cd1-a45d-ca26cfe1c3f4Ekran görüntüsü 2023-03-04 044041.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\856ece9c-05b0-4cd1-a45d-ca26cfe1c3f4Ekran görüntüsü 2023-03-04 044041.png"
+    },
+    {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\85bb704b-957b-451a-a3b4-037077aa2443course9.jpg",
       "SourceId": "EduHome.UI",
       "SourceType": "Discovered",
@@ -1426,6 +1443,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\cc70c645-786c-45fa-9285-9b1d90036fabEkran görüntüsü 2023-03-04 044041.png"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\cda5a16f-b5b3-4899-817f-563aec81ef0aEkran görüntüsü 2023-03-04 044041.png",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/cda5a16f-b5b3-4899-817f-563aec81ef0aEkran görüntüsü 2023-03-04 044041.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\cda5a16f-b5b3-4899-817f-563aec81ef0aEkran görüntüsü 2023-03-04 044041.png"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\course1.jpg",
@@ -1681,6 +1715,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\dc594a7d-997b-4a29-825e-4255ab844fa0Ekran görüntüsü 2023-03-04 044027.png"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\e0d641f6-47ef-4704-8b78-b8d38986a435Ekran görüntüsü 2023-03-04 044041.png",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/e0d641f6-47ef-4704-8b78-b8d38986a435Ekran görüntüsü 2023-03-04 044041.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\e0d641f6-47ef-4704-8b78-b8d38986a435Ekran görüntüsü 2023-03-04 044041.png"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\course\\e4cfa899-d966-425e-9b4a-34c42852572bEkran görüntüsü 2023-03-04 044027.png",
