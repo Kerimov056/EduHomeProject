@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
@@ -14,11 +15,13 @@ public class SliderController : Controller
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
-    public SliderController(AppDbContext context, IWebHostEnvironment env, IMapper mapper)
+    private readonly ISliderServices _sliderServices;
+    public SliderController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ISliderServices sliderServices)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
+        _sliderServices = sliderServices;
     }
 
     public async Task<IActionResult> Index()
@@ -80,7 +83,7 @@ public class SliderController : Controller
         slider.ImagePath = filePath;
 
 
-        await _context.Sliders.AddAsync(slider);
+        await _sliderServices.CreateAsync(slider);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
@@ -136,7 +139,7 @@ public class SliderController : Controller
         slider.NameTwo = sliderViewModel.NameTwo;
         slider.Information = sliderViewModel.Information;
 
-        _context.Entry(slider).State = EntityState.Modified;
+        await _sliderServices.EditAsync(id, slider);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
@@ -171,7 +174,7 @@ public class SliderController : Controller
             return NotFound();
         }
 
-        _context.Sliders.Remove(slider);
+        await _sliderServices.DeleteAsync(id);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }

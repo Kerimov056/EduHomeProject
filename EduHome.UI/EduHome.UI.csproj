@@ -22,8 +22,4 @@
     <ProjectReference Include="..\EduHomeDataAccess\EduHomeDataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\CoursDetailsController1\" />
-  </ItemGroup>
-
 </Project>

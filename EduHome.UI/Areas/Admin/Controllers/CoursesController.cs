@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Base.CoursesRepository;
+using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
@@ -15,11 +17,13 @@ public class CoursesController : Controller
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
-    public CoursesController(AppDbContext context, IWebHostEnvironment env, IMapper mapper)
+    private readonly ICoursesServices _coruseService;
+    public CoursesController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ICoursesServices coruseService)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
+        _coruseService = coruseService;
     }
 
     public async Task<IActionResult> Index()
@@ -115,8 +119,8 @@ public class CoursesController : Controller
         };
 
 
-        _context.Coursess.Add(courses);
-        _context.SaveChanges();
+        await _coruseService.CreateAsync(courses);
+        await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 
@@ -228,7 +232,7 @@ public class CoursesController : Controller
         course.CoursesDetails.CourseFee = viewModel.CourseFee;
 
 
-        _context.Entry(course).State = EntityState.Modified;
+        await _coruseService.UpdateAsync(id,course);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
@@ -273,9 +277,9 @@ public class CoursesController : Controller
             return NotFound();
         }
         var coursDetails = cours.CoursesDetails;
-        _context.Coursess.Remove(cours);
-        await _context.SaveChangesAsync();
 
+        await _coruseService.DeleteAsync(id);
+        await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 }
