@@ -28,8 +28,8 @@ public class DashboardController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var data = await _service.GetBlogs();
-        return View(data);
+        var BSer = await _service.GetBlogs();
+        return View(BSer);
     }
 
 
@@ -65,7 +65,7 @@ public class DashboardController : Controller
         blogg.Description = blogViewModel.Decs;
 
 
-        _context.Blogs.Add(blogg);
+        await _service.CreateAsync(blogg);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
@@ -87,7 +87,7 @@ public class DashboardController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, IFormFile imageFile, BlogViewModel blogViewModel)
+    public async Task<IActionResult> Edit(int id, BlogViewModel blogViewModel)
     {
         if (id == 0)
         {
@@ -97,42 +97,35 @@ public class DashboardController : Controller
         {
             return View(blogViewModel);
         }
-        if (imageFile != null)
+        if (!blogViewModel.ImagePath.FormatFile("image"))
         {
-            if (!blogViewModel.ImagePath.FormatFile("image"))
-            {
-                ModelState.AddModelError("ImagePath", "Select correct image format!");
-                return View(blogViewModel);
-            }
-            if (!blogViewModel.ImagePath.FormatLength(100))
-            {
-                ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-                return View(blogViewModel);
-            }
+            ModelState.AddModelError("ImagePath", "Select correct image format!");
+            return View(blogViewModel);
+        }
+        if (!blogViewModel.ImagePath.FormatLength(100))
+        {
+            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
+            return View(blogViewModel);
         }
 
-        Blog blog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+        Blog? blog = await _context.Blogs.FindAsync(id);
 
         if (blog == null)
         {
-            return NotFound();
+            return NotFound();  
         }
 
-        if (imageFile != null)
-        {
-            string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-            blog.ImagePath = filePath;
-        }
+        string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
 
+        blog.ImagePath = filePath;
         blog.Data_Time = DateTime.Now;
         blog.Description = blogViewModel.Decs;
         blog.MessageNum = blogViewModel.MessageNum;
         blog.PersonName = blogViewModel.PersonName;
         blog.Name = blogViewModel.Name;
 
-        _context.Update(blog);
+        await _service.EditAsync(id, blog);
         await _context.SaveChangesAsync();
-
         return RedirectToAction("Index");
     }
 
@@ -151,21 +144,18 @@ public class DashboardController : Controller
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
 
-    public IActionResult DeletePost(int id)
+    public  async Task<IActionResult> DeletePost(int id)
     {
         var blog = _context.Blogs.Find(id);
         if (blog is null)
         {
             return NotFound();
         }
-        _service.Delete(blog);
+        //_context.Blogs.Remove(blog);
+        await _service.DeleteAsync(id);
+        _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
-    //--------------------------------------------------------------------------
-
-
+    ////--------------------------------------------------------------------------
 }
 
-
-// simdi ben Edit methodunu yaziyorum ve bana blogViewModel'den IFormFile tipinden bir image geliyor ve ben onu string
-// s

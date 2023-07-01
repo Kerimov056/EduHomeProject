@@ -20,7 +20,7 @@ public class NoticeController : Controller
     }
     public async Task<IActionResult> Index()
     {
-        var notice = await _service.GetNotices();
+        var notice = await _service.GetNotice();
         return View(notice);
     }
 
@@ -41,7 +41,7 @@ public class NoticeController : Controller
         notice.Description = noticeViewModel.Description;
         notice.Date_Time = DateTime.Now;
 
-        _context.Notices.Add(notice);
+        await _service.CreateAsync(notice);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
@@ -96,10 +96,10 @@ public class NoticeController : Controller
             return NotFound();
         }
         notice.Date_Time= DateTime.Now;
-        _service.Update(id,notice);
+        await _service.EditAsync(id,notice);
+        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
-
 
 
     public async Task<IActionResult> Delete(int id)
@@ -127,7 +127,8 @@ public class NoticeController : Controller
             return NotFound();
         }
 
-        _service.Delete(notice);
+        await _service.DeleteAsync(id);
+        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 

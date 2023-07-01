@@ -645,12 +645,20 @@
       "PackagePath": "staticwebassets\\assets\\img\\slider\\00645706-9767-4c94-ab2d-296270813809WIN_20230512_11_34_06_Pro.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\010042f3-2037-4eab-a9f3-f6641cdc8894WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slider\\010042f3-2037-4eab-a9f3-f6641cdc8894WIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\03524a09-07a2-4475-8267-0e5ab4e43610blog5.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\slider\\03524a09-07a2-4475-8267-0e5ab4e43610blog5.jpg"
     },
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\15fdad97-2796-4795-ae24-6704b1bf69acrussia.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\slider\\15fdad97-2796-4795-ae24-6704b1bf69acrussia.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\203251c7-47d0-4fe1-8d56-3db45e1cf0f2WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slider\\203251c7-47d0-4fe1-8d56-3db45e1cf0f2WIN_20230512_11_34_06_Pro.jpg"
     },
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\24 Haz 20231-1-768x546.jpg",
@@ -673,6 +681,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\slider\\3facd29b-6488-40eb-8587-8b30edf335a7blog9.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\48c695be-6b74-4d29-9c4c-e65e105f2f1cWIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slider\\48c695be-6b74-4d29-9c4c-e65e105f2f1cWIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\4bfdfa0e-5e91-43bf-bd0c-cee4dacee28b1-1-768x546.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\slider\\4bfdfa0e-5e91-43bf-bd0c-cee4dacee28b1-1-768x546.jpg"
     },
@@ -683,6 +695,10 @@
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\5806d43b-a2ba-4385-820f-caa9afb6cc05course4.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\slider\\5806d43b-a2ba-4385-820f-caa9afb6cc05course4.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\63b7dc00-169b-46c5-93f3-7a5593b2ef61blog7.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slider\\63b7dc00-169b-46c5-93f3-7a5593b2ef61blog7.jpg"
     },
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\6408cca6-ecfe-42e3-b030-71cbbaf5fa56WIN_20230512_11_34_06_Pro.jpg",
@@ -729,6 +745,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\slider\\a24b71e3-3362-4aaa-890b-e56fb9a1804cblog3.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\bd30e9e0-a08b-41ba-bb1b-5f24e17d3d2bWIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slider\\bd30e9e0-a08b-41ba-bb1b-5f24e17d3d2bWIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\c85c1d97-2cc4-4a30-82c8-e413a3399c6ablog6.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\slider\\c85c1d97-2cc4-4a30-82c8-e413a3399c6ablog6.jpg"
     },
@@ -737,8 +757,16 @@
       "PackagePath": "staticwebassets\\assets\\img\\slider\\cf18d0d7-9e6e-4959-b5e7-17cd35e9aecablog5.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\d866a05d-03e3-42ee-80cc-34eec5bf398eWIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slider\\d866a05d-03e3-42ee-80cc-34eec5bf398eWIN_20230512_11_34_06_Pro.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\d8d608a8-b2fc-4631-b62e-6e160eb93fe3blog8.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\slider\\d8d608a8-b2fc-4631-b62e-6e160eb93fe3blog8.jpg"
+    },
+    {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\dcee7ead-6c97-490d-8461-8cee88fa33c6WIN_20230512_11_34_06_Pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slider\\dcee7ead-6c97-490d-8461-8cee88fa33c6WIN_20230512_11_34_06_Pro.jpg"
     },
     {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\slider\\e3df8764-296b-468b-94b9-adf4e850140fspain.jpg",

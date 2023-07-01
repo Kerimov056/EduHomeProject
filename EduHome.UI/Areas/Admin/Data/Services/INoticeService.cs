@@ -4,7 +4,9 @@ namespace EduHome.UI.Areas.Admin.Data.Services;
 
 public interface INoticeService
 {
-    Task<IEnumerable<Notice>> GetNotices();
-    Task<IEnumerable<Notice>> Delete(Notice notice);
-    Task<IEnumerable<Notice>> Update(int id,Notice notice);
+    Task<IEnumerable<Notice>> GetNotice();
+    Task<Notice> CreateAsync(Notice notice);
+    Task<Notice> EditAsync(int id, Notice notice);
+    Task<Notice> GetByIdAsync(int id);
+    Task DeleteAsync(int id);
 }

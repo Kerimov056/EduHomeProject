@@ -1,4 +1,5 @@
 ﻿using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Base;
 using EduHomeDataAccess.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,49 +7,37 @@ namespace EduHome.UI.Areas.Admin.Data.Services;
 
 public class InfosServices : IInfoService
 {
-    private readonly AppDbContext _context;
-    public InfosServices(AppDbContext context)
-    {
-        _context = context;
+    private readonly IEntityBaseRepository<Info> _InfoRepsitory;
+	public InfosServices(IEntityBaseRepository<Info> InfoRepsitory)
+	{
+        _InfoRepsitory = InfoRepsitory;
     }
 
-    public void Createe(Info info)
+    public async Task<Info> CreateAsync(Info info)
     {
-        throw new NotImplementedException();
+         await _InfoRepsitory.AddAsync(info);
+         return info;
     }
 
-    public async Task<IEnumerable<Info>> Delete(Info info)
+    public  Task DeleteAsync(int id)
     {
-        var infoProduct = _context.Infos.Remove(info);
-        await _context.SaveChangesAsync();
-        return (IEnumerable<Info>)info;
+         return _InfoRepsitory.DeleteAsync(id);
+    }
+
+    public async Task<Info> EditAsync(int id, Info info)
+    {
+        await _InfoRepsitory.UpdateAsync(id, info);
+        return info;
+    }
+
+    public async Task<Info> GetByIdAsync(int id)
+    {
+        return await _InfoRepsitory.GetByIdAsync(id);
     }
 
     public async Task<IEnumerable<Info>> GetInfo()
     {
-        var InfoProduct = await _context.Infos.ToListAsync();
-        return InfoProduct;
-    }
-
-    public async Task<IEnumerable<Info>> InfoCreate(Info info)
-    {
-        var InfoProduct = _context.Infos.Add(info);
-        await _context.SaveChangesAsync();
-        return (IEnumerable<Info>)InfoProduct;
-    }
-
-    public async Task<IEnumerable<Info>> Update(int id, Info info)
-    {
-        _context.Entry(info).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
-        return (IEnumerable<Info>)info;
+        return await _InfoRepsitory.GetAllAsync();
     }
 }
 
-
-//public async Task<IEnumerable<Info>> Createes(Info info)
-//{
-//    var InfoProduct = _context.Infos.Add(info);
-//    await _context.SaveChangesAsync();
-//    return (IEnumerable<Info>)InfoProduct;
-//}

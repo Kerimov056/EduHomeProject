@@ -39,7 +39,7 @@ public class InfoController : Controller
         info.Name = infoViewModel.Title;
         info.Description = infoViewModel.Description;
 
-        _context.Infos.Add(info);
+        await _service.CreateAsync(info);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
@@ -93,7 +93,8 @@ public class InfoController : Controller
             return NotFound();
         }
 
-        _service.Update(id,info);
+        await _service.EditAsync(id,info);
+        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
@@ -123,7 +124,8 @@ public class InfoController : Controller
             return NotFound();
         }
 
-        _service.Delete(product);
+        await _service.DeleteAsync(id);
+        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 }

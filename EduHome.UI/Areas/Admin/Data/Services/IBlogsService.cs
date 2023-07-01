@@ -5,8 +5,8 @@ namespace EduHome.UI.Areas.Admin.Data.Services;
 public interface IBlogsService
 {
     Task<IEnumerable<Blog>> GetBlogs();
-    Task<IEnumerable<Blog>> Delete(Blog blog);
-    Task<IEnumerable<Blog>> Update(int id,Blog newBlog);
-    Blog GetBlog(int id);
-    void Add(Blog blog);
+    Task<Blog> CreateAsync(Blog blog);
+    Task<Blog> EditAsync(int id, Blog blog);
+    Task<Blog> GetByIdAsync(int id);
+    Task DeleteAsync(int id);
 }

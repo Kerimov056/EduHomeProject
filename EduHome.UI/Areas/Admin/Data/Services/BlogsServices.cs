@@ -1,4 +1,5 @@
 ﻿using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Base;
 using EduHomeDataAccess.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
@@ -7,46 +8,40 @@ namespace EduHome.UI.Areas.Admin.Data.Services;
 
 public class BlogsServices : IBlogsService
 {
-    private readonly AppDbContext _context;
-
-    public BlogsServices(AppDbContext context)
+    private readonly IEntityBaseRepository<Blog> _blogRepository;
+    public BlogsServices(IEntityBaseRepository<Blog> blogRepository)
     {
-        _context = context;
-    }
-    public void Add(Blog blog)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<IEnumerable<Blog>> Delete(Blog blog)
-    {
-        var deleteProduct = _context.Blogs.Remove(blog);
-        await _context.SaveChangesAsync();
-        return (IEnumerable<Blog>)deleteProduct;
-    }
-
-    public Task Edit(int id, Blog blog)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Blog GetBlog(int id)
-    {
-        throw new NotImplementedException();
+      _blogRepository= blogRepository;
     }
 
     public async Task<IEnumerable<Blog>> GetBlogs()
     {
-        var result =await _context.Blogs.ToListAsync();
-        return result;
+        return await _blogRepository.GetAllAsync();
     }
 
-    public async Task<IEnumerable<Blog>> Update(int id, Blog newBlog)
+    public async Task<Blog> CreateAsync(Blog blog)
     {
-        _context.Entry(newBlog).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
-        return(IEnumerable<Blog>)newBlog;
+        await _blogRepository.AddAsync(blog);
+        return blog;
     }
 
-   
+
+    public async Task<Blog> EditAsync(int id, Blog blog)
+    {
+        await _blogRepository.UpdateAsync(id,blog);
+        return blog;
+    }
+
+    public async Task<Blog> GetByIdAsync(int id)
+    {
+        return await _blogRepository.GetByIdAsync(id);
+    }
+
+    public Task DeleteAsync(int id)
+    {
+        return  _blogRepository.DeleteAsync(id);
+    }
+
+  
+
 }
