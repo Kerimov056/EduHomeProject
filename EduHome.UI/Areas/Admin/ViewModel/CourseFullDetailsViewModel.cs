@@ -34,4 +34,6 @@ public class CourseFullDetailsViewModel
     public string Assesments { get; set; } = null!;
     [Required]
     public int CourseFee { get; set; }
+
+    public int CategorId { get; set; }
 }

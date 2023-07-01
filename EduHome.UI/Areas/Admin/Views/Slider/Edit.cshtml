@@ -1,0 +1,94 @@
+﻿@model SliderViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row" style="margin-top:20px">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                <div style="margin-bottom:30px" class="form-group text-center">
+                                    <img id="ImageView" />
+                                </div>
+                                <div class="mb-3 row">
+                                    <label asp-for="image" class="col-md-2 col-form-label">Image</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="image" accept="image/*" type="file" accept="image/*" class="form-control">
+                                        <span asp-validation-for="image" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Name" for="example-tel-input" class="col-md-2 col-form-label">Name</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Name" class="form-control" type="text">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="NameTwo" for="example-tel-input" class="col-md-2 col-form-label">Second Name</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="NameTwo" class="form-control" type="text">
+                                        <span asp-validation-for="NameTwo" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Information" for="example-tel-input" class="col-md-2 col-form-label">Description</label>
+                                    <div class="col-md-10">
+                                        <textarea asp-for="Information" id="textarea" class="form-control" maxlength="225" rows="3"
+                                                  placeholder="This textarea has a limit of 120 chars."></textarea>
+                                        <span asp-validation-for="Information" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <button type="submit" class="btn btn-outline-success w-md">Submit</button>
+                                    <a asp-controller="Slider" asp-action="Index" class="btn btn-secondary" style="width:1250px;margin-top:15px">
+                                        Back to List
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScript" />
+    }
+    <script>
+        $("#image").on("change", function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#ImageView').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+            var image = document.getElementById('ImageView');
+            image.style.width = '250px';
+            image.style.borderRadius = '50%';
+        });
+
+    </script>
+}
+
+

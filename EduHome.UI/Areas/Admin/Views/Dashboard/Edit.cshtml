@@ -1,4 +1,4 @@
-﻿@model Blog
+﻿@model BlogViewModel
 @{
     ViewData["Title"] = "Edit";
 }
@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4" style="color:green;font-size:20px">Update Blogs</h4>
-                            <form method="post" asp-action="Edit" asp-route-id="@Model.Id" enctype="multipart/form-data">
+                            <form method="post" asp-action="Edit"  enctype="multipart/form-data">
                                 <div style="margin-bottom:30px" class="form-group text-center">
                                     <img id="ImageView" />
                                 </div>
@@ -34,10 +34,10 @@
                                 </div>
 
                                 <div class="row mb-4">
-                                    <label asp-for="Description" class="col-sm-3 col-form-label">Description</label>
+                                    <label asp-for="Decs" class="col-sm-3 col-form-label">Description</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="Description" type="text" accept="image/*" class="form-control">
-                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                        <input asp-for="Decs" type="text" accept="image/*" class="form-control">
+                                        <span asp-validation-for="Decs" class="text-danger"></span>
                                     </div>
                                 </div>
 

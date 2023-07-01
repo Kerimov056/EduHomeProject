@@ -4,6 +4,7 @@ using EduHome.UI.Areas.Admin.AutoMapper;
 using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
+using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -82,80 +83,89 @@ public class DashboardController : Controller
         {
             return NotFound();
         }
-        return View(blog);
-    }
+        BlogViewModel model = new()
+        {
+            //ImagePath = blog.filePath,
+            Data_Time = DateTime.Now,
+            Decs = blog.Description,
+            MessageNum = blog.MessageNum,
+            PersonName = blog.PersonName,
+            Name = blog.Name
+        };
+        return View(model);
+}
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, BlogViewModel blogViewModel)
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Edit(int id, BlogViewModel blogViewModel)
+{
+    if (id == 0)
     {
-        if (id == 0)
-        {
-            return BadRequest();
-        }
-        if (!ModelState.IsValid)
-        {
-            return View(blogViewModel);
-        }
-        if (!blogViewModel.ImagePath.FormatFile("image"))
-        {
-            ModelState.AddModelError("ImagePath", "Select correct image format!");
-            return View(blogViewModel);
-        }
-        if (!blogViewModel.ImagePath.FormatLength(100))
-        {
-            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-            return View(blogViewModel);
-        }
-
-        Blog? blog = await _context.Blogs.FindAsync(id);
-
-        if (blog == null)
-        {
-            return NotFound();  
-        }
-
-        string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-
-        blog.ImagePath = filePath;
-        blog.Data_Time = DateTime.Now;
-        blog.Description = blogViewModel.Decs;
-        blog.MessageNum = blogViewModel.MessageNum;
-        blog.PersonName = blogViewModel.PersonName;
-        blog.Name = blogViewModel.Name;
-
-        await _service.EditAsync(id, blog);
-        await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        return BadRequest();
     }
-
-
-
-    public IActionResult Delete(int id)
+    if (!ModelState.IsValid)
     {
-        var blog = _context.Blogs.Find(id);
-        if (blog is null)
-        {
-            return NotFound();
-        }
-        return View(blog);
+        return View(blogViewModel);
     }
-
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-
-    public  async Task<IActionResult> DeletePost(int id)
+    if (!blogViewModel.ImagePath.FormatFile("image"))
     {
-        var blog = _context.Blogs.Find(id);
-        if (blog is null)
-        {
-            return NotFound();
-        }
-        //_context.Blogs.Remove(blog);
-        await _service.DeleteAsync(id);
-        _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        ModelState.AddModelError("ImagePath", "Select correct image format!");
+        return View(blogViewModel);
     }
+    if (!blogViewModel.ImagePath.FormatLength(100))
+    {
+        ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
+        return View(blogViewModel);
+    }
+
+    Blog? blog = await _context.Blogs.FindAsync(id);
+
+    if (blog == null)
+    {
+        return NotFound();
+    }
+
+    string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
+
+    blog.ImagePath = filePath;
+    blog.Data_Time = DateTime.Now;
+    blog.Description = blogViewModel.Decs;
+    blog.MessageNum = blogViewModel.MessageNum;
+    blog.PersonName = blogViewModel.PersonName;
+    blog.Name = blogViewModel.Name;
+
+    await _service.EditAsync(id, blog);
+    await _context.SaveChangesAsync();
+    return RedirectToAction("Index");
+}
+
+
+
+public IActionResult Delete(int id)
+{
+    var blog = _context.Blogs.Find(id);
+    if (blog is null)
+    {
+        return NotFound();
+    }
+    return View(blog);
+}
+
+[HttpPost, ActionName("Delete")]
+[ValidateAntiForgeryToken]
+
+public async Task<IActionResult> DeletePost(int id)
+{
+    var blog = _context.Blogs.Find(id);
+    if (blog is null)
+    {
+        return NotFound();
+    }
+    //_context.Blogs.Remove(blog);
+    await _service.DeleteAsync(id);
+    _context.SaveChangesAsync();
+    return RedirectToAction("Index");
+}
     ////--------------------------------------------------------------------------
 }
 

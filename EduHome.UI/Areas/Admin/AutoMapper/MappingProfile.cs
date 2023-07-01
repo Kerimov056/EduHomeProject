@@ -25,5 +25,9 @@ public class MappingProfile:Profile
 		//Spkears
 		CreateMap<Speakers, SpeakerViewModel>();
 		CreateMap<SpeakerViewModel, Speakers>();
-	}
+
+        //slider
+        CreateMap<Slider, SliderViewModel>();
+        CreateMap<SliderViewModel, Slider>();
+    }
 }

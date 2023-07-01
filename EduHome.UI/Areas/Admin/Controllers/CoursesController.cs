@@ -139,9 +139,10 @@ public class CoursesController : Controller
 
         CourseFullDetailsViewModel viewModel = new CourseFullDetailsViewModel
         {
+            //ImagePath = course.ImagePath,
             Description = course.Descripton,
             Cours = course.Name,
-            //ImagePath = course.ImagePath,
+            CategorId = course.CategoriesId,
             AboutCours = course.CoursesDetails.AboutCours,
             AboutCoursDescription = course.CoursesDetails.AboutCoursDescription,
             ToApply = course.CoursesDetails.ToApply,
@@ -158,23 +159,6 @@ public class CoursesController : Controller
             CourseFee = course.CoursesDetails.CourseFee
         };
 
-        //if (!ModelState.IsValid)
-        //{
-        //    return View(viewModel);
-        //}
-        //if (!viewModel.ImagePath.FormatFile("image"))
-        //{
-        //    ModelState.AddModelError("ImagePath", "Select correct image format!");
-        //    return View(viewModel);
-        //}
-        //if (!viewModel.ImagePath.FormatLength(100))
-        //{
-        //    ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-        //    return View(viewModel);
-        //}
-        //string filePath = await viewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
-
-        //viewModel.ImagePath = FileExtension.ConvertToIFormFile(course.ImagePath);
 
         return View(viewModel);
     }
@@ -209,7 +193,6 @@ public class CoursesController : Controller
             return NotFound();
         }
 
-        
         
         
         string filePath = await viewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
