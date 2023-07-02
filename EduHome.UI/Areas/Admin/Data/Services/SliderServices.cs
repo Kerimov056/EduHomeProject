@@ -11,30 +11,17 @@ public class SliderServices : ISliderServices
     {
         _sliderRepository = sliderRepository;
     }
+    public Task DeleteAsync(int id) => _sliderRepository.DeleteAsync(id);
+    public async Task<Slider> GetByIdAsync(int id) => await _sliderRepository.GetByIdAsync(id);
+    public async Task<IEnumerable<Slider>> GetSliders() => await _sliderRepository.GetAllAsync();
     public async Task<Slider> CreateAsync(Slider slider)
     {
         await _sliderRepository.AddAsync(slider);
         return slider;
     }
-
-    public Task DeleteAsync(int id)
-    {
-        return _sliderRepository.DeleteAsync(id);
-    }
-
     public async Task<Slider> EditAsync(int id, Slider slider)
     {
         await _sliderRepository.UpdateAsync(id,slider);
         return slider;
-    }
-
-    public async Task<Slider> GetByIdAsync(int id)
-    {
-        return await _sliderRepository.GetByIdAsync(id);
-    }
-
-    public async Task<IEnumerable<Slider>> GetSliders()
-    {
-        return await _sliderRepository.GetAllAsync();
     }
 }

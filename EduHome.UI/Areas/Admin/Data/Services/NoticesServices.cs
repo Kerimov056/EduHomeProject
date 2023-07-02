@@ -12,31 +12,18 @@ public class NoticesServices : INoticeService
 	{
 		_Noticerepository= Noticerepository;
 	}
+    public Task DeleteAsync(int id) => _Noticerepository.DeleteAsync(id);
+    public async Task<IEnumerable<Notice>> GetNotice() => await _Noticerepository.GetAllAsync();
+    public async Task<Notice> GetByIdAsync(int id) => await _Noticerepository.GetByIdAsync(id);
 
     public async Task<Notice> CreateAsync(Notice notice)
     {
          await _Noticerepository.AddAsync(notice);
          return notice;
     }
-
-    public Task DeleteAsync(int id)
-    {
-       return  _Noticerepository.DeleteAsync(id);
-    }
-
     public async Task<Notice> EditAsync(int id, Notice notice)
     {
         await _Noticerepository.UpdateAsync(id, notice);
         return notice;
-    }
-
-    public async Task<IEnumerable<Notice>> GetNotice()
-    {
-        return await _Noticerepository.GetAllAsync();
-    }
-
-    public async Task<Notice> GetByIdAsync(int id)
-    {
-        return await _Noticerepository.GetByIdAsync(id);
     }
 }

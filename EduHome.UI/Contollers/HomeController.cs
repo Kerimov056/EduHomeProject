@@ -30,4 +30,17 @@ public class HomeController : Controller
         return View(homeViewModel);
     }
 
+
+    [Route("/StatusCodeError/{statusCode}")]
+    public IActionResult Error(int statusCode)
+    {
+        if (statusCode == 404)
+        {
+            ViewBag.ErrorMessage = "404 Page Not Found Exception.";
+            return View("NotFound");
+        }
+        return RedirectToAction("Index");
+    }
+
+
 }

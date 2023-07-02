@@ -32,20 +32,20 @@ public static class FileExtension
         return filePath;
     }
 
-    //public static IFormFile ConvertToIFormFile(string filePath)
-    //{
-    //    byte[] fileBytes = File.ReadAllBytes(filePath);
-    //    var fileName = Path.GetFileName(filePath);
+    public static IFormFile ConvertToIFormFile(string filePath)
+    {
+        byte[] fileBytes = File.ReadAllBytes(filePath);
+        var fileName = Path.GetFileName(filePath);
 
-    //    return new FormFile(new MemoryStream(fileBytes), 0, fileBytes.Length, "file", fileName);
-    //}
+        return new FormFile(new MemoryStream(fileBytes), 0, fileBytes.Length, "file", fileName);
+    }
 
-    //public static string ConvertFromIFormFile(IFormFile formFile)
-    //{
-    //    using (var streamReader = new StreamReader(formFile.OpenReadStream()))
-    //    {
-    //        return streamReader.ReadToEnd();
-    //    }
-    //}
+    public static string ConvertFromIFormFile(IFormFile formFile)
+    {
+        using (var streamReader = new StreamReader(formFile.OpenReadStream()))
+        {
+            return streamReader.ReadToEnd();
+        }
+    }
 
 }

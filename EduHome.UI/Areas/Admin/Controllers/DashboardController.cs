@@ -8,7 +8,9 @@ using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using System.Reflection.Metadata;
+using System.Text;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
@@ -85,17 +87,25 @@ public class DashboardController : Controller
         }
         BlogViewModel model = new()
         {
-            //ImagePath = blog.filePath,
             Data_Time = DateTime.Now,
             Decs = blog.Description,
             MessageNum = blog.MessageNum,
             PersonName = blog.PersonName,
             Name = blog.Name
         };
-        return View(model);
-}
 
-[HttpPost]
+        //if (!string.IsNullOrEmpty(blog.ImagePath))
+        //{
+        //    var fileBytes = await System.IO.File.ReadAllBytesAsync(blog.ImagePath); // Dosya yolundaki dosyayı byte dizisine dönüştürme
+        //    var fileName = Path.GetFileName(blog.ImagePath); // Dosya adını alma
+        //    model.ImagePath = new FormFile(new MemoryStream(fileBytes), 0, fileBytes.Length, "dosya", fileName); // IFormFile nesnesini oluşturma
+        //}
+
+        return View(model);
+    }
+
+
+    [HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Edit(int id, BlogViewModel blogViewModel)
 {
