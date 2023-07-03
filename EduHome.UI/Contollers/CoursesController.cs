@@ -17,7 +17,8 @@ public class CoursesController : Controller
     {
         HomeViewModel model = new HomeViewModel
         {
-            courses = await _context.Coursess.ToListAsync()
+            courses = await _context.Coursess.ToListAsync(),
+            blogs = await _context.Blogs.ToListAsync() 
         };
         return View(model);
     }

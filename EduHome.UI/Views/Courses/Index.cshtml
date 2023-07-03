@@ -5,6 +5,7 @@
 }
 
 <!-- Banner Area Start -->
+<!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
         <div class="container">
@@ -12,7 +13,7 @@
                 <div class="col-12">
                     <div class="banner-content-wrapper">
                         <div class="banner-content">
-                            <h2>courses</h2>
+                            <h2>Course / right side bar</h2>
                         </div>
                     </div>
                 </div>
@@ -21,47 +22,128 @@
     </div>
 </div>
 <!-- Banner Area End -->
-<!-- Course Start -->
-<div class="course-area pt-150 pb-150">
+<!-- Blog Start -->
+<div class="blog-area pt-150 pb-150">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="course-title">
-                    <h3>search courses</h3>
-                </div>
-                <div class="course-form">
-                    <form id="search" action="#">
-                        <input type="search" placeholder="Search..." name="search" />
-                        <button type="submit">search</button>
-                    </form>
+            <div class="col-lg-8">
+                <div class="row">
+                    @foreach (var course in Model.courses)
+                    {
+                        <div class="col-md-6">
+                        <div class="single-blog mb-60">
+                                <div class="single-course">
+                                    <div class="course-img">
+                                        <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">
+                                            <img style="height:240px;" src="/@course.ImagePath" alt="course">
+                                            <div class="course-hover">
+                                                <i class="fa fa-link"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="course-content">
+                                        <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">@course.Name</a></h3>
+                                        <p>@(course.Descripton.Length > 120 ? course.Descripton.Substring(0, 120) : course.Descripton)</p>
+                                        <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" class="default-btn">read more</a>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    }
                 </div>
             </div>
-        </div>
-        <div class="row">
-            @foreach (var cours in Model.courses)
-            {
-                <div class="col-lg-4 col-md-6">
-                <div class="single-course mb-70">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img style="width:380px;height:230px" src="/@cours.ImagePath" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
+            <div class="col-lg-4">
+                <div class="blog-sidebar right">
+                    <div class="single-blog-widget mb-50">
+                        <h3>search</h3>
+                        <div class="blog-search">
+                            <form id="search" action="#">
+                                <input type="search" placeholder="Search..." name="search" />
+                                <button type="submit">
+                                    <span><i class="fa fa-search"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>categories</h3>
+                        <ul>
+                            <li><a href="#">CSS Engineering (10)</a></li>
+                            <li><a href="#">Political Science (12)</a></li>
+                            <li><a href="#">Micro Biology (08)</a></li>
+                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
+                            <li><a href="#">Web Design (20)</a></li>
+                            <li><a href="#">PHP (23)</a></li>
+                        </ul>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <div class="single-blog-banner">
+                            <a href="blog-details.html" id="blog"><img src="img/blog/blog-img.jpg" alt="blog"></a>
+                            <h2>best<br> eductaion<br> theme</h2>
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>latest post</h3>
+                        <div class="single-post mb-30">
+                            <div class="single-post-img">
+                                <a href="blog-details.html">
+                                    <img src="img/post/post1.jpg" alt="post">
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                            <div class="single-post-content">
+                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
+                                <p>By Alex  /  June 20, 2021</p>
+                            </div>
+                        </div>
+                        <div class="single-post mb-30">
+                            <div class="single-post-img">
+                                <a href="blog-details.html">
+                                    <img src="img/post/post2.jpg" alt="post">
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="single-post-content">
+                                <h4><a href="blog-details.html">Advance Web Design and Develop</a></h4>
+                                <p>By Alex  /  June 20, 2021</p>
+                            </div>
+                        </div>
+                        <div class="single-post">
+                            <div class="single-post-img">
+                                <a href="blog-details.html">
+                                    <img src="img/post/post3.jpg" alt="post">
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="single-post-content">
+                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
+                                <p>By Alex  /  June 20, 2021</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="course-content">
-                        <h3><a href="course-details.html">@cours.Name</a></h3>
-                        <p>@cours.Descripton.Substring(0,60)</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
+                    <div class="single-blog-widget">
+                        <h3>tags</h3>
+                        <div class="single-tag">
+                            <a href="blog-details.html" class="mr-10 mb-10">course</a>
+                            <a href="blog-details.html" class="mr-10 mb-10">education</a>
+                            <a href="blog-details.html" class="mb-10">teachers</a>
+                            <a href="blog-details.html" class="mr-10">learning</a>
+                            <a href="blog-details.html" class="mr-10">university</a>
+                            <a href="blog-details.html">events</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            }
         </div>
     </div>
 </div>
-<!-- Course End -->
+<!-- Blog End -->
 <!-- Subscribe Start -->
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">
@@ -92,3 +174,4 @@
         </div>
     </div>
 </div>
+<!-- Subscribe End -->
