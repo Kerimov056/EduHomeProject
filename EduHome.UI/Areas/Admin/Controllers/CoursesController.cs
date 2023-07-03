@@ -28,14 +28,14 @@ public class CoursesController : Controller
 
     public async Task<IActionResult> Index()
     {
-        int sum = 0;
-        var course = await _context.Coursess.ToListAsync();
-        foreach (var c in course)
-        {
-            sum++;
-        }
+        //int sum = 0;
+        //var course = await _context.Coursess.ToListAsync();
+        //foreach (var c in course)
+        //{
+        //    sum++;
+        //}
 
-        TempData["CourseSum"] = sum;
+        //TempData["CourseSum"] = sum;
 
         HomeViewModel homeViewModel = new()
         {
