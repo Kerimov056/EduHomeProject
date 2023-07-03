@@ -35,7 +35,7 @@ public class CoursesController : Controller
         //    sum++;
         //}
 
-        //TempData["CourseSum"] = sum;
+        //TempData["CourseSum"] = sum; //------------------Cix
 
         HomeViewModel homeViewModel = new()
         {
