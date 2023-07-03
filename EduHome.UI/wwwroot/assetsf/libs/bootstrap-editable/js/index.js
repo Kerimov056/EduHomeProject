@@ -6489,7 +6489,7 @@ Bootstrap-datetimepicker.
 Based on [smalot bootstrap-datetimepicker plugin](https://github.com/smalot/bootstrap-datetimepicker). 
 Before usage you should manually include dependent js and css:
 
-    <link href="css/datetimepicker.css" rel="stylesheet" type="text/css"></link> 
+    <link href="/assets/css/datetimepicker.css" rel="stylesheet" type="text/css"></link> 
     <script src="js/bootstrap-datetimepicker.js"></script>
 
 For **i18n** you should include js file from here: https://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales

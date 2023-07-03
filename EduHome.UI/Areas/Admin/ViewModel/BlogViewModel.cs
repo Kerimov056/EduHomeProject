@@ -4,7 +4,7 @@ namespace EduHome.UI.Areas.Admin.ViewModel;
 
 public class BlogViewModel
 {
-    public IFormFile ImagePath { get; set; } = null!;
+    public IFormFile ImagePath { get; set; } 
     [Required, MaxLength(90)]
     public string Name { get; set; } = null!;
     [Required, MaxLength(30)]
