@@ -31,7 +31,7 @@
                     @foreach (var course in Model.courses)
                     {
                         <div class="col-md-6">
-                        <div class="single-blog mb-60">
+                            <div class="single-blog mb-60">
                                 <div class="single-course">
                                     <div class="course-img">
                                         <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">
@@ -47,8 +47,8 @@
                                         <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" class="default-btn">read more</a>
                                     </div>
                                 </div>
+                            </div>
                         </div>
-                    </div>
                     }
                 </div>
             </div>
@@ -68,74 +68,47 @@
                     <div class="single-blog-widget mb-50">
                         <h3>categories</h3>
                         <ul>
-                            <li><a href="#">CSS Engineering (10)</a></li>
-                            <li><a href="#">Political Science (12)</a></li>
-                            <li><a href="#">Micro Biology (08)</a></li>
-                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
-                            <li><a href="#">Web Design (20)</a></li>
-                            <li><a href="#">PHP (23)</a></li>
+                            @foreach (var category in Model.categories)
+                            {
+                                <li><a href="#">@category.Categorie</a></li>
+                            }
                         </ul>
                     </div>
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">
-                            <a href="blog-details.html" id="blog"><img src="img/blog/blog-img.jpg" alt="blog"></a>
+                            <a href="blog-details.html" id="blog"><img src="/assets/img/blog/blog-img.jpg" alt="blog"></a>
                             <h2>best<br> eductaion<br> theme</h2>
                         </div>
                     </div>
                     <div class="single-blog-widget mb-50">
                         <h3>latest post</h3>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="img/post/post1.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
+                        @foreach (var blog in Model.blogs)
+                        {
+                            <div class="single-post mb-30">
+                                <div class="single-post-img">
+                                    <a href="blog-details.html">
+                                        <img style="height:60px;" src="/@blog.ImagePath" alt="post">
+                                        <div class="blog-hover">
+                                            <i class="fa fa-link"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="single-post-content">
+                                    <h4><a href="blog-details.html">@blog.Name</a></h4>
+                                    <p>@blog.PersonName  /  @blog.Data_Time.ToString("dd MMMM yyy")</p>
+                                </div>
                             </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2021</p>
-                            </div>
-                        </div>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="img/post/post2.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">Advance Web Design and Develop</a></h4>
-                                <p>By Alex  /  June 20, 2021</p>
-                            </div>
-                        </div>
-                        <div class="single-post">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="img/post/post3.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2021</p>
-                            </div>
-                        </div>
+                        }
                     </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>
                         <div class="single-tag">
-                            <a href="blog-details.html" class="mr-10 mb-10">course</a>
-                            <a href="blog-details.html" class="mr-10 mb-10">education</a>
-                            <a href="blog-details.html" class="mb-10">teachers</a>
-                            <a href="blog-details.html" class="mr-10">learning</a>
-                            <a href="blog-details.html" class="mr-10">university</a>
-                            <a href="blog-details.html">events</a>
+                            <a asp-controller="Courses" asp-action="Index" class="mr-10 mb-10">course</a>
+                            <a  class="mr-10 mb-10">education</a>
+                            <a  class="mb-10">teachers</a>
+                            <a  class="mr-10">learning</a>
+                            <a  class="mr-10">university</a>
+                            <a asp-controller="Event" asp-action="Index">events</a>
                         </div>
                     </div>
                 </div>
