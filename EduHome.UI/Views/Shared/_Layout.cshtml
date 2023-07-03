@@ -94,12 +94,13 @@
                                             <a href="contact.html">Buy Now</a>
                                             @if (User.Identity.IsAuthenticated)
                                             {
-                                            <li><a asp-controller="" asp-action="">My Account</a></li>
+                                                <li><a asp-controller="Home" asp-action="Index">My Account</a></li>
                                             }
                                             else
                                             {
-                                            <li> <a asp-controller="SiginUp" asp-action="Register">Sign up</a></li>
+                                                <li> <a asp-controller="SiginUp" asp-action="Register">Sign up</a></li>
                                             }
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

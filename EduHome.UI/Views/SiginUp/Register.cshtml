@@ -7,6 +7,7 @@
     <div class="page-content">
         <div class="container-fluid">
             <div class="row" style="margin-top:20px">
+                <div asp-validation-summary="ModelOnly"></div>
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
@@ -28,7 +29,7 @@
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label asp-for="LastName" for="example-tel-input" class="col-md-2 col-form-label">LastName</label>
+                                    <label asp-for="LastName" for="example-tel-input" class="col-md-2 col-form-label">Username</label>
                                     <div class="col-md-10">
                                         <input asp-for="LastName" class="form-control" type="text">
                                         <span asp-validation-for="LastName" class="text-danger"></span>
@@ -66,6 +67,9 @@
                                         <span asp-validation-for="Terms" class="text-danger"></span>
                                     </div>
                                 </div>
+                                <div class="mb-3 row">
+                                    <button type="submit">Register</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -78,10 +82,10 @@
 
 
 
-@section Scripts
+@*@section Scripts
     {
     @{
         <partial name="_ValidationScript" />
     }
-}
+}*@
 
