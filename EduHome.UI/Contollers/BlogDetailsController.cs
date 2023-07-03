@@ -1,4 +1,5 @@
-﻿using EduHome.UI.ViewModel;
+﻿using EduHome.Core.Entities;
+using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,7 @@ public class BlogDetailsController : Controller
     }
     public async Task<IActionResult> Index(int id )
     {
-        if (id == 0 || id == null)
+        if (id == 0)
         {
             return NotFound();
         }
@@ -23,7 +24,8 @@ public class BlogDetailsController : Controller
         {
             return NotFound();
         }
-        ViewBag.BlogId = id;
+        ViewBag.BlogId = blog.Id;
+
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),

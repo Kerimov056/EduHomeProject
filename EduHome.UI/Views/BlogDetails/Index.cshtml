@@ -3,30 +3,30 @@
     ViewData["Title"] = "Index";
 }
 
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>blog details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
 @foreach (var item in Model.blogs)
 {
     if (item.Id == ViewBag.BlogId)
     {
         <form method="post">
-            <!-- Banner Area Start -->
-            <div class="banner-area-wrapper">
-                <div class="banner-area text-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="banner-content-wrapper">
-                                    <div class="banner-content">
-                                        <h2>blog details</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Banner Area End -->
-            <!-- Blog Start -->
-
             <div class="blog-details-area pt-150 pb-140">
                 <div class="container">
                     <div class="row">
@@ -38,9 +38,7 @@
                                 <div class="blog-details-content">
                                     <h2>@item.Name</h2>
                                     <h6>@item.PersonName  /  @item.Data_Time  /  <i class="fa fa-comments-o"></i> @item.MessageNum</h6>
-                                    <p>@item.Description.Substring(0,300)</p>
-                                    <p>@item.Description.Substring(301,600)</p>
-                                    <p>@item.Description.Substring(601)</p>
+                                    <p>@item.Description</p>
                                 </div>
                                 <div class="reply-area">
                                     <h3>LEAVE A REPLY</h3>
@@ -194,5 +192,8 @@
         </form>
         break;
     }
-    <!-- Subscribe End -->
+    else
+    {
+        continue;
+    }
 }

@@ -1,4 +1,5 @@
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\bin\Debug\net6.0\EduHome.Core.deps.json
+D:\work2\Asp.net MVC\EduHome\EduHome.Core\bin\Debug\net6.0\EduHome.Core.runtimeconfig.json
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\bin\Debug\net6.0\EduHome.Core.dll
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\bin\Debug\net6.0\EduHome.Core.pdb
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\EduHome.Core.csproj.AssemblyReference.cache
@@ -9,6 +10,5 @@ D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\EduHome.Core.csproj.C
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\EduHome.Core.dll
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\refint\EduHome.Core.dll
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\EduHome.Core.pdb
-D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\ref\EduHome.Core.dll
-D:\work2\Asp.net MVC\EduHome\EduHome.Core\bin\Debug\net6.0\EduHome.Core.runtimeconfig.json
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\EduHome.Core.genruntimeconfig.cache
+D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\ref\EduHome.Core.dll

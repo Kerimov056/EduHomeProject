@@ -24,6 +24,15 @@ public class EventsController : Controller
 
     public async Task<IActionResult> Index()
     {
+        int sum = 0;
+        var events = await _context.Eventss.ToListAsync();
+        foreach (var c in events)
+        {
+            sum++;
+        }
+
+        TempData["EventSum"] = sum;
+
         HomeViewModel model = new()
         {
             events = await _eventServices.GetEvent()
@@ -164,11 +173,8 @@ public class EventsController : Controller
 
         string filePath = await eventsViewModel.Image.CopyFileAsync(_env.WebRootPath, "assets", "img", "event");
 
-        events.Name = eventsViewModel.Name;
-        events.DateTime = eventsViewModel.DateTime;
-        events.Location = eventsViewModel.Location;
+        _context.Entry(events).CurrentValues.SetValues(eventsViewModel);
         events.Details.ImagePath = filePath;
-        events.Details.Description = eventsViewModel.Description;
 
         await _eventServices.EditAsync(id,events);
         await _context.SaveChangesAsync();

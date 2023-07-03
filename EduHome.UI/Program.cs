@@ -4,8 +4,7 @@ using EduHome.UI.Areas.Admin.Data.Services;
 using EduHomeDataAccess.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using EduHome.UI.Data;
-using EduHome.UI.Areas.Identity.Data;
+using EduHome.Core.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -28,28 +27,36 @@ builder.Services.AddScoped<ISliderServices, SliderServices>();
 builder.Services.AddScoped<IEventServices, EventServices>();
 
 
-//builder.Services.AddDefaultIdentity<ApplicationAdminUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<EduHomeUIContext>();
+builder.Services.AddIdentity<User, IdentityRole>(opt =>
+{
+    opt.Password.RequiredUniqueChars = 3;
+    opt.Password.RequireNonAlphanumeric = false;
+    opt.Password.RequiredLength = 6;
+    opt.Password.RequireDigit = true;
+    opt.Password.RequireLowercase = true;
+    opt.Password.RequireUppercase = false;
 
-//builder.Services.AddRazorPages();
+    opt.User.RequireUniqueEmail= false;
+    opt.Lockout.MaxFailedAccessAttempts = 5;
+    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+
+}).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
 
 var app = builder.Build();
-
-app.UseStatusCodePagesWithRedirects("/Shared/NotFound?statusCode={0}");
 app.UseStaticFiles();
-//app.UseAuthentication();
 
 app.UseExceptionHandler("/Home/Error");
 app.UseStatusCodePages();
 app.UseStatusCodePagesWithReExecute("/StatusCodeError/{0}");
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
      name: "areas",
      pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
     );
-//app.MapRazorPages();
 
 app.MapControllerRoute(
        name: "default",

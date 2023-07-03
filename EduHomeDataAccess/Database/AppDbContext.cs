@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using EduHome.Core.Entities;
+﻿using EduHome.Core.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace EduHomeDataAccess.Database;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<User>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -37,7 +38,7 @@ public class AppDbContext : DbContext
     public DbSet<Courses> Coursess { get; set; }
     public DbSet<CoursesDetails> CoursesDetailss { get; set; }
     public DbSet<Categories> Categoriess { get; set; }
-    
+
     public DbSet<Events> Eventss { get; set; }
     public DbSet<Speakers> Speakerss { get; set; }
     public DbSet<EventsDetails> EventsDetailss { get; set; }

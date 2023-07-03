@@ -1,0 +1,60 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row" style="margin-top:20px">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" asp-action="Register">
+
+                                <div class="mb-3 row">
+                                    <label asp-for="UserName" for="example-tel-input" class="col-md-2 col-form-label">UserName</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="UserName" class="form-control" type="text">
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Password" for="example-tel-input" class="col-md-2 col-form-label">Password</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Password" class="form-control" type="password">
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="IsLoggedIn" for="example-tel-input" class="col-md-2 col-form-label">Password</label>
+                                    <div class="col-md-10">
+                                        <input asp-for="IsLoggedIn" class="form-control" type="checkbox">
+                                        <span asp-validation-for="IsLoggedIn" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScript" />
+    }
+}
+
+

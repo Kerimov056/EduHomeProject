@@ -90,7 +90,16 @@
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="contact.html">Buy Now</a>
+                                        <li>
+                                            <a href="contact.html">Buy Now</a>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                            <li><a asp-controller="" asp-action="">My Account</a></li>
+                                            }
+                                            else
+                                            {
+                                            <li> <a asp-controller="SiginUp" asp-action="Register">Sign up</a></li>
+                                            }
                                     </ul>
                                 </nav>
                             </div>
@@ -105,89 +114,89 @@
     <div>
         @RenderBody()
     </div>
-     <!-- Footer Start -->
-        <footer class="footer-area">
-            <div class="main-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-widget pr-60">
-                                <div class="footer-logo pb-25">
-                                    <a href="index.html"><img src="assets/img/logo/footer-logo.png" alt="eduhome"></a>
-                                </div>
-                                <p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and give you a coete account of the system. </p>
-                                <div class="footer-social">
-                                    <ul>
-                                        <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                    </ul>    
-                                </div>
+    <!-- Footer Start -->
+    <footer class="footer-area">
+        <div class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-widget pr-60">
+                            <div class="footer-logo pb-25">
+                                <a href="index.html"><img src="assets/img/logo/footer-logo.png" alt="eduhome"></a>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="single-widget">
-                                <h3>information</h3>
+                            <p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and give you a coete account of the system. </p>
+                            <div class="footer-social">
                                 <ul>
-                                    <li><a href="#">addmission</a></li>
-                                    <li><a href="#">Academic Calender</a></li>
-                                    <li><a href="event.html">Event List</a></li>
-                                    <li><a href="#">Hostel &amp; Dinning</a></li>
-                                    <li><a href="#">TimeTable</a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-6 pt-4 pt-lg-0">
-                            <div class="single-widget">
-                                <h3>useful links</h3>
-                                <ul>
-                                    <li><a href="course.html">our courses</a></li>
-                                    <li><a href="about.html">about us</a></li>
-                                    <li><a href="teacher.html">teachers &amp; faculty</a></li>
-                                    <li><a href="#">teams &amp; conditions</a></li>
-                                    <li><a href="event.html">our events</a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-widget">
+                            <h3>information</h3>
+                            <ul>
+                                <li><a href="#">addmission</a></li>
+                                <li><a href="#">Academic Calender</a></li>
+                                <li><a href="event.html">Event List</a></li>
+                                <li><a href="#">Hostel &amp; Dinning</a></li>
+                                <li><a href="#">TimeTable</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-3 col-md-6 pt-4 pt-lg-0">
-                            <div class="single-widget">
-                                <h3>get in touch</h3>
-                                <p>Your address goes here, Street<br>City, Roadno 785 New York</p>
-                                <p>+880  548  986  898  87<br>+880  659  785  658  98</p>
-                                <p>info@example.com<br>www.example.com</p>
-                            </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 pt-4 pt-lg-0">
+                        <div class="single-widget">
+                            <h3>useful links</h3>
+                            <ul>
+                                <li><a href="course.html">our courses</a></li>
+                                <li><a href="about.html">about us</a></li>
+                                <li><a href="teacher.html">teachers &amp; faculty</a></li>
+                                <li><a href="#">teams &amp; conditions</a></li>
+                                <li><a href="event.html">our events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 pt-4 pt-lg-0">
+                        <div class="single-widget">
+                            <h3>get in touch</h3>
+                            <p>Your address goes here, Street<br>City, Roadno 785 New York</p>
+                            <p>+880  548  986  898  87<br>+880  659  785  658  98</p>
+                            <p>info@example.com<br>www.example.com</p>
                         </div>
                     </div>
                 </div>
-            </div>   
-            <div class="footer-bottom text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <p>Copyright © <a href="#">Eduhome</a> 2022. All Right Reserved</p>
-                        </div> 
-                    </div>
-                </div>    
             </div>
-        </footer>
-        <!-- Footer End -->
+        </div>
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>Copyright © <a href="#">Eduhome</a> 2022. All Right Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
 
-        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/jquery.meanmenu.js"></script>
-        <script src="assets/js/jquery.magnific-popup.js"></script>
-        <script src="assets/js/ajax-mail.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/jquery.mb.YTPlayer.js"></script>
-        <script src="assets/js/jquery.nicescroll.min.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <script src="assets/js/ajax-mail.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.mb.YTPlayer.js"></script>
+    <script src="assets/js/jquery.nicescroll.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    </body>
+</body>
 
 <!-- Mirrored from htmldemo.net/tm/eduhome/eduhome/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jun 2023 06:57:08 GMT -->
 </html>

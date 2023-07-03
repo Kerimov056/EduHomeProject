@@ -31,6 +31,7 @@ public class HomeController : Controller
     }
 
 
+
     [Route("/StatusCodeError/{statusCode}")]
     public IActionResult Error(int statusCode)
     {
@@ -41,6 +42,5 @@ public class HomeController : Controller
         }
         return RedirectToAction("Index");
     }
-
 
 }

@@ -14,6 +14,7 @@
                         <div class="card-body" style="font-size:18px">
                             <h4 class="card-title" style="font-size:18px;color:green">Cours</h4>
                             <a asp-area="Admin" asp-action="Create" class="btn btn-outline-success" style="font-size:16px;"><i class="bx bx-plus-circle"></i> Create new Cours</a>
+                            <td">Total Course: @TempData["CourseSum"]</td>
                             <div class="table-rep-plugin">
                                 <div class="table-responsive mb-0" data-pattern="priority-columns">
                                     <table id="tech-companies-1" class="table table-striped">
@@ -28,6 +29,7 @@
                                                 <th data-priority="3" style=" color:red">Delete</th>
                                             </tr>
                                         </thead>
+                                                    
                                         <tbody>
                                             @foreach (var item in Model.courses)
                                             {

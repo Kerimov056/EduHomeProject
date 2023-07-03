@@ -44,9 +44,7 @@
                                         <li><span>time : </span>@item.Events.DateTime.ToString("h.mm tt")</li>
                                         <li><span>venue : </span>@item.Events.Location</li>
                                     </ul>
-                                    <p>@item.Events.Details.Description.Substring(0,300)</p>
-                                    <p>@item.Events.Details.Description.Substring(301,601)</p>
-                                    <p>@item.Events.Details.Description.Substring(602)</p>
+                                    <p>@item.Events.Details.Description</p>
                                     <div class="speakers-area fix">
                                         <h4>speakers</h4>
                                         @foreach (var speakers in Model.events.Where(e =>e.Id == item.Events.Id).SelectMany(e =>e.Events_Speakers.Select(es=>es.Speakers)))

@@ -28,6 +28,15 @@ public class CoursesController : Controller
 
     public async Task<IActionResult> Index()
     {
+        int sum = 0;
+        var course = await _context.Coursess.ToListAsync();
+        foreach (var c in course)
+        {
+            sum++;
+        }
+
+        TempData["CourseSum"] = sum;
+
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
@@ -210,6 +219,7 @@ public class CoursesController : Controller
             ViewBag.catagory = await _context.Categoriess.ToListAsync();
             return View(viewModel);
         }
+
 
 
         course.ImagePath = filePath;

@@ -17,7 +17,7 @@ public class CourseDetailsController : Controller
 
     public async Task<IActionResult> Index(int id)
     {
-        if (id == 0 || id == null)
+        if (id == 0)
         {
             return NotFound();
         }
@@ -27,6 +27,7 @@ public class CourseDetailsController : Controller
             return NotFound();
         }
         ViewBag.Id = cart.Id;
+
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),

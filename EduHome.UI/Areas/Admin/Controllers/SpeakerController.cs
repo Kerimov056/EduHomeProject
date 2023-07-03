@@ -27,6 +27,15 @@ public class SpeakerController : Controller
     }
     public async Task<IActionResult> Index()
     {
+        int sum = 0;
+        var speaker = await _context.Speakerss.ToListAsync();
+        foreach (var c in speaker)
+        {
+            sum++;
+        }
+
+        TempData["SpeakerSum"] = sum;
+
         HomeViewModel model = new()
         {
             speakers = await _spkearServices.GetSpeakers()
