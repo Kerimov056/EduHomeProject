@@ -1185,6 +1185,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\slider\\slider3.jpg"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\teacher\\men.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\teacher\\men.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\wwwroot\\assets\\img\\teacher\\teacher-details.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\teacher\\teacher-details.jpg"
     },

@@ -22,6 +22,33 @@ namespace EduHomeDataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("EduHome.Core.Entities.About", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Imagepath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Abouts");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Blog", b =>
                 {
                     b.Property<int>("Id")
@@ -364,6 +391,108 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("Speakerss");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.Teacher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(22)
+                        .HasColumnType("nvarchar(22)");
+
+                    b.Property<string>("Posistion")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.TeacherDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("CommunicationDegree")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Degree")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
+
+                    b.Property<decimal>("DesignDegree")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("DevelopmentDegree")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(125)
+                        .HasColumnType("nvarchar(125)");
+
+                    b.Property<int>("Experince")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Facultry")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
+
+                    b.Property<string>("Hobbies")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<decimal>("InnovationDegree")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LanguageDegree")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("Skaype")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TeamLeaderDegree")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeacherId")
+                        .IsUnique();
+
+                    b.ToTable("TeacherDetails");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -618,6 +747,17 @@ namespace EduHomeDataAccess.Migrations
                     b.Navigation("Events");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.TeacherDetails", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.Teacher", "Teacher")
+                        .WithOne("teacherDetails")
+                        .HasForeignKey("EduHome.Core.Entities.TeacherDetails", "TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Teacher");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -691,6 +831,12 @@ namespace EduHomeDataAccess.Migrations
             modelBuilder.Entity("EduHome.Core.Entities.Speakers", b =>
                 {
                     b.Navigation("Events_Speakers");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Teacher", b =>
+                {
+                    b.Navigation("teacherDetails")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

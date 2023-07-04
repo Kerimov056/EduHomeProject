@@ -29,6 +29,7 @@ public class BlogDetailsController : Controller
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
+            categories = await _context.Categoriess.ToListAsync(),
         };
         return View(homeViewModel);
     }

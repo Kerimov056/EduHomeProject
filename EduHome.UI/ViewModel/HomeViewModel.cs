@@ -15,6 +15,9 @@ public class HomeViewModel
     public IEnumerable<EventsDetails> eventsDetails { get; set; }
     public IEnumerable<Speakers> speakers { get; set; }
     public IEnumerable<Events_Speakers> events_Speakers { get; set; }
+    public IEnumerable<About> abouts { get; set; }
+    public IEnumerable<TeacherDetails> teacherDetails { get; set; }
+    public IEnumerable<Teacher> teachers { get; set; }
 
 
 }
