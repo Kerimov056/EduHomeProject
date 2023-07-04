@@ -1,77 +1,56 @@
 ﻿@model RegisterVM
 @{
     ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 
 
-<div class="main-content">
-    <div class="page-content">
-        <div class="container-fluid">
-            <div class="row" style="margin-top:20px">
-                <div asp-validation-summary="ModelOnly"></div>
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <form method="post" asp-action="Register">
-                                <div class="mb-3 row">
-                                    <label asp-for="FirstName" for="example-tel-input" class="col-md-2 col-form-label">FirstName</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="FirstName" class="form-control" type="text">
-                                        <span asp-validation-for="FirstName" class="text-danger"></span>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <label asp-for="UserName" for="example-tel-input" class="col-md-2 col-form-label">LastName</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="UserName" class="form-control" type="text">
-                                        <span asp-validation-for="UserName" class="text-danger"></span>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <label asp-for="LastName" for="example-tel-input" class="col-md-2 col-form-label">Username</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="LastName" class="form-control" type="text">
-                                        <span asp-validation-for="LastName" class="text-danger"></span>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <label asp-for="Email" for="example-tel-input" class="col-md-2 col-form-label">Email</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="Email" class="form-control" type="email">
-                                        <span asp-validation-for="Email" class="text-danger"></span>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <label asp-for="Password" for="example-tel-input" class="col-md-2 col-form-label">Password</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="Password" class="form-control" type="password">
-                                        <span asp-validation-for="Password" class="text-danger"></span>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <label asp-for="ConfirmPassword" for="example-tel-input" class="col-md-2 col-form-label">ConfirmPassword</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="ConfirmPassword" class="form-control" type="password">
-                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <label asp-for="Terms" for="example-tel-input" class="col-md-2 col-form-label">IF</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="Terms" class="form-control" type="checkbox">
-                                        <span asp-validation-for="Terms" class="text-danger"></span>
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <button type="submit">Register</button>
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>login</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Login start -->
+<div class="login-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>Register</h2>
+                            <span>Please login using account detail bellow.</span>
+                        </div>
+                        <div class="login-form">
+                            <form action="#" method="post">
+                                <input asp-for="FirstName" type="text" name="user-name" placeholder="First Name">
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                                <input asp-for="LastName" type="text" name="user-name" placeholder="Last Name">
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                                <input asp-for="UserName" type="text" name="user-name" placeholder="Username">
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                                <input asp-for="Email" type="email" name="user-name" placeholder="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                                <input asp-for="Password" type="password" name="user-password" placeholder="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                                <input asp-for="ConfirmPassword" type="password" name="user-password" placeholder="Password">
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                <div class="button-box">
+                                    <button type="submit" class="default-btn">Register</button>
+                                    <a style="margin-left:220px" asp-action="LogIn"><button type="submit" class="default-btn">Log in</button></a>
                                 </div>
                             </form>
                         </div>
@@ -81,14 +60,41 @@
         </div>
     </div>
 </div>
-
-
-
-
+<!-- Login end -->
+<!-- Subscribe Start -->
+<div class="subscribe-area pt-60 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="subscribe-content section-title text-center">
+                    <h2>subscribe our newsletter</h2>
+                    <p>I must explain to you how all this mistaken idea </p>
+                </div>
+                <div class="newsletter-form mc_embed_signup">
+                    <form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll" class="mc-form">
+                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                            <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>subscribe</span></button>
+                        </div>
+                    </form>
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts">
+                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                    </div>
+                    <!-- mailchimp-alerts end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->
 @*@section Scripts
     {
     @{
         <partial name="_ValidationScript" />
     }
 }*@
-

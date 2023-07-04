@@ -12,19 +12,19 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/meanmenu.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/et-line-icon.css">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="~/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/et-line-icon.css">
+    <link rel="stylesheet" href="~/assets/css/reset.css">
+    <link rel="stylesheet" href="~/assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
+    <script src="~/assets/js/vendor/modernizr-3.11.2.min.js"></script>
 </head>
 <body>
     <!--[if lt IE 8]>
@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt="eduhome" /></a>
+                            <a href="index.html"><img src="~/assets/img/logo/logo.png" alt="eduhome" /></a>
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -50,7 +50,6 @@
                                             <a asp-controller="Home" asp-action="Index">Home</a>
                                             <ul>
                                                 <li><a href="index.html">Home One</a></li>
-                                                <li><a href="index-2.html">Home Two</a></li>
                                                 <li><a href="index-3.html">Home Three</a></li>
                                                 <li><a href="index-4.html">Home Four</a></li>
                                                 <li><a href="index-5.html">Home Five</a></li>
@@ -92,14 +91,15 @@
                                         <li><a href="contact.html">Contact</a></li>
                                         <li>
                                             <a href="contact.html">Buy Now</a>
-                                            @if (User.Identity.IsAuthenticated)
-                                            {
-                                                <li><a asp-controller="Home" asp-action="Index">My Account</a></li>
-                                            }
-                                            else
-                                            {
-                                                <li> <a asp-controller="SiginUp" asp-action="Register">Sign up</a></li>
-                                            }
+                                        </li>
+                                        <li>
+                                            <a asp-controller="SiginUp" asp-action="LogIn">SiginUp</a>
+                                            <ul>
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
+                                                <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
+                                                <li><a href="blog-details.html">blog details</a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </nav>
@@ -123,7 +123,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-widget pr-60">
                             <div class="footer-logo pb-25">
-                                <a href="index.html"><img src="assets/img/logo/footer-logo.png" alt="eduhome"></a>
+                                <a href="index.html"><img src="~/assets/img/logo/footer-logo.png" alt="eduhome"></a>
                             </div>
                             <p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and give you a coete account of the system. </p>
                             <div class="footer-social">
@@ -183,17 +183,17 @@
     </footer>
     <!-- Footer End -->
 
-    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jquery.meanmenu.js"></script>
-    <script src="assets/js/jquery.magnific-popup.js"></script>
-    <script src="assets/js/ajax-mail.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.mb.YTPlayer.js"></script>
-    <script src="assets/js/jquery.nicescroll.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="~/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="~/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/jquery.meanmenu.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.js"></script>
+    <script src="~/assets/js/ajax-mail.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/jquery.mb.YTPlayer.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/main.js"></script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

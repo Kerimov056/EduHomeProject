@@ -46,9 +46,9 @@ builder.Services.AddIdentity<User, IdentityRole>(opt =>
 var app = builder.Build();
 app.UseStaticFiles();
 
-app.UseExceptionHandler("/Home/Error");
-app.UseStatusCodePages();
-app.UseStatusCodePagesWithReExecute("/StatusCodeError/{0}");
+//app.UseExceptionHandler("/Home/Error");
+//app.UseStatusCodePages();
+//app.UseStatusCodePagesWithReExecute("/StatusCodeError/{0}");
 
 app.UseAuthentication();
 app.UseAuthorization();

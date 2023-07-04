@@ -39,7 +39,6 @@ public class SiginUpController : Controller
         IdentityResult result = await _userManager.CreateAsync(user, register.Password);
         if (!result.Succeeded)
         {
-
             foreach (IdentityError message in result.Errors)
             {
                 ModelState.AddModelError("", message.Description);
@@ -86,4 +85,6 @@ public class SiginUpController : Controller
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
+
+
 }

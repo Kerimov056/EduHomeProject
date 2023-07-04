@@ -1,0 +1,59 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Index";
+    int Count = 1;
+}
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body" style="font-size:18px">
+                            <h4 class="card-title" style="font-size:18px;color:dark">Teachers</h4>
+                            <a asp-area="Admin" asp-action="Create" class="btn btn-outline-dark" style="font-size:16px;"><i class="bx bx-plus-circle"></i> Create new Teacher</a>
+                            <td>Total Teacher: @TempData["SpeakerSum"]</td>
+                            <div class="table-rep-plugin">
+                                <div class="table-responsive mb-0" data-pattern="priority-columns">
+                                    <table id="tech-companies-1" class="table table-striped">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Count</th>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Postion</th>
+                                                <th>------Settings</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.teachers)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@Count</th>
+                                                    <td><img style="width:100px;height:80px; object-fit:cover" src="/@item.ImagePath" /></td>
+                                                    <td>@item.Name</td>
+                                                    <td>@item.Posistion</td>
+                                                    <td style="display:flex;justify-content:center;weight:190px;">
+                                                        <button type="button" class="btn btn-primary waves-effect waves-light" style="margin-left:10px"><a style="color:white" asp-action="Details" asp-route-id="@item.Id">Details</a></button>
+                                                        <button type="button" class="btn btn-warning waves-effect waves-light" style="margin-left:10px"><a style="color:white" asp-action="Edit" asp-route-id="@item.Id">Edit</a></button>
+                                                        <button type="button" class="btn btn-danger waves-effect waves-light" style="margin-left:10px"><a asp-action="Delete" asp-route-id="@item.Id" style="color:white">Delete</a></button>
+                                                    </td>
+                                                </tr>
+                                                Count++;
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+        </div>
+    </div>
+</div>
+
+
