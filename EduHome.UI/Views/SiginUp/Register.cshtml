@@ -14,7 +14,7 @@
                 <div class="col-12">
                     <div class="banner-content-wrapper">
                         <div class="banner-content">
-                            <h2>login</h2>
+                            <h2>Register</h2>
                         </div>
                     </div>
                 </div>
@@ -35,24 +35,24 @@
                             <span>Please login using account detail bellow.</span>
                         </div>
                         <div class="login-form">
-                            <form action="#" method="post">
-                                <input asp-for="FirstName" type="text" name="user-name" placeholder="First Name">
+                            <form method="post">
+                                <input asp-for="FirstName" type="text"  placeholder="First Name">
                                 <span asp-validation-for="FirstName" class="text-danger"></span>
-                                <input asp-for="LastName" type="text" name="user-name" placeholder="Last Name">
+                                <input asp-for="LastName" type="text" placeholder="Last Name">
                                 <span asp-validation-for="LastName" class="text-danger"></span>
-                                <input asp-for="UserName" type="text" name="user-name" placeholder="Username">
+                                <input asp-for="UserName" type="text"  placeholder="Username">
                                 <span asp-validation-for="UserName" class="text-danger"></span>
-                                <input asp-for="Email" type="email" name="user-name" placeholder="Email">
+                                <input asp-for="Email" type="email"  placeholder="Email">
                                 <span asp-validation-for="Email" class="text-danger"></span>
-                                <input asp-for="Password" type="password" name="user-password" placeholder="Password">
+                                <input asp-for="Password" type="password"  placeholder="Password">
                                 <span asp-validation-for="Password" class="text-danger"></span>
-                                <input asp-for="ConfirmPassword" type="password" name="user-password" placeholder="Password">
+                                <input asp-for="ConfirmPassword" type="password"  placeholder="Password">
                                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                 <div class="button-box">
                                     <button type="submit" class="default-btn">Register</button>
-                                    <a style="margin-left:220px" asp-action="LogIn"><button type="submit" class="default-btn">Log in</button></a>
                                 </div>
                             </form>
+                            <a style="margin-left:220px" asp-action="LogIn"><button type="submit" class="default-btn">Log in</button></a>
                         </div>
                     </div>
                 </div>
@@ -92,6 +92,9 @@
     </div>
 </div>
 <!-- Subscribe End -->
+
+
+
 @*@section Scripts
     {
     @{

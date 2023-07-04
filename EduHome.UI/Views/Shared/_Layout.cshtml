@@ -92,15 +92,23 @@
                                         <li>
                                             <a href="contact.html">Buy Now</a>
                                         </li>
-                                        <li>
-                                            <a asp-controller="SiginUp" asp-action="LogIn">SiginUp</a>
-                                            <ul>
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
-                                                <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
-                                                <li><a href="blog-details.html">blog details</a></li>
-                                            </ul>
-                                        </li>
+
+
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li>
+                                                <a style="color:white">@User.Identity.Name</a>
+                                                <ul>
+                                                    <li><a asp-controller="SiginUp" asp-action="LogOut">Log Out</a></li>
+                                                </ul>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a asp-controller="SiginUp" asp-action="LogIn">SiginUp</a>
+                                            </li>
+                                        }
                                     </ul>
                                 </nav>
                             </div>
