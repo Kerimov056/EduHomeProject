@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\EduHome.UI.csproj": {}
+    "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\EduHome.UI.csproj": {}
   },
   "projects": {
-    "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj": {
+    "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.Core\\EduHome.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj",
+        "projectUniqueName": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.Core\\EduHome.Core.csproj",
         "projectName": "EduHome.Core",
-        "projectPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj",
+        "projectPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.Core\\EduHome.Core.csproj",
         "packagesPath": "C:\\Users\\Legion\\.nuget\\packages\\",
-        "outputPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\obj\\",
+        "outputPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Legion\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -97,14 +97,14 @@
         }
       }
     },
-    "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\EduHome.UI.csproj": {
+    "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\EduHome.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\EduHome.UI.csproj",
+        "projectUniqueName": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\EduHome.UI.csproj",
         "projectName": "EduHome.UI",
-        "projectPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\EduHome.UI.csproj",
+        "projectPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\EduHome.UI.csproj",
         "packagesPath": "C:\\Users\\Legion\\.nuget\\packages\\",
-        "outputPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\obj\\",
+        "outputPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Legion\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -121,8 +121,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\work2\\Asp.net MVC\\EduHome\\EduHomeDataAccess\\EduHomeDataAccess.csproj": {
-                "projectPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHomeDataAccess\\EduHomeDataAccess.csproj"
+              "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHomeDataAccess\\EduHomeDataAccess.csproj": {
+                "projectPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHomeDataAccess\\EduHomeDataAccess.csproj"
               }
             }
           }
@@ -213,14 +213,14 @@
         }
       }
     },
-    "D:\\work2\\Asp.net MVC\\EduHome\\EduHomeDataAccess\\EduHomeDataAccess.csproj": {
+    "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHomeDataAccess\\EduHomeDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\work2\\Asp.net MVC\\EduHome\\EduHomeDataAccess\\EduHomeDataAccess.csproj",
+        "projectUniqueName": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHomeDataAccess\\EduHomeDataAccess.csproj",
         "projectName": "EduHomeDataAccess",
-        "projectPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHomeDataAccess\\EduHomeDataAccess.csproj",
+        "projectPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHomeDataAccess\\EduHomeDataAccess.csproj",
         "packagesPath": "C:\\Users\\Legion\\.nuget\\packages\\",
-        "outputPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHomeDataAccess\\obj\\",
+        "outputPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHomeDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Legion\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -237,8 +237,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj": {
-                "projectPath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj"
+              "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.Core\\EduHome.Core.csproj": {
+                "projectPath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.Core\\EduHome.Core.csproj"
               }
             }
           }

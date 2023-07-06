@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
 using EduHome.UI.Areas.Admin.Data.Base.CoursesRepository;
-using EduHome.UI.Areas.Admin.Data.Services;
+using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;

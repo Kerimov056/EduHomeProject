@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UHBtMV42Ih3zJvZa4kCEH4EBeRuzfMPC6Pn82703XDecHUdI9H9KhCCHvgeMJ+GMNNL3R9A7kRO3/runlgwx/g==",
+  "dgSpecHash": "H30sbXNYwz4zu9X0aSQ1BjUzEPeMsYMPYAWcdyGmT8v2XsvjWZBMgAvcD5SIBKLf43rYQc3HEVTtFN4vGfw41Q==",
   "success": true,
-  "projectFilePath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.Core\\EduHome.Core.csproj",
+  "projectFilePath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.Core\\EduHome.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Legion\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
     "C:\\Users\\Legion\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

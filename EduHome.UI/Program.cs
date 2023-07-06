@@ -1,6 +1,5 @@
 using EduHome.UI.Areas.Admin.Data.Base;
 using EduHome.UI.Areas.Admin.Data.Base.CoursesRepository;
-using EduHome.UI.Areas.Admin.Data.Services;
 using EduHomeDataAccess.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
@@ -10,6 +9,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using EduHome.UI.Helpers;
 using EduHome.UI.HeaderAndFooterService.Interface;
 using EduHome.UI.HeaderAndFooterService;
+using EduHome.UI.Areas.Admin.Data.Services.Concrets;
+using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();

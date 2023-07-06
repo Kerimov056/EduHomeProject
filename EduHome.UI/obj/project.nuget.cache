@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Da6t0EA2Q7Oz8Wg/s8U1zKe0VMlxNYQjsAeVHXeJdXf5X5kIrVLmYzOt0y0e9SskGJ1XyMpwfJH2sDAoEKKwsw==",
+  "dgSpecHash": "0wHMAfu2D2H/tPfpgyh3cChIIjYJ7Se12j1pbAVaHT8yp+EIvlak2LY4h3vl13ljK+N0JrKM4Uq2NdS4/cCNSQ==",
   "success": true,
-  "projectFilePath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHome.UI\\EduHome.UI.csproj",
+  "projectFilePath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\EduHome.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Legion\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Legion\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

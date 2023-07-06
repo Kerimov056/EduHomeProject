@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
 using EduHome.UI.Areas.Admin.AutoMapper;
-using EduHome.UI.Areas.Admin.Data.Services;
+using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
@@ -21,14 +21,14 @@ public class DashboardController : Controller
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
     private readonly IWebHostEnvironment _env;
-    private readonly IBlogsService _service;
+    private readonly IBlogsService _blogService;
 
-    public DashboardController(AppDbContext context, IMapper mapper, IWebHostEnvironment env, IBlogsService service)
+    public DashboardController(AppDbContext context, IMapper mapper, IWebHostEnvironment env, IBlogsService blogService)
     {
         _context = context;
         _mapper = mapper;
         _env = env;
-        _service = service;
+        _blogService = blogService;
     }
 
     public async Task<IActionResult> Index()
@@ -39,10 +39,10 @@ public class DashboardController : Controller
         {
             sum++;
         }
-
         TempData["BlogeSum"] = sum;
 
-        var BSer = await _service.GetBlogs();
+
+        var BSer = await _blogService.GetBlogs();
         return View(BSer);
     }
 
@@ -57,45 +57,26 @@ public class DashboardController : Controller
 
     public async Task<IActionResult> Create(BlogViewModel blogViewModel)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(blogViewModel);
-        }
-        if (!blogViewModel.ImagePath.FormatFile("image"))
-        {
-            ModelState.AddModelError("ImagePath", "Select correct image format!");
-            return View(blogViewModel);
-        }
-        if (!blogViewModel.ImagePath.FormatLength(100))
-        {
-            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-            return View(blogViewModel);
-        }
-        //D:\work2\Asp.net MVC\EduHome\EduHome.UI\wwwroot\assets\img\slider\
-        string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-        Blog blogg = _mapper.Map<Blog>(blogViewModel);
-        blogg.ImagePath = filePath;
-        blogg.Data_Time = DateTime.Now;
-        blogg.Description = blogViewModel.Decs;
+        if (!ModelState.IsValid) return View(blogViewModel);
 
-
-        await _service.CreateAsync(blogg);
-        await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        try
+        {
+            await _blogService.CreateAsync(blogViewModel);
+            return RedirectToAction(nameof(Index));
+        }
+        catch (ArgumentException ex)
+        {
+            ModelState.AddModelError("ImagePath", ex.Message);
+            return View(blogViewModel);
+        }
     }
 
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id == null || id == 0)
-        {
-            return NotFound();
-        }
+        if (id == 0)  return NotFound();
         var blog = _context.Blogs.Find(id);
-        if (blog is null)
-        {
-            return NotFound();
-        }
+        if (blog is null) return NotFound();
         BlogViewModel model = new()
         {
             Data_Time = DateTime.Now,
@@ -104,8 +85,6 @@ public class DashboardController : Controller
             PersonName = blog.PersonName,
             Name = blog.Name
         };
-
-
         return View(model);
     }
 
@@ -114,47 +93,10 @@ public class DashboardController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, BlogViewModel blogViewModel)
     {
-        if (id == 0)
-        {
-            return BadRequest();
-        }
-        if (!ModelState.IsValid)
-        {
-            return View(blogViewModel);
-        }
-        if (!blogViewModel.ImagePath.FormatFile("image"))
-        {
-            ModelState.AddModelError("ImagePath", "Select correct image format!");
-            return View(blogViewModel);
-        }
-        if (!blogViewModel.ImagePath.FormatLength(100))
-        {
-            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-            return View(blogViewModel);
-        }
-
-        Blog? blog = await _context.Blogs.FindAsync(id);
-
-        if (blog == null)
-        {
-            return NotFound();
-        }
-
-        string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-
-
-        blog.ImagePath = filePath;
-        blog.Data_Time = DateTime.Now;
-        blog.Description = blogViewModel.Decs;
-        blog.MessageNum = blogViewModel.MessageNum;
-        blog.PersonName = blogViewModel.PersonName;
-        blog.Name = blogViewModel.Name;
-
-        await _service.EditAsync(id, blog);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid) return View(blogViewModel);
+        await _blogService.EditAsync(id, blogViewModel);
         return RedirectToAction("Index");
     }
-
 
 
     public IActionResult Delete(int id)
@@ -172,14 +114,7 @@ public class DashboardController : Controller
 
     public async Task<IActionResult> DeletePost(int id)
     {
-        var blog = _context.Blogs.Find(id);
-        if (blog is null)
-        {
-            return NotFound();
-        }
-        //_context.Blogs.Remove(blog);
-        await _service.DeleteAsync(id);
-        _context.SaveChangesAsync();
+        await _blogService.DeleteAsync(id);
         return RedirectToAction("Index");
     }
     ////--------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
 using EduHome.Core.Utilities;
-using EduHome.UI.Areas.Admin.Data.Services;
+using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -20,7 +20,7 @@ public class SiginUpController : Controller
     private readonly IWebHostEnvironment _env;
     private readonly IEmailService _emailService;
 
-    public SiginUpController(UserManager<User> userManager,SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, IEmailService emailService, IWebHostEnvironment env)
+    public SiginUpController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, IEmailService emailService, IWebHostEnvironment env)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -57,7 +57,7 @@ public class SiginUpController : Controller
             }
             return View();
         }
-        await _userManager.AddToRoleAsync(user,UserRole.Member);
+        await _userManager.AddToRoleAsync(user, UserRole.Member);
         return RedirectToAction(nameof(LogIn));
     }
 
@@ -72,11 +72,11 @@ public class SiginUpController : Controller
         if (!ModelState.IsValid)
         {
             return View();
-        }        
+        }
         User user = await _userManager.FindByEmailAsync(login.Email);
-        if (user is null) 
+        if (user is null)
         {
-            ModelState.AddModelError("","Email or password is incorrect");
+            ModelState.AddModelError("", "Email or password is incorrect");
             return View();
         }
         Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(user, login.Password, login.IsLoggedIn, true);
@@ -84,11 +84,11 @@ public class SiginUpController : Controller
         {
             if (result.IsLockedOut)
             {
-                ModelState.AddModelError("","Due to overtrying your account has been blocked for 5 minutes");
+                ModelState.AddModelError("", "Due to overtrying your account has been blocked for 5 minutes");
                 return View();
             }
-            ModelState.AddModelError("","Email or password is incorrect");
-            return View();  
+            ModelState.AddModelError("", "Email or password is incorrect");
+            return View();
         }
         return RedirectToAction("Index", "Home");
     }
@@ -115,17 +115,17 @@ public class SiginUpController : Controller
     }
     #endregion
 
-    public async Task<IActionResult> ConfirmEmail(string token,string email)
+    public async Task<IActionResult> ConfirmEmail(string token, string email)
     {
-        if (token is null || email is null)  return BadRequest(); 
-        
+        if (token is null || email is null) return BadRequest();
+
         User user = await _userManager.FindByEmailAsync(email);
         if (user is null) return NotFound();
 
-        await _userManager.ConfirmEmailAsync(user,token);
-        await _signInManager.SignInAsync(user,false);
-        
-        return RedirectToAction("Index","Home");
+        await _userManager.ConfirmEmailAsync(user, token);
+        await _signInManager.SignInAsync(user, false);
+
+        return RedirectToAction("Index", "Home");
     }
     public IActionResult ForgotPasswordConfirmation()
     {
@@ -156,7 +156,7 @@ public class SiginUpController : Controller
         }
 
         var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-        var link = Url.Action(nameof(ConfirmEmail), "SiginUp", new { token, email = user.Email }, Request.Scheme, Request.Host.ToString());
+        var link = Url.Action(nameof(ResetPassword), "SiginUp", new { token, email = user.Email }, Request.Scheme, Request.Host.ToString());
 
         string subject = "Verfiy password reset email";
 
@@ -168,9 +168,9 @@ public class SiginUpController : Controller
 
 
         html = html.Replace("{{link}}", link);
-        html = html.Replace("{{Account}}","Hello");
+        html = html.Replace("{{Account}}", "Hello");
 
-        _emailService.Send(user.Email, subject,html);
+        _emailService.Send(user.Email, subject, html);
 
         return RedirectToAction(nameof(ForgotPasswordConfirmation));
     }
@@ -199,12 +199,12 @@ public class SiginUpController : Controller
             return View(resetPasswordModel);
         }
 
-        var result = await _userManager.ResetPasswordAsync(user,resetPasswordModel.Token,resetPasswordModel.Password);
-        if (!result.Succeeded) 
+        var result = await _userManager.ResetPasswordAsync(user, resetPasswordModel.Token, resetPasswordModel.Password);
+        if (!result.Succeeded)
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("",error.Description);
+                ModelState.AddModelError("", error.Description);
             }
             return View();
         }

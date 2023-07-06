@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aHDsAILwu+Me66T9gItWvFxMqVrb/qlkSW73oBjZHrXQb7VE+cV+M5GNXPHfGcasUS8IWHM1jp7D80/jIyACUQ==",
+  "dgSpecHash": "rQWzxeak5pXQV+Tb/wsjvFZqtr2ooZWXQa22nIoinwnNuzQRcmY/y9x6PfZsj73zNIaJQ8SORB5IZnL0yybdoQ==",
   "success": true,
-  "projectFilePath": "D:\\work2\\Asp.net MVC\\EduHome\\EduHomeDataAccess\\EduHomeDataAccess.csproj",
+  "projectFilePath": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHomeDataAccess\\EduHomeDataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Legion\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
     "C:\\Users\\Legion\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -12,3 +12,17 @@ D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\refint\EduHome.Core.d
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\EduHome.Core.pdb
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\EduHome.Core.genruntimeconfig.cache
 D:\work2\Asp.net MVC\EduHome\EduHome.Core\obj\Debug\net6.0\ref\EduHome.Core.dll
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\bin\Debug\net6.0\EduHome.Core.deps.json
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\bin\Debug\net6.0\EduHome.Core.runtimeconfig.json
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\bin\Debug\net6.0\EduHome.Core.dll
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\bin\Debug\net6.0\EduHome.Core.pdb
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.csproj.AssemblyReference.cache
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.AssemblyInfoInputs.cache
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.AssemblyInfo.cs
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.csproj.CoreCompileInputs.cache
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.dll
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\refint\EduHome.Core.dll
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.pdb
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\EduHome.Core.genruntimeconfig.cache
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.Core\obj\Debug\net6.0\ref\EduHome.Core.dll

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
-using EduHome.UI.Areas.Admin.Data.Services;
+using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Authorization;
