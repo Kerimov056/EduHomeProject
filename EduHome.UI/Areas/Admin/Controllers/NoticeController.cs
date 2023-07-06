@@ -3,12 +3,14 @@ using EduHome.Core.Entities;
 using EduHome.UI.Areas.Admin.Data.Services;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class NoticeController : Controller
 {
     private readonly AppDbContext _context;

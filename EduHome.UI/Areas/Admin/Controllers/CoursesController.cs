@@ -6,12 +6,14 @@ using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class CoursesController : Controller
 {
     private readonly AppDbContext _context;
@@ -171,7 +173,6 @@ public class CoursesController : Controller
             Assesments = course.CoursesDetails.Assesments,
             CourseFee = course.CoursesDetails.CourseFee
         };
-
 
         return View(viewModel);
     }

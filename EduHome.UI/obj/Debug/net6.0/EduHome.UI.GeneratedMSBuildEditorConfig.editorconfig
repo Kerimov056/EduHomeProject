@@ -160,6 +160,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3BlYWtlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Areas/Admin/Views/Teachera/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVhY2hlcmFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Areas/Admin/Views/Teachera/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVhY2hlcmFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Areas/Admin/Views/Teachera/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVhY2hlcmFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Areas/Admin/Views/Teachera/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVhY2hlcmFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/work2/Asp.net MVC/EduHome/EduHome.UI/Areas/Admin/Views/Teachera/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVhY2hlcmFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -220,6 +236,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/Invocie/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2NpZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/Shared/NotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -228,12 +248,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/SiginUp/ForgetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnaW5VcFxGb3JnZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/SiginUp/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnaW5VcFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/SiginUp/LogIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnaW5VcFxMb2dJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/SiginUp/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnaW5VcFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/SiginUp/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnaW5VcFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/SiginUp/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnaW5VcFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/work2/Asp.net MVC/EduHome/EduHome.UI/Views/TeacherDetails/Index.cshtml]

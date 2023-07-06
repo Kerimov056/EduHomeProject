@@ -6,6 +6,7 @@ using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
@@ -14,6 +15,7 @@ using System.Text;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class DashboardController : Controller
 {
     private readonly AppDbContext _context;

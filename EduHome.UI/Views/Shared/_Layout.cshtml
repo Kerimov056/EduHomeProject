@@ -92,13 +92,22 @@
                                         <li>
                                             <a href="contact.html">Buy Now</a>
                                         </li>
-
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li>
+                                                <a asp-controller="Invocie" asp-action="Index">Invocie</a>
+                                            </li>
+                                        }
 
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
                                                 <a style="color:white">@User.Identity.Name</a>
                                                 <ul>
+                                                    @if (User.IsInRole("Admin"))
+                                                    {
+                                                        <li><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a></li>
+                                                    }
                                                     <li><a asp-controller="SiginUp" asp-action="LogOut">Log Out</a></li>
                                                 </ul>
                                             </li>

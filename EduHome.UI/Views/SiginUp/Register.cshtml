@@ -4,7 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<style>
+    #duz{
+        margin-top:20px;
+        border-radius:20px;
+        padding-left:40px;
+        padding-right:40px;
+    }
+    #cre{
+        padding-left:200px !important;
+        padding-right:200px !important;
+    }
+</style>
 
 
 <div class="banner-area-wrapper">
@@ -49,10 +60,10 @@
                                 <input asp-for="ConfirmPassword" type="password"  placeholder="Password">
                                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                 <div class="button-box">
-                                    <button type="submit" class="default-btn">Register</button>
+                                    <button type="submit" id="cre" class="default-btn">Sign Up</button>
                                 </div>
                             </form>
-                            <a style="margin-left:220px" asp-action="LogIn"><button type="submit" class="default-btn">Log in</button></a>
+                            <a asp-action="LogIn"><button id="duz" type="submit" class="default-btn">Log in</button></a>
                         </div>
                     </div>
                 </div>

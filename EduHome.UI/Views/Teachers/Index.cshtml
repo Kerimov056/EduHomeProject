@@ -29,7 +29,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="single-teacher mb-45">
                         <div class="single-teacher-img">
-                            <a asp-controller="TeacherDetails" asp-action="Index" asp-route-id="@teacher.Id"><img src="/@teacher.ImagePath" alt="teacher"></a>
+                            <a asp-controller="TeacherDetails" asp-action="Index" asp-route-id="@teacher.Id"><img style="width:370px;height:350px;object-fit:cover" src="/@teacher.ImagePath" alt="teacher"></a>
                         </div>
                         <div class="single-teacher-content text-center">
                             <h2><a asp-controller="TeacherDetails" asp-action="Index" asp-route-id="@teacher.Id">@teacher.Name</a></h2>

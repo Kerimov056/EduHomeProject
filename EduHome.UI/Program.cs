@@ -5,6 +5,9 @@ using EduHomeDataAccess.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using EduHome.Core.Entities;
+using System.Configuration;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using EduHome.UI.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -14,6 +17,8 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 builder.Services.AddScoped(typeof(IEntityBaseRepository<>), typeof(EntityBaseRepository<>));
 builder.Services.AddScoped(typeof(ICoursesBaseRepository<>), typeof(CoursesBaseRepository<>));
@@ -26,6 +31,8 @@ builder.Services.AddScoped<IInfoService, InfosServices>();
 builder.Services.AddScoped<ISliderServices, SliderServices>();
 builder.Services.AddScoped<IEventServices, EventServices>();
 
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<EmailSettings>();
 
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
@@ -42,9 +49,15 @@ builder.Services.AddIdentity<User, IdentityRole>(opt =>
 
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/SiginUp/LogIn";
+});
+
 
 var app = builder.Build();
 app.UseStaticFiles();
+
 
 //app.UseExceptionHandler("/Home/Error");
 //app.UseStatusCodePages();

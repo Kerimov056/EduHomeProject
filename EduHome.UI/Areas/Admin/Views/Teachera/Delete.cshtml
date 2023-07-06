@@ -1,0 +1,81 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="background-color:slategrey;">
+                    @foreach (var item in Model.teachers)
+                    {
+                        if (item.Id == ViewBag.TeId)
+                        {
+                            <form method="post">
+                                <div style="display:flex;justify-content:center;">
+                                    <div>
+                                        <img style="width:450px" src="/@item.ImagePath"></img>
+                                    </div>
+                                </div>
+                                <div style="margin-top:40px;display:flex;justify-content:center;">
+                                    <div style="width:1000px">
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Name</span><span>@item.Name</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Posistion</span><span>@item.Posistion</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>DEGREE</span><span>@item.teacherDetails.Degree</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>EXPERIENCE</span><span>@item.teacherDetails.Experince</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>HOBBIES</span><span>@item.teacherDetails.Hobbies</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>FACULTY</span><span>@item.teacherDetails.Facultry</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>MAIL ME</span><span>@item.teacherDetails.Email</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>MAKE A CALL</span><span>@item.teacherDetails.Phone</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>SKYPE</span><span>@item.teacherDetails.Skaype</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Language</span><span>@item.teacherDetails.LanguageDegree %</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Team Leader</span><span>@item.teacherDetails.TeamLeaderDegree %</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Development</span><span>@item.teacherDetails.DevelopmentDegree %</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Design</span><span>@item.teacherDetails.DesignDegree %</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Innovation</span><span>@item.teacherDetails.InnovationDegree %</span></div>
+                                        <hr />
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Communication</span><span>@item.teacherDetails.CommunicationDegree %</span></div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:70px">
+                                    <div style="color:white;font-size:18px">
+                                        <p style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">About Me</p>
+                                        <p>@item.teacherDetails.Description</p>
+                                    </div><br /><br />
+                                </div>
+
+                                <div style="margin-top:80px">
+                                    <div class="mb-3 row">
+                                        <button type="submit" class="btn btn-danger waves-effect waves-light">Delete</button>
+                                        <a asp-controller="Teachera" asp-action="Index" class="btn btn-secondary" style="width:1250px;margin-top:15px">
+                                            Back to List
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            break;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

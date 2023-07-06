@@ -29,5 +29,8 @@ public class MappingProfile:Profile
         //slider
         CreateMap<Slider, SliderViewModel>();
         CreateMap<SliderViewModel, Slider>();
+
+		//Teaceher
+		//CreateMap<Teacher, TeacherViewModel>().ForMember(dest => dest., opt => opt.MapFrom(src=>src.teacherDetails));
     }
 }

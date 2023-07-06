@@ -25,17 +25,17 @@ public class TeacherDetails : IEntity
     [Required,MaxLength(50)]
     public string Skaype { get; set; } = null!;
     [Required]
-    public  decimal LanguageDegree { get; set; }
+    public  int LanguageDegree { get; set; }
     [Required]
-    public  decimal TeamLeaderDegree { get; set; }
+    public  int TeamLeaderDegree { get; set; }
     [Required]
-    public  decimal DevelopmentDegree { get; set; }
+    public  int DevelopmentDegree { get; set; }
     [Required]
-    public  decimal DesignDegree { get; set; }
+    public  int DesignDegree { get; set; }
     [Required]
-    public  decimal InnovationDegree { get; set; }
+    public  int InnovationDegree { get; set; }
     [Required]
-    public  decimal CommunicationDegree { get; set; }
+    public  int CommunicationDegree { get; set; }
 
     public int TeacherId { get; set; }
     [ForeignKey("TeacherId")]

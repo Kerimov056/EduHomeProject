@@ -426,8 +426,8 @@ namespace EduHomeDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal>("CommunicationDegree")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("CommunicationDegree")
+                        .HasColumnType("int");
 
                     b.Property<string>("Degree")
                         .IsRequired()
@@ -439,11 +439,11 @@ namespace EduHomeDataAccess.Migrations
                         .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
-                    b.Property<decimal>("DesignDegree")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("DesignDegree")
+                        .HasColumnType("int");
 
-                    b.Property<decimal>("DevelopmentDegree")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("DevelopmentDegree")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -463,11 +463,11 @@ namespace EduHomeDataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<decimal>("InnovationDegree")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("InnovationDegree")
+                        .HasColumnType("int");
 
-                    b.Property<decimal>("LanguageDegree")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("LanguageDegree")
+                        .HasColumnType("int");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -482,8 +482,8 @@ namespace EduHomeDataAccess.Migrations
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TeamLeaderDegree")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("TeamLeaderDegree")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
