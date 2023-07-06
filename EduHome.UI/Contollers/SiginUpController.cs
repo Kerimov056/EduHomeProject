@@ -102,17 +102,17 @@ public class SiginUpController : Controller
 
 
     #region Create Role
-    //public async Task CreateRole()
-    //{
-    //    foreach (var role in Enum.GetValues(typeof(UserRole.Roles)))
-    //    {
-    //        bool isExist = await _roleManager.RoleExistsAsync(role.ToString());
-    //        if (!isExist)
-    //        {
-    //            await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
-    //        }
-    //    }
-    //}
+    public async Task CreateRole()
+    {
+        foreach (var role in Enum.GetValues(typeof(UserRole.Roles)))
+        {
+            bool isExist = await _roleManager.RoleExistsAsync(role.ToString());
+            if (!isExist)
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+            }
+        }
+    }
     #endregion
 
     public async Task<IActionResult> ConfirmEmail(string token,string email)
@@ -174,7 +174,6 @@ public class SiginUpController : Controller
 
         return RedirectToAction(nameof(ForgotPasswordConfirmation));
     }
-
 
 
 

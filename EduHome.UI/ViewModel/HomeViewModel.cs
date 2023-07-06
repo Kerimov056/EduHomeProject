@@ -18,6 +18,6 @@ public class HomeViewModel
     public IEnumerable<About> abouts { get; set; }
     public IEnumerable<TeacherDetails> teacherDetails { get; set; }
     public IEnumerable<Teacher> teachers { get; set; }
-
+    public IEnumerable<Setting> settings { get; set; }
 
 }

@@ -8,6 +8,8 @@ using EduHome.Core.Entities;
 using System.Configuration;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using EduHome.UI.Helpers;
+using EduHome.UI.HeaderAndFooterService.Interface;
+using EduHome.UI.HeaderAndFooterService;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -30,6 +32,7 @@ builder.Services.AddScoped<INoticeService, NoticesServices>();
 builder.Services.AddScoped<IInfoService, InfosServices>();
 builder.Services.AddScoped<ISliderServices, SliderServices>();
 builder.Services.AddScoped<IEventServices, EventServices>();
+builder.Services.AddScoped<ISettingService, SettingService>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<EmailSettings>();
