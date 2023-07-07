@@ -30,26 +30,19 @@ public class SliderController : Controller
     {
         HomeViewModel model = new()
         {
-            sliders = await _context.Sliders.ToListAsync()
+            sliders = await _sliderServices.GetSliders()
         };
         return View(model);
     }
 
     public async Task<IActionResult> Details(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var slider = await _context.Sliders.FindAsync(id);
-        if (slider is null)
-        {
-            return NotFound();
-        }
+        var slider = await _sliderServices.FindByIdAsync(id);
+        if (slider is null) return NotFound();
         ViewBag.SliderId = slider.Id;
         HomeViewModel model = new()
         {
-            sliders = await _context.Sliders.ToListAsync()
+            sliders = await _sliderServices.GetSliders()
         };
         return View(model);
     }
@@ -64,29 +57,8 @@ public class SliderController : Controller
 
     public async Task<IActionResult> Create(SliderViewModel sliderViewModel)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(sliderViewModel);
-        }
-        if (!sliderViewModel.image.FormatFile("image"))
-        {
-            ModelState.AddModelError("image", "Select correct image format!");
-            return View(sliderViewModel);
-        }
-        if (!sliderViewModel.image.FormatLength(100))
-        {
-            ModelState.AddModelError("image", "Size must be less than 100 kb");
-            return View(sliderViewModel);
-        }
-
-        string filePath = await sliderViewModel.image.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-
-        Slider slider = _mapper.Map<Slider>(sliderViewModel);
-        slider.ImagePath = filePath;
-
-
-        await _sliderServices.CreateAsync(slider);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid)  return View(sliderViewModel);
+        await _sliderServices.CreateAsync(sliderViewModel);
         return RedirectToAction(nameof(Index));
     }
 
@@ -94,16 +66,8 @@ public class SliderController : Controller
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var slider = await _context.Sliders.FindAsync(id);
-        if (slider is null)
-        {
-            return NotFound();
-        }
-
+        var slider = await _sliderServices.FindByIdAsync(id);
+        if (slider is null) return NotFound();
         SliderViewModel model = new()
         {
             //image = slider.ImagePath
@@ -118,50 +82,20 @@ public class SliderController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, SliderViewModel sliderViewModel)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(sliderViewModel);
-        }
-        if (!sliderViewModel.image.FormatFile("image"))
-        {
-            ModelState.AddModelError("image", "Select correct image format!");
-            return View(sliderViewModel);
-        }
-        if (!sliderViewModel.image.FormatLength(100))
-        {
-            ModelState.AddModelError("image", "Size must be less than 100 kb");
-            return View(sliderViewModel);
-        }
-
-        string filePath = await sliderViewModel.image.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-
-        var slider = await _context.Sliders.FindAsync(id);
-        slider.ImagePath = filePath;
-        slider.Name = sliderViewModel.Name;
-        slider.NameTwo = sliderViewModel.NameTwo;
-        slider.Information = sliderViewModel.Information;
-
-        await _sliderServices.EditAsync(id, slider);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid)  return View(sliderViewModel);
+        await _sliderServices.EditAsync(id, sliderViewModel); 
         return RedirectToAction(nameof(Index));
     }
 
 
     public async Task<IActionResult> Delete(int id)
     {
-        if (id == 0)
-        {
-            return NotFound();
-        }
-        Slider? slider = await _context.Sliders.FindAsync(id);
-        if (slider is null)
-        {
-            return NotFound();
-        }
+        Slider? slider = await _sliderServices.FindByIdAsync(id);
+        if (slider is null)  return NotFound();
         ViewBag.SliderID = slider.Id;
         HomeViewModel model = new()
         {
-            sliders = await _context.Sliders.ToListAsync()
+            sliders = await _sliderServices.GetSliders()
         };
         return View(model);
     }
@@ -170,14 +104,7 @@ public class SliderController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeletePost(int id)
     {
-        var slider = await _context.Sliders.FindAsync(id);
-        if (slider is null)
-        {
-            return NotFound();
-        }
-
         await _sliderServices.DeleteAsync(id);
-        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 }

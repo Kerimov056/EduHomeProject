@@ -53,7 +53,7 @@ public class BlogsServices : IBlogsService
 
     public async Task DeleteAsync(int id)
     {
-        if (id==0)
+        if (id == 0)
         {
             throw new NullReferenceException("Id is null, 0");
         }
@@ -75,25 +75,25 @@ public class BlogsServices : IBlogsService
             throw new NullReferenceException("Blog is null");
         }
 
-        if (!blogViewModel.ImagePath.FormatFile("image"))
-        {
-            throw new ArgumentException("Select correct image format!");
-        }
-
-        if (!blogViewModel.ImagePath.FormatLength(100))
-        {
-            throw new ArgumentException("Size must be less than 100 kb");
-        }
-
-        string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
-
         var blog = await _context.Blogs.FindAsync(Id);
-        if (blog is null)
+        if (blog is null)  throw new NullReferenceException("Blog is nUll");
+
+        if (blogViewModel.ImagePath is not null)
         {
-            throw new NullReferenceException("Blog is nUll");
+            if (!blogViewModel.ImagePath.FormatFile("image"))
+            {
+                throw new ArgumentException("Select correct image format!");
+            }
+
+            if (!blogViewModel.ImagePath.FormatLength(100))
+            {
+                throw new ArgumentException("Size must be less than 100 kb");
+            }
+            
+            string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
+            blog.ImagePath = filePath;
         }
 
-        blog.ImagePath = filePath;
         blog.Data_Time = DateTime.Now;
         blog.Description = blogViewModel.Decs;
         blog.MessageNum = blogViewModel.MessageNum;

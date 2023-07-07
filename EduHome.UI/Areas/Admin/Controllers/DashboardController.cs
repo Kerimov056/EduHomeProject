@@ -58,7 +58,6 @@ public class DashboardController : Controller
     public async Task<IActionResult> Create(BlogViewModel blogViewModel)
     {
         if (!ModelState.IsValid) return View(blogViewModel);
-
         try
         {
             await _blogService.CreateAsync(blogViewModel);
@@ -102,10 +101,7 @@ public class DashboardController : Controller
     public IActionResult Delete(int id)
     {
         var blog = _context.Blogs.Find(id);
-        if (blog is null)
-        {
-            return NotFound();
-        }
+        if (blog is null) return NotFound();
         return View(blog);
     }
 

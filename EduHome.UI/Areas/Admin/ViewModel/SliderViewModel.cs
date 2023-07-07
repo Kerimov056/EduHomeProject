@@ -6,7 +6,7 @@ namespace EduHome.UI.Areas.Admin.ViewModel;
 
 public class SliderViewModel
 {
-    public IFormFile image { get; set; }
+    public IFormFile? image { get; set; }
     [Required,MaxLength(40)]
     public string Name { get; set; } = null!;
     [Required, MaxLength(40)]
