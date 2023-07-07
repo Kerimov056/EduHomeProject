@@ -1,12 +1,13 @@
 ﻿using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.ViewModel;
 
 namespace EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 
 public interface INoticeService
 {
     Task<IEnumerable<Notice>> GetNotice();
-    Task<Notice> CreateAsync(Notice notice);
-    Task<Notice> EditAsync(int id, Notice notice);
-    Task<Notice> GetByIdAsync(int id);
+    Task CreateAsync(NoticeViewModel NoticeViewModel);
+    Task EditAsync(int id, NoticeViewModel NoticeViewModel);
+    Task<NoticeViewModel> FindByIdAsync(int id);
     Task DeleteAsync(int id);
 }

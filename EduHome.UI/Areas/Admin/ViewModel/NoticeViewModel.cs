@@ -6,4 +6,6 @@ public class NoticeViewModel
 {
     [Required]
     public string? Description { get; set; }
+    [Required]
+    public DateTime? Datatime { get; set; }
 }

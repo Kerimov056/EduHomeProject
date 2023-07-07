@@ -1,4 +1,4 @@
-﻿@model Notice
+﻿@model NoticeViewModel
 @{
     ViewData["Title"] = "Details";
 }
@@ -14,10 +14,10 @@
                             <h4 class="card-title mb-4" style="color:darkgray;font-size:20px">Create Notice</h4>
                             <form method="post" enctype="multipart/form-data">
                                 <div class="row mb-4">
-                                    <label asp-for="Date_Time" class="col-sm-3 col-form-label">Description</label>
+                                    <label asp-for="Datatime" class="col-sm-3 col-form-label">Description</label>
                                     <div class="col-sm-9">
-                                        <input asp-for="Date_Time" disabled type="text" class="form-control">
-                                        <span asp-validation-for="Date_Time" class="text-danger"></span>
+                                        <input asp-for="Datatime" disabled type="text" class="form-control">
+                                        <span asp-validation-for="Datatime" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row mb-4">

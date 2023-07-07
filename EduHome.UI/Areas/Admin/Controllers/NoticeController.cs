@@ -13,16 +13,14 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 [Authorize(Roles = "Admin")]
 public class NoticeController : Controller
 {
-    private readonly AppDbContext _context;
-    private readonly INoticeService _service;
-    public NoticeController(AppDbContext context, INoticeService service)
+    private readonly INoticeService _noticeService;
+    public NoticeController(INoticeService noticeServiceervice)
     {
-        _context = context;
-        _service = service;
+        _noticeService = noticeServiceervice;
     }
     public async Task<IActionResult> Index()
     {
-        var notice = await _service.GetNotice();
+        var notice = await _noticeService.GetNotice();
         return View(notice);
     }
 
@@ -35,86 +33,37 @@ public class NoticeController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(NoticeViewModel noticeViewModel)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(noticeViewModel);
-        }
-        Notice notice = new();
-        notice.Description = noticeViewModel.Description;
-        notice.Date_Time = DateTime.Now;
-
-        await _service.CreateAsync(notice);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid)  return View(noticeViewModel);
+        await _noticeService.CreateAsync(noticeViewModel);
         return RedirectToAction(nameof(Index));
     }
-
     public async Task<IActionResult> Details(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var product = _context.Notices.Find(id);
-        if (product == null)
-        {
-            return NotFound();
-        }
-        return View(product);
+        NoticeViewModel notice = await _noticeService.FindByIdAsync(id);
+        return View(notice);
     }
-
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id ==0 || id==null)
-        {
-            return NotFound();
-        }
-        var product = _context.Notices.Find(id);
-        if (product == null)
-        {
-            return NotFound();
-        }
+        var product = await _noticeService.FindByIdAsync(id);
+        if (product == null) return NotFound();
         return View(product);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
 
-    public async Task<IActionResult> Edit(Notice notice,int id)
+    public async Task<IActionResult> Edit(NoticeViewModel noticeViewModel,int id)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(notice);
-        }
-        if (id == null)
-        {
-            return BadRequest();
-        }
-
-        Notice? notice1 = await _context.Notices.AsNoTracking().FirstOrDefaultAsync(n=>n.Id==id);
-
-        if (notice1 is null)
-        {
-            return NotFound();
-        }
-        notice.Date_Time= DateTime.Now;
-        await _service.EditAsync(id,notice);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid) return View(noticeViewModel);
+        await _noticeService.EditAsync(id, noticeViewModel);
         return RedirectToAction(nameof(Index));
     }
 
-
     public async Task<IActionResult> Delete(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var product = _context.Notices.Find(id);
-        if (product == null)
-        {
-            return NotFound();
-        }
+        var product = await _noticeService.FindByIdAsync(id);
+        if (product is null)  return NotFound();
         return View(product);
     }
 
@@ -123,15 +72,7 @@ public class NoticeController : Controller
 
     public async Task<IActionResult> DeletePost(int id)
     {
-        var notice = _context.Notices.Find(id);
-        if (notice is null)
-        {
-            return NotFound();
-        }
-
-        await _service.DeleteAsync(id);
-        await _context.SaveChangesAsync();
+        await _noticeService.DeleteAsync(id);
         return RedirectToAction(nameof(Index));
     }
-
 }
