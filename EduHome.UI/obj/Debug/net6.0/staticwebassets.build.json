@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s5624nAW4NZpvTGk4DUHyuHaPhmKELNJENhDRic7/34=",
+  "Hash": "Coz7dkUoppWDCkyrhzFh1P5IfthvkXqYmhDljHrwzcY=",
   "Source": "EduHome.UI",
   "BasePath": "_content/EduHome.UI",
   "Mode": "Default",
@@ -2125,6 +2125,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\4c3d2f27-3f49-4865-8aba-2ced2ba5c206sems.jpg"
     },
     {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\51d3e9f0-9b22-4809-8657-074e08e02965Ekran görüntüsü 2023-03-04 044027.png",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/51d3e9f0-9b22-4809-8657-074e08e02965Ekran görüntüsü 2023-03-04 044027.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\51d3e9f0-9b22-4809-8657-074e08e02965Ekran görüntüsü 2023-03-04 044027.png"
+    },
+    {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\529a928f-1b11-475c-90c4-dab6d85be7ddEkran görüntüsü 2023-03-04 044041.png",
       "SourceId": "EduHome.UI",
       "SourceType": "Discovered",
@@ -2652,6 +2669,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\b5350588-730c-4b76-b533-f1551188bdc5ley.jpg"
     },
     {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\b891977b-f2b5-45a3-a78b-baac800e685eEkran görüntüsü 2023-03-04 044027.png",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/b891977b-f2b5-45a3-a78b-baac800e685eEkran görüntüsü 2023-03-04 044027.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\b891977b-f2b5-45a3-a78b-baac800e685eEkran görüntüsü 2023-03-04 044027.png"
+    },
+    {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\bfb861bb-8634-4864-98f1-ea871267e645Ekran görüntüsü 2023-03-04 044041.png",
       "SourceId": "EduHome.UI",
       "SourceType": "Discovered",
@@ -2701,6 +2735,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\c2e8342d-133b-46e8-8530-62c6d42d67fb9f05cd74-c76c-4a57-b738-a266dff28f21Ekran görüntüsü 2023-03-04 044027.png"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\c90d442d-4ffd-44fc-a478-5d8f422c92afEkran görüntüsü 2023-03-04 044027.png",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/c90d442d-4ffd-44fc-a478-5d8f422c92afEkran görüntüsü 2023-03-04 044027.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\c90d442d-4ffd-44fc-a478-5d8f422c92afEkran görüntüsü 2023-03-04 044027.png"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\cc70c645-786c-45fa-9285-9b1d90036fabEkran görüntüsü 2023-03-04 044041.png",

@@ -5,7 +5,6 @@
 
 
 <div class="main-content">
-
     <div class="page-content">
         <div class="container-fluid">
             <div class="row" style="margin-top:20px">
@@ -15,9 +14,6 @@
                             <form method="post" enctype="multipart/form-data">
                                 <div style="margin-bottom:30px" class="form-group text-center">
                                     <img id="ImageView" />
-                                </div>
-                                <div class="mb-3 row">
-                                    <img  src="~/assets/img/course//@Model.ImagePath"/>
                                 </div>
                                 <div class="mb-3 row">
                                     <label asp-for="ImagePath" class="col-md-2 col-form-label">Image</label>
@@ -35,62 +31,55 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3 row">
-                                    <label asp-for="Description" for="example-tel-input" class="col-md-2 col-form-label">Description</label>
-                                    <div class="col-md-10">
-                                        <textarea asp-for="Description" id="textarea" class="form-control" maxlength="225" rows="3"
-                                                  placeholder="This textarea has a limit of 300 chars."></textarea>
-                                        <span asp-validation-for="Description" class="text-danger"></span>
-                                    </div>
+
+                                @*<div class="mb-3 row">
+                                <label asp-for="AboutCours" for="example-tel-input" class="col-md-2 col-form-label">About Cours</label>
+                                <div class="col-md-10">
+                                <input asp-for="AboutCours" value="About Cours" class="form-control" type="text">
+                                <span asp-validation-for="AboutCours" class="text-danger"></span>
                                 </div>
-                                <div class="mb-3 row">
-                                    <label asp-for="AboutCours" for="example-tel-input" class="col-md-2 col-form-label">About Cours</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="AboutCours" value="About Cours" class="form-control" type="text">
-                                        <span asp-validation-for="AboutCours" class="text-danger"></span>
-                                    </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label asp-for="AboutCoursDescription" for="example-tel-input" class="col-md-2 col-form-label">About Cours Description</label>
-                                    <div class="col-md-10">
-                                        <textarea asp-for="AboutCoursDescription" id="textarea" class="form-control" maxlength="225" rows="3"
-                                                  placeholder="This textarea has a limit of 225 chars."></textarea>
-                                        <span asp-validation-for="AboutCoursDescription" class="text-danger"></span>
-                                    </div>
+                                <label asp-for="AboutCoursDescription" for="example-tel-input" class="col-md-2 col-form-label">About Cours Description</label>
+                                <div class="col-md-10">
+                                <textarea asp-for="AboutCoursDescription" id="textarea" class="form-control" maxlength="225" rows="3"
+                                placeholder="This textarea has a limit of 225 chars."></textarea>
+                                <span asp-validation-for="AboutCoursDescription" class="text-danger"></span>
+                                </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label asp-for="ToApply" for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="ToApply" value="HOW TO APPLY" class="form-control" type="text">
-                                        <span asp-validation-for="ToApply" class="text-danger"></span>
-                                    </div>
+                                <label asp-for="ToApply" for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY</label>
+                                <div class="col-md-10">
+                                <input asp-for="ToApply" value="HOW TO APPLY" class="form-control" type="text">
+                                <span asp-validation-for="ToApply" class="text-danger"></span>
+                                </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label asp-for="ToApplyDescription" for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY Description</label>
-                                    <div class="col-md-10">
-                                        <textarea asp-for="ToApplyDescription" id="textarea" class="form-control" maxlength="225" rows="3"
-                                                  placeholder="This textarea has a limit of 225 chars."></textarea>
-                                        <span asp-validation-for="ToApplyDescription" class="text-danger"></span>
-                                    </div>
+                                <label asp-for="ToApplyDescription" for="example-tel-input" class="col-md-2 col-form-label">HOW TO APPLY Description</label>
+                                <div class="col-md-10">
+                                <textarea asp-for="ToApplyDescription" id="textarea" class="form-control" maxlength="225" rows="3"
+                                placeholder="This textarea has a limit of 225 chars."></textarea>
+                                <span asp-validation-for="ToApplyDescription" class="text-danger"></span>
+                                </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label asp-for="Certification" for="example-tel-input" class="col-md-2 col-form-label">Certification</label>
-                                    <div class="col-md-10">
-                                        <input asp-for="Certification" value="Certification" class="form-control" type="text">
-                                        <span asp-validation-for="Certification" class="text-danger"></span>
-                                    </div>
+                                <label asp-for="Certification" for="example-tel-input" class="col-md-2 col-form-label">Certification</label>
+                                <div class="col-md-10">
+                                <input asp-for="Certification" value="Certification" class="form-control" type="text">
+                                <span asp-validation-for="Certification" class="text-danger"></span>
+                                </div>
                                 </div>
 
                                 <div class="mb-3 row">
-                                    <label asp-for="CertificationDescription" for="example-tel-input" class="col-md-2 col-form-label">Certification Description</label>
-                                    <div class="col-md-10">
-                                        <textarea asp-for="CertificationDescription" id="textarea" class="form-control" maxlength="225" rows="3"
-                                                  placeholder="This textarea has a limit of 225 chars."></textarea>
-                                        <span asp-validation-for="CertificationDescription" class="text-danger"></span>
-                                    </div>
+                                <label asp-for="CertificationDescription" for="example-tel-input" class="col-md-2 col-form-label">Certification Description</label>
+                                <div class="col-md-10">
+                                <textarea asp-for="CertificationDescription" id="textarea" class="form-control" maxlength="225" rows="3"
+                                placeholder="This textarea has a limit of 225 chars."></textarea>
+                                <span asp-validation-for="CertificationDescription" class="text-danger"></span>
                                 </div>
+                                </div>*@
 
                                 <div class="mb-3 row">
                                     <label asp-for="Starts" for="example-datetime-local-input" class="col-md-2 col-form-label">
@@ -98,7 +87,7 @@
                                         Time
                                     </label>
                                     <div class="col-md-10">
-                                        <input asp-for="Starts" class="form-control" type="datetime-local" 
+                                        <input asp-for="Starts" class="form-control" type="datetime-local" value="@DateTime.Now"
                                                id="example-datetime-local-input">
                                         <span asp-validation-for="Starts" class="text-danger"></span>
                                     </div>
@@ -163,7 +152,7 @@
                                 <div class="mb-3 row">
                                     <label class="col-md-2 col-form-label">Select</label>
                                     <div class="col-md-10">
-                                        <select class="form-select" name="CategorId">
+                                        <select class="form-select" name="CatagoryId">
                                             @foreach (var category in ViewBag.catagory)
                                             {
                                                 <option value="@category.Id">@category.Categorie</option>
@@ -171,6 +160,15 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Description" for="example-tel-input" class="col-md-2 col-form-label">Description</label>
+                                    <div class="col-sm-8">
+                                        <textarea id="tiny" asp-for="Description "></textarea>
+                                    </div>
+                                </div>
+
+
                                 <div class="mb-3 row">
                                     <button type="submit" class="btn btn-outline-success w-md">Submit</button>
                                     <a asp-controller="Courses" asp-action="Index" class="btn btn-secondary" style="width:1250px;margin-top:15px">
@@ -185,6 +183,7 @@
         </div>
     </div>
 </div>
+
 
 
 

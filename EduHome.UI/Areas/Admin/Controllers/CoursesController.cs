@@ -20,6 +20,7 @@ public class CoursesController : Controller
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
     private readonly ICoursesServices _coruseService;
+    //private readonly ICourseDetailsServices _courseDetailsServices;
     public CoursesController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ICoursesServices coruseService)
     {
         _context = context;
@@ -30,24 +31,15 @@ public class CoursesController : Controller
 
     public async Task<IActionResult> Index()
     {
-        //int sum = 0;
-        //var course = await _context.Coursess.ToListAsync();
-        //foreach (var c in course)
-        //{
-        //    sum++;
-        //}
-
-        //TempData["CourseSum"] = sum; //------------------Cix
-
         HomeViewModel homeViewModel = new()
         {
-            blogs = await _context.Blogs.ToListAsync(),
-            courses = await _context.Coursess.Include(c => c.Categories).ToListAsync()
+            courses = await _coruseService.GetCourses()
         };
         return View(homeViewModel);
     }
     public async Task<IActionResult> Details(int id)
     {
+
         if (id == 0 || id == null)
         {
             return NotFound();
@@ -64,6 +56,16 @@ public class CoursesController : Controller
             courses = await _context.Coursess.Include(c => c.CoursesDetails).ToListAsync()
         };
         return View(homeViewModel);
+        //var course = await _coruseService.FindByIdAsync(id);
+
+        //ViewBag.courseId = course.Id;
+
+        //var homeViewModel = new HomeViewModel
+        //{
+        //    courses = await _coruseService.GetCourses()
+        //};
+
+        //return View(homeViewModel);
     }
 
     //----------------------------------------------------------------------------------
@@ -112,12 +114,6 @@ public class CoursesController : Controller
             CategoriesId = CatagoryId,
             CoursesDetails = new CoursesDetails
             {
-                AboutCours = courseFullDetailsViewModel.AboutCours,
-                AboutCoursDescription = courseFullDetailsViewModel.AboutCoursDescription,
-                ToApply = courseFullDetailsViewModel.ToApply,
-                ToApplyDescription = courseFullDetailsViewModel.ToApplyDescription,
-                Certification = courseFullDetailsViewModel.Certification,
-                CertificationDescription = courseFullDetailsViewModel.CertificationDescription,
                 Starts = courseFullDetailsViewModel.Starts,
                 Month = courseFullDetailsViewModel.Month,
                 Hours = courseFullDetailsViewModel.Hours,
@@ -130,7 +126,8 @@ public class CoursesController : Controller
         };
 
 
-        await _coruseService.CreateAsync(courses);
+        //await _coruseService.CreateAsync(courses);
+        await _context.AddAsync(courses);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
@@ -158,12 +155,12 @@ public class CoursesController : Controller
             Description = course.Descripton,
             Cours = course.Name,
             CategorId = course.CategoriesId,
-            AboutCours = course.CoursesDetails.AboutCours,
-            AboutCoursDescription = course.CoursesDetails.AboutCoursDescription,
-            ToApply = course.CoursesDetails.ToApply,
-            ToApplyDescription = course.CoursesDetails.ToApplyDescription,
-            Certification = course.CoursesDetails.Certification,
-            CertificationDescription = course.CoursesDetails.CertificationDescription,
+            //AboutCours = course.CoursesDetails.AboutCours,
+            //AboutCoursDescription = course.CoursesDetails.AboutCoursDescription,
+            //ToApply = course.CoursesDetails.ToApply,
+            //ToApplyDescription = course.CoursesDetails.ToApplyDescription,
+            //Certification = course.CoursesDetails.Certification,
+            //CertificationDescription = course.CoursesDetails.CertificationDescription,
             Starts = course.CoursesDetails.Starts,
             Month = course.CoursesDetails.Month,
             Hours = course.CoursesDetails.Hours,
@@ -207,10 +204,10 @@ public class CoursesController : Controller
             return NotFound();
         }
 
-        
-        
+
+
         string filePath = await viewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
-        
+
 
 
         var category = await _context.Categoriess.FindAsync(CategorId);
@@ -227,12 +224,12 @@ public class CoursesController : Controller
         course.Descripton = viewModel.Description;
         course.Name = viewModel.Cours;
         course.CategoriesId = CategorId;
-        course.CoursesDetails.AboutCours = viewModel.AboutCours;
-        course.CoursesDetails.AboutCoursDescription = viewModel.AboutCoursDescription;
-        course.CoursesDetails.ToApply = viewModel.ToApply;
-        course.CoursesDetails.ToApplyDescription = viewModel.ToApplyDescription;
-        course.CoursesDetails.Certification = viewModel.Certification;
-        course.CoursesDetails.CertificationDescription = viewModel.CertificationDescription;
+        //course.CoursesDetails.AboutCours = viewModel.AboutCours;
+        //course.CoursesDetails.AboutCoursDescription = viewModel.AboutCoursDescription;
+        //course.CoursesDetails.ToApply = viewModel.ToApply;
+        //course.CoursesDetails.ToApplyDescription = viewModel.ToApplyDescription;
+        //course.CoursesDetails.Certification = viewModel.Certification;
+        //course.CoursesDetails.CertificationDescription = viewModel.CertificationDescription;
         course.CoursesDetails.Starts = viewModel.Starts;
         course.CoursesDetails.Month = viewModel.Month;
         course.CoursesDetails.Hours = viewModel.Hours;
@@ -243,7 +240,7 @@ public class CoursesController : Controller
         course.CoursesDetails.CourseFee = viewModel.CourseFee;
 
 
-        await _coruseService.UpdateAsync(id,course);
+        //await _coruseService.UpdateAsync(id,course);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
