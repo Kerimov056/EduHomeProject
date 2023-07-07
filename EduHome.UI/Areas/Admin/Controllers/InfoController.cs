@@ -12,15 +12,15 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 public class InfoController : Controller
 {
     private readonly AppDbContext _context;
-    private readonly IInfoService _service;
-    public InfoController(AppDbContext context, IInfoService service)
+    private readonly IInfoService _infoService;
+    public InfoController(AppDbContext context, IInfoService infoService)
     {
         _context = context;
-        _service = service;
+        _infoService = infoService;
     }
     public async Task<IActionResult> Index()
     {
-        var info = await _service.GetInfo();
+        var info = await _infoService.GetInfoAsync();
         return View(info);
     }
 
@@ -33,85 +33,48 @@ public class InfoController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(InfoViewModel infoViewModel)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(infoViewModel);
-        }
-        Info info = new();
-        info.Name = infoViewModel.Title;
-        info.Description = infoViewModel.Description;
-
-        await _service.CreateAsync(info);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid)  return View(infoViewModel);
+        await _infoService.CreateAsync(infoViewModel);
         return RedirectToAction(nameof(Index));
     }
 
 
     public async Task<IActionResult> Details(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var product = _context.Infos.Find(id);
-        if (product == null)
-        {
-            return NotFound();
-        }
+        if (id == 0) return NotFound();
+        var product = await _infoService.FindByIdAsync(id);
+        if (product == null)   return NotFound();
         return View(product);
     }
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
+        if (id == 0) return NotFound();
         var product = _context.Infos.Find(id);
-        if (product == null)
+        if (product == null)  return NotFound();
+        InfoViewModel ınfoViewModel = new()
         {
-            return NotFound();
-        }
-        return View(product);
+            Title = product.Name,
+            Description = product.Description
+        };
+        return View(ınfoViewModel);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, Info info)
+    public async Task<IActionResult> Edit(int id, InfoViewModel infoViewModel)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(info);
-        }
-        if (id == null)
-        {
-            return BadRequest();
-        }
-
-        Info? info1 = await _context.Infos.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
-
-        if (info1 == null)
-        {
-            return NotFound();
-        }
-
-        await _service.EditAsync(id,info);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid)  return View(infoViewModel);
+        await _infoService.EditAsync(id,infoViewModel);
         return RedirectToAction(nameof(Index));
     }
 
 
     public async Task<IActionResult> Delete(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
+        if (id == 0) return NotFound();
         var product = _context.Infos.Find(id);
-        if (product is null)
-        {
-            return NotFound();
-        }
+        if (product is null) return NotFound();
         return View(product);
     }
 
@@ -120,14 +83,7 @@ public class InfoController : Controller
 
     public async Task<IActionResult> DeletePost(int id)
     {
-        var product = _context.Infos.Find(id);
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        await _service.DeleteAsync(id);
-        await _context.SaveChangesAsync();
+        await _infoService.DeleteAsync(id);
         return RedirectToAction(nameof(Index));
     }
 }

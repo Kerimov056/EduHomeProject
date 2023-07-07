@@ -30,6 +30,10 @@ public class MappingProfile:Profile
         CreateMap<Slider, SliderViewModel>();
         CreateMap<SliderViewModel, Slider>();
 
+		//Info
+		CreateMap<Info, InfoViewModel>();
+		CreateMap<InfoViewModel, Info>();
+
 		//Teaceher
 		//CreateMap<Teacher, TeacherViewModel>().ForMember(dest => dest., opt => opt.MapFrom(src=>src.teacherDetails));
     }
