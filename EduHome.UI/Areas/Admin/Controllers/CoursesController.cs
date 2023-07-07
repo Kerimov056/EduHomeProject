@@ -20,13 +20,14 @@ public class CoursesController : Controller
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
     private readonly ICoursesServices _coruseService;
-    //private readonly ICourseDetailsServices _courseDetailsServices;
-    public CoursesController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ICoursesServices coruseService)
+    private readonly ICategoryServices _categoryServices;
+    public CoursesController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ICoursesServices coruseService, ICategoryServices categoryServices)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
         _coruseService = coruseService;
+        _categoryServices = categoryServices;
     }
 
     public async Task<IActionResult> Index()
@@ -39,41 +40,19 @@ public class CoursesController : Controller
     }
     public async Task<IActionResult> Details(int id)
     {
-
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var cours = _context.Coursess.Find(id);
-        if (cours is null)
-        {
-            return NotFound();
-        }
+        var cours = await _coruseService.FindByIdAsync(id);
         ViewBag.coursId = cours.Id;
         HomeViewModel homeViewModel = new()
         {
-            blogs = await _context.Blogs.ToListAsync(),
-            courses = await _context.Coursess.Include(c => c.CoursesDetails).ToListAsync()
+            courses = await _coruseService.GetCourses()
         };
         return View(homeViewModel);
-        //var course = await _coruseService.FindByIdAsync(id);
-
-        //ViewBag.courseId = course.Id;
-
-        //var homeViewModel = new HomeViewModel
-        //{
-        //    courses = await _coruseService.GetCourses()
-        //};
-
-        //return View(homeViewModel);
     }
-
-    //----------------------------------------------------------------------------------
 
 
     public async Task<IActionResult> Create()
     {
-        ViewBag.catagory = await _context.Categoriess.ToListAsync();
+        ViewBag.catagory = await _categoryServices.GetCategory();
         return View();
     }
 
@@ -81,54 +60,8 @@ public class CoursesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CourseFullDetailsViewModel courseFullDetailsViewModel, int CatagoryId)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(courseFullDetailsViewModel);
-        }
-        if (!courseFullDetailsViewModel.ImagePath.FormatFile("image"))
-        {
-            ModelState.AddModelError("ImagePath", "Select correct image format!");
-            return View(courseFullDetailsViewModel);
-        }
-        if (!courseFullDetailsViewModel.ImagePath.FormatLength(100))
-        {
-            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-            return View(courseFullDetailsViewModel);
-        }
-
-
-        var category = await _context.Categoriess.FindAsync(CatagoryId);
-        if (category is null)
-        {
-            ModelState.AddModelError("CatagoryId", "Invalid category selected!");
-            ViewBag.catagory = await _context.Categoriess.ToListAsync();
-            return View(courseFullDetailsViewModel);
-        }
-
-        string filePath = await courseFullDetailsViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
-        Courses courses = new Courses
-        {
-            ImagePath = filePath,
-            Name = courseFullDetailsViewModel.Cours,
-            Descripton = courseFullDetailsViewModel.Description,
-            CategoriesId = CatagoryId,
-            CoursesDetails = new CoursesDetails
-            {
-                Starts = courseFullDetailsViewModel.Starts,
-                Month = courseFullDetailsViewModel.Month,
-                Hours = courseFullDetailsViewModel.Hours,
-                Level = courseFullDetailsViewModel.Level,
-                Language = courseFullDetailsViewModel.Language,
-                Students = courseFullDetailsViewModel.Students,
-                Assesments = courseFullDetailsViewModel.Assesments,
-                CourseFee = courseFullDetailsViewModel.CourseFee
-            }
-        };
-
-
-        //await _coruseService.CreateAsync(courses);
-        await _context.AddAsync(courses);
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid) return View(courseFullDetailsViewModel);
+        await _coruseService.CreateAsync(courseFullDetailsViewModel, CatagoryId);
         return RedirectToAction("Index");
     }
 
@@ -151,16 +84,9 @@ public class CoursesController : Controller
 
         CourseFullDetailsViewModel viewModel = new CourseFullDetailsViewModel
         {
-            //ImagePath = course.ImagePath,
             Description = course.Descripton,
             Cours = course.Name,
             CategorId = course.CategoriesId,
-            //AboutCours = course.CoursesDetails.AboutCours,
-            //AboutCoursDescription = course.CoursesDetails.AboutCoursDescription,
-            //ToApply = course.CoursesDetails.ToApply,
-            //ToApplyDescription = course.CoursesDetails.ToApplyDescription,
-            //Certification = course.CoursesDetails.Certification,
-            //CertificationDescription = course.CoursesDetails.CertificationDescription,
             Starts = course.CoursesDetails.Starts,
             Month = course.CoursesDetails.Month,
             Hours = course.CoursesDetails.Hours,
@@ -224,12 +150,6 @@ public class CoursesController : Controller
         course.Descripton = viewModel.Description;
         course.Name = viewModel.Cours;
         course.CategoriesId = CategorId;
-        //course.CoursesDetails.AboutCours = viewModel.AboutCours;
-        //course.CoursesDetails.AboutCoursDescription = viewModel.AboutCoursDescription;
-        //course.CoursesDetails.ToApply = viewModel.ToApply;
-        //course.CoursesDetails.ToApplyDescription = viewModel.ToApplyDescription;
-        //course.CoursesDetails.Certification = viewModel.Certification;
-        //course.CoursesDetails.CertificationDescription = viewModel.CertificationDescription;
         course.CoursesDetails.Starts = viewModel.Starts;
         course.CoursesDetails.Month = viewModel.Month;
         course.CoursesDetails.Hours = viewModel.Hours;
@@ -240,7 +160,7 @@ public class CoursesController : Controller
         course.CoursesDetails.CourseFee = viewModel.CourseFee;
 
 
-        //await _coruseService.UpdateAsync(id,course);
+        _context.Coursess.Update(course);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
@@ -255,7 +175,7 @@ public class CoursesController : Controller
             return NotFound();
         }
 
-        Courses course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(n => n.Id == id);
+        Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(n => n.Id == id);
         if (course == null)
         {
             return NotFound();
@@ -286,7 +206,7 @@ public class CoursesController : Controller
         }
         var coursDetails = cours.CoursesDetails;
 
-        await _coruseService.DeleteAsync(id);
+        _context.Coursess.Remove(cours);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }

@@ -35,6 +35,7 @@ builder.Services.AddScoped<ISliderServices, SliderServices>();
 builder.Services.AddScoped<IEventServices, EventServices>();
 builder.Services.AddScoped<ISettingService, SettingService>();
 builder.Services.AddScoped<ICourseDetailsServices, CourseDetailsServices>();
+builder.Services.AddScoped<ICategoryServices, CategoryServices>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<EmailSettings>();
