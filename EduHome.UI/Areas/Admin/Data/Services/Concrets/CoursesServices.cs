@@ -60,13 +60,17 @@ public class CoursesServices : ICoursesServices
         };
 
         await _context.AddAsync(courses);
-        /*_context.Entry(courses).State = EntityState.Added;*/
         await _context.SaveChangesAsync();
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        if (id == 0) throw new NullReferenceException("Course is Null");
+        var course = await _context.Coursess.FindAsync(id);
+        if (course is null) throw new NotFoundException("Course is Null");
+
+        _context.Coursess.Remove(course);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<Courses> FindByIdAsync(int id)
@@ -86,8 +90,52 @@ public class CoursesServices : ICoursesServices
 
         return course;
     }
-    public Task UpdateAsync(int id, CourseFullDetailsViewModel CourseFullDetailsViewModel)
+    public async Task UpdateAsync(int id, CourseFullDetailsViewModel viewModel, int CategoryId)
     {
-        throw new NotImplementedException();
+        Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(c => c.Id == id);
+
+        if (course == null)
+        {
+            throw new NullReferenceException("Course is null");
+        }
+
+        Categories? category = await _context.Categoriess.FindAsync(CategoryId);
+
+        if (category == null)
+        {
+            throw new ArgumentException("Invalid Category");
+        }
+
+        if (viewModel.ImagePath != null)
+        {
+            if (!viewModel.ImagePath.FormatFile("image"))
+            {
+                throw new ArgumentException("Select correct image format!");
+            }
+
+            if (!viewModel.ImagePath.FormatLength(1000))
+            {
+                throw new ArgumentException("Size must be less than 1000 kb");
+            }
+
+            string filePath = await viewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
+            course.ImagePath = filePath;
+        }
+
+        course.Descripton = viewModel.Description;
+        course.Name = viewModel.Cours;
+        course.CategoriesId = CategoryId;
+        course.CoursesDetails.Starts = viewModel.Starts;
+        course.CoursesDetails.Month = viewModel.Month;
+        course.CoursesDetails.Hours = viewModel.Hours;
+        course.CoursesDetails.Level = viewModel.Level;
+        course.CoursesDetails.Language = viewModel.Language;
+        course.CoursesDetails.Students = viewModel.Students;
+        course.CoursesDetails.Assesments = viewModel.Assesments;
+        course.CoursesDetails.CourseFee = viewModel.CourseFee;
+
+        _context.Entry(course).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
     }
+
 }

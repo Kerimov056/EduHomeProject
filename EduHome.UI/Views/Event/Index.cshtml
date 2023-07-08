@@ -24,12 +24,12 @@
 <div class="event-area three text-center pt-150 pb-150">
     <div class="container">
         <div class="row">
-            @foreach (var events in Model)
+            @foreach (var events in Model.OrderByDescending(o=>o.DateTime))
             {
                 <div class="col-lg-4 col-md-6">
                 <div class="single-event mb-60">
                     <div class="event-img">
-                        <a href="event-details.html">
+                            <a asp-controller="EventsDetails" asp-action="Index" asp-route-id="@events.Id">
                             <img style="height:200px;object-fit:cover" src="/@events.Details.ImagePath" alt="event">
                             <div class="course-hover">
                                 <i class="fa fa-link"></i>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="event-content text-start">
-                        <h4><a href="event-details.html">@events.Name</a></h4>
+                            <h4><a asp-controller="EventsDetails" asp-action="Index" asp-route-id="@events.Id">@events.Name</a></h4>
                         <ul>
                             <li><span>time:</span> @events.DateTime.ToString("hh:mm tt");</li>
                             <li><span>venue</span> @events.Location</li>

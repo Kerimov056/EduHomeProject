@@ -69,19 +69,9 @@ public class CoursesController : Controller
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id == null || id == 0)
-        {
-            return NotFound();
-        }
-
-        ViewBag.catagory = await _context.Categoriess.ToListAsync();
-        Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(n => n.Id == id);
-        if (course == null)
-        {
-            return NotFound();
-        }
-
-
+        ViewBag.catagory = await _categoryServices.GetCategory();
+        Courses? course = await _coruseService.FindByIdAsync(id);
+        if (course is null) return RedirectToAction(nameof(Index));
         CourseFullDetailsViewModel viewModel = new CourseFullDetailsViewModel
         {
             Description = course.Descripton,
@@ -96,7 +86,6 @@ public class CoursesController : Controller
             Assesments = course.CoursesDetails.Assesments,
             CourseFee = course.CoursesDetails.CourseFee
         };
-
         return View(viewModel);
     }
 
@@ -104,64 +93,12 @@ public class CoursesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, CourseFullDetailsViewModel viewModel, int CategorId)
     {
-        if (id == 0)
-        {
-            return NotFound();
-        }
-
         if (!ModelState.IsValid)
         {
+            ViewBag.category = await _categoryServices.GetCategory();
             return View(viewModel);
         }
-        if (!viewModel.ImagePath.FormatFile("image"))
-        {
-            ModelState.AddModelError("ImagePath", "Select correct image format!");
-            return View(viewModel);
-        }
-        if (!viewModel.ImagePath.FormatLength(100))
-        {
-            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-            return View(viewModel);
-        }
-
-        Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(c => c.Id == id);
-        if (course == null)
-        {
-            return NotFound();
-        }
-
-
-
-        string filePath = await viewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
-
-
-
-        var category = await _context.Categoriess.FindAsync(CategorId);
-        if (category == null)
-        {
-            ModelState.AddModelError("CatagoryId", "Invalid category selected!");
-            ViewBag.catagory = await _context.Categoriess.ToListAsync();
-            return View(viewModel);
-        }
-
-
-
-        course.ImagePath = filePath;
-        course.Descripton = viewModel.Description;
-        course.Name = viewModel.Cours;
-        course.CategoriesId = CategorId;
-        course.CoursesDetails.Starts = viewModel.Starts;
-        course.CoursesDetails.Month = viewModel.Month;
-        course.CoursesDetails.Hours = viewModel.Hours;
-        course.CoursesDetails.Level = viewModel.Level;
-        course.CoursesDetails.Language = viewModel.Language;
-        course.CoursesDetails.Students = viewModel.Students;
-        course.CoursesDetails.Assesments = viewModel.Assesments;
-        course.CoursesDetails.CourseFee = viewModel.CourseFee;
-
-
-        _context.Coursess.Update(course);
-        await _context.SaveChangesAsync();
+        await _coruseService.UpdateAsync(id, viewModel, CategorId);
         return RedirectToAction("Index");
     }
 
@@ -170,27 +107,11 @@ public class CoursesController : Controller
 
     public async Task<IActionResult> Delete(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-
-        Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(n => n.Id == id);
-        if (course == null)
-        {
-            return NotFound();
-        }
-
-        var cours = _context.Coursess.Find(id);
-        if (cours is null)
-        {
-            return NotFound();
-        }
+        var cours = await _coruseService.FindByIdAsync(id);
         ViewBag.coursId = cours.Id;
         HomeViewModel homeViewModel = new()
         {
-            blogs = await _context.Blogs.ToListAsync(),
-            courses = await _context.Coursess.Include(c => c.CoursesDetails).ToListAsync()
+            courses = await _coruseService.GetCourses()
         };
         return View(homeViewModel);
     }
@@ -199,15 +120,7 @@ public class CoursesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeletePost(int id)
     {
-        var cours = await _context.Coursess.FindAsync(id);
-        if (cours is null)
-        {
-            return NotFound();
-        }
-        var coursDetails = cours.CoursesDetails;
-
-        _context.Coursess.Remove(cours);
-        await _context.SaveChangesAsync();
+        await _coruseService.DeleteAsync(id);
         return RedirectToAction("Index");
     }
 }

@@ -25,7 +25,7 @@
         <div class="blog-area pt-150 pb-150">
             <div class="container">
                 <div class="row">
-                @foreach (var blog in Model.blogs)
+                @foreach (var blog in Model.blogs.OrderByDescending(c=>c.Data_Time))
                 {
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog mb-60">
