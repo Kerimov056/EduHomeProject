@@ -5,7 +5,7 @@ namespace EduHome.UI.Areas.Admin.ViewModel;
 public class TeacherViewModel
 {
 
-    public IFormFile Image { get; set; }
+    public IFormFile? Image { get; set; }
     [Required,MaxLength(20)]
     public string Name { get; set; } = null!;
     [Required,MaxLength(30)]

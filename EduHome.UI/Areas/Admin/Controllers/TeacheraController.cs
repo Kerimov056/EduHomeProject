@@ -1,4 +1,5 @@
 ﻿using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
@@ -15,25 +16,24 @@ public class TeacheraController : Controller
 {
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _environment;
-    public TeacheraController(AppDbContext context, IWebHostEnvironment environment)
+    private readonly ITeacherService _teacherService;
+    public TeacheraController(AppDbContext context, IWebHostEnvironment environment, ITeacherService teacherService)
     {
         _context = context;
         _environment = environment;
+        _teacherService = teacherService;
     }
 
     public async Task<IActionResult> Index()
     {
         int sum = 0;
-        var teacher = await _context.Teachers.ToListAsync();
-        foreach (var item in teacher)
-        {
-            sum++;
-        }
-
+        var teacher = await _teacherService.GetTeacher();
+        foreach (var item in teacher) sum++;
         TempData["TeacherSum"] = sum;
+
         HomeViewModel model = new HomeViewModel
         {
-            teachers = await _context.Teachers.ToListAsync(),
+            teachers = await _teacherService.GetTeacher(),
         };
         return View(model);
     }
@@ -41,13 +41,11 @@ public class TeacheraController : Controller
     public async Task<IActionResult> Details(int id)
     {
         if (!ModelState.IsValid) return NotFound();
-        Teacher teacher = await _context.Teachers.FindAsync(id);
-        if (teacher == null) return NotFound();
+        Teacher? teacher = await _teacherService.FindByTeacherAsync(id);
         ViewBag.TeacherId = teacher.Id;
-
         HomeViewModel model = new HomeViewModel
         {
-            teachers = await _context.Teachers.Include(e=>e.teacherDetails).ToListAsync(),
+            teachers = await _teacherService.GetTeacher(),
         };
         return View(model);
     }
@@ -62,63 +60,23 @@ public class TeacheraController : Controller
 
     public async Task<IActionResult> Create(TeacherViewModel teacherViewModel)
     {
-        if (!ModelState.IsValid)
+        if (!ModelState.IsValid)  return View(teacherViewModel);
+        try
         {
+            await _teacherService.CreateAsync(teacherViewModel);
+            return RedirectToAction(nameof(Index));
+        }
+        catch (ArgumentException ex)
+        {
+            ModelState.AddModelError("Image", ex.Message);
             return View(teacherViewModel);
         }
-        if (!teacherViewModel.Image.FormatFile("image"))
-        {
-            ModelState.AddModelError("ImagePath", "Select correct image format!");
-            return View(teacherViewModel);
-        }
-        if (!teacherViewModel.Image.FormatLength(1000))
-        {
-            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-            return View(teacherViewModel);
-        }
-
-        string filePath = await teacherViewModel.Image.CopyFileAsync(_environment.WebRootPath, "assets", "img", "course");
-        Teacher teacher = new Teacher
-        {
-            Name = teacherViewModel.Name,
-            ImagePath= filePath,
-            Posistion = teacherViewModel.Posistion,
-            teacherDetails = new TeacherDetails
-            {
-                Degree = teacherViewModel.Degree,
-                Experince = teacherViewModel.Experince,
-                Hobbies = teacherViewModel.Hobbies,
-                Facultry = teacherViewModel.Facultry,
-                Email= teacherViewModel.Email,
-                Phone = teacherViewModel.Phone,
-                Skaype = teacherViewModel.Skype,
-                LanguageDegree = teacherViewModel.Language,
-                TeamLeaderDegree = teacherViewModel.TeamLeader,
-                DevelopmentDegree= teacherViewModel.Development,
-                DesignDegree = teacherViewModel.Design,
-                InnovationDegree= teacherViewModel.Innovation,
-                CommunicationDegree= teacherViewModel.Communication,
-                Description = teacherViewModel.AboutMe
-            }
-        };
-        await _context.AddAsync(teacher);
-        await _context.SaveChangesAsync();
-
-        return RedirectToAction(nameof(Index));
+       
     }
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id==0)
-        {
-            return NotFound();
-        }
-        var teacher = await _context.Teachers.Include(e=>e.teacherDetails).FirstOrDefaultAsync(n => n.Id == id);
-        if (teacher is null)
-        {
-            return NotFound();
-        }
-
+        var teacher = await _teacherService.FindByTeacherAsync(id);
         TeacherViewModel teacherView = new TeacherViewModel
         {
             //Image = teacher.ImagePath
@@ -146,70 +104,19 @@ public class TeacheraController : Controller
 
     public async Task<IActionResult> Edit(int id,TeacherViewModel teacherViewModel)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(teacherViewModel);
-        }
-        if (!teacherViewModel.Image.FormatFile("image"))
-        {
-            ModelState.AddModelError("ImagePath", "Select correct image format!");
-            return View(teacherViewModel);
-        }
-        if (!teacherViewModel.Image.FormatLength(100))
-        {
-            ModelState.AddModelError("ImagePath", "Size must be less than 100 kb");
-            return View(teacherViewModel);
-        }
-
-        string filePath = await teacherViewModel.Image.CopyFileAsync(_environment.WebRootPath, "assets", "img", "course");
-
-        Teacher? teacher = await _context.Teachers.Include(td => td.teacherDetails).FirstOrDefaultAsync(e =>e.Id == id);
-        if (teacher is null)
-        {
-            return NotFound();
-        }
-
-        teacher.ImagePath = filePath;
-        teacher.Name = teacherViewModel.Name;
-        teacher.Posistion = teacherViewModel.Posistion;
-        teacher.teacherDetails.Degree= teacherViewModel.Degree;
-        teacher.teacherDetails.Experince= teacherViewModel.Experince;
-        teacher.teacherDetails.Hobbies= teacherViewModel.Hobbies;
-        teacher.teacherDetails.Facultry= teacherViewModel.Facultry;
-        teacher.teacherDetails.Email = teacherViewModel.Email;
-        teacher.teacherDetails.Phone= teacherViewModel.Phone;
-        teacher.teacherDetails.Skaype = teacherViewModel.Skype;
-        teacher.teacherDetails.LanguageDegree = teacherViewModel.Language;
-        teacher.teacherDetails.TeamLeaderDegree = teacherViewModel.TeamLeader;
-        teacher.teacherDetails.DevelopmentDegree = teacherViewModel.Development;
-        teacher.teacherDetails.DesignDegree= teacherViewModel.Design;
-        teacher.teacherDetails.InnovationDegree= teacherViewModel.Innovation;
-        teacher.teacherDetails.CommunicationDegree= teacherViewModel.Communication;
-        teacher.teacherDetails.Description = teacherViewModel.AboutMe;
-
-        _context.Entry(teacher).State= EntityState.Modified;
-        await _context.SaveChangesAsync();
+        if (!ModelState.IsValid)  return View(teacherViewModel);
+        await _teacherService.EditAsync(id,teacherViewModel);
         return RedirectToAction(nameof(Index));
     }
 
 
     public async Task<IActionResult> Delete(int id )
     {
-        if (id == 0)
-        {
-            return NotFound();
-        }
-
-        Teacher? teacher = await _context.Teachers.Include(td => td.teacherDetails).FirstOrDefaultAsync(i=>i.Id==id);
-        if (teacher is null)
-        {
-            return BadRequest();
-        }
+        Teacher? teacher = await _teacherService.FindByTeacherAsync(id);
         ViewBag.TeId = teacher.Id;
-
         HomeViewModel model = new HomeViewModel
         {
-            teachers = await _context.Teachers.Include(td => td.teacherDetails).ToListAsync()
+            teachers = await _teacherService.GetTeacher()
         };
         return View(model);
     }
@@ -218,19 +125,7 @@ public class TeacheraController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeletePost(int id)
     {
-        if (id == 0)
-        {
-            return NotFound();
-        }
-        var teacher = await _context.Teachers.FindAsync(id);
-        if (teacher == null)
-        {
-            return BadRequest();
-        }
-
-        //_context.Entry(teacher).State = EntityState.Detached;
-        _context.Teachers.Remove(teacher);
-        await _context.SaveChangesAsync();
+        await _teacherService.DeleteAsync(id);
         return RedirectToAction(nameof(Index));
     }
 }

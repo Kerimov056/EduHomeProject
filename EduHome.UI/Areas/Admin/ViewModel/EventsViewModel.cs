@@ -11,7 +11,7 @@ public class EventsViewModel
     [Required,MaxLength(60)]
     public string Location { get; set; } = null!;
     public DateTime DateTime { get; set; } 
-    public IFormFile Image { get; set; }
+    public IFormFile? Image { get; set; }
     [RequiredAttribute,MaxLength(1200)]
     public string Description { get; set; } = null!;
 }
