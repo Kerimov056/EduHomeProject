@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
-using EduHome.UI.Areas.Admin.Data.Base;
+using EduHomeDataAccess.Interfaces;
 using EduHome.UI.Areas.Admin.Data.Exception;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
@@ -16,13 +16,20 @@ public class BlogsServices : IBlogsService
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
     private readonly IWebHostEnvironment _env;
+    private readonly IEntityBaseRepository<Blog> _entityBaseRepository;
 
-    public BlogsServices(AppDbContext contex, IMapper mapper, IWebHostEnvironment env)
+    public BlogsServices(
+        AppDbContext contex,
+        IMapper mapper,
+        IWebHostEnvironment env,
+        IEntityBaseRepository<Blog> entityBaseRepository)
     {
         _context = contex;
         _mapper = mapper;
         _env = env;
+        _entityBaseRepository = entityBaseRepository;
     }
+    public async Task<IEnumerable<Blog>> GetBlogs() => await _entityBaseRepository.GetAllAsync();
     public async Task CreateAsync(BlogViewModel blogViewModel)
     {
         if (blogViewModel is null)
@@ -47,7 +54,7 @@ public class BlogsServices : IBlogsService
         blog.Description = blogViewModel.Decs;
 
 
-        await _context.AddAsync(blog);
+        await _entityBaseRepository.AddAsync(blog);
         await _context.SaveChangesAsync();
     }
 
@@ -64,7 +71,7 @@ public class BlogsServices : IBlogsService
             throw new NotFoundException("Blog is not Found");
         }
 
-        _context.Remove(blog);
+        await _entityBaseRepository.DeleteAsync(id);
         await _context.SaveChangesAsync();
     }
 
@@ -106,9 +113,8 @@ public class BlogsServices : IBlogsService
 
     public async Task<Blog> FindByIdAsync(int id)
     {
-        var blog = await _context.Blogs.FindAsync(id);
+        var blog = await _entityBaseRepository.GetByIdAsync(id);
         return blog;
     }
 
-    public async Task<IEnumerable<Blog>> GetBlogs() => await _context.Blogs.ToListAsync();
 }

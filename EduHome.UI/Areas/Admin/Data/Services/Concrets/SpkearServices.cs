@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
-using EduHome.UI.Areas.Admin.Data.Base;
+using EduHomeDataAccess.Interfaces;
 using EduHome.UI.Areas.Admin.Data.Exception;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
