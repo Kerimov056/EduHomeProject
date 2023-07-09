@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var cours in Model.courses)
+            @foreach (var cours in Model.courses.Take(3))
             {
                 if (cours_count <= 3)
                 {
@@ -140,7 +140,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var item in Model.events)
+            @foreach (var item in Model.events.OrderByDescending(c => c.DateTime).Take(8))
             {
                 if (upcomming_count <=4)
                 {
@@ -234,15 +234,15 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var blog in Model.blogs)
+            @foreach (var blog in Model.blogs.OrderByDescending(c=>c.Data_Time).Take(3))
             {
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog">
                         <a asp-controller="BlogDetails" asp-action="Index" asp-route-id="@blog.Id">
                         <div class="blog-img">
-                                <img src="@blog.ImagePath" alt="blog">
+                                <img style="height:300px;object-fit:cover" src="@blog.ImagePath" alt="blog">
                             <div class="blog-hover">
-                                <a href="blog-details.html"><i class="fa fa-link"></i></a>
+                                <a ><i class="fa fa-link"></i></a>
                             </div>
                            
                         </div>

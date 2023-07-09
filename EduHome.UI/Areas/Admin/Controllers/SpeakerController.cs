@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
+using EduHome.UI.Areas.Admin.Data.Services.Concrets;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
@@ -20,22 +21,25 @@ public class SpeakerController : Controller
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
     private readonly ISpkearServices _spkearServices;
-    public SpeakerController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ISpkearServices spkearServices)
+    private readonly IEventServices _eventServices;
+    public SpeakerController(
+        AppDbContext context,
+        IWebHostEnvironment env,
+        IMapper mapper, 
+        ISpkearServices spkearServices,
+        IEventServices eventServices)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
         _spkearServices = spkearServices;
+        _eventServices = eventServices;
     }
     public async Task<IActionResult> Index()
     {
         int sum = 0;
-        var speaker = await _context.Speakerss.ToListAsync();
-        foreach (var c in speaker)
-        {
-            sum++;
-        }
-
+        var speaker = await _spkearServices.GetSpeakers();
+        foreach (var c in speaker) sum++;
         TempData["SpeakerSum"] = sum;
 
         HomeViewModel model = new()
@@ -47,7 +51,7 @@ public class SpeakerController : Controller
 
     public async Task<IActionResult> Create()
     {
-        ViewBag.Eventsss = await _context.Eventss.ToListAsync();
+        ViewBag.Eventsss = await _eventServices.GetEvent();
         return View();
     }
 
@@ -55,106 +59,39 @@ public class SpeakerController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(SpeakerViewModel speakerViewModel, int[] SelectedEventIds)
     {
-        if (!ModelState.IsValid)
+        if (!ModelState.IsValid) return View(speakerViewModel);
+        try
         {
+            var eventList = await _eventServices.GetEvent();
+            await _spkearServices.CreateAsync(speakerViewModel, SelectedEventIds);
+            ViewBag.Eventsss = new SelectList(eventList, "Id", "Name");
+            return RedirectToAction(nameof(Index));
+        }
+        catch (ArgumentException ex)
+        {
+            ModelState.AddModelError("Image", ex.Message);
             return View(speakerViewModel);
         }
-
-        if (!speakerViewModel.Image.FormatFile("image"))
-        {
-            ModelState.AddModelError("Image", "Select correct image format!");
-            return View(speakerViewModel);
-        }
-
-        if (!speakerViewModel.Image.FormatLength(100))
-        {
-            ModelState.AddModelError("Image", "Size must be less than 100 kb");
-            return View(speakerViewModel);
-        }
-
-        string filePath = await speakerViewModel.Image.CopyFileAsync(_env.WebRootPath, "assets", "img", "event");
-
-        var events = await _context.Eventss.FindAsync(SelectedEventIds.FirstOrDefault());
-
-        if (events == null)
-        {
-            ModelState.AddModelError("EventId", "Invalid Event selected!");
-            ViewBag.Eventsss = await _context.Eventss.ToListAsync();
-            return View(speakerViewModel);
-        }
-
-        Speakers speakers = _mapper.Map<Speakers>(speakerViewModel);
-        speakers.ImagePath = filePath;
-
-        await _spkearServices.CreateAsync(speakers);
-        await _context.SaveChangesAsync();
-
-        foreach (var eventId in SelectedEventIds)
-        {
-            var events_speakers = new Events_Speakers
-            {
-                EventsId = eventId,
-                SpeakersId = speakers.Id
-            };
-
-            _context.EventsDetails.Add(events_speakers);
-        }
-
-        await _context.SaveChangesAsync();
-
-        var eventList = _context.Eventss.ToList();
-        ViewBag.Eventsss = new SelectList(eventList, "Id", "Name");
-
-        return RedirectToAction(nameof(Index));
     }
-
-
 
     public async Task<IActionResult> Details(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var spkear = await _context.Speakerss.FindAsync(id);
-        if (spkear is null)
-        {
-            return NotFound();
-        }
-
+        var spkear = await _spkearServices.GetByIdAsync(id);
         ViewBag.DetailSpkearId = spkear.Id;
-
-        ViewBag.FullEvent = await _context.Eventss.ToListAsync();
-
-
-        HomeViewModel model = new()
-        {
-            events = await _context.Eventss.ToListAsync(),
-            events_Speakers  = await _context.EventsDetails.ToArrayAsync(),
-            speakers = await _context.Speakerss.ToListAsync(),
-        };
+        ViewBag.FullEvent = await _eventServices.GetEvent();
+        var model = await _spkearServices.Details();
         return View(model);
     }
 
-
+    
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        var spkear = await _context.Speakerss.FindAsync(id);
-        if (spkear is null)
-        {
-            return NotFound();
-        }
+        var spkear = await _spkearServices.GetByIdAsync(id);
         var VM = _mapper.Map<SpeakerViewModel>(spkear);
-
         VM.SelectedEventIds = await _context.EventsDetails.Where(e => e.SpeakersId == id)
             .Select(e => e.EventsId).ToListAsync();
-
-        ViewBag.Eventsss = await _context.Eventss.ToListAsync();
+        ViewBag.Eventsss = await _eventServices.GetEvent();
         return View(VM);
     }
 
@@ -162,74 +99,19 @@ public class SpeakerController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, SpeakerViewModel speakerViewModel, int EventId)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        if (!ModelState.IsValid)
-        {
-            return View(speakerViewModel);
-        }
-        if (!speakerViewModel.Image.FormatFile("image"))
-        {
-            ModelState.AddModelError("Image", "Select correct image format!");
-            return View(speakerViewModel);
-        }
-        if (!speakerViewModel.Image.FormatLength(100))
-        {
-            ModelState.AddModelError("Image", "Size must be less than 100 kb");
-            return View(speakerViewModel);
-        }
-        string filePath = await speakerViewModel.Image.CopyFileAsync(_env.WebRootPath, "assets", "img", "event");
-
-        Speakers spkear = await _context.Speakerss.FindAsync(id);
-        if (spkear is null)
-        {
-            return NotFound();
-        }
-
-        spkear.Name = speakerViewModel.Name;
-        spkear.ImagePath = filePath; 
-        spkear.Postions = speakerViewModel.Postions;
-        spkear.JobName = speakerViewModel.JobName;
-
-        var exisEvents = await _context.EventsDetails.Where(e => e.SpeakersId == id).ToListAsync();
-        _context.EventsDetails.RemoveRange(exisEvents);
-
-        if (speakerViewModel.SelectedEventIds != null)
-        {
-            foreach (var eventId in speakerViewModel.SelectedEventIds)
-            {
-                var eventSpeaker = new Events_Speakers
-                {
-                    EventsId = eventId,
-                    SpeakersId = id
-                };
-                _context.EventsDetails.Add(eventSpeaker);
-            }
-        }
-
-        await _context.SaveChangesAsync();
-
+        if (!ModelState.IsValid) return View(speakerViewModel);
+        await _spkearServices.EditAsync(id, speakerViewModel, EventId);
         return RedirectToAction(nameof(Index));
     }
 
 
     public async Task<IActionResult> Delete(int id)
     {
-        if (id == 0 || id == null)
-        {
-            return NotFound();
-        }
-        Speakers? Spkear = await _context.Speakerss.FindAsync(id);
-        if (Spkear is null)
-        {
-            return NotFound();
-        }
+        Speakers? Spkear = await _spkearServices.GetByIdAsync(id);
         ViewBag.SpkearId = Spkear.Id;
         HomeViewModel model = new()
         {
-            speakers = await _context.Speakerss.ToArrayAsync(),
+            speakers = await _spkearServices.GetSpeakers(),
         };
         return View(model);
     }
@@ -238,14 +120,7 @@ public class SpeakerController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeletePost(int id)
     {
-        var speaker = await _context.Speakerss.FindAsync(id);
-        if (speaker is null)
-        {
-            return NotFound();
-        }
-
         await _spkearServices.DeleteAsync(id);
-        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 }

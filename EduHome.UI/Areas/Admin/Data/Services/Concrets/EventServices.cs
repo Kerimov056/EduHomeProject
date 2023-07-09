@@ -78,8 +78,21 @@ public class EventServices : IEventServices
     public async Task DeleteAsync(int id)
     {
         if (id == 0) throw new NotFoundException("Event is Null");
-        var events = await _context.Eventss.FindAsync(id);
+
+        var events = await _context.Eventss.Include(es=>es.Events_Speakers).ThenInclude(s=>s.Speakers).FirstOrDefaultAsync(e=>e.Id==id);
         if (events is null) throw new NullReferenceException();
+
+        foreach (var item in _context.EventsDetails)
+        {
+            if (item.EventsId==events.Id)
+            {
+                _context.EventsDetails.RemoveRange(item.Speakers.Events_Speakers);
+                _context.Speakerss.Remove(item.Speakers);
+                break;
+            }
+        }
+        await _context.SaveChangesAsync();
+
         _context.Eventss.Remove(events);
         await _context.SaveChangesAsync();
     }
@@ -96,9 +109,9 @@ public class EventServices : IEventServices
                 throw new ArgumentException("Select correct image format!");
             }
 
-            if (!eventsViewModel.Image.FormatLength(100))
+            if (!eventsViewModel.Image.FormatLength(1000))
             {
-                throw new ArgumentException("Size must be less than 100 kb");
+                throw new ArgumentException("Size must be less than 1000 kb");
             }
 
             string filePath = await eventsViewModel.Image.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");

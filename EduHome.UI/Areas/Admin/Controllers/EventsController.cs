@@ -60,8 +60,16 @@ public class EventsController : Controller
     public async Task<IActionResult> Create(EventsViewModel eventsViewModel)
     {
         if (!ModelState.IsValid) return View(eventsViewModel);
-        await _eventServices.CreateAsync(eventsViewModel);
-        return RedirectToAction("Index");
+        try
+        {
+            await _eventServices.CreateAsync(eventsViewModel);
+            return RedirectToAction("Index");
+        }
+        catch (ArgumentException ex)
+        {
+            ModelState.AddModelError("Image", ex.Message);
+            return View(eventsViewModel);
+        }
     }
 
     public async Task<IActionResult> Edit(int id)

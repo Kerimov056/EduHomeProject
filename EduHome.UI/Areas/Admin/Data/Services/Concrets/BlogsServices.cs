@@ -35,9 +35,9 @@ public class BlogsServices : IBlogsService
             throw new ArgumentException("Select correct image format!");
         }
 
-        if (!blogViewModel.ImagePath.FormatLength(100))
+        if (!blogViewModel.ImagePath.FormatLength(1000))
         {
-            throw new ArgumentException("Size must be less than 100 kb");
+            throw new ArgumentException("Size must be less than 1000 kb");
         }
 
         string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
@@ -85,9 +85,9 @@ public class BlogsServices : IBlogsService
                 throw new ArgumentException("Select correct image format!");
             }
 
-            if (!blogViewModel.ImagePath.FormatLength(100))
+            if (!blogViewModel.ImagePath.FormatLength(1000))
             {
-                throw new ArgumentException("Size must be less than 100 kb");
+                throw new ArgumentException("Size must be less than 1000 kb");
             }
             
             string filePath = await blogViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
