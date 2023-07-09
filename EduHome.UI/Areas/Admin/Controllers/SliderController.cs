@@ -14,15 +14,9 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 [Authorize(Roles = "Admin")]
 public class SliderController : Controller
 {
-    private readonly AppDbContext _context;
-    private readonly IWebHostEnvironment _env;
-    private readonly IMapper _mapper;
     private readonly ISliderServices _sliderServices;
-    public SliderController(AppDbContext context, IWebHostEnvironment env, IMapper mapper, ISliderServices sliderServices)
+    public SliderController(ISliderServices sliderServices)
     {
-        _context = context;
-        _env = env;
-        _mapper = mapper;
         _sliderServices = sliderServices;
     }
 

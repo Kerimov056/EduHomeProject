@@ -1,12 +1,8 @@
-﻿using EduHome.Core.Entities;
-using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
-using EduHome.UI.Areas.Admin.Extension;
+﻿using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
-using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 
@@ -14,18 +10,12 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 [Authorize(Roles = "Admin")]
 public class EventsController : Controller
 {
-    private readonly AppDbContext _context;
-    private readonly IWebHostEnvironment _env;
     private readonly IEventServices _eventServices;
     private readonly IEventsDetailsServices _eventsDetailsServices;
     public EventsController(
-        AppDbContext context,
-        IWebHostEnvironment env,
         IEventServices eventServices,
         IEventsDetailsServices eventsDetailsServices)
     {
-        _context = context;
-        _env = env;
         _eventServices = eventServices;
         _eventsDetailsServices = eventsDetailsServices;
     }
@@ -33,7 +23,7 @@ public class EventsController : Controller
     public async Task<IActionResult> Index()
     {
         int sum = 0;
-        var events = await _context.Eventss.ToListAsync();
+        var events = await _eventServices.GetEvent();
         foreach (var c in events) sum++;
         TempData["EventSum"] = sum;
 

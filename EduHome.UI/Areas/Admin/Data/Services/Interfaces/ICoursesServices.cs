@@ -9,6 +9,7 @@ public interface ICoursesServices
     Task<IEnumerable<Courses>> GetCourses();
     Task CreateAsync(CourseFullDetailsViewModel CourseFullDetailsViewModel,int CategoryId);
     Task UpdateAsync(int id, CourseFullDetailsViewModel CourseFullDetailsViewModel,int CategorId);
+    Task<CourseFullDetailsViewModel> GetEdit(int id, CourseFullDetailsViewModel courseFullDetailsViewModel);
     Task<Courses> FindByIdAsync(int id);
     Task DeleteAsync(int id);
 }

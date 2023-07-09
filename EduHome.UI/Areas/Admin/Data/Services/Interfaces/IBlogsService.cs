@@ -8,6 +8,6 @@ public interface IBlogsService
     Task<IEnumerable<Blog>> GetBlogs();
     Task CreateAsync(BlogViewModel blogViewModel);
     Task DeleteAsync(int id);
-    Task<BlogViewModel> FindByIdAsync(int id);
+    Task<Blog> FindByIdAsync(int id);
     Task EditAsync(int Id,BlogViewModel blogViewModel);
 }

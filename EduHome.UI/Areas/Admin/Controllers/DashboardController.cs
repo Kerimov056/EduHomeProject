@@ -1,48 +1,27 @@
-﻿using AutoMapper;
-using EduHome.Core.Entities;
-using EduHome.UI.Areas.Admin.AutoMapper;
-using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
-using EduHome.UI.Areas.Admin.Extension;
+﻿using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.ViewModel;
-using EduHome.UI.ViewModel;
-using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Primitives;
-using System.Reflection.Metadata;
-using System.Text;
+
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
 [Authorize(Roles = "Admin")]
 public class DashboardController : Controller
 {
-    private readonly AppDbContext _context;
-    private readonly IMapper _mapper;
-    private readonly IWebHostEnvironment _env;
     private readonly IBlogsService _blogService;
 
-    public DashboardController(AppDbContext context, IMapper mapper, IWebHostEnvironment env, IBlogsService blogService)
+    public DashboardController(IBlogsService blogService)
     {
-        _context = context;
-        _mapper = mapper;
-        _env = env;
         _blogService = blogService;
     }
 
     public async Task<IActionResult> Index()
     {
         int sum = 0;
-        var blog = await _context.Blogs.ToListAsync();
-        foreach (var c in blog)
-        {
-            sum++;
-        }
-        TempData["BlogeSum"] = sum;
-
-
         var BSer = await _blogService.GetBlogs();
+        foreach (var c in BSer) sum++;
+        TempData["BlogeSum"] = sum;
         return View(BSer);
     }
 
@@ -73,9 +52,7 @@ public class DashboardController : Controller
 
     public async Task<IActionResult> Edit(int id)
     {
-        if (id == 0)  return NotFound();
-        var blog = _context.Blogs.Find(id);
-        if (blog is null) return NotFound();
+        var blog = await _blogService.FindByIdAsync(id);
         BlogViewModel model = new()
         {
             Data_Time = DateTime.Now,
@@ -98,10 +75,9 @@ public class DashboardController : Controller
     }
 
 
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-        var blog = _context.Blogs.Find(id);
-        if (blog is null) return NotFound();
+        var blog = await _blogService.FindByIdAsync(id);
         return View(blog);
     }
 

@@ -104,9 +104,10 @@ public class BlogsServices : IBlogsService
         await _context.SaveChangesAsync();
     }
 
-    public Task<BlogViewModel> FindByIdAsync(int id)
+    public async Task<Blog> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var blog = await _context.Blogs.FindAsync(id);
+        return blog;
     }
 
     public async Task<IEnumerable<Blog>> GetBlogs() => await _context.Blogs.ToListAsync();

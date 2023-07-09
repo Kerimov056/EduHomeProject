@@ -1,10 +1,8 @@
 ﻿using EduHome.Core.Entities;
-using EduHome.UI.Areas.Admin.Data.Base;
 using EduHome.UI.Areas.Admin.Data.Exception;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
-using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -90,23 +88,55 @@ public class CoursesServices : ICoursesServices
 
         return course;
     }
+
+    public async Task<CourseFullDetailsViewModel> GetEdit(int id, CourseFullDetailsViewModel courseFullDetailsViewModel)
+    {
+        Courses? course = await _context.Coursess.FindAsync(id);
+        if (course is null) throw new NotFoundException("Course is Null");
+
+        if (courseFullDetailsViewModel.ImagePath is not null)
+        {
+            if (!courseFullDetailsViewModel.ImagePath.FormatFile("image"))
+            {
+                throw new ArgumentException("Select correct image format!");
+            }
+
+            if (!courseFullDetailsViewModel.ImagePath.FormatLength(1000))
+            {
+                throw new ArgumentException("Size must be less than 1000 kb");
+            }
+
+            string filePath = await courseFullDetailsViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
+            course.ImagePath = filePath;
+        }
+
+        courseFullDetailsViewModel.CategorId = course.CategoriesId;
+        courseFullDetailsViewModel.Description = course.Descripton;
+        courseFullDetailsViewModel.Cours = course.Name;
+        courseFullDetailsViewModel.CategorId = course.CategoriesId;
+        courseFullDetailsViewModel.Starts = course.CoursesDetails.Starts;
+        courseFullDetailsViewModel.Month = course.CoursesDetails.Month;
+        courseFullDetailsViewModel.Hours = course.CoursesDetails.Hours;
+        courseFullDetailsViewModel.Level = course.CoursesDetails.Level;
+        courseFullDetailsViewModel.Language = course.CoursesDetails.Language;
+        courseFullDetailsViewModel.Students = course.CoursesDetails.Students;
+        courseFullDetailsViewModel.Assesments = course.CoursesDetails.Assesments;
+        courseFullDetailsViewModel.CourseFee = course.CoursesDetails.CourseFee;
+
+        return courseFullDetailsViewModel;
+    }
+
     public async Task UpdateAsync(int id, CourseFullDetailsViewModel viewModel, int CategoryId)
     {
         Courses? course = await _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefaultAsync(c => c.Id == id);
 
-        if (course == null)
-        {
-            throw new NullReferenceException("Course is null");
-        }
+        if (course is null)  throw new NullReferenceException("Course is null");
 
         Categories? category = await _context.Categoriess.FindAsync(CategoryId);
 
-        if (category == null)
-        {
-            throw new ArgumentException("Invalid Category");
-        }
+        if (category is null)  throw new ArgumentException("Invalid Category");
 
-        if (viewModel.ImagePath != null)
+        if (viewModel.ImagePath is not null)
         {
             if (!viewModel.ImagePath.FormatFile("image"))
             {
@@ -124,7 +154,7 @@ public class CoursesServices : ICoursesServices
 
         course.Descripton = viewModel.Description;
         course.Name = viewModel.Cours;
-        course.CategoriesId = CategoryId;
+        course.CategoriesId = category.Id;
         course.CoursesDetails.Starts = viewModel.Starts;
         course.CoursesDetails.Month = viewModel.Month;
         course.CoursesDetails.Hours = viewModel.Hours;

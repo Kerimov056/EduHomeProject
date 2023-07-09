@@ -1,12 +1,9 @@
 ﻿using EduHome.Core.Entities;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
-using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
-using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.UI.Areas.Admin.Controllers;
 [Area("Admin")]
@@ -14,13 +11,9 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 
 public class TeacheraController : Controller
 {
-    private readonly AppDbContext _context;
-    private readonly IWebHostEnvironment _environment;
     private readonly ITeacherService _teacherService;
-    public TeacheraController(AppDbContext context, IWebHostEnvironment environment, ITeacherService teacherService)
+    public TeacheraController(ITeacherService teacherService)
     {
-        _context = context;
-        _environment = environment;
         _teacherService = teacherService;
     }
 

@@ -18,6 +18,8 @@ public class NoticeController : Controller
     {
         _noticeService = noticeServiceervice;
     }
+
+
     public async Task<IActionResult> Index()
     {
         var notice = await _noticeService.GetNotice();

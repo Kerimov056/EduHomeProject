@@ -45,6 +45,8 @@ public class InfosServices : IInfoService
         if (id == 0) throw new NullReferenceException("Info is Null");
         var info = await _context.Infos.FindAsync(id);
         if (info is null) throw new NotFoundException("Info Is Null");
+        info.Name = infoViewModel.Title;
+        info.Description = infoViewModel.Description;
         _context.Infos.Update(info);
         await _context.SaveChangesAsync();
     }

@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using EduHome.Core.Entities;
-using EduHome.UI.Areas.Admin.Data.Services.Concrets;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
-using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHome.UI.ViewModel;
 using EduHomeDataAccess.Database;
@@ -18,19 +16,16 @@ namespace EduHome.UI.Areas.Admin.Controllers;
 public class SpeakerController : Controller
 {
     private readonly AppDbContext _context;
-    private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
     private readonly ISpkearServices _spkearServices;
     private readonly IEventServices _eventServices;
     public SpeakerController(
         AppDbContext context,
-        IWebHostEnvironment env,
         IMapper mapper, 
         ISpkearServices spkearServices,
         IEventServices eventServices)
     {
         _context = context;
-        _env = env;
         _mapper = mapper;
         _spkearServices = spkearServices;
         _eventServices = eventServices;
