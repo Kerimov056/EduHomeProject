@@ -4,6 +4,7 @@ using EduHome.UI.Areas.Admin.Data.Exception;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
+using EduHomeDataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -13,10 +14,12 @@ public class NoticesServices : INoticeService
 {
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
-    public NoticesServices(AppDbContext context, IMapper mapper)
+    private readonly IEntityBaseRepository<Notice> _entityBaseRepository;
+    public NoticesServices(AppDbContext context, IMapper mapper, IEntityBaseRepository<Notice> entityBaseRepository)
     {
         _context = context;
         _mapper = mapper;
+        _entityBaseRepository = entityBaseRepository;
     }
 
     public async Task CreateAsync(NoticeViewModel NoticeViewModel)
@@ -27,7 +30,7 @@ public class NoticesServices : INoticeService
             Description = NoticeViewModel.Description,
             Date_Time = DateTime.Now
         };
-        await _context.Notices.AddAsync(notice);
+        await _entityBaseRepository.AddAsync(notice);
         await _context.SaveChangesAsync();
     }
 
@@ -36,7 +39,7 @@ public class NoticesServices : INoticeService
         if (id == 0) throw new NullReferenceException("Notice Is Null");
         var notice = await _context.Notices.FindAsync(id);
         if (notice is null) throw new NotFoundException("Notice Is Null");
-        _context.Entry(notice).State = EntityState.Deleted;
+        await _entityBaseRepository.DeleteAsync(id);
         await _context.SaveChangesAsync();
     }
 
@@ -63,5 +66,5 @@ public class NoticesServices : INoticeService
         return noticeViewModel;
     }
 
-    public async Task<IEnumerable<Notice>> GetNotice() => await _context.Notices.ToListAsync();
+    public async Task<IEnumerable<Notice>> GetNotice() => await _entityBaseRepository.GetAllAsync();
 }
