@@ -1424,6 +1424,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\7e597b09-930a-4e34-9a0b-439cc049e2acsems.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\7ebed647-8ca8-4b34-b510-af89dc49e2c0Ekran görüntüsü 2023-03-04 044041.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>EduHome.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EduHome.UI</BasePath>
+      <RelativePath>assets/img/course/7ebed647-8ca8-4b34-b510-af89dc49e2c0Ekran görüntüsü 2023-03-04 044041.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\7ebed647-8ca8-4b34-b510-af89dc49e2c0Ekran görüntüsü 2023-03-04 044041.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\80834cc9-1209-433f-b535-d7fd54a7fbc5Ekran görüntüsü 2023-03-04 044041.png))">
       <SourceType>Package</SourceType>
       <SourceId>EduHome.UI</SourceId>

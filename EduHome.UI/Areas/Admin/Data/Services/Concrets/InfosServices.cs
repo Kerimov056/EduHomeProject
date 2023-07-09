@@ -4,6 +4,7 @@ using EduHome.UI.Areas.Admin.Data.Exception;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
+using EduHomeDataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.UI.Areas.Admin.Data.Services.Concrets;
@@ -12,10 +13,12 @@ public class InfosServices : IInfoService
 {
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
-    public InfosServices(AppDbContext context, IMapper mapper)
+    private readonly IEntityBaseRepository<Info> _entityBaseRepository;
+    public InfosServices(AppDbContext context, IMapper mapper, IEntityBaseRepository<Info> entityBaseRepository)
     {
         _context = context;
         _mapper = mapper;
+        _entityBaseRepository = entityBaseRepository;
     }
 
     public async Task CreateAsync(InfoViewModel infoViewModel)
@@ -26,7 +29,7 @@ public class InfosServices : IInfoService
             Name = infoViewModel.Title,
             Description = infoViewModel.Description
         };
-        await _context.AddAsync(ınfo);
+        await _entityBaseRepository.AddAsync(ınfo);
         await _context.SaveChangesAsync();
     }
 
@@ -35,7 +38,7 @@ public class InfosServices : IInfoService
         if (id == 0) throw new NotFoundException("Info Is Null");
         var info = await _context.Infos.FindAsync(id);
         if (info is null) throw new NullReferenceException("Info Is Null");
-         _context.Entry(info).State = EntityState.Deleted;
+        await _entityBaseRepository.DeleteAsync(id);
         await _context.SaveChangesAsync();
     }
 
@@ -46,16 +49,16 @@ public class InfosServices : IInfoService
         if (info is null) throw new NotFoundException("Info Is Null");
         info.Name = infoViewModel.Title;
         info.Description = infoViewModel.Description;
-        _context.Infos.Update(info);
+        await _entityBaseRepository.UpdateAsync(id,info);
         await _context.SaveChangesAsync();
     }
 
     public async Task<Info> FindByIdAsync(int id)
     {
-        var info =  await _context.Infos.FindAsync(id);
+        var info =  await _entityBaseRepository.GetByIdAsync(id);
         return info;
     }
 
-    public async Task<IEnumerable<Info>> GetInfoAsync() => await _context.Infos.ToListAsync();
+    public async Task<IEnumerable<Info>> GetInfoAsync() => await _entityBaseRepository.GetAllAsync();
 }
 
