@@ -1,23 +1,27 @@
-﻿<form method="post">
+﻿@model ViewerViewModel
+
+<form method="post" asp-action="SubmitForm">
     <div class="row">
         <div class="col-md-12">
-            <p>Name</p>
-            <input type="text">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" type="text">
         </div>
         @if (!User.Identity.IsAuthenticated)
         {
             <div class="col-md-12">
-                <p>Email</p>
-                <input type="text">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" type="text">
             </div>
         }
         <div class="col-md-12">
-            <p>Subject</p>
-            <input type="text">
-            <p>Massage</p>
-            <textarea cols="15" rows="10"></textarea>
+            <label asp-for="Subject">Subject</label>
+            <input asp-for="Subject" type="text">
+            <label asp-for="Message">Massage</label>
+            <textarea asp-for="Message" cols="15" rows="10"></textarea>
         </div>
     </div>
-    <a class="reply-btn" href="#" data-text="send"><span>send message</span></a>
+    <a class="reply-btn" data-text="send">
+        <button type="submit" name="submit">send message</button>
+    </a>
     <p class="form-message"></p>
 </form>
