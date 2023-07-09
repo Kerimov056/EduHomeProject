@@ -16,15 +16,18 @@ public class SpkearServices : ISpkearServices
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
     private readonly IMapper _mapper;
+    private readonly IEntityBaseRepository<Speakers> _entityBaseRepository;
 
     public SpkearServices(
         AppDbContext context,
         IWebHostEnvironment env,
-        IMapper mapper)
+        IMapper mapper,
+        IEntityBaseRepository<Speakers> entityBaseRepository)
     {
         _context = context;
         _env = env;
         _mapper = mapper;
+        _entityBaseRepository = entityBaseRepository;
     }
 
     public async Task CreateAsync(SpeakerViewModel speakerViewModel, int[] SelectedEventIds)
@@ -43,7 +46,7 @@ public class SpkearServices : ISpkearServices
         Speakers speakers = _mapper.Map<Speakers>(speakerViewModel);
         speakers.ImagePath = filePath;
 
-        await _context.AddAsync(speakers);
+        await _entityBaseRepository.AddAsync(speakers);
         await _context.SaveChangesAsync();
 
         foreach (var eventId in SelectedEventIds)
@@ -67,7 +70,7 @@ public class SpkearServices : ISpkearServices
         var DeleteedEvent = await _context.Speakerss.FindAsync(id);
         if (DeleteedEvent is null) throw new NotFoundException("Event is Null");
         
-        _context.Entry(DeleteedEvent).State= EntityState.Deleted;
+        await _entityBaseRepository.DeleteAsync(id);
         await _context.SaveChangesAsync();
     }
 
@@ -77,7 +80,7 @@ public class SpkearServices : ISpkearServices
         {
             events = await _context.Eventss.ToListAsync(),
             events_Speakers = await _context.EventsDetails.ToListAsync(),
-            speakers = await _context.Speakerss.ToListAsync(),
+            speakers = await _entityBaseRepository.GetAllAsync(),
         };
         return model;
     }
@@ -119,17 +122,17 @@ public class SpkearServices : ISpkearServices
                 _context.EventsDetails.Add(eventSpeaker);
             }
         }
-        _context.Entry(spkear).State= EntityState.Modified;
+        await _entityBaseRepository.UpdateAsync(id,spkear);
         await _context.SaveChangesAsync();
     }
 
     public async Task<Speakers> GetByIdAsync(int id)
     {
         if (id == 0) throw new NullReferenceException();
-        var spkear = await _context.Speakerss.FindAsync(id);
+        var spkear = await _entityBaseRepository.GetByIdAsync(id);
         if (spkear is null) throw new NotFoundException("Spkear is Null");
         return spkear;
     }
 
-    public async Task<IEnumerable<Speakers>> GetSpeakers() => await _context.Speakerss.ToListAsync();
+    public async Task<IEnumerable<Speakers>> GetSpeakers() => await _entityBaseRepository.GetAllAsync();
 }
