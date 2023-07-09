@@ -4,6 +4,7 @@ using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
+using EduHomeDataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.UI.Areas.Admin.Data.Services.Concrets;
@@ -12,10 +13,12 @@ public class TeacherService : ITeacherService
 {
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _environment;
-    public TeacherService(AppDbContext context, IWebHostEnvironment environment)
+    private readonly IEntityBaseRepository<Teacher> _entityBaseRepository;
+    public TeacherService(AppDbContext context, IWebHostEnvironment environment, IEntityBaseRepository<Teacher> entityBaseRepository)
     {
         _context = context;
         _environment = environment;
+        _entityBaseRepository = entityBaseRepository;
     }
 
     public async Task CreateAsync(TeacherViewModel teacherViewModel)
@@ -53,7 +56,7 @@ public class TeacherService : ITeacherService
                 Description = teacherViewModel.AboutMe
             }
         };
-        await _context.AddAsync(teacher);
+        await _entityBaseRepository.AddAsync(teacher);
         await _context.SaveChangesAsync();
     }
 
@@ -62,7 +65,7 @@ public class TeacherService : ITeacherService
         if (id == 0) throw new NullReferenceException("Teacher is Null");
         var DeletedTeacehr = await _context.Teachers.FindAsync(id);
         if (DeletedTeacehr is null) throw new NotFoundException("Teacher is Null");
-        _context.Teachers.Remove(DeletedTeacehr);
+        await _entityBaseRepository.DeleteAsync(id);
         await _context.SaveChangesAsync();
     }
 
@@ -101,7 +104,7 @@ public class TeacherService : ITeacherService
         teacher.teacherDetails.CommunicationDegree = teacherViewModel.Communication;
         teacher.teacherDetails.Description = teacherViewModel.AboutMe;
 
-        _context.Entry(teacher).State = EntityState.Modified;
+        await _entityBaseRepository.UpdateAsync(id,teacher);
         await _context.SaveChangesAsync();
     }
 
