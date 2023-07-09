@@ -19,5 +19,6 @@ public class HomeViewModel
     public IEnumerable<TeacherDetails> teacherDetails { get; set; }
     public IEnumerable<Teacher> teachers { get; set; }
     public IEnumerable<Setting> settings { get; set; }
+    public IEnumerable<Viewer> viewers { get; set; }
 
 }

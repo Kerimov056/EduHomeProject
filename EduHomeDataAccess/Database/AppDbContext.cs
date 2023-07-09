@@ -47,4 +47,5 @@ public class AppDbContext : IdentityDbContext<User>
     public DbSet<TeacherDetails> TeacherDetails { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<Setting> Settings { get; set; }
+    public DbSet<Viewer> Viewers { get; set; }
 }

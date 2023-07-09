@@ -44,6 +44,8 @@ public class EventsDetailsController : Controller
             eventsDetails = eventsDetails,
             events = events,
             blogs = await _context.Blogs.ToListAsync(),
+            categories = await _context.Categoriess.ToListAsync(),
+            viewers = await _context.Viewers.ToListAsync()
         });
     }   
 }

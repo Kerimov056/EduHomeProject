@@ -1,0 +1,23 @@
+﻿<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Name</p>
+            <input type="text">
+        </div>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="col-md-12">
+                <p>Email</p>
+                <input type="text">
+            </div>
+        }
+        <div class="col-md-12">
+            <p>Subject</p>
+            <input type="text">
+            <p>Massage</p>
+            <textarea cols="15" rows="10"></textarea>
+        </div>
+    </div>
+    <a class="reply-btn" href="#" data-text="send"><span>send message</span></a>
+    <p class="form-message"></p>
+</form>
