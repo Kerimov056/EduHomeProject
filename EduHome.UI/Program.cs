@@ -23,6 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 builder.Services.AddScoped(typeof(IEntityBaseRepository<>), typeof(EntityBaseRepository<>));
+builder.Services.AddScoped(typeof(ICoursRepository<>), typeof(CoursRepository<>));
 
 builder.Services.AddScoped<ISpkearServices, SpkearServices>();
 builder.Services.AddScoped<ICoursesServices, CoursesServices>();

@@ -4,6 +4,7 @@ using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.Areas.Admin.Extension;
 using EduHome.UI.Areas.Admin.ViewModel;
 using EduHomeDataAccess.Database;
+using EduHomeDataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace EduHome.UI.Areas.Admin.Data.Services.Concrets;
@@ -12,12 +13,29 @@ public class CoursesServices : ICoursesServices
 {
     private readonly AppDbContext _context;
     private readonly IWebHostEnvironment _env;
-    public CoursesServices(AppDbContext context, IWebHostEnvironment env)
+    private readonly IEntityBaseRepository<Courses> _entityBaseRepository;
+    private readonly ICoursRepository<Courses> _coursRepository;
+    public CoursesServices(
+        AppDbContext context, 
+        IWebHostEnvironment env,
+        ICoursRepository<Courses> coursRepository)
     {
-        _context = context;
+        _context = context; 
         _env = env;
+        _coursRepository = coursRepository;
     }
 
+
+    public async Task<IEnumerable<Courses>> GetCourses()    
+    {
+       var course = await _context.Coursess
+            .Include(c => c.Categories)
+            .ThenInclude(cd => cd.Courses)
+            .Include(c => c.CoursesDetails)
+            .ToListAsync();
+
+        return course;
+    }
     public async Task CreateAsync(CourseFullDetailsViewModel CourseFullDetailsViewModel, int CategoryId)
     {
         if (!CourseFullDetailsViewModel.ImagePath.FormatFile("image"))
@@ -57,7 +75,7 @@ public class CoursesServices : ICoursesServices
             }
         };
 
-        await _context.AddAsync(courses);
+        await _coursRepository.AddAsync(courses);
         await _context.SaveChangesAsync();
     }
 
@@ -67,7 +85,7 @@ public class CoursesServices : ICoursesServices
         var course = await _context.Coursess.FindAsync(id);
         if (course is null) throw new NotFoundException("Course is Null");
 
-        _context.Coursess.Remove(course);
+        await _coursRepository.DeleteAsync(id);
         await _context.SaveChangesAsync();
     }
 
@@ -75,17 +93,6 @@ public class CoursesServices : ICoursesServices
     {
         var course = await _context.Coursess.Include(cd=>cd.CoursesDetails).FirstOrDefaultAsync(c=>c.Id==id);
         if (course is null)  throw new NotFoundException("Course not found");
-        return course;
-    }
-
-    public async Task<IEnumerable<Courses>> GetCourses()    
-    {
-       var course = await _context.Coursess
-            .Include(c => c.Categories)
-            .ThenInclude(cd => cd.Courses)
-            .Include(c => c.CoursesDetails)
-            .ToListAsync();
-
         return course;
     }
 
