@@ -48,4 +48,11 @@ public class AppDbContext : IdentityDbContext<User>
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<Setting> Settings { get; set; }
     public DbSet<Viewer> Viewers { get; set; }
+
+    public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+    public DbSet<CartDetail> CartDetails { get; set; }
+    public DbSet<OrderStatus> OrderStatuss { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderDetail> OrderDetails { get; set; }
+
 }

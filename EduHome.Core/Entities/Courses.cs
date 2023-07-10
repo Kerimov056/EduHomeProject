@@ -23,4 +23,7 @@ public class Courses : IEntity
     /* EF Relation */
     public CoursesDetails CoursesDetails { get; set; }
 
+    public List<CartDetail> CartDetails { get; set; }
+    public List<OrderDetail> OrderDetails { get; set; }
+
 }

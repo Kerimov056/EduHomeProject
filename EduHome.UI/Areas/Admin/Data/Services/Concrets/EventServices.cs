@@ -17,10 +17,11 @@ public class EventServices : IEventServices
     private readonly IMapper _mapper;
     private readonly IWebHostEnvironment _env;
 
-    public EventServices(AppDbContext context,IMapper mapper)
+    public EventServices(AppDbContext context,IMapper mapper, IWebHostEnvironment env)
     {
         _context = context;
         _mapper = mapper;
+        _env= env;
     }
     public async Task<IEnumerable<Events>> GetEvent() => await _context.Eventss.ToListAsync();
 
@@ -101,7 +102,7 @@ public class EventServices : IEventServices
         Events? events = await _context.Eventss.Include(e => e.Details).FirstOrDefaultAsync(n => n.Id == id);
         if (events is null) throw new NullReferenceException("Events is nUll");
 
-        if (eventsViewModel.Image is null)              
+        if (eventsViewModel.Image is not null)              
         {
             if (!eventsViewModel.Image.FormatFile("Image"))
             {
@@ -113,19 +114,15 @@ public class EventServices : IEventServices
                 throw new ArgumentException("Size must be less than 1000 kb");
             }
 
-            string filePath = await eventsViewModel.Image.CopyFileAsync(_env.WebRootPath, "assets", "img", "slider");
+            string filePath = await eventsViewModel.Image.CopyFileAsync(_env.WebRootPath, "assets", "img", "event");
             events.Details.ImagePath = filePath;
         }
+        events.Location = eventsViewModel.Location;
+        events.DateTime = eventsViewModel.DateTime;
+        events.Name = eventsViewModel.Name;
+        events.Details.Description = eventsViewModel.Description;
 
-        EventsViewModel ViewModel = new EventsViewModel
-        {
-            Name = events.Name,
-            DateTime = events.DateTime,
-            Location = events.Location,
-            Description = events.Details.Description
-        };
-
-        _context.Eventss.Update(events);
+        _context.Entry(events).State = EntityState.Modified;
         await _context.SaveChangesAsync();
     }
 
