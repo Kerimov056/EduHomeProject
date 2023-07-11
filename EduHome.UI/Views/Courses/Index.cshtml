@@ -48,7 +48,16 @@
                                             <p>@Html.Raw(course.Descripton)</p>
                                             <p style="font-size:20px;color:cornflowerblue;font-weight:700"><b style="color:black">Price:</b> $@course.CoursesDetails.CourseFee</p>
                                             <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" class="default-btn">read more</a>
-                                            <button type="button" onclick="add(@course.Id)" class="btn btn-primary">Add to Cart</button>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <button type="button" onclick="add(@course.Id)" class="btn btn-primary">Add to Cart</button>
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="SiginUp" asp-action="LogIn">
+                                                    <button type="button" class="btn btn-primary">Add to Cart</button>
+                                                </a>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -187,11 +196,11 @@
     <script>
         async function add(courseId) {
             var usernameEl = document.getElementById("username");
-            //if(usernameEl==null) {
-            //    window.location.href = "/SiginUp/LogIn"
-            //}
-            try{
-                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`); 
+            if (usernameEl == null) {
+
+            }
+            try {
+                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);
 
                 if (response.status == 200) {
                     var result = await response.json();
@@ -200,11 +209,11 @@
                     cartCountEl.innerHTML = result;
                     window.location.href = "#cartCount"
                 }
-                else{
+                else {
                     console.log(response.status)
                 }
             }
-            catch (err){
+            catch (err) {
                 console.log(err);
             }
         }
