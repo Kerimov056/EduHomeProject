@@ -26,6 +26,7 @@ public class UserServices : IUserServices
 
     public async Task<User> FindByIdAsync(int id)
     {
+        if (id == 0) throw new NullReferenceException();
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null) throw new NullReferenceException();
         return user;

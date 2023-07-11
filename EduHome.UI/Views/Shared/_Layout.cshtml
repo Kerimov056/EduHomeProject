@@ -97,16 +97,18 @@
                                         <li>
                                             <a href="contact.html">Buy Now</a>
                                         </li>
+                                        @*--------------*@
                                         <li>
                                             <a class="nav-link">
                                                 <span id="cartCount" class="badge text-bg-info">0</span>
                                                 <i class="bi bi-cart-fill"></i>
                                             </a>
                                         </li>
+                                        @*--------------*@
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
-                                                <a style="color:white">@User.Identity.Name</a>
+                                                <a style="color:white" >@User.Identity.Name</a>
                                                 <ul>
                                                     @if (User.IsInRole("Admin"))
                                                     {
@@ -219,8 +221,29 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
+<script>
+    loadCartCount();
+        async function loadCartCount() {
+        //var usernameEl = document.getElementById("username");
+        //var username = usernameEl.innerText;
 
-<!-- Mirrored from htmldemo.net/tm/eduhome/eduhome/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jun 2023 06:57:08 GMT -->
+            try {
+                var response = await fetch(`/Cart/GetTotalItemInCart`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    console.log(result);
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+                }
+                else {
+                    console.log(response.status)
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+</script>
 </html>
 
 @await RenderSectionAsync("Scripts",required:false)

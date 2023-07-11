@@ -26,6 +26,7 @@ public class HomeViewModel
     public IEnumerable<OrderStatus> orderStatuses { get; set; }
     public IEnumerable<Order> orders { get; set; }
     public IEnumerable<OrderDetail> orderDetails { get; set; }
+    public IEnumerable<User> users { get; set; }
     public string sTrem { get; set; } = "";
     public int catagoryId { get; set; } = 0;
 }

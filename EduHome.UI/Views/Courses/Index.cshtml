@@ -186,19 +186,25 @@
 @section Scripts{
     <script>
         async function add(courseId) {
+            var usernameEl = document.getElementById("username");
+            //if(usernameEl==null) {
+            //    window.location.href = "/SiginUp/LogIn"
+            //}
             try{
-                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);
+                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`); 
+
                 if (response.status == 200) {
                     var result = await response.json();
                     console.log(result);
                     var cartCountEl = document.getElementById("cartCount");
                     cartCountEl.innerHTML = result;
+                    window.location.href = "#cartCount"
                 }
                 else{
                     console.log(response.status)
                 }
             }
-            catch (err) {
+            catch (err){
                 console.log(err);
             }
         }

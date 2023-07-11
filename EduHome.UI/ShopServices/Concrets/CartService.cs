@@ -35,11 +35,11 @@ public class CartService: ICartService
             {
                 cart = new ShoppingCart
                 {
-                    UserId = userId,
+                    UserId = userId
                 };
                 await _context.ShoppingCarts.AddAsync(cart);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
 
             var cartItem = _context.CartDetails.FirstOrDefault(a => a.ShoppingCartId == cart.Id && a.CoursesId == courseId);
             if (cartItem is not null)
@@ -55,8 +55,8 @@ public class CartService: ICartService
                     Quantity = qty
                 };
                 await _context.CartDetails.AddAsync(cartItem);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
             transaction.Commit();
         }
         catch (Exception ex)
@@ -141,6 +141,5 @@ public class CartService: ICartService
         return data.Count;
     }
 }
-
 
 

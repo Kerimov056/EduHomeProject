@@ -12,13 +12,14 @@ public class CartController : Controller
     {
         _cartService = cartService;
     }
-
-    public async Task<IActionResult> AddItem(int coursesId, int qty = 1)
+    
+    public async Task<IActionResult> AddItem(int courseId, int qty = 1, int redicret = 0)
     {
         try
         {
-            var cartCount = await _cartService.AddItem(coursesId, qty);
-            if (cartCount == 0) { return Ok(cartCount); }
+            var cartCount = await _cartService.AddItem(courseId, qty);
+            if (redicret == 0) return Ok(cartCount);
+            //if (redicret == 0) return Ok(coursesId); 
             return RedirectToAction("GetUserCart");
         }
         catch (Exception ex)

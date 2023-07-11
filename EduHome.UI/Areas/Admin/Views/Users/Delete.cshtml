@@ -1,0 +1,46 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="background-color:slategrey;">
+                    @foreach (var item in Model.users)
+                    {
+                        if (item.Id == ViewBag.ByUserDel)
+                        {
+                                    <div style="margin-top:40px;display:flex;justify-content:center;">
+                                        <div style="width:1000px">
+                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Fullname</span><span>@item.Fullname</span></div>
+                                            <hr />
+                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Fullname</span><span>@item.Fullname</span></div>
+                                            <hr />
+                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Email</span><span>@item.Email</span></div>
+                                            <hr />
+                                        </div>
+                                    </div>
+
+                                    <div style="margin-top:80px">
+                                        <div class="mb-3 row">
+                                            <a asp-controller="Users" asp-action="Index" class="btn btn-secondary" style="width:1250px;margin-top:15px">
+                                                Back to List
+                                            </a>
+                                        </div>
+                                    </div>
+
+                            break;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
