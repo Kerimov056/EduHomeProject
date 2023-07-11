@@ -20,5 +20,12 @@ public class HomeViewModel
     public IEnumerable<Teacher> teachers { get; set; }
     public IEnumerable<Setting> settings { get; set; }
     public IEnumerable<Viewer> viewers { get; set; }
-
+    //shopping
+    public IEnumerable<ShoppingCart> shoppingCarts { get; set; }
+    public IEnumerable<CartDetail> cartDetails { get; set; }
+    public IEnumerable<OrderStatus> orderStatuses { get; set; }
+    public IEnumerable<Order> orders { get; set; }
+    public IEnumerable<OrderDetail> orderDetails { get; set; }
+    public string sTrem { get; set; } = "";
+    public int catagoryId { get; set; } = 0;
 }

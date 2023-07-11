@@ -151,7 +151,7 @@ public class SiginUpController : Controller
         var user = await _userManager.FindByEmailAsync(forgotPasswordModel.Email);
         if (user is null)
         {
-            ModelState.AddModelError("Email", "User not found");
+            ModelState.AddModelError("Email","User not found");
             return View();
         }
 
@@ -208,6 +208,6 @@ public class SiginUpController : Controller
             }
             return View();
         }
-        return RedirectToAction(nameof(ResetPasswordConfirmation));
+        return RedirectToAction(nameof(LogIn));
     }
 }

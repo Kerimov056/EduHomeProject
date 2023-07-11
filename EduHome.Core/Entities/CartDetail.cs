@@ -8,6 +8,8 @@ public class CartDetail : IEntity
     public int Id { get ; set; }
     [Required]
     public int ShoppingCartId { get; set; }
+    [Required]
+    public int Quantity { get; set; }
     public ShoppingCart ShoppingCart { get; set; }
     [Required]
     public int CoursesId { get; set; }

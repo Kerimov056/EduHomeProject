@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Areas/Admin/Views/Contactt/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdHRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Areas/Admin/Views/Contactt/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdHRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Areas/Admin/Views/Contactt/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdHRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Areas/Admin/Views/Contactt/Response.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdHRcUmVzcG9uc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Areas/Admin/Views/Courses/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ291cnNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -180,6 +196,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVhY2hlcmFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Areas/Admin/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -202,6 +222,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/work2/Asp.net MVC/EduHomeProject/EduHome.UI/Views/CourseDetails/Details.cshtml]

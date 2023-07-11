@@ -49,6 +49,7 @@ public class AppDbContext : IdentityDbContext<User>
     public DbSet<Setting> Settings { get; set; }
     public DbSet<Viewer> Viewers { get; set; }
 
+    //shop
     public DbSet<ShoppingCart> ShoppingCarts { get; set; }
     public DbSet<CartDetail> CartDetails { get; set; }
     public DbSet<OrderStatus> OrderStatuss { get; set; }

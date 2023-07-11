@@ -4,6 +4,7 @@ namespace EduHome.UI.ViewModel;
 
 public class ViewerViewModel
 {
+    [Required, MaxLength(30)]
     public string Name { get; set; } = null!;
     [Required, MaxLength(70)]
     public string Email { get; set; } = null!;

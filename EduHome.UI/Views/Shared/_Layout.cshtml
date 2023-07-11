@@ -93,11 +93,16 @@
                                                 <li><a href="blog-details.html">blog details</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
                                         <li>
                                             <a href="contact.html">Buy Now</a>
                                         </li>
-
+                                        <li>
+                                            <a class="nav-link">
+                                                <span id="cartCount" class="badge text-bg-info">0</span>
+                                                <i class="bi bi-cart-fill"></i>
+                                            </a>
+                                        </li>
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
@@ -217,4 +222,6 @@
 
 <!-- Mirrored from htmldemo.net/tm/eduhome/eduhome/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jun 2023 06:57:08 GMT -->
 </html>
+
+@await RenderSectionAsync("Scripts",required:false)
 

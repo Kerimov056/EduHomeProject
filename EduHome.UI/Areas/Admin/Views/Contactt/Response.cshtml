@@ -1,0 +1,36 @@
+﻿@model ViewerViewModel
+@{
+    ViewData["Title"] = "Response";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row" style="margin-top:20px">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post">
+
+
+                                <div class="mb-3 row">
+                                    <label asp-for="Message" for="example-tel-input" class="col-md-2 col-form-label">Message</label>
+                                    <div class="col-sm-8">
+                                        <textarea id="tiny" asp-for="Message "></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <button type="submit" class="btn btn-success">Send</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -88,6 +88,32 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.CartDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CoursesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShoppingCartId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CoursesId");
+
+                    b.HasIndex("ShoppingCartId");
+
+                    b.ToTable("CartDetails");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Categories", b =>
                 {
                     b.Property<int>("Id")
@@ -303,6 +329,84 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("Notices");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderStatusId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.OrderDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CoursesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CoursesId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.OrderStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StatusName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderStatuss");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -322,6 +426,26 @@ namespace EduHomeDataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.ShoppingCart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Slider", b =>
@@ -719,6 +843,25 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.CartDetail", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.Courses", "Courses")
+                        .WithMany("CartDetails")
+                        .HasForeignKey("CoursesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.ShoppingCart", "ShoppingCart")
+                        .WithMany()
+                        .HasForeignKey("ShoppingCartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Courses");
+
+                    b.Navigation("ShoppingCart");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
                 {
                     b.HasOne("EduHome.Core.Entities.Categories", "Categories")
@@ -769,6 +912,36 @@ namespace EduHomeDataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Order", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.OrderStatus", "OrderStatus")
+                        .WithMany()
+                        .HasForeignKey("OrderStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OrderStatus");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.OrderDetail", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.Courses", "Courses")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("CoursesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.Order", "Order")
+                        .WithMany("orderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Courses");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.TeacherDetails", b =>
@@ -840,8 +1013,12 @@ namespace EduHomeDataAccess.Migrations
 
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
                 {
+                    b.Navigation("CartDetails");
+
                     b.Navigation("CoursesDetails")
                         .IsRequired();
+
+                    b.Navigation("OrderDetails");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Events", b =>
@@ -850,6 +1027,11 @@ namespace EduHomeDataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Events_Speakers");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Order", b =>
+                {
+                    b.Navigation("orderDetails");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Speakers", b =>

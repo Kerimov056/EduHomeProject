@@ -11,6 +11,8 @@ using EduHome.UI.HeaderAndFooterService;
 using EduHome.UI.Areas.Admin.Data.Services.Concrets;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHomeDataAccess.Repository;
+using EduHome.UI.ShopServices.Interfaces;
+using EduHome.UI.ShopServices.Concrets;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -37,6 +39,11 @@ builder.Services.AddScoped<ICourseDetailsServices, CourseDetailsServices>();
 builder.Services.AddScoped<ICategoryServices, CategoryServices>();
 builder.Services.AddScoped<IEventsDetailsServices, EventsDetailsServices>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
+builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddScoped<IUserServices, UserServices>();
+
+builder.Services.AddScoped<ISearchServices, SearchService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<EmailSettings>();
