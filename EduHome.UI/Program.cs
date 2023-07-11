@@ -41,6 +41,7 @@ builder.Services.AddScoped<IEventsDetailsServices, EventsDetailsServices>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<IUserServices, UserServices>();
+builder.Services.AddScoped<IUserOrderServices, UserOrderService>();
 
 builder.Services.AddScoped<ISearchServices, SearchService>();
 builder.Services.AddScoped<ICartService, CartService>();

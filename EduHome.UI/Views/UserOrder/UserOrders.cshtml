@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "UserOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" style="margin-top:200px">
+                        <div class="card-body" style="font-size:18px">
+                            @if (Model is not null && Model.Count() > 0)
+                            {
+                                <a asp-controller="Courses" asp-action="Index"><button class="btn btn-secondary">Shop</button></a>
+                                <h4 class="card-title" style="font-size:18px;color:green">My Orders</h4>
+                                <div class="table-rep-plugin">
+                                    <div class="table-responsive mb-0" data-pattern="priority-columns">
+                                        <table id="tech-companies-1" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>OrderDate</th>
+                                                    <th>OrderStatus</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr style="font-size:18px;">
+                                                        <td>@item.CreateDate.ToString("dd-MM-yyyy")</td>
+                                                        <td>@item.OrderStatus.StatusName</td>
+                                                    </tr>
+                                                    @if (item.orderDetails is not null && item.orderDetails.Count > 0)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <table class="table table-striped">
+                                                                    <tr>
+                                                                        <td>
+                                                                            Total:
+                                                                        </td>
+                                                                        <td>
+                                                                            @(item.orderDetails.Select(item => item.Courses.CoursesDetails.CourseFee * item.Quantity).Sum())
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Course</th>
+                                                                        <th>Image</th>
+                                                                        <th>Catagorie</th>
+                                                                        <th>Unit Price</th>
+                                                                        <th>Total Price</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                    @foreach (var detail in item.orderDetails)
+                                                                    {
+
+                                                                        <tr>
+                                                                            <td>@detail.Courses.Name</td>
+                                                                            <td><img src="/@detail.Courses.ImagePath" /></td>
+                                                                            <td>@detail.Courses.Categories.Categorie</td>
+                                                                            <td>@detail.Courses.CoursesDetails.CourseFee X @detail.Quantity</td>
+                                                                            <td>@(detail.Courses.CoursesDetails.CourseFee * detail.Quantity)</td>
+                                                                            @*<td>
+                                                                                <a class="btn btn-info" href="/Cart/AddItem?courseId=@detail.CoursesId&&redicret=1">+</a>
+                                                                                <a class="btn btn-info" href="/Cart/RemoveItem?courseId=@detail.CoursesId">-</a>
+                                                                            </td>*@
+                                                                        </tr>
+                                                                    }
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <h1>Cart Orders</h1>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+        </div>
+    </div>
+</div>
+
