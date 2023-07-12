@@ -20,7 +20,12 @@ public class SiginUpController : Controller
     private readonly IWebHostEnvironment _env;
     private readonly IEmailService _emailService;
 
-    public SiginUpController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, IEmailService emailService, IWebHostEnvironment env)
+    public SiginUpController(
+        UserManager<User> userManager,
+        SignInManager<User> signInManager,
+        RoleManager<IdentityRole> roleManager
+        , IEmailService emailService,
+        IWebHostEnvironment env)
     {
         _userManager = userManager;
         _signInManager = signInManager;

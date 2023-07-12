@@ -105,6 +105,9 @@ namespace EduHomeDataAccess.Migrations
                     b.Property<int>("ShoppingCartId")
                         .HasColumnType("int");
 
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CoursesId");
@@ -852,7 +855,7 @@ namespace EduHomeDataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("EduHome.Core.Entities.ShoppingCart", "ShoppingCart")
-                        .WithMany()
+                        .WithMany("CartDetails")
                         .HasForeignKey("ShoppingCartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1032,6 +1035,11 @@ namespace EduHomeDataAccess.Migrations
             modelBuilder.Entity("EduHome.Core.Entities.Order", b =>
                 {
                     b.Navigation("orderDetails");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.ShoppingCart", b =>
+                {
+                    b.Navigation("CartDetails");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Speakers", b =>

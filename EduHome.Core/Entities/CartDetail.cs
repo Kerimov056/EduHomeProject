@@ -10,6 +10,8 @@ public class CartDetail : IEntity
     public int ShoppingCartId { get; set; }
     [Required]
     public int Quantity { get; set; }
+    [Required]
+    public double UnitPrice { get; set; }
     public ShoppingCart ShoppingCart { get; set; }
     [Required]
     public int CoursesId { get; set; }

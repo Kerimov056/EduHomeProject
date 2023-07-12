@@ -27,12 +27,12 @@ public class UserOrderService: IUserOrderServices
         if (string.IsNullOrWhiteSpace(userId)) throw new Exception("User is not");
 
         var orders = await _context.Orders
-                        .Include(c =>c.OrderStatus)
-                        .Include(c => c.orderDetails)
-                        .ThenInclude(x=>x.Courses)
-                        .ThenInclude(x=>x.Categories)
-                        .Where(a=>a.UserId==userId)
-                        .ToListAsync();
+                            .Include(x => x.OrderStatus)
+                            .Include(x => x.orderDetails)
+                            .ThenInclude(x => x.Courses)
+                            .ThenInclude(x => x.Categories)
+                            .Where(a => a.UserId == userId)
+                            .ToListAsync();
 
         return orders;
     }

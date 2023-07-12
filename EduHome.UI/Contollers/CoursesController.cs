@@ -25,8 +25,7 @@ public class CoursesController : Controller
     public async Task<IActionResult> Index(string sTrem = "", int catagoryId = 0)
     {
         IEnumerable<Courses> cours = await _searchServices.GetCourses(sTrem, catagoryId);
-        IEnumerable<Categories> categories = await _searchServices.Categories(catagoryId);
-
+        IEnumerable<Categories> categories = await _searchServices.Categories();
 
         HomeViewModel model = new HomeViewModel
         {
@@ -36,6 +35,7 @@ public class CoursesController : Controller
             sTrem = sTrem,
             catagoryId= catagoryId
         };
+
         return View(model);
     }
 }

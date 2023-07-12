@@ -38,25 +38,28 @@ public class CartService: ICartService
                     UserId = userId
                 };
                 await _context.ShoppingCarts.AddAsync(cart);
-                await _context.SaveChangesAsync();
             }
+                await _context.SaveChangesAsync();
 
+            //problem burda ola biler
             var cartItem = _context.CartDetails.FirstOrDefault(a => a.ShoppingCartId == cart.Id && a.CoursesId == courseId);
             if (cartItem is not null)
             {
                 cartItem.Quantity += qty;
             }
             else
-            {
+            {      //problem burdadi course duzgun tapmir
+                var cours = _context.Coursess.Include(c=>c.CoursesDetails).FirstOrDefault(a=>a.Id==a.CoursesDetails.CoursesId);
                 cartItem = new CartDetail
                 {
                     CoursesId = courseId,
                     ShoppingCartId = cart.Id,
-                    Quantity = qty
+                    Quantity = qty,
+                    UnitPrice = cours.CoursesDetails.CourseFee,
                 };
                 await _context.CartDetails.AddAsync(cartItem);
-                await _context.SaveChangesAsync();
             }
+            await _context.SaveChangesAsync();
             transaction.Commit();
         }
         catch (Exception ex)
@@ -71,26 +74,19 @@ public class CartService: ICartService
         string userId = GetUserId();
         try
         {
-            if (string.IsNullOrWhiteSpace(userId))
-            {
-                throw new NotFoundException("userId is null");
-            }
-            var cart = await GetCart(userId);
-            if (cart is null)
-            {
-                throw new NotFoundException("cart is null");
-            }
+            if (string.IsNullOrWhiteSpace(userId))  throw new NotFoundException("userId is null");
 
-            var cartItem = _context.CartDetails.FirstOrDefault(a => a.ShoppingCartId == cart.Id && a.CoursesId == courseId);
+            var cart = await GetCart(userId);
+            if (cart is null) throw new NotFoundException("cart is null");
+
+            var cartItem = _context.CartDetails
+                .FirstOrDefault(a => a.ShoppingCartId == cart.Id && a.CoursesId == courseId);
             if (cartItem is null) throw new NotFoundException("cartItem is null");
-            else if(cartItem.Quantity == 1)
-            {
-                _context.CartDetails.Remove(cartItem);
-            }
-            else
-            {
-                cartItem.Quantity = cartItem.Quantity - 1;
-            }
+
+            else if(cartItem.Quantity == 1)  _context.CartDetails.Remove(cartItem);
+
+            else  cartItem.Quantity = cartItem.Quantity - 1;
+
             await _context.SaveChangesAsync();
         }
         catch (Exception ex)
@@ -105,9 +101,11 @@ public class CartService: ICartService
         var userId = GetUserId();
         if (userId is null) throw new NullReferenceException("Invalid userId");
         var shoppingCart = await _context.ShoppingCarts
-            .Include(a=>a.CartDetails)
-            .ThenInclude(a=>a.Courses)
-            .ThenInclude(a=>a.Categories).FirstOrDefaultAsync();
+                                .Include(a=>a.CartDetails)
+                                .ThenInclude(a=>a.Courses)
+                                .ThenInclude(a=>a.Categories)
+                                .Where(a=>a.UserId==userId)
+                                .FirstOrDefaultAsync();
 
         return shoppingCart;
     }
@@ -131,7 +129,7 @@ public class CartService: ICartService
         if (!string.IsNullOrWhiteSpace(userId))
         {
             userId = GetUserId();
-        }
+        }              
         var data = await (from cart in _context.ShoppingCarts
                           join cartDetail in _context.CartDetails
                           on cart.Id equals cartDetail.ShoppingCartId

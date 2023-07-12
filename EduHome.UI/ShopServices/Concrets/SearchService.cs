@@ -13,15 +13,15 @@ public class SearchService : ISearchServices
         _context = context;
     }
 
-    public async Task<IEnumerable<Categories>> Categories(int catagoryId=0)
+    public async Task<IEnumerable<Categories>> Categories()
     {
-        //return await _context.Categoriess.ToListAsync();
-        var categories = await _context.Categoriess.ToListAsync();
-        if (catagoryId>0)
-        {
-            categories = categories.Where(a => a.Id == catagoryId).ToList();
-        }
-        return categories;
+        return await _context.Categoriess.ToListAsync();
+        //var categories = await _context.Categoriess.ToListAsync();
+        //if (catagoryId>0)
+        //{
+        //    categories = categories.Where(a => a.Id == catagoryId).ToList();
+        //}
+        //return categories;
     }
     public async Task<IEnumerable<Courses>> GetCourses(string sTrem = "", int catagoryId = 0)
     {
@@ -40,6 +40,7 @@ public class SearchService : ISearchServices
                                                   CoursesDetails = coursesDetails
 
                                               }).ToListAsync();
+
         if (catagoryId > 0)
         {
             courses = courses.Where(a => a.CategoriesId == catagoryId).ToList();

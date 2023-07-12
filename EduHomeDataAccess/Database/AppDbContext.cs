@@ -29,7 +29,10 @@ public class AppDbContext : IdentityDbContext<User>
         base.OnModelCreating(modelBuilder);
     }
 
-
+    public object Find(int courseId)
+    {
+        throw new NotImplementedException();
+    }
 
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<Slider> Sliders { get; set; }
