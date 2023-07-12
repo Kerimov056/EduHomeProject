@@ -15,17 +15,17 @@ public class CartController : Controller
     
     public async Task<IActionResult> AddItem(int courseId, int qty = 1, int redicret = 0)
     {
-        try
-        {
+        //try
+        //{
             var cartCount = await _cartService.AddItem(courseId, qty);
             if (redicret == 0) return Ok(cartCount);
             //if (redicret == 0) return Ok(coursesId); 
             return RedirectToAction("GetUserCart");
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        //}
+        //catch (Exception ex)
+        //{
+        //    return BadRequest(ex.Message);
+        //}
     }
 
 

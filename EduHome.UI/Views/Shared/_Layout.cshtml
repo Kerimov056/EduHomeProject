@@ -100,7 +100,7 @@
                                         @*--------------*@
                                         <li>
                                             <a class="nav-link">
-                                                <span id="cartCount" class="badge text-bg-info">0</span>
+                                                <span style="margin-right:-25px" id="cartCount" class="badge text-bg-info">0</span>
                                                 <a asp-controller="Cart" asp-action="GetUserCart">
                                                     <i style="font-size:20px" class="fa-solid fa-basket-shopping"></i>
                                                 </a>
@@ -117,7 +117,7 @@
                                                         <li><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Panel</a></li>
                                                     }
                                                     <li><a asp-controller="SiginUp" asp-action="LogOut">Log Out</a></li>
-                                                    <li><a asp-controller="UserOrder" asp-action="UserOrders">My Orders</a></li>
+                                                    @*<li><a asp-controller="UserOrder" asp-action="UserOrders">My Orders</a></li>*@
                                                 </ul>
                                             </li>
                                         }

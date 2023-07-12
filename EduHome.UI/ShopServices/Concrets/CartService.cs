@@ -118,7 +118,6 @@ public class CartService : ICartService
         return cart;
     }
 
-
     private string GetUserId()
     {
         var user = _contextAccessor.HttpContext.User;
@@ -188,5 +187,3 @@ public class CartService : ICartService
         }
     }
 }
-
-

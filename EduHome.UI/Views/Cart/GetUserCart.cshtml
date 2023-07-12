@@ -3,12 +3,26 @@
     ViewData["Title"] = "GetUserCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>My Cart</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <p></p>
 <p style="margin-top:30px"></p>
 <div style="margin-top:200px;width:90%;margin:auto;" class="mt-2">
     @if (Model != null && Model.CartDetails != null && Model.CartDetails.Count > 0)
     {
-        <h5 style="font-size:24px">My Cart</h5>
 
         <table class="table table-striped">
             <tr>
@@ -30,7 +44,7 @@
                     <td>@item.Courses.CoursesDetails.CourseFee X @item.Quantity</td>
                     <td>@(item.Courses.CoursesDetails.CourseFee * item.Quantity)</td>
                     <td>
-                        <a class="btn btn-info" href="/Cart/AddItem?courseId=@item.CoursesId&&redirect=1">+</a>
+                        <a class="btn btn-info" href="/Cart/AddItem?courseId=@item.CoursesId&&redicret=1">+</a>
                         <a class="btn btn-info" href="/Cart/RemoveItem?coursesId=@item.CoursesId">-</a>
                     </td>
                 </tr>
