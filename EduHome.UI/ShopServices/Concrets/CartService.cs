@@ -50,6 +50,7 @@ public class CartService : ICartService
             else
             {      //problem burdadi course duzgun tapmir
                 var cours = _context.Coursess.Include(c => c.CoursesDetails).FirstOrDefault(a => a.Id == a.CoursesDetails.CoursesId);
+                if (cours is null) throw new NotFoundException("Course is Null");
                 cartItem = new CartDetail
                 {
                     CoursesId = courseId,
@@ -148,7 +149,7 @@ public class CartService : ICartService
             var userId = GetUserId();
             if (userId is null) throw new Exception("User is not");
 
-            var cart = GetCart(userId);
+            var cart = await GetCart(userId);
             if (cart is null) throw new Exception("Invaliid Cart");
 
             var cartDetail = _context.CartDetails.Where(a => a.ShoppingCartId == cart.Id).ToList();
