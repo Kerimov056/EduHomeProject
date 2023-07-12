@@ -3,7 +3,11 @@
     ViewData["Title"] = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script>
+    AOS.init();
+</script>
 
 <div class="main-content">
     <div class="page-content">
@@ -17,47 +21,47 @@
                             <form method="post">
                                 <div style="display:flex;justify-content:center;">
                                     <div>
-                                        <img style="width:450px" src="/@item.ImagePath"></img>
+                                        <img data-aos="fade-up" style="width:450px" src="/@item.ImagePath"></img>
                                     </div>
                                 </div>
                                 <div style="margin-top:40px;display:flex;justify-content:center;">
                                     <div style="width:1000px">
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Name</span><span>@item.Name</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Name</span><span data-aos="fade-left">@item.Name</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Posistion</span><span>@item.Posistion</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Posistion</span><span data-aos="fade-left">@item.Posistion</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>DEGREE</span><span>@item.teacherDetails.Degree</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">DEGREE</span><span data-aos="fade-left">@item.teacherDetails.Degree</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>EXPERIENCE</span><span>@item.teacherDetails.Experince</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">EXPERIENCE</span><span data-aos="fade-left">@item.teacherDetails.Experince</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>HOBBIES</span><span>@item.teacherDetails.Hobbies</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">HOBBIES</span><span data-aos="fade-left">@item.teacherDetails.Hobbies</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>FACULTY</span><span>@item.teacherDetails.Facultry</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">FACULTY</span><span data-aos="fade-left">@item.teacherDetails.Facultry</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>MAIL ME</span><span>@item.teacherDetails.Email</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">MAIL ME</span><span data-aos="fade-left">@item.teacherDetails.Email</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>MAKE A CALL</span><span>@item.teacherDetails.Phone</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">MAKE A CALL</span><span data-aos="fade-left">@item.teacherDetails.Phone</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>SKYPE</span><span>@item.teacherDetails.Skaype</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">SKYPE</span><span data-aos="fade-left">@item.teacherDetails.Skaype</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Language</span><span>@item.teacherDetails.LanguageDegree %</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Language</span><span data-aos="fade-left">@item.teacherDetails.LanguageDegree %</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Team Leader</span><span>@item.teacherDetails.TeamLeaderDegree %</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Team Leader</span><span data-aos="fade-left">@item.teacherDetails.TeamLeaderDegree %</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Development</span><span>@item.teacherDetails.DevelopmentDegree %</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Development</span><span data-aos="fade-left">@item.teacherDetails.DevelopmentDegree %</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Design</span><span>@item.teacherDetails.DesignDegree %</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Design</span><span data-aos="fade-left">@item.teacherDetails.DesignDegree %</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Innovation</span><span>@item.teacherDetails.InnovationDegree %</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Innovation</span><span data-aos="fade-left">@item.teacherDetails.InnovationDegree %</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Communication</span><span>@item.teacherDetails.CommunicationDegree %</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Communication</span><span data-aos="fade-left">@item.teacherDetails.CommunicationDegree %</span></div>
                                     </div>
                                 </div>
 
                                 <div style="margin-top:70px">
                                     <div style="color:white;font-size:18px">
-                                        <p style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">About Me</p>
-                                        <p>@item.teacherDetails.Description</p>
+                                        <p data-aos="fade-up" style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">About Me</p>
+                                        <p data-aos="fade-up">@item.teacherDetails.Description</p>
                                     </div><br /><br />
                                 </div>
 

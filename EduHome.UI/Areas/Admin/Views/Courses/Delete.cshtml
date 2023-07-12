@@ -3,6 +3,12 @@
     ViewData["Title"] = "Delete";
 }
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script>
+    AOS.init();
+</script>
+
 <h1>Delete</h1>
 
 <div class="main-content">
@@ -17,35 +23,35 @@
                             <form method="post">
                                 <div style="display:flex;justify-content:center;">
                                     <div>
-                                        <img style="width:450px" src="/@item.ImagePath"></img>
+                                        <img data-aos="fade-up" style="width:450px" src="/@item.ImagePath"></img>
                                     </div>
                                 </div>
                                 <div style="margin-top:40px;display:flex;justify-content:center;">
                                     <div style="width:1000px">
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Course Name</span><span>@item.Name</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Course Name</span><span data-aos="fade-left">@item.Name</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Date and Time</span><span>@item.CoursesDetails.Starts.ToString("dd MMM yyyy")</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Date and Time</span><span data-aos="fade-left">@item.CoursesDetails.Starts.ToString("dd MMM yyyy")</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>DURATION</span><span>@item.CoursesDetails.Month</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">DURATION</span><span data-aos="fade-left">@item.CoursesDetails.Month</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Hours</span><span>@item.CoursesDetails.Hours</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Hours</span><span data-aos="fade-left">@item.CoursesDetails.Hours</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>SKILL LEVEL</span><span>@item.CoursesDetails.Level</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">SKILL LEVEL</span><span data-aos="fade-left">@item.CoursesDetails.Level</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>LANGUAGE</span><span>@item.CoursesDetails.Language</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">LANGUAGE</span><span data-aos="fade-left">@item.CoursesDetails.Language</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>STUDENTS</span><span>@item.CoursesDetails.Students</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">STUDENTS</span><span data-aos="fade-left">@item.CoursesDetails.Students</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>ASSESMENTS</span><span>@item.CoursesDetails.Assesments</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">ASSESMENTS</span><span data-aos="fade-left">@item.CoursesDetails.Assesments</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>COURSE FEE</span><span>$@item.CoursesDetails.CourseFee</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">COURSE FEE</span><span data-aos="fade-left">$@item.CoursesDetails.CourseFee</span></div>
                                     </div>
                                 </div>
 
                                 <div style="margin-top:70px">
                                     <div style="color:white;font-size:18px">
-                                        <p style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">@item.Name</p>
-                                        <p>@Html.Raw(item.Descripton)</p>
+                                        <p data-aos="fade-up" style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">@item.Name</p>
+                                        <p data-aos="fade-up">@Html.Raw(item.Descripton)</p>
                                     </div><br /><br />
                                 </div>
 

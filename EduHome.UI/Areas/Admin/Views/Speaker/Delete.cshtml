@@ -2,6 +2,12 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script>
+    AOS.init();
+</script>
+
 <div style="margin-top:80px;background-color:cadetblue">
     <div style="display:flex;margin-top:50px;justify-content:center;align-items:center">
         <div style="width:1000px;margin-left:500px;display:grid;grid-template-columns:auto auto">
@@ -11,7 +17,7 @@
                 {
                     <form method="post">
                         <div style="margin-left:50px;">
-                            <div>
+                            <div data-aos="flip-left">
                                 <div style="width:600px" class="card overflow-hidden">
                                     <div class="bg-primary bg-soft">
                                         <div class="row">

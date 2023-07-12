@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script>
+    AOS.init();
+</script>
 
 
 <form method="post">
@@ -17,16 +22,16 @@
                             {
                                 <div style="display:flex;justify-content:center;margin-top:30px">
                                     <div>
-                                        <img style="width:450px" src="/@item.ImagePath"></img>
+                                        <img data-aos="fade-up" style="width:450px" src="/@item.ImagePath"></img>
                                     </div>
                                 </div>
                                 <div style="margin-top:40px;display:flex;justify-content:center;">
                                     <div style="width:1000px">
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event Name</span><span>@item.Events.Name</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Event Name</span><span data-aos="fade-left">@item.Events.Name</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Date and Time</span><span>@item.Events.DateTime.ToString("dd MMM yyyy")</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Date and Time</span><span data-aos="fade-left">@item.Events.DateTime.ToString("dd MMM yyyy")</span></div>
                                         <hr />
-                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Location</span><span>@item.Events.Location</span></div>
+                                        <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Location</span><span data-aos="fade-left">@item.Events.Location</span></div>
                                         <hr />
                                     </div>
                                 </div>
@@ -42,7 +47,7 @@
                                         @foreach (var speakers in Model.events.Where(e => e.Id == item.Events.Id).SelectMany(e => e.Events_Speakers.Select(s => s.Speakers)))
                                         {
                                             <div style="margin-left:50px">
-                                                <div>
+                                                <div data-aos="flip-left">
                                                     <div style="width:400px" class="card overflow-hidden">
                                                         <div class="bg-primary bg-soft">
                                                             <div class="row">
@@ -95,8 +100,8 @@
 
                                 <div style="margin-top:70px">
                                     <div style="color:white;font-size:18px">
-                                        <p style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">@item.Events.Name</p>
-                                        <p>@item.Description</p>
+                                        <p data-aos="fade-up" style="color:black;font-size:28px;font-weight:570;text-decoration: underline;">@item.Events.Name</p>
+                                        <p data-aos="fade-up">@item.Description</p>
                                     </div><br /><br />
                                 </div>
 

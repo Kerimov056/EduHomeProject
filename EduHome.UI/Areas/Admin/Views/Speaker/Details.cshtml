@@ -3,7 +3,11 @@
     ViewData["Title"] = "Details";
     int count = 1;
 }
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script>
+    AOS.init();
+</script>
 
 <div class="main-content">
     <div class="page-content">
@@ -16,22 +20,22 @@
                         {
                             <div style="display:flex;justify-content:center;">
                                 <div>
-                                    <img style="width:450px" src="/@item.ImagePath"></img>
+                                    <img data-aos="fade-up" style="width:450px" src="/@item.ImagePath"></img>
                                 </div>
                             </div>
                             <div style="margin-top:40px;display:flex;justify-content:center;">
                                 <div style="width:1000px">
-                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Name</span><span>@item.Name</span></div>
+                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Name</span><span data-aos="fade-left">@item.Name</span></div>
                                     <hr />
-                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Postions</span><span>@item.Postions</span></div>
+                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Postions</span><span data-aos="fade-left">@item.Postions</span></div>
                                     <hr />
-                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Job Name</span><span>@item.JobName</span></div>
+                                    <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span data-aos="fade-right">Job Name</span><span data-aos="fade-left">@item.JobName</span></div>
                                     <hr />
                                     @foreach (var evs in Model.events_Speakers)
                                     {
                                         if (evs.SpeakersId == item.Id)
                                         {
-                                            <div style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event(@count)</span><span>@evs.Events.Name</span></div>
+                                            <div data-aos="fade-left" style="display:flex;justify-content:space-between; color:white;font-size:18px"><span>Event(@count)</span><span>@evs.Events.Name</span></div>
                                             count++;
                                         }
                                     }

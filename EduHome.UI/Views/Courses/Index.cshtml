@@ -47,15 +47,16 @@
                                             <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">@course.Name</a></h3>
                                             <p>@Html.Raw(course.Descripton)</p>
                                             <p style="font-size:20px;color:cornflowerblue;font-weight:700"><b style="color:black">Price:</b> $@course.CoursesDetails.CourseFee</p>
-                                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" class="default-btn">read more</a>
+                                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" style="border-radius:4px;" class="default-btn">read more</a>
                                             @if (User.Identity.IsAuthenticated)
                                             {
-                                                <button type="button" onclick="add(@course.Id)" class="btn btn-primary">Add to Cart</button>
+                                                <button id="addd" type="button" onclick="add(@course.Id)" class="btn btn-success">Add to Cart</button>
                                             }
+
                                             else
                                             {
                                                 <a asp-controller="SiginUp" asp-action="LogIn">
-                                                    <button type="button" class="btn btn-primary">Add to Cart</button>
+                                                    <button id="addd" type="button" class="btn btn-primary">Add to Cart</button>
                                                 </a>
                                             }
                                         </div>
@@ -171,20 +172,17 @@
 
 <style>
 
-    .add {
+    #addd {
         margin-left: 12px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 6px 20px 6px 20px;
         border: none;
-        padding-bottom: 8px;
-        padding-top: 8px;
         margin-bottom: 25px;
         background-color: white;
         color: forestgreen;
         border: 1px solid forestgreen;
     }
 
-        .add:hover {
+        #addd:hover {
             background-color: forestgreen;
             color: white;
         }

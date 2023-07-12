@@ -3,6 +3,12 @@
     ViewData["Title"] = "GetUserCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script>
+    AOS.init();
+</script>
+
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
         <div class="container">
@@ -63,8 +69,31 @@
     }
     else
     {
-        <h5>Cart is empty</h5>
+        <div style="display:flex;"> 
+            <div class="empty">
+                <img src="https://img.freepik.com/free-vector/empty-cart-concept-illustration_114360-17701.jpg?w=740&t=st=1689169626~exp=1689170226~hmac=3dedc598ec5cb2f9ace69f4749162868c890114f7a5fbf70dd439edfe240710b" />
+            </div>
+            <div>
+                <h2 data-aos="fade-down" style="margin-top:200px;font-size:50px;font-family:'Times New Roman', Times, serif">
+                    Cart Is Empty
+                </h2>
+            </div>
+        </div>
     }
 </div>
 
+<style>
+    .empty {
+        width: 60%;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+        .empty img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+        }
+</style>
