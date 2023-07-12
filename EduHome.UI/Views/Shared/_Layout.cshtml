@@ -100,15 +100,17 @@
                                         @*--------------*@
                                         <li>
                                             <a class="nav-link">
-                                                <span  id="cartCount" class="badge text-bg-info">0</span>
-                                                <i style="font-size:20px" class="fa-solid fa-basket-shopping"></i>
+                                                <span id="cartCount" class="badge text-bg-info">0</span>
+                                                <a asp-controller="Cart" asp-action="GetUserCart">
+                                                    <i style="font-size:20px" class="fa-solid fa-basket-shopping"></i>
+                                                </a>
                                             </a>
                                         </li>
                                         @*--------------*@
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
-                                                <a style="color:white" >@User.Identity.Name</a>
+                                                <a style="color:white">@User.Identity.Name</a>
                                                 <ul>
                                                     @if (User.IsInRole("Admin"))
                                                     {
@@ -224,26 +226,26 @@
 </body>
 <script>
     loadCartCount();
-        async function loadCartCount() {
+    async function loadCartCount() {
         //var usernameEl = document.getElementById("username");
         //var username = usernameEl.innerText;
 
-            try {
-                var response = await fetch(`/Cart/GetTotalItemInCart`);
-                if (response.status == 200) {
-                    var result = await response.json();
-                    console.log(result);
-                    var cartCountEl = document.getElementById("cartCount");
-                    cartCountEl.innerHTML = result;
-                }
-                else {
-                    console.log(response.status)
-                }
+        try {
+            var response = await fetch(`/Cart/GetTotalItemInCart`);
+            if (response.status == 200) {
+                var result = await response.json();
+                console.log(result);
+                var cartCountEl = document.getElementById("cartCount");
+                cartCountEl.innerHTML = result;
             }
-            catch (err) {
-                console.log(err);
+            else {
+                console.log(response.status)
             }
         }
+        catch (err) {
+            console.log(err);
+        }
+    }
 </script>
 </html>
 

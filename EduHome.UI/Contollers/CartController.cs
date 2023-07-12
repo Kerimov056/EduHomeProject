@@ -46,4 +46,12 @@ public class CartController : Controller
         int cartItem = await _cartService.GetCartItemCount();
         return Ok(cartItem);
     }
+
+    public async Task<IActionResult> Checkout()
+    {
+        bool IsCheckOut = await _cartService.DoCheckout();
+        if (!IsCheckOut) throw new Exception("Server Error");
+
+        return RedirectToAction("Index","Courses");
+    }
 }

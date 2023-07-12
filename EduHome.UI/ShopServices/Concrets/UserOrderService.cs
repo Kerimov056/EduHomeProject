@@ -31,6 +31,8 @@ public class UserOrderService: IUserOrderServices
                             .Include(x => x.orderDetails)
                             .ThenInclude(x => x.Courses)
                             .ThenInclude(x => x.Categories)
+                            .ThenInclude(x => x.Courses)
+                            .ThenInclude(x => x.CoursesDetails)
                             .Where(a => a.UserId == userId)
                             .ToListAsync();
 

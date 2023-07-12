@@ -1,0 +1,56 @@
+﻿@model ShoppingCart
+@{
+    ViewData["Title"] = "GetUserCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p></p>
+<p style="margin-top:30px"></p>
+<div style="margin-top:200px;width:90%;margin:auto;" class="mt-2">
+    @if (Model != null && Model.CartDetails != null && Model.CartDetails.Count > 0)
+    {
+        <h5 style="font-size:24px">My Cart</h5>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Course</th>
+                <th>Image</th>
+                <th>Catagorie</th>
+                <th>Unit Price(INR)</th>
+                <th>Total Price</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.CartDetails)
+            {
+                <tr>
+                    <td>@item.Courses.Name</td>
+                    <td>
+                        <img src="/@item.Courses.ImagePath" style="width:80px;height:100px" />
+                    </td>
+                    <td>@item.Courses.Categories.Categorie</td>
+                    <td>@item.Courses.CoursesDetails.CourseFee X @item.Quantity</td>
+                    <td>@(item.Courses.CoursesDetails.CourseFee * item.Quantity)</td>
+                    <td>
+                        <a class="btn btn-info" href="/Cart/AddItem?courseId=@item.CoursesId&&redirect=1">+</a>
+                        <a class="btn btn-info" href="/Cart/RemoveItem?coursesId=@item.CoursesId">-</a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <div class="my-2">
+            <h5>Total(INR): </h5>
+            @(Model.CartDetails.Select(item => item.Courses.CoursesDetails.CourseFee * item.Quantity).Sum())
+        </div>
+
+        <div class="my-2">
+            <a class="btn btn-primary" asp-controller="Cart" asp-action="Checkout">Checkout</a>
+        </div>
+
+    }
+    else
+    {
+        <h5>Cart is empty</h5>
+    }
+</div>
+
+
