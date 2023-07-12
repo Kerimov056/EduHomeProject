@@ -59,4 +59,7 @@ public class AppDbContext : IdentityDbContext<User>
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
 
+    //Comment
+    public DbSet<CourseComment> CourseComments { get; set; }
+
 }

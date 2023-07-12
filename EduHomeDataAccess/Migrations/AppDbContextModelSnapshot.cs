@@ -135,6 +135,37 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("Categoriess");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.CourseComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CoursesId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CoursesId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CourseComments");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
                 {
                     b.Property<int>("Id")
@@ -865,6 +896,25 @@ namespace EduHomeDataAccess.Migrations
                     b.Navigation("ShoppingCart");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.CourseComment", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.Courses", "Courses")
+                        .WithMany("CourseComments")
+                        .HasForeignKey("CoursesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.User", "User")
+                        .WithMany("CourseComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Courses");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
                 {
                     b.HasOne("EduHome.Core.Entities.Categories", "Categories")
@@ -1018,6 +1068,8 @@ namespace EduHomeDataAccess.Migrations
                 {
                     b.Navigation("CartDetails");
 
+                    b.Navigation("CourseComments");
+
                     b.Navigation("CoursesDetails")
                         .IsRequired();
 
@@ -1051,6 +1103,11 @@ namespace EduHomeDataAccess.Migrations
                 {
                     b.Navigation("teacherDetails")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.User", b =>
+                {
+                    b.Navigation("CourseComments");
                 });
 #pragma warning restore 612, 618
         }

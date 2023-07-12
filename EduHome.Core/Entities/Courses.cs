@@ -25,5 +25,7 @@ public class Courses : IEntity
 
     public List<CartDetail> CartDetails { get; set; }
     public List<OrderDetail> OrderDetails { get; set; }
+    public List<CourseComment>? CourseComments { get; set; }
+
 
 }

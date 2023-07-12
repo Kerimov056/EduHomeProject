@@ -20,6 +20,8 @@ public class HomeViewModel
     public IEnumerable<Teacher> teachers { get; set; }
     public IEnumerable<Setting> settings { get; set; }
     public IEnumerable<Viewer> viewers { get; set; }
+    //Commmetns
+    public IEnumerable<CourseComment> courseComments { get; set; }
     //shopping
     public IEnumerable<ShoppingCart> shoppingCarts { get; set; }
     public IEnumerable<CartDetail> cartDetails { get; set; }
