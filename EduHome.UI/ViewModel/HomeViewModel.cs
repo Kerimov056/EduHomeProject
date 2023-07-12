@@ -22,6 +22,8 @@ public class HomeViewModel
     public IEnumerable<Viewer> viewers { get; set; }
     //Commmetns
     public IEnumerable<CourseComment> courseComments { get; set; }
+
+    public string? Comments { get; set; }
     //shopping
     public IEnumerable<ShoppingCart> shoppingCarts { get; set; }
     public IEnumerable<CartDetail> cartDetails { get; set; }

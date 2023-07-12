@@ -1,0 +1,53 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+<h1>Index</h1>
+
+@foreach (var item in Model.courses)
+{
+
+    <form method="post" asp-controller="CourseDetails" asp-action="AddComment" asp-route-courseId="@item.Id">
+        <div>
+            <h1>Burasi Comments</h1>
+            <input name="message" type="text" placeholder="Your Comments" />
+            <div class="submit-section">
+                <button class="btn submit-btn" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        @foreach (var comment in item.CourseComments)
+        {
+            <p>@comment.Comment</p>
+        }
+    </div>
+
+}
