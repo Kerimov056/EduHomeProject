@@ -2496,6 +2496,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\fd7df29e-c764-4e07-ad07-9e3bcaf4a264blog3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\fe704c12-e1b5-4c3e-b117-85ba4afd5c6cEkran görüntüsü 2023-03-09 112856.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>EduHome.UI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EduHome.UI</BasePath>
+      <RelativePath>assets/img/course/fe704c12-e1b5-4c3e-b117-85ba4afd5c6cEkran görüntüsü 2023-03-09 112856.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\fe704c12-e1b5-4c3e-b117-85ba4afd5c6cEkran görüntüsü 2023-03-09 112856.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\course\p233.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>EduHome.UI</SourceId>

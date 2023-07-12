@@ -42,9 +42,9 @@ public class CoursesServices : ICoursesServices
         {
             throw new ArgumentException("Select correct image format!");
         }
-        if (!CourseFullDetailsViewModel.ImagePath.FormatLength(100))
+        if (!CourseFullDetailsViewModel.ImagePath.FormatLength(1000))
         {
-            throw new ArgumentException("Size must be less than 100 kb");
+            throw new ArgumentException("Size must be less than 1000 kb");
         }
 
         string filePath = await CourseFullDetailsViewModel.ImagePath.CopyFileAsync(_env.WebRootPath, "assets", "img", "course");
