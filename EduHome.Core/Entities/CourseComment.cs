@@ -5,7 +5,8 @@ namespace EduHome.Core.Entities
 {
     public class CourseComment : IEntity
     {
-        public int Id { get; set; }
+       
+        public int Id { get ; set ; }
         public string Comment { get; set; } = null!;
         public DateTime CreatedDate { get; set; }
 

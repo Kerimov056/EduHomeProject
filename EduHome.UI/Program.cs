@@ -17,12 +17,9 @@ using EduHome.UI.ShopServices.Concrets;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//var configuration = builder.Configuration;
-//builder.Services.AddAuthentication().AddGoogle(googleOptions =>
-//{
-//    googleOptions.ClientId = configuration["Authentication:Google:ClinetId"];
-//    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
-//});
+
+
+
 //services.AddAuthentication()
 //    .AddGoogle(options =>
 //    {
@@ -85,6 +82,16 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/SiginUp/LogIn";
 });
+
+
+var configuration = builder.Configuration;
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+});
+
+
 
 var app = builder.Build();
 app.UseStaticFiles();

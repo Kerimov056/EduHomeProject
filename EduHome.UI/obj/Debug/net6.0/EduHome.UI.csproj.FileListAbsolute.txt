@@ -292,6 +292,7 @@ D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\MailKit.dll
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\MailKit.NET.dll
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\MessagePack.dll
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\MessagePack.Annotations.dll
+D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -554,4 +555,3 @@ D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\obj\Debug\net6.0\refint\EduHome.U
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\obj\Debug\net6.0\EduHome.UI.pdb
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\obj\Debug\net6.0\EduHome.UI.genruntimeconfig.cache
 D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\obj\Debug\net6.0\ref\EduHome.UI.dll
-D:\work2\Asp.net MVC\EduHomeProject\EduHome.UI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
