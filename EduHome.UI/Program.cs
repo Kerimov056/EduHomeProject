@@ -14,7 +14,24 @@ using EduHomeDataAccess.Repository;
 using EduHome.UI.ShopServices.Interfaces;
 using EduHome.UI.ShopServices.Concrets;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+//var configuration = builder.Configuration;
+//builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+//{
+//    googleOptions.ClientId = configuration["Authentication:Google:ClinetId"];
+//    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+//});
+//services.AddAuthentication()
+//    .AddGoogle(options =>
+//    {
+//        options.ClientId = "YOUR_CLIENT_ID";
+//        options.ClientSecret = "YOUR_CLIENT_SECRET";
+//    });
+
+
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(Program));
 

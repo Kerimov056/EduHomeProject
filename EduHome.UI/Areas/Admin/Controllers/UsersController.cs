@@ -22,7 +22,7 @@ public class UsersController : Controller
         return View(users);
     }
 
-    public async Task<IActionResult> Details(int id)
+    public async Task<IActionResult> Details(string id)
     {
         var Byuser = await _userServices.FindByIdAsync(id);
         ViewBag.ByUser = Byuser.Id;
@@ -34,7 +34,7 @@ public class UsersController : Controller
     }
 
 
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(string id)
     {
         var user = await _userServices.FindByIdAsync(id);
         ViewBag.ByUserDel = user.Id;
@@ -48,7 +48,7 @@ public class UsersController : Controller
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
 
-    public async Task<IActionResult> DeletePost(int id)
+    public async Task<IActionResult> DeletePost(string id)
     {
         await _userServices.DeleteAsync(id);
         return RedirectToAction(nameof(Index));

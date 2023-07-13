@@ -3,7 +3,59 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script>
+    $(window).scroll(function () {
+        // Kullanıcı sayfayı aşağı kaydırdığında bu işlev tetiklenir
 
+        // Tüm sayfanın yüksekliği
+        var documentHeight = $(document).height();
+
+        // Sayfanın en üstünden görülebilir alanın yüksekliği
+        var windowHeight = $(window).height();
+
+        // Sayfanın en üstünden kaydırılan miktar
+        var scrollTop = $(window).scrollTop();
+
+        // Kullanıcı sayfayı aşağı doğru kaydırdıkça
+        // sona yaklaşılıyor mu kontrol edilir
+        if (scrollTop + windowHeight >= documentHeight) {
+            // Sayfanın sonuna gelindiğinde ürünleri yükleme işlemi yapılır
+            loadMoreProducts();
+        }
+    });
+
+
+    function loadMoreProducts() {
+        // AJAX kullanmadan veritabanından daha fazla ürün almak için bir yöntem kullanın
+        // Örneğin, yeni ürünleri almak için bir controller yöntemi çağırabilirsiniz
+        // ve dönen ürünleri sayfada görüntüleyebilirsiniz
+
+        // Örnek olarak, ProductsController'da bir yöntem çağırma:
+        var currentPage = 1; // Şu anki sayfa numarası
+        // Şu anki sayfa numarasını önceden takip etmek için bir değişken kullanabilirsiniz
+
+        $.ajax({
+            url: '/Products/GetMoreProducts',
+            type: 'GET',
+            dataType: 'html',
+            data: { page: currentPage + 1 }, // Bir sonraki sayfa numarası
+            success: function (data) {
+                // AJAX isteği başarılı olduğunda bu işlev tetiklenir
+
+                // Gelen ürünleri sayfaya ekleme
+                appendProducts(data);
+
+                // Sayfa numarasını güncelleme
+                currentPage += 1;
+            },
+            error: function () {
+                // AJAX isteği başarısız olduğunda bu işlev tetiklenir
+                console.log('AJAX isteği başarısız oldu.');
+            }
+        });
+    }
+
+</script>
 
 <!-- Banner Area Start -->
 <!-- Banner Area Start -->
@@ -30,53 +82,57 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
-                        @foreach (var course in Model.courses)
-                        {
-                            <div class="col-md-6">
-                                <div class="single-blog mb-60">
-                                    <div class="single-course">
-                                        <div class="course-img">
-                                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">
-                                                <img style="height:240px;object-fit:cover;" src="/@course.ImagePath" alt="course">
-                                                <div class="course-hover">
-                                                    <i class="fa fa-link"></i>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="course-content">
-                                            <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">@course.Name</a></h3>
-                                            <p style="font-size:20px;color:cornflowerblue;font-weight:700"><b style="color:black">Price:</b> $@course.CoursesDetails.CourseFee</p>
-                                            <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" style="border-radius:4px;" class="default-btn">read more</a>
-                                            @if (User.Identity.IsAuthenticated)
-                                            {
-                                                <button id="addd" type="button" onclick="add(@course.Id)" class="btn btn-success">Add to Cart
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                                    </svg>
-                                                </button>
-                                            }
-                                            else
-                                            {
-                                                <a asp-controller="SiginUp" asp-action="LogIn">
-                                                    <button id="addd" type="button" class="btn btn-primary">Add to Cart
+                        <div id="productContainer">
+                            @foreach (var course in Model.courses)
+                            {
+                                <div class="col-md-6">
+                                    <div class="single-blog mb-60">
+                                        <div class="single-course">
+                                            <div class="course-img">
+                                                <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">
+                                                    <img style="height:240px;object-fit:cover;" src="/@course.ImagePath" alt="course">
+                                                    <div class="course-hover">
+                                                        <i class="fa fa-link"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="course-content">
+                                                <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">@course.Name</a></h3>
+                                                <p style="font-size:20px;color:cornflowerblue;font-weight:700"><b style="color:black">Price:</b> $@course.CoursesDetails.CourseFee</p>
+                                                <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" style="border-radius:4px;" class="default-btn">read more</a>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <button id="addd" type="button" onclick="add(@course.Id)" class="btn btn-success">
+                                                        Add to Cart
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                                                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                                         </svg>
                                                     </button>
-                                                </a>
-                                            }
-                                            <div style="margin-left:-275px" class="course-share d-flex align-items-center justify-content-center">
-                                                <a asp-action="AddWishlist" asp-controller="Courses" asp-route-id="@course.Id">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
-                                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                                                    </svg>
-                                                </a>
+                                                }
+                                                else
+                                                {
+                                                    <a asp-controller="SiginUp" asp-action="LogIn">
+                                                        <button id="addd" type="button" class="btn btn-primary">
+                                                            Add to Cart
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                            </svg>
+                                                        </button>
+                                                    </a>
+                                                }
+                                                <div style="margin-left:-275px" class="course-share d-flex align-items-center justify-content-center">
+                                                    <a asp-action="AddWishlist" asp-controller="Courses" asp-route-id="@course.Id">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
+                                                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
                 </div>
 
@@ -153,38 +209,6 @@
             </div>
         </div>
     </div>
-    <!-- Blog End -->
-    <!-- Subscribe Start -->
-    @* <div class="subscribe-area pt-60 pb-70">
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-    <div class="subscribe-content section-title text-center">
-    <h2>subscribe our newsletter</h2>
-    <p>I must explain to you how all this mistaken idea </p>
-    </div>
-    <div class="newsletter-form mc_embed_signup">
-    <form action="https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll" class="mc-form">
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-    <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>subscribe</span></button>
-    </div>
-    </form>
-    <!-- mailchimp-alerts Start -->
-    <div class="mailchimp-alerts">
-    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-    </div>
-    <!-- mailchimp-alerts end -->
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>*@
-    <!-- Subscribe End -->
 </form>
 
 

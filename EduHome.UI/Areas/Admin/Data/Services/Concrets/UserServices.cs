@@ -14,9 +14,9 @@ public class UserServices : IUserServices
     {
         _appDbContext = appDbContext;
     }
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(string id)
     {
-        if (id==0) throw new NullReferenceException();
+        if (id is null) throw new NullReferenceException();
         var ByUser = await _appDbContext.Users.FindAsync(id);
         if (ByUser is null) throw new NotFoundException("User Is Null");
 
@@ -24,9 +24,9 @@ public class UserServices : IUserServices
         await _appDbContext.SaveChangesAsync();
     }
 
-    public async Task<User> FindByIdAsync(int id)
+    public async Task<User> FindByIdAsync(string id)
     {
-        if (id == 0) throw new NullReferenceException();
+        if (id is null) throw new NullReferenceException();
         var user = await _appDbContext.Users.FindAsync(id);
         if (user is null) throw new NullReferenceException();
         return user;
