@@ -109,6 +109,26 @@ public class CoursesController : Controller
                 coursesList.Add(courses);
             }
         }
+        //var coursess = await _context.Coursess.ToListAsync();
+        //foreach (var item in coursesCartVMs)
+        //{
+        //    //var list = item.Id;
+        //    foreach (var cours in coursess)
+        //    {
+        //        if (cours.Id == item.Id)
+        //        {
+        //            ViewBag.Deteils = cours.CoursesDetails.CourseFee;
+        //        }
+        //    }
+        //}
+
+        //foreach (var item in _context.Coursess)
+        //{
+        //    foreach (var item in )
+        //    {
+
+        //    }
+        //}
 
         return View(coursesCartVMs);
     }

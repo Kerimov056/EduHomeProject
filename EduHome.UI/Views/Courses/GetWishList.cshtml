@@ -1,0 +1,90 @@
+﻿@model List<CoursesCartVM>
+@{
+    ViewData["Title"] = "GetWishList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>WishList</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+              @*<h5>Your Wishlist (@Model.Count)</h5>*@
+            <div class="col-lg-8">
+                <div class="row">
+                    @if (Model is null)
+                    {
+                        <div>HEleki hecne yoxdu qaqa</div>
+                    }
+                    else{
+                    @foreach (var course in Model)
+                    {
+                        <div class="col-md-6">
+                            <div class="single-blog mb-60">
+                                <div class="single-course">
+                                    <div class="course-img">
+                                        <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">
+                                            <img style="height:240px;object-fit:cover;" src="/@course.ImagePath" alt="course">
+                                            <div class="course-hover">
+                                                <i class="fa fa-link"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="course-content">
+                                        <h3><a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id">@course.Name</a></h3>
+                                            @*<p style="font-size:20px;color:cornflowerblue;font-weight:700"><b style="color:black">Price:</b> $@ViewBag.Deteils</p>*@
+                                        <a asp-controller="CourseDetails" asp-action="Index" asp-route-id="@course.Id" style="border-radius:4px;" class="default-btn">read more</a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <button id="addd" type="button" onclick="add(@course.Id)" class="btn btn-success">
+                                                Add to Cart
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                </svg>
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="SiginUp" asp-action="LogIn">
+                                                <button id="addd" type="button" class="btn btn-primary">
+                                                    Add to Cart
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                    </svg>
+                                                </button>
+                                            </a>
+                                        }
+                                        <div style="margin-left:-275px" class="course-share d-flex align-items-center justify-content-center">
+                                            <a asp-action="AddWishlist" asp-controller="Courses" asp-route-id="@course.Id">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
+                                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
