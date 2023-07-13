@@ -66,9 +66,15 @@ public class SiginUpController : Controller
         return RedirectToAction(nameof(LogIn));
     }
 
-    public IActionResult LogIn()
+    public async Task<IActionResult> LogIn(string returnUrl)
     {
-        return View();
+        LoginVM loginVM = new LoginVM
+        {
+            ReturnUrl = returnUrl,
+            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+        };
+
+        return View(loginVM);
     }
 
     [HttpPost]
@@ -96,6 +102,18 @@ public class SiginUpController : Controller
             return View();
         }
         return RedirectToAction("Index", "Home");
+    }
+
+
+    public IActionResult ExternalLogin(string provider, string returnUrl)
+    {
+        var redirectUrl = Url.Action("ExternalLoginCallback", "SiginUp",
+                                new { ReturnUrl = returnUrl });
+
+        var properties =
+            _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+        return new ChallengeResult(provider, properties);
     }
 
     [Authorize(Roles = "Member,Admin")]
