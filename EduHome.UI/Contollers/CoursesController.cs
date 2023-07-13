@@ -34,7 +34,7 @@ public class CoursesController : Controller
             categories = categories,
             blogs = await _context.Blogs.ToListAsync(),
             sTrem = sTrem,
-            catagoryId= catagoryId
+            catagoryId = catagoryId
         };
 
         return View(model);
@@ -59,7 +59,7 @@ public class CoursesController : Controller
         if (value is null)
         {
             HttpContext.Response.Cookies
-                       .Append("WishList",System.Text.Json.JsonSerializer.Serialize(cartsCookies));
+                       .Append("WishList", System.Text.Json.JsonSerializer.Serialize(cartsCookies));
         }
         else
         {
@@ -75,7 +75,7 @@ public class CoursesController : Controller
                 Count = 1,
                 Name = courses.Name,
                 ImagePath = courses.ImagePath,
-                Price = (int) courses.CoursesDetails.CourseFee
+                Price = (int)courses.CoursesDetails.CourseFee
             });
         }
         else
@@ -83,10 +83,54 @@ public class CoursesController : Controller
             cartVm.Count += 1;
         }
 
-        HttpContext.Response.Cookies.Append("WishList",System.Text.Json.JsonSerializer.Serialize(cartsCookies),new CookieOptions()
+        HttpContext.Response.Cookies.Append("WishList", System.Text.Json.JsonSerializer.Serialize(cartsCookies), new CookieOptions()
         {
             MaxAge = TimeSpan.FromDays(25)
         });
         return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> GetWishList()
+    {
+        List<Courses> coursesList = new List<Courses>();
+        List<CoursesCartVM> coursesCartVMs = new List<CoursesCartVM>();
+
+        string value = HttpContext.Request.Cookies["WishList"];
+        if (value is null)
+        {
+            coursesCartVMs = null;
+        }
+        else
+        {
+            coursesCartVMs = System.Text.Json.JsonSerializer.Deserialize<List<CoursesCartVM>>(value);
+            foreach (var item in coursesCartVMs)
+            {
+                Courses? courses = await _context.Coursess.Include(c => c.Categories).FirstOrDefaultAsync();
+                coursesList.Add(courses);
+            }
+        }
+
+        return View(coursesCartVMs);
+    }
+
+
+    public async Task<IActionResult> RemoveCartWishList(int id)
+    {
+        string? value = HttpContext.Request.Cookies["WishList"];
+        if (value is null) return NotFound();
+        else
+        {
+            List<CoursesCartVM> coursesCartVMs = System.Text.Json.JsonSerializer.Deserialize<List<CoursesCartVM>>(value);
+            CoursesCartVM coursesCart = coursesCartVMs.FirstOrDefault(c => c.Id == id);
+            if (coursesCart is not null)
+            {
+                coursesCartVMs.Remove(coursesCart);
+            }
+            HttpContext.Response.Cookies.Append("WishList", System.Text.Json.JsonSerializer.Serialize(coursesCart), new CookieOptions()
+            {
+                MaxAge = TimeSpan.FromMinutes(10)
+            });
+        }
+        return RedirectToAction(nameof(GetWishList));
     }
 }
