@@ -16,6 +16,11 @@
             padding-left: 220px !important;
             padding-right: 220px !important;
         }
+
+      @*  #ggg:hover{
+            background-color:steelblue;
+            color:white;*@
+    }
     </style>
 
     <div class="banner-area-wrapper">
@@ -46,7 +51,7 @@
                                 <span>Please login using account detail bellow.</span>
                             </div>
                             <div class="login-form">
-                                <form action="#" method="post">
+                                <form method="post">
                                     <input asp-for="Email" type="text" placeholder="Username">
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                     <input asp-for="Password" type="password" placeholder="Password">
@@ -70,31 +75,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <h1>External Login</h1>
-        <hr/>
-        @{
-            if (Model.ExternalLogins.Count==0)
-            {
-                <div>No external logins configured</div>
-            }
-            else
-            {
-                <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" >
-                    <div>
-                        @foreach (var provider in Model.ExternalLogins)
-                        {
-                            <button type="submit" class="btn btn-primary"
-                                name="provider" value="@provider.Name" 
-                                title="Login using your @provider.DisplayName account">
-                                @provider.DisplayName
-                            </button>
-                        }
-                    </div>
-                </form>
-            }
-        }
-    </div>
+
 
 
     <!-- Login end -->
@@ -129,13 +110,43 @@
         </div>
     </div>
 
-    
+
     <!-- Subscribe End -->
 }
-else{
+else
+{
     <div class="login-area pt-150 pb-150">
         <p class="col-md-8 offset-md-2">
             My Profile
         </p>
     </div>
 }
+
+
+
+
+
+
+@* <div class="row" style="margin-top:10px;">
+                                    @{
+                                        if (Model.ExternalLogins.Count == 0)
+                                        {
+                                            <div>No external logins configured</div>
+                                        }
+                                        else
+                                        {
+                                            <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
+                                                <div>
+                                                    @foreach (var provider in Model.ExternalLogins)
+                                                    {
+                                                        <button style="width:490px;border-radius:17px;border:1px solid black" id="ggg" type="submit" class="btn btn-white"
+                                                    name="provider" value="@provider.Name"
+                                                    title="Login using your @provider.DisplayName account">
+                                                            @provider.DisplayName Account   <i class="fa-brands fa-google"></i>
+                                                        </button>
+                                                    }
+                                                </div>
+                                            </form>
+                                        }
+                                    }
+                                </div>*@

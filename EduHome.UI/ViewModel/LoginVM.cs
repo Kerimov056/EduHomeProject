@@ -8,7 +8,7 @@ public class LoginVM
     public string Password { get; set; }
     public bool IsLoggedIn { get; set; }
 
-    public string ReturnUrl { get; set; }
+    //public string ReturnUrl { get; set; }
 
-    public IList<AuthenticationScheme> ExternalLogins { get; set; }
+    //public IList<AuthenticationScheme> ExternalLogins { get; set; }
 }

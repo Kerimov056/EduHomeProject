@@ -41,6 +41,7 @@ public class CourseDetailsController : Controller
             courses = await _context.Coursess
                                 .Include(c => c.CoursesDetails)
                                 .Include(c => c.CourseComments)
+                                .ThenInclude(u => u.User)
                                 .ToListAsync(),
             categories = await _context.Categoriess.ToListAsync(),
         };

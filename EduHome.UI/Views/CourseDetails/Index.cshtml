@@ -35,8 +35,50 @@
                             <div class="courses-details-img">
                                 <img style="width:800px;height:700px;object-fit:cover" src="/@item.ImagePath" alt="courses-details">
                             </div>
+                            <div class="course-content" style="height:50px;">
+                                <h1 style="font-size:30px;margin-top:-17px;">@item.Name</h1>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <button id="addd" type="button" onclick="add(@item.Id)" class="btn btn-success">
+                                        Add to Cart
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                        </svg>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <a asp-controller="SiginUp" asp-action="LogIn">
+                                        <button id="addd" type="button" class="btn btn-primary">
+                                            Add to Cart
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                        </button>
+                                    </a>
+                                }
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <div id="Likeee" class="course-share d-flex align-items-center justify-content-center">
+                                        <a asp-action="AddWishlist" asp-route-id="@item.Id" asp-controller="Courses">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
+                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <a asp-controller="SiginUp" asp-action="LogIn">
+                                        <div id="Likeee" class="course-share d-flex align-items-center justify-content-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
+                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                }
+                            </div>
                             <div class="course-details-content">
-                                <h2>@item.Name</h2>
                                 <p>@Html.Raw(item.Descripton)</p>
                                 <div class="course-details-left">
                                 </div>
@@ -61,16 +103,44 @@
                                     <textarea asp-for="@Model.Comments" rows="4" class="form-control" placeholder="Your Comments"></textarea>
                                 </div>
                                 <div class="submit-section">
-                                    <button class="btn submit-btn" type="submit">Submit</button>
+                                    <button style="margin-left:734px;margin-top:-60px" class="btn submit-btn" type="submit"><i style="font-size:20px;" class="fa-solid fa-paper-plane"></i></button>
                                 </div>
                             </form>
 
+                            @*-------------------------------------------*@
+
+
                             <div>
-                                @foreach (var comment in item.CourseComments)
-                                {
-                                    <p>@comment.Comment</p>
-                                }
+                                <div id="commentss">
+                                    <div id="commentssAnswer">
+                                        <p>171 degerlendirme</p>
+                                    </div>
+                                    <div id="commentssS">
+                                        @foreach (var comment in item.CourseComments.OrderByDescending(x => x.CreatedDate).Take(5))
+                                        {
+                                            <div class="ByComment">
+                                                <div style="margin-left:20px;">
+                                                    <div>@comment.Comment</div>
+                                                    <div style="margin-top:7px;">
+                                                        <span>@comment.User.UserName | <span style="color:#f27a1a">@comment.CreatedDate.ToString("dd MMM yyyy")</span></span>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-right:20px;">
+                                                    <span class="like"><i class="fa-solid fa-thumbs-up"></i> Like the comment(0)</span>
+                                                </div>
+                                            </div>
+                                        }
+                                        <div id="SHOWMORECOMMENTS">
+                                            <a>SHOW MORE COMMENTS</a>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
+
+
+                            @*-------------------------------------------*@
 
                             <div class="reply-area">
                                 <h3>LEAVE A REPLY</h3>
@@ -205,3 +275,103 @@
     }
 }
 
+<style>
+    .form-control {
+        height: 20px;
+    }
+
+    #commentss {
+        border: 1px solid #d2d6d4;
+        height: 570px;
+        border-radius: 5px;
+    }
+
+    #commentssAnswer {
+        height: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center
+    }
+
+    #commentssS {
+        height: 470px;
+        width: 100%;
+        border-top: 1px solid #d2d6d4;
+    }
+
+    .ByComment {
+        width: 100%;
+        height: 18%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .like {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .like:hover {
+        color: #f27a1a;
+    }
+
+    #SHOWMORECOMMENTS{
+        width:90%;
+        height:30px;
+        border: 1px solid #d2d6d4;
+        margin-left:34px;
+        border-radius:6px;
+        text-align:center;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color: #f27a1a;
+        color: white;
+    }
+
+    #addd {
+        padding: 6px 20px 6px 20px;
+        border: none;
+        margin-bottom: 25px;
+        background-color: white;
+        color: forestgreen;
+        border: 1px solid forestgreen;
+        margin-top:-40px;
+        margin-left:140px;
+    }
+
+        #addd:hover {
+            background-color: forestgreen;
+            color: white;
+        }
+</style>
+
+
+@section Scripts{
+    <script>
+        async function add(courseId) {
+            //var usernameEl = document.getElementById("username");
+            //if (usernameEl == null) {
+
+            //}
+            try {
+                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+                    //window.location.href = "#cartCount"
+                }
+                else {
+                    console.log(response.status)
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+}

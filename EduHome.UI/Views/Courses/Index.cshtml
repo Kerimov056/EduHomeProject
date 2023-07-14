@@ -3,7 +3,8 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<script>
+
+@*<script>
     $(window).scroll(function () {
         // Kullanıcı sayfayı aşağı kaydırdığında bu işlev tetiklenir
 
@@ -55,7 +56,7 @@
         });
     }
 
-</script>
+</script>*@
 
 <!-- Banner Area Start -->
 <!-- Banner Area Start -->
@@ -82,10 +83,10 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
-                        <div id="productContainer">
+                        <div id="productContainer" style="display:grid !important;grid-template-columns:auto auto !important;">
                             @foreach (var course in Model.courses)
                             {
-                                <div class="col-md-6">
+                                <div style="width:360px;" class="col-md-6">
                                     <div class="single-blog mb-60">
                                         <div class="single-course">
                                             <div class="course-img">
@@ -120,13 +121,26 @@
                                                         </button>
                                                     </a>
                                                 }
-                                                <div style="margin-left:-275px" class="course-share d-flex align-items-center justify-content-center">
-                                                    <a asp-action="AddWishlist" asp-controller="Courses" asp-route-id="@course.Id">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
-                                                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                                                        </svg>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <div style="margin-left:-275px" class="course-share d-flex align-items-center justify-content-center">
+                                                        <a asp-action="AddWishlist" asp-controller="Courses" asp-route-id="@course.Id">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
+                                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <a asp-controller="SiginUp" asp-action="LogIn">
+                                                        <div style="margin-left:-275px" class="course-share d-flex align-items-center justify-content-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16 ">
+                                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                            </svg>
+                                                        </div>
                                                     </a>
-                                                </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -211,9 +225,7 @@
     </div>
 </form>
 
-
 <style>
-
     #addd {
         margin-left: 12px;
         padding: 6px 20px 6px 20px;
@@ -228,7 +240,6 @@
             background-color: forestgreen;
             color: white;
         }
-
 </style>
 
 
