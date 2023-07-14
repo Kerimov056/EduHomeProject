@@ -25,6 +25,9 @@
             </div>
         </div>
 
+
+        
+
         <div style="margin-top:20px" class="FullPage">
             <div>
                 <div class="LEFT">
@@ -70,7 +73,7 @@
                                     <a class="mr-10 mb-10">education</a>
                                     <a class="mb-10">teachers</a>
                                     <a class="mr-10">learning</a>
-                                    <a class="mr-10">university</a> 
+                                    <a class="mr-10">university</a>
                                     <a asp-controller="Event" asp-action="Index">events</a>
                                 </div>
                             </div>
@@ -80,6 +83,21 @@
                 <div style="width:0.5px;height:770px;background-color:#d2d6d4;margin-left:-10px"></div>
                 <div class="RIGHT" style="margin-left:10px !important;">
                     <div class="ordersss">
+
+                        <form method="post" asp-action="CommentsPage" asp-route-coursId="@item.Id">
+                            <input name="user" style="width:340px;height:40px;border-radius:7px;" type="search" placeholder="Search here..." />
+                            <button style="margin-left:-40px;" type="submit">
+                                <span><i style="font-size:20px" class="fa fa-search"></i></span>
+                            </button>
+                        </form>
+
+
+                        <select id="Selectt" style="width:200px;" class="form-select"  name="catagoryId">
+                            <option selected>The ewest</option>
+                            <option>The former</option>
+                        </select>
+
+
                     </div>
                     <div class="CreateComments">
                         <form method="post" asp-controller="CourseDetails" asp-action="AddComment" asp-route-id="@item.Id">
@@ -94,7 +112,7 @@
                     </div>
                     <div class="Commentss">
                         <div id="commentssS">
-                            @foreach (var comment in item.CourseComments.OrderByDescending(x => x.CreatedDate).Take(5))
+                            @foreach (var comment in item.CourseComments.OrderByDescending(c=>c.CreatedDate))
                             {
                                 <div class="ByComment">
                                     <div style="margin-left:20px;">
@@ -118,23 +136,26 @@
 }
 
 
-
 <style>
-
-      .form-control {
+    
+    .form-control {
         height: 20px;
     }
 
     .ordersss {
         width: 100%;
         height: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         background-color: whitesmoke;
     }
 
-    .CreateComments{
+    .CreateComments {
         width: 100%;
         height: 60px;
     }
+
     .Commentss {
         width: 100%;
         height: 640px;

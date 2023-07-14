@@ -47,4 +47,22 @@ public class SearchService : ISearchServices
         }
         return courses;
     }
+
+    //public async Task<IEnumerable<User>> GetUser(string user = "")
+    //{
+    //    user = user.ToLower();
+    //    IEnumerable<User> User = await (from USER in _context.Users
+    //                                    join comment in _context.CourseComments
+    //                                    on USER.CourseComments equals comment.UserId
+    //                                    where string.IsNullOrWhiteSpace(user) || (USER != null && USER.UserName.ToLower().StartsWith(user))
+    //                                    select new User
+    //                                    {
+
+    //                                        CourseComments = USER.CourseComments,
+    //                                        us
+
+    //                                    }).ToListAsync();
+
+    //    return User;
+    //}
 }

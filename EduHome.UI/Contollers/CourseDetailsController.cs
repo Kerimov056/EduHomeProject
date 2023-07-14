@@ -26,10 +26,8 @@ public class CourseDetailsController : Controller
     {
         if (id == 0)  return NotFound();
         var cart = await _context.Coursess.FindAsync(id);
-        if (cart == null)
-        {
-            return NotFound();
-        }
+        if (cart is null)  return NotFound();
+
         ViewBag.Id = cart.Id;
 
         var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
@@ -105,6 +103,17 @@ public class CourseDetailsController : Controller
         };
         return View(homeViewModel);
     }
+
+    //[HttpPost]
+    //public async Task<IActionResult> CommentsPage(string user, int coursId)
+    //{
+    //    var comments = await _context.CourseComments.Where(c => c.CoursesId == coursId).ToListAsync();
+
+    //    var FilterSearch = comments.Where(u => u.User.UserName == user);
+    //    if (FilterSearch is null) return View(user);
+
+    //    return View(FilterSearch);
+    //}
 
 
     [HttpPost]

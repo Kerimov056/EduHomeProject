@@ -40,7 +40,7 @@ public class EventFormViewComponent: ViewComponent
         await _context.Viewers.AddAsync(viewer);
         await _context.SaveChangesAsync();
 
-        return View("Success"); // Başarılı sonucu temsil eden bir view döndürün
+        return View("Success"); 
     }
 
 }
