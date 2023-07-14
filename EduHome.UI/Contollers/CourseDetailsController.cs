@@ -82,7 +82,19 @@ public class CourseDetailsController : Controller
     [HttpPost]
     public async Task<IActionResult> PostReply(ReplyVM replyVM)
     {
-        
+        var ByUser = GetUserId();
+        if (ByUser is null) return RedirectToAction("LogIn","SiginUp");
+
+        CReply cReply = new()
+        {
+            Reply = replyVM.Reply,
+            CourseCommentId = replyVM.CID,
+            UserId = ByUser,
+            DateTime = DateTime.Now,
+        };
+
+        return Ok();
+        //await _context.CReply.a
     }
 
 
@@ -99,6 +111,7 @@ public class CourseDetailsController : Controller
         var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
         ViewBag.CommentsSum = comments.Count();
 
+
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
@@ -108,6 +121,7 @@ public class CourseDetailsController : Controller
                                 .ThenInclude(u => u.User)
                                 .ToListAsync(),
             categories = await _context.Categoriess.ToListAsync(),
+           
         };
         return View(homeViewModel);
     }

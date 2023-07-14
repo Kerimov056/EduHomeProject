@@ -79,12 +79,18 @@ public class SiginUpController : Controller
     //}
     public async Task<IActionResult> LogIn()
     {
+        if (User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("Index", "MyProfile");
+        }
+
         return View();
     }
 
     [HttpPost]
     public async Task<IActionResult> LogIn(LoginVM login)
     {
+        
         if (!ModelState.IsValid)
         {
             return View();

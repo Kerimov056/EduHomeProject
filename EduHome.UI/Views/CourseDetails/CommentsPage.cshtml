@@ -3,6 +3,18 @@
     ViewData["Title"] = "CommentsPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript">
+    var js = jQuery.noConflict(true);
+    js(document).ready(function() {
+        js('#commentssS').DataTable({
+
+        });
+    });
+</script>*@
+
 
 @foreach (var item in Model.courses)
 {
@@ -42,7 +54,7 @@
                             }
                             else
                             {
-                                <button type="button" onclick="add(@item.Id)" id="StartShopping">Add to Cart</button>
+                               <a asp-controller="SiginUp" asp-action="LogIn"><button type="button" onclick="add(@item.Id)" id="StartShopping">Add to Cart</button></a>
                             }
                             @if (User.Identity.IsAuthenticated)
                             {
@@ -84,17 +96,17 @@
                 <div class="RIGHT" style="margin-left:10px !important;">
                     <div class="ordersss">
 
-                        <form method="post" asp-action="CommentsPage" asp-route-coursId="@item.Id">
-                            <input name="user" style="width:340px;height:40px;border-radius:7px;" type="search" placeholder="Search here..." />
+                        <form asp-action="CommentsPage" asp-route-Id="@item.Id" asp-route-search="@Model.Comments">
+                            <input name="serach" style="width:340px;height:40px;border-radius:7px;" type="search" placeholder="Search here..." />
                             <button style="margin-left:-40px;" type="submit">
                                 <span><i style="font-size:20px" class="fa fa-search"></i></span>
                             </button>
                         </form>
 
 
-                        <select id="Selectt" style="width:200px;" class="form-select"  name="catagoryId">
-                            <option selected>The ewest</option>
-                            <option>The former</option>
+                        <select id="Selectt" style="width:200px;" class="form-select" name="catagoryId" onchange="sortByComments()">
+                            <option value="newest">The newest</option>
+                            <option value="former">The former</option>
                         </select>
 
 
@@ -102,7 +114,6 @@
                     <div class="CreateComments">
                         <form method="post" asp-controller="CourseDetails" asp-action="AddComment" asp-route-id="@item.Id">
                             <div style="margin-top:20px;">
-                                <h1>Write a comment</h1>
                                 <textarea asp-for="@Model.Comments" rows="4" class="form-control" placeholder="Your Comments"></textarea>
                             </div>
                             <div class="submit-section">
@@ -111,7 +122,7 @@
                         </form>
                     </div>
                     <div class="Commentss">
-                        <div id="commentssS">
+                        <div id="commentssS" style="overflow:scroll;height:600px;overflow-x:hidden;">
                             @foreach (var comment in item.CourseComments.OrderByDescending(c=>c.CreatedDate))
                             {
                                 <div class="ByComment">
@@ -162,7 +173,6 @@
     }
 
     #commentssS {
-        height: 470px;
         width: 100%;
         border-top: 1px solid #d2d6d4;
     }
@@ -302,6 +312,7 @@
                 console.log(err);
             }
         }
+
     </script>
 }
 

@@ -22,7 +22,6 @@ public class HomeViewModel
     public IEnumerable<Viewer> viewers { get; set; }
     //Commmetns
     public IEnumerable<CourseComment> courseComments { get; set; }
-    public IEnumerable<Reply> replies { get; set; }
 
     public string? Comments { get; set; }
     //shopping

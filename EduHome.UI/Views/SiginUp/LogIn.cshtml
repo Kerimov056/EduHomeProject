@@ -3,9 +3,6 @@
     ViewData["Title"] = "LogIn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@if (!User.Identity.IsAuthenticated)
-{
     <style>
         #duz {
             margin-top: 20px;
@@ -20,7 +17,6 @@
       @*  #ggg:hover{
             background-color:steelblue;
             color:white;*@
-    }
     </style>
 
     <div class="banner-area-wrapper">
@@ -109,44 +105,3 @@
             </div>
         </div>
     </div>
-
-
-    <!-- Subscribe End -->
-}
-else
-{
-    <div class="login-area pt-150 pb-150">
-        <p class="col-md-8 offset-md-2">
-            My Profile
-        </p>
-    </div>
-}
-
-
-
-
-
-
-@* <div class="row" style="margin-top:10px;">
-                                    @{
-                                        if (Model.ExternalLogins.Count == 0)
-                                        {
-                                            <div>No external logins configured</div>
-                                        }
-                                        else
-                                        {
-                                            <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
-                                                <div>
-                                                    @foreach (var provider in Model.ExternalLogins)
-                                                    {
-                                                        <button style="width:490px;border-radius:17px;border:1px solid black" id="ggg" type="submit" class="btn btn-white"
-                                                    name="provider" value="@provider.Name"
-                                                    title="Login using your @provider.DisplayName account">
-                                                            @provider.DisplayName Account   <i class="fa-brands fa-google"></i>
-                                                        </button>
-                                                    }
-                                                </div>
-                                            </form>
-                                        }
-                                    }
-                                </div>*@
