@@ -68,6 +68,17 @@
                 <div class="RIGHT">
                     <div class="ordersss">
                     </div>
+                    <div class="CreateComments">
+                        <form method="post" asp-controller="CourseDetails" asp-action="AddComment" asp-route-id="@item.Id">
+                            <div style="margin-top:20px;">
+                                <h1>Write a comment</h1>
+                                <textarea asp-for="@Model.Comments" rows="4" class="form-control" placeholder="Your Comments"></textarea>
+                            </div>
+                            <div class="submit-section">
+                                <button style="margin-left:620px;margin-top:-60px" class="btn submit-btn" type="submit"><i style="font-size:20px;" class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="Commentss">
                         <div id="commentssS">
                             @foreach (var comment in item.CourseComments.OrderByDescending(x => x.CreatedDate).Take(5))
@@ -97,15 +108,23 @@
 
 <style>
 
+      .form-control {
+        height: 20px;
+    }
+
     .ordersss {
         width: 100%;
         height: 70px;
         background-color: whitesmoke;
     }
 
+    .CreateComments{
+        width: 100%;
+        height: 60px;
+    }
     .Commentss {
         width: 100%;
-        height: 700px;
+        height: 640px;
     }
 
     #commentssS {
@@ -253,29 +272,3 @@
 }
 
 
-
-@section Scripts{
-    <script>
-        async function add(courseId) {
-            //var usernameEl = document.getElementById("username");
-            //if (usernameEl == null) {
-
-            //}
-            try {
-                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);
-                if (response.status == 200) {
-                    var result = await response.json();
-                    var cartCountEl = document.getElementById("cartCount");
-                    cartCountEl.innerHTML = result;
-                    //window.location.href = "#cartCount"
-                }
-                else {
-                    console.log(response.status)
-                }
-            }
-            catch (err) {
-                console.log(err);
-            }
-        }
-    </script>
-}

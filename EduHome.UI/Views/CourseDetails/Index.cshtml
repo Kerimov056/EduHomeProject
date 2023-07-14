@@ -98,8 +98,8 @@
                             </div>
 
                             <form method="post" asp-controller="CourseDetails" asp-action="AddComment" asp-route-id="@item.Id">
-                                <div>
-                                    <h1>Burasi Comments</h1>
+                                <div style="margin-top:20px;">
+                                    <h1>Write a comment</h1>
                                     <textarea asp-for="@Model.Comments" rows="4" class="form-control" placeholder="Your Comments"></textarea>
                                 </div>
                                 <div class="submit-section">
