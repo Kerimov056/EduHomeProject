@@ -36,7 +36,7 @@
                                 <img style="width:800px;height:700px;object-fit:cover" src="/@item.ImagePath" alt="courses-details">
                             </div>
                             <div class="course-content" style="height:50px;">
-                                <h1 style="font-size:30px;margin-top:-17px;">@item.Name</h1>
+                                <h1 style="font-size:30px;margin-top:-17px;color:#f27a1a">@item.Name</h1>
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <button id="addd" type="button" onclick="add(@item.Id)" class="btn btn-success">
@@ -113,7 +113,7 @@
                             <div>
                                 <div id="commentss">
                                     <div id="commentssAnswer">
-                                        <p>171 degerlendirme</p>
+                                        <p>@TempData["CommentsSum"] Comments</p>
                                     </div>
                                     <div id="commentssS">
                                         @foreach (var comment in item.CourseComments.OrderByDescending(x => x.CreatedDate).Take(5))
@@ -130,9 +130,11 @@
                                                 </div>
                                             </div>
                                         }
-                                        <div id="SHOWMORECOMMENTS">
-                                            <a>SHOW MORE COMMENTS</a>
-                                        </div>
+                                        <a asp-action="CommentsPage" asp-route-id="@item.Id">
+                                            <div id="SHOWMORECOMMENTS">
+                                                <p style="color:white;">SHOW MORE COMMENTS</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -314,22 +316,22 @@
         font-weight: 200;
     }
 
-    .like:hover {
-        color: #f27a1a;
-    }
+        .like:hover {
+            color: #f27a1a;
+        }
 
-    #SHOWMORECOMMENTS{
-        width:90%;
-        height:30px;
+    #SHOWMORECOMMENTS {
+        width: 90%;
+        height: 30px;
         border: 1px solid #d2d6d4;
-        margin-left:34px;
-        border-radius:6px;
-        text-align:center;
-        display:flex;
-        justify-content:center;
-        align-items:center;
+        margin-left: 34px;
+        border-radius: 6px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: #f27a1a;
-        color: white;
+        color: white !important;
     }
 
     #addd {
@@ -339,14 +341,19 @@
         background-color: white;
         color: forestgreen;
         border: 1px solid forestgreen;
-        margin-top:-40px;
-        margin-left:140px;
+        margin-top: -40px;
+        margin-left: 140px;
     }
 
         #addd:hover {
             background-color: forestgreen;
             color: white;
         }
+
+    #Likeee {
+        margin-top: -55px;
+        margin-left: -30px;
+    }
 </style>
 
 

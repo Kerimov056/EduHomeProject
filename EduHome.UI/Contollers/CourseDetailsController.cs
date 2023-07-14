@@ -24,16 +24,16 @@ public class CourseDetailsController : Controller
 
     public async Task<IActionResult> Index(int id)
     {
-        if (id == 0)
-        {
-            return NotFound();
-        }
+        if (id == 0)  return NotFound();
         var cart = await _context.Coursess.FindAsync(id);
         if (cart == null)
         {
             return NotFound();
         }
         ViewBag.Id = cart.Id;
+
+        var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
+        TempData["CommentsSum"] = comments.Count();
 
         HomeViewModel homeViewModel = new()
         {
@@ -54,7 +54,7 @@ public class CourseDetailsController : Controller
         if (string.IsNullOrWhiteSpace(homeViewModel.Comments))
         {
             return Ok();
-        }
+        } 
 
         if (!User.Identity.IsAuthenticated)
         {
@@ -80,9 +80,34 @@ public class CourseDetailsController : Controller
         return RedirectToAction("Index", new { id = id });
     }
 
-    [HttpPost]
+    public async Task<IActionResult> CommentsPage(int id)
+    {
+        if (id == 0) return NotFound();
+        var cart = await _context.Coursess.FindAsync(id);
+        if (cart == null)
+        {
+            return NotFound();
+        }
+        ViewBag.Id = cart.Id;
 
-    
+        var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
+        ViewBag.CommentsSum = comments.Count();
+
+        HomeViewModel homeViewModel = new()
+        {
+            blogs = await _context.Blogs.ToListAsync(),
+            courses = await _context.Coursess
+                                .Include(c => c.CoursesDetails)
+                                .Include(c => c.CourseComments)
+                                .ThenInclude(u => u.User)
+                                .ToListAsync(),
+            categories = await _context.Categoriess.ToListAsync(),
+        };
+        return View(homeViewModel);
+    }
+
+
+    [HttpPost]
     private string GetUserId()
     {
         var user = _contextAccessor.HttpContext.User;
