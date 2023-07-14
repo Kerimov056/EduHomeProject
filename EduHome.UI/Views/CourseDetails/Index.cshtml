@@ -113,7 +113,7 @@
                             <div>
                                 <div id="commentss">
                                     <div id="commentssAnswer">
-                                        <p>@TempData["CommentsSum"] Comments</p>
+                                        <p style="font-size:20px;">@TempData["CommentsSum"] <i style="color:#f27a1a;" class="fa-regular fa-comment"></i></p>
                                     </div>
                                     <div id="commentssS">
                                         @foreach (var comment in item.CourseComments.OrderByDescending(x => x.CreatedDate).Take(5))

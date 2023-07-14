@@ -33,7 +33,7 @@ public class CourseDetailsController : Controller
         var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
         TempData["CommentsSum"] = comments.Count();
 
-        HomeViewModel homeViewModel = new()
+        HomeViewModel homeViewModel = new() 
         {
             blogs = await _context.Blogs.ToListAsync(),
             courses = await _context.Coursess
@@ -77,6 +77,14 @@ public class CourseDetailsController : Controller
         }
         return RedirectToAction("Index", new { id = id });
     }
+
+
+    [HttpPost]
+    public async Task<IActionResult> PostReply(ReplyVM replyVM)
+    {
+        
+    }
+
 
     public async Task<IActionResult> CommentsPage(int id)
     {
