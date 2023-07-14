@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="FullPage">
+        <div style="margin-top:20px" class="FullPage">
             <div>
                 <div class="LEFT">
                     <div>
@@ -62,10 +62,23 @@
                                 </a>
                             }
                             <p style="font-size:20px;margin-top:30px;">@ViewBag.CommentsSum Comments</p>
+
+                            <div class="single-blog-widget">
+                                <h3>tags</h3>
+                                <div class="single-tag">
+                                    <a asp-controller="Courses" asp-action="Index" class="mr-10 mb-10">course</a>
+                                    <a class="mr-10 mb-10">education</a>
+                                    <a class="mb-10">teachers</a>
+                                    <a class="mr-10">learning</a>
+                                    <a class="mr-10">university</a> 
+                                    <a asp-controller="Event" asp-action="Index">events</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="RIGHT">
+                <div style="width:0.5px;height:770px;background-color:#d2d6d4;margin-left:-10px"></div>
+                <div class="RIGHT" style="margin-left:10px !important;">
                     <div class="ordersss">
                     </div>
                     <div class="CreateComments">
@@ -75,7 +88,7 @@
                                 <textarea asp-for="@Model.Comments" rows="4" class="form-control" placeholder="Your Comments"></textarea>
                             </div>
                             <div class="submit-section">
-                                <button style="margin-left:620px;margin-top:-60px" class="btn submit-btn" type="submit"><i style="font-size:20px;" class="fa-solid fa-paper-plane"></i></button>
+                                <button style="margin-left:610px;margin-top:-60px" class="btn submit-btn" type="submit"><i style="font-size:20px;" class="fa-solid fa-paper-plane"></i></button>
                             </div>
                         </form>
                     </div>
@@ -201,7 +214,7 @@
 
 
     .RIGHT {
-        width: 55%;
+        width: 54%;
         height: 770px;
     }
 
@@ -222,8 +235,8 @@
         }
 
     #Likeee {
-        margin-top: -180px;
-        margin-left: -60px;
+        margin-top: -7px;
+        margin-left: -160px;
     }
 
 
