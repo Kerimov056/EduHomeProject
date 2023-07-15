@@ -79,26 +79,26 @@ public class CourseDetailsController : Controller
     }
 
 
-    [HttpPost]
-    public async Task<IActionResult> PostReply(ReplyVM replyVM)
-    {
-        var ByUser = GetUserId();
-        if (ByUser is null) return RedirectToAction("LogIn","SiginUp");
+    //[HttpPost]
+    //public async Task<IActionResult> PostReply(ReplyVM replyVM)
+    //{
+    //    var ByUser = GetUserId();
+    //    if (ByUser is null) return RedirectToAction("LogIn","SiginUp");
 
-        CReply cReply = new()
-        {
-            Reply = replyVM.Reply,
-            CourseCommentId = replyVM.CID,
-            UserId = ByUser,
-            DateTime = DateTime.Now,
-        };
+    //    CReply cReply = new()
+    //    {
+    //        Reply = replyVM.Reply,
+    //        CourseCommentId = replyVM.CID,
+    //        UserId = ByUser,
+    //        DateTime = DateTime.Now,
+    //    };
 
-        return Ok();
-        //await _context.CReply.a
-    }
+    //    return Ok();
+    //    //await _context.CReply.a
+    //}
 
 
-    public async Task<IActionResult> CommentsPage(int id)
+    public async Task<IActionResult> CommentsPage(int id, string username, string sortOrder)
     {
         if (id == 0) return NotFound();
         var cart = await _context.Coursess.FindAsync(id);
@@ -108,9 +108,26 @@ public class CourseDetailsController : Controller
         }
         ViewBag.Id = cart.Id;
 
-        var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
-        ViewBag.CommentsSum = comments.Count();
+        var comment = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
+        ViewBag.CommentsSum = comment.Count();
 
+        var commentsQuery = _context.CourseComments.Where(c => c.CoursesId == id);
+
+        if (!string.IsNullOrEmpty(username))
+        {
+            commentsQuery = commentsQuery.Where(c => c.User.UserName.Contains(username));
+        }
+
+        switch (sortOrder)
+        {
+            case "former":
+                commentsQuery = commentsQuery.OrderBy(c => c.CreatedDate);
+                break;
+            case "newest":
+            default:
+                commentsQuery = commentsQuery.OrderByDescending(c => c.CreatedDate);
+                break;
+        }
 
         HomeViewModel homeViewModel = new()
         {
@@ -121,21 +138,11 @@ public class CourseDetailsController : Controller
                                 .ThenInclude(u => u.User)
                                 .ToListAsync(),
             categories = await _context.Categoriess.ToListAsync(),
-           
+            courseComments = commentsQuery
         };
         return View(homeViewModel);
     }
 
-    //[HttpPost]
-    //public async Task<IActionResult> CommentsPage(string user, int coursId)
-    //{
-    //    var comments = await _context.CourseComments.Where(c => c.CoursesId == coursId).ToListAsync();
-
-    //    var FilterSearch = comments.Where(u => u.User.UserName == user);
-    //    if (FilterSearch is null) return View(user);
-
-    //    return View(FilterSearch);
-    //}
 
 
     [HttpPost]

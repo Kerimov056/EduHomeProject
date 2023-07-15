@@ -61,5 +61,11 @@ public class AppDbContext : IdentityDbContext<User>
 
     //Comment
     public DbSet<CourseComment> CourseComments { get; set; }
+    //Like
+    public DbSet<Like> Likes { get; set; }
+
+    //Reply
+    public DbSet<Repply> Repplies { get; set; }
+
 
 }

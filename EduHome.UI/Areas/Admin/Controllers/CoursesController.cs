@@ -54,15 +54,27 @@ public class CoursesController : Controller
 
 
 
-    public async Task<IActionResult> Edit(int id, CourseFullDetailsViewModel viewModel)
+    public async Task<IActionResult> Edit(int id)
     {
-        ViewBag.catagory = await _categoryServices.GetCategory();
         Courses? course = await _coruseService.FindByIdAsync(id);
         if (course is null) return RedirectToAction(nameof(Index));
-        var model = await _coruseService.GetEdit(id,viewModel);
+        ViewBag.catagory = await _categoryServices.GetCategory();
+        CourseFullDetailsViewModel model = new()
+        {
+            Cours = course.Name,
+            Description = course.Descripton,
+            Starts = course.CoursesDetails.Starts,
+            Month = course.CoursesDetails.Month,
+            Hours = course.CoursesDetails.Hours,
+            Level= course.CoursesDetails.Level,
+            Language = course.CoursesDetails.Language,
+            Students = course.CoursesDetails.Students,
+            Assesments = course.CoursesDetails.Assesments,
+            CourseFee = course.CoursesDetails.CourseFee,
+            CategorId = course.CoursesDetails.CoursesId
+        };
         return View(model);
     }
-
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, CourseFullDetailsViewModel viewModel, int CategorId)

@@ -642,6 +642,7 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("TeacherDetails");
                 });
 
+
             modelBuilder.Entity("EduHome.Core.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -1008,6 +1009,7 @@ namespace EduHomeDataAccess.Migrations
                     b.Navigation("Teacher");
                 });
 
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1062,6 +1064,11 @@ namespace EduHomeDataAccess.Migrations
             modelBuilder.Entity("EduHome.Core.Entities.Categories", b =>
                 {
                     b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.CourseComment", b =>
+                {
+                    b.Navigation("Replies");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>

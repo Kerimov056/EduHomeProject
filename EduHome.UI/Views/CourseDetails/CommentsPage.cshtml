@@ -3,17 +3,6 @@
     ViewData["Title"] = "CommentsPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
-
-<script type="text/javascript">
-    var js = jQuery.noConflict(true);
-    js(document).ready(function() {
-        js('#commentssS').DataTable({
-
-        });
-    });
-</script>*@
 
 
 @foreach (var item in Model.courses)
@@ -38,7 +27,7 @@
         </div>
 
 
-        
+
 
         <div style="margin-top:20px" class="FullPage">
             <div>
@@ -54,7 +43,7 @@
                             }
                             else
                             {
-                               <a asp-controller="SiginUp" asp-action="LogIn"><button type="button" onclick="add(@item.Id)" id="StartShopping">Add to Cart</button></a>
+                                <a asp-controller="SiginUp" asp-action="LogIn"><button type="button" onclick="add(@item.Id)" id="StartShopping">Add to Cart</button></a>
                             }
                             @if (User.Identity.IsAuthenticated)
                             {
@@ -96,18 +85,19 @@
                 <div class="RIGHT" style="margin-left:10px !important;">
                     <div class="ordersss">
 
-                        <form asp-action="CommentsPage" asp-route-Id="@item.Id" asp-route-search="@Model.Comments">
-                            <input name="serach" style="width:340px;height:40px;border-radius:7px;" type="search" placeholder="Search here..." />
-                            <button style="margin-left:-40px;" type="submit">
-                                <span><i style="font-size:20px" class="fa fa-search"></i></span>
-                            </button>
+
+
+                        <form method="get" asp-action="CommentsPage" asp-route-id="@item.Id">
+                            <input style="width:340px;height:40px;border-radius:7px;" type="text" name="username" placeholder="Search User" />
+                            <button style="margin-left:-40px" type="submit"><i style="font-size:20px" class="fa fa-search"></i></button>
                         </form>
 
-
-                        <select id="Selectt" style="width:200px;" class="form-select" name="catagoryId" onchange="sortByComments()">
+                        <select id="Selectt" style="width:200px;" class="form-select" name="sortOrder" >
                             <option value="newest">The newest</option>
                             <option value="former">The former</option>
                         </select>
+
+
 
 
                     </div>
@@ -123,7 +113,7 @@
                     </div>
                     <div class="Commentss">
                         <div id="commentssS" style="overflow:scroll;height:600px;overflow-x:hidden;">
-                            @foreach (var comment in item.CourseComments.OrderByDescending(c=>c.CreatedDate))
+                            @foreach (var comment in Model.courseComments)
                             {
                                 <div class="ByComment">
                                     <div style="margin-left:20px;">
@@ -148,7 +138,7 @@
 
 
 <style>
-    
+
     .form-control {
         height: 20px;
     }

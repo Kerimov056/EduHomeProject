@@ -141,7 +141,7 @@ public class CoursesServices : ICoursesServices
 
         Categories? category = await _context.Categoriess.FindAsync(CategoryId);
 
-        if (category is null)  throw new ArgumentException("Invalid Category");
+        //if (category is null)  throw new ArgumentException("Invalid Category");
 
         if (viewModel.ImagePath is not null)
         {
@@ -161,7 +161,7 @@ public class CoursesServices : ICoursesServices
 
         course.Descripton = viewModel.Description;
         course.Name = viewModel.Cours;
-        course.CategoriesId = category.Id;
+        course.CategoriesId = 2;
         course.CoursesDetails.Starts = viewModel.Starts;
         course.CoursesDetails.Month = viewModel.Month;
         course.CoursesDetails.Hours = viewModel.Hours;
