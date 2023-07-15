@@ -41,7 +41,6 @@ public class AppDbContext : IdentityDbContext<User>
     public DbSet<Courses> Coursess { get; set; }
     public DbSet<CoursesDetails> CoursesDetailss { get; set; }
     public DbSet<Categories> Categoriess { get; set; }
-
     public DbSet<Events> Eventss { get; set; }
     public DbSet<Speakers> Speakerss { get; set; }
     public DbSet<EventsDetails> EventsDetailss { get; set; }
@@ -51,21 +50,18 @@ public class AppDbContext : IdentityDbContext<User>
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<Setting> Settings { get; set; }
     public DbSet<Viewer> Viewers { get; set; }
-
     //shop
     public DbSet<ShoppingCart> ShoppingCarts { get; set; }
     public DbSet<CartDetail> CartDetails { get; set; }
     public DbSet<OrderStatus> OrderStatuss { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
-
     //Comment
     public DbSet<CourseComment> CourseComments { get; set; }
     //Like
     public DbSet<Like> Likes { get; set; }
-
     //Reply
-    public DbSet<Repply> Repplies { get; set; }
+    public DbSet<Reply> Replies { get; set; }
 
 
 }
