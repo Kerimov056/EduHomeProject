@@ -4,6 +4,7 @@ using EduHomeDataAccess.Database;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace EduHome.UI.Controllers;
 
@@ -128,7 +129,7 @@ public class CourseDetailsController : Controller
     //}
 
 
-    public async Task<IActionResult> CommentsPage(int id, string username, string sortOrder)
+    public async Task<IActionResult> CommentsPage(int id, string User, string sortOrder)
     {
         if (id == 0) return NotFound();
         var cart = await _context.Coursess.FindAsync(id);
@@ -143,9 +144,9 @@ public class CourseDetailsController : Controller
 
         var commentsQuery = _context.CourseComments.Where(c => c.CoursesId == id);
 
-        if (!string.IsNullOrEmpty(username))
+        if (!string.IsNullOrEmpty(User))
         {
-            commentsQuery = commentsQuery.Where(c => c.User.UserName.Contains(username));
+            commentsQuery = commentsQuery.Where(c => c.User.UserName.Contains(User));
         }
 
         switch (sortOrder)

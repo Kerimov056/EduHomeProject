@@ -248,13 +248,13 @@
         async function add(courseId) {
             //var usernameEl = document.getElementById("username");
             //if (usernameEl == null) {
-
-            //}
-            try {
-                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);
-                if (response.status == 200) {
-                    var result = await response.json();
-                    var cartCountEl = document.getElementById("cartCount");
+                                            
+            //}                         
+            try {                                   
+                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);                   
+                if (response.status == 200) {       
+                    var result = await response.json();                 
+                    var cartCountEl = document.getElementById("cartCount");                     
                     cartCountEl.innerHTML = result;
                     //window.location.href = "#cartCount"
                 }
@@ -266,5 +266,14 @@
                 console.log(err);
             }
         }
+
+
+
+        var heartIcon = document.querySelector(".bi-heart");
+
+        heartIcon.addEventListener("click", function () {
+            heartIcon.style.fill = "red";
+        });
+
     </script>
 }

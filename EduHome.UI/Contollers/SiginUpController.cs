@@ -90,7 +90,6 @@ public class SiginUpController : Controller
     [HttpPost]
     public async Task<IActionResult> LogIn(LoginVM login)
     {
-        
         if (!ModelState.IsValid)
         {
             return View();
