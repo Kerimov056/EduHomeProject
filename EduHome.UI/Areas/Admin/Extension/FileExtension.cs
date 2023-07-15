@@ -48,4 +48,58 @@ public static class FileExtension
         }
     }
 
+
+
+    public static string GetTimeAgo(DateTime dateTime)
+    {
+        TimeSpan timeSince = DateTime.Now.Subtract(dateTime);
+
+        if (timeSince.TotalMilliseconds < 1)
+        {
+            return "just now";
+        }
+        if (timeSince.TotalMinutes < 1)
+        {
+            return "less than a minute ago";
+        }
+        if (timeSince.TotalMinutes < 2)
+        {
+            return "1 minute ago";
+        }
+        if (timeSince.TotalMinutes < 60)
+        {
+            return string.Format("{0} minutes ago", timeSince.Minutes);
+        }
+        if (timeSince.TotalMinutes < 120)
+        {
+            return "1 hour ago";
+        }
+        if (timeSince.TotalHours < 24)
+        {
+            return string.Format("{0} hours ago", timeSince.Hours);
+        }
+        if (timeSince.TotalDays < 2)
+        {
+            return "yesterday";
+        }
+        if (timeSince.TotalDays < 30)
+        {
+            return string.Format("{0} days ago", timeSince.Days);
+        }
+        if (timeSince.TotalDays < 60)
+        {
+            return "1 month ago";
+        }
+        if (timeSince.TotalDays < 365)
+        {
+            return string.Format("{0} months ago", Math.Round(timeSince.TotalDays / 30));
+        }
+        if (timeSince.TotalDays < 730)
+        {
+            return "1 year ago";
+        }
+        return string.Format("{0} years ago", Math.Round(timeSince.TotalDays / 365));
+    }
+
+
 }

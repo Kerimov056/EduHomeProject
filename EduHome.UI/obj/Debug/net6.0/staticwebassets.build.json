@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Sr1xTXS6ZO4AMaQqoFxN3rl5ogLKcLOdMajNsWS+vdM=",
+  "Hash": "eRTy6EbkQx7rp5ukwlw684RSu9ibsogcBm/DzV/FKp4=",
   "Source": "EduHome.UI",
   "BasePath": "_content/EduHome.UI",
   "Mode": "Default",
@@ -12901,6 +12901,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assetsf\\libs\\tui-time-picker\\tui-time-picker.min.js"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assetsf\\MEn.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assetsf/MEn.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assetsf\\MEn.jpg"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\templates\\htmlpage.html",

@@ -33,6 +33,7 @@ public class CourseDetailsController : Controller
         var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
         TempData["CommentsSum"] = comments.Count();
 
+
         HomeViewModel homeViewModel = new() 
         {
             blogs = await _context.Blogs.ToListAsync(),
@@ -78,6 +79,35 @@ public class CourseDetailsController : Controller
         return RedirectToAction("Index", new { id = id });
     }
 
+    [HttpPost]
+    public async Task<IActionResult> CommentEdit(int commentId, HomeViewModel homeViewModel)
+    {
+        var comment = await _context.CourseComments.FindAsync(commentId);
+        if (comment == null)
+        {
+            return NotFound();
+        }
+
+        comment.Comment = homeViewModel.Comments;
+        comment.CreatedDate = DateTime.Now;
+
+        _context.CourseComments.Update(comment);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index", new { id = comment.CoursesId });
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteComment(int commentId)
+    {
+        if (commentId == 0) return NotFound();
+        CourseComment? courseComment = await _context.CourseComments.FindAsync(commentId);
+
+        _context.CourseComments.Remove(courseComment);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index", "CourseDetails");
+    }
 
     //[HttpPost]
     //public async Task<IActionResult> PostReply(ReplyVM replyVM)
@@ -152,6 +182,7 @@ public class CourseDetailsController : Controller
         string userId = _userManager.GetUserId(user);
         return userId;
     }
+
 
 }
 

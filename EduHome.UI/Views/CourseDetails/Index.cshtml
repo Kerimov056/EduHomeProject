@@ -2,6 +2,58 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //static string GetTimeAgo(DateTime dateTime)
+    //{
+    //    TimeSpan timeSince = DateTime.Now.Subtract(dateTime);
+
+    //    if (timeSince.TotalMilliseconds < 1)
+    //    {
+    //        return "just now";
+    //    }
+    //    if (timeSince.TotalMinutes < 1)
+    //    {
+    //        return "less than a minute ago";
+    //    }
+    //    if (timeSince.TotalMinutes < 2)
+    //    {
+    //        return "1 minute ago";
+    //    }
+    //    if (timeSince.TotalMinutes < 60)
+    //    {
+    //        return string.Format("{0} minutes ago", timeSince.Minutes);
+    //    }
+    //    if (timeSince.TotalMinutes < 120)
+    //    {
+    //        return "1 hour ago";
+    //    }
+    //    if (timeSince.TotalHours < 24)
+    //    {
+    //        return string.Format("{0} hours ago", timeSince.Hours);
+    //    }
+    //    if (timeSince.TotalDays < 2)
+    //    {
+    //        return "yesterday";
+    //    }
+    //    if (timeSince.TotalDays < 30)
+    //    {
+    //        return string.Format("{0} days ago", timeSince.Days);
+    //    }
+    //    if (timeSince.TotalDays < 60)
+    //    {
+    //        return "1 month ago";
+    //    }
+    //    if (timeSince.TotalDays < 365)
+    //    {
+    //        return string.Format("{0} months ago", Math.Round(timeSince.TotalDays / 30));
+    //    }
+    //    if (timeSince.TotalDays < 730)
+    //    {
+    //        return "1 year ago";
+    //    }
+    //    return string.Format("{0} years ago", Math.Round(timeSince.TotalDays / 365));
+    //}
+
 }
 
 @foreach (var item in Model.courses)
@@ -122,11 +174,24 @@
                                                 <div style="margin-left:20px;">
                                                     <div>@comment.Comment</div>
                                                     <div style="margin-top:7px;">
-                                                        <span>@comment.User.UserName | <span style="color:#f27a1a">@comment.CreatedDate.ToString("dd MMM yyyy")</span></span>
+                                                        <span>@comment.User.UserName | <span style="color:#f27a1a">@comment.CreatedDate</span></span>
                                                     </div>
                                                 </div>
                                                 <div style="margin-right:20px;">
                                                     <span class="like"><i class="fa-solid fa-thumbs-up"></i> Like the comment(0)</span>
+
+                                                    @if (User.Identity.Name == comment.User.UserName)
+                                                    {
+                                                        <form method="post" asp-action="CommentEdit" asp-route-commentId="@comment.Id">
+                                                            <div>
+                                                                <textarea placeholder="Edit" class="form-control" asp-for="@Model.Comments"></textarea>
+                                                            </div>
+                                                            <button style="margin-top:-30px;position:absolute;margin-left:170px" type="submit"><i style="font-size:20px;" class="fa-solid fa-paper-plane"></i></button>
+                                                        </form>
+                                                        <form method="post" asp-action="DeleteComment" asp-route-commentId="@comment.Id">
+                                                            <button type="submit">Delete</button>
+                                                        </form>
+                                                    }
                                                 </div>
                                             </div>
                                         }

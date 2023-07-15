@@ -1605,6 +1605,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\vendor\\modernizr-3.11.2.min.js"
     },
     {
+      "Id": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assetsf\\MEn.jpg",
+      "PackagePath": "staticwebassets\\assetsf\\MEn.jpg"
+    },
+    {
       "Id": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assetsf\\css\\app.min.css",
       "PackagePath": "staticwebassets\\assetsf\\css\\app.min.css"
     },
