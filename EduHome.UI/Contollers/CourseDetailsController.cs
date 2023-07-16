@@ -44,6 +44,7 @@ public class CourseDetailsController : Controller
                                 .ThenInclude(u => u.User)
                                 .ToListAsync(),
             categories = await _context.Categoriess.ToListAsync(),
+            likes = await _context.Likes.ToListAsync()
         };
         return View(homeViewModel);
     }
@@ -114,7 +115,7 @@ public class CourseDetailsController : Controller
     //public async Task<IActionResult> PostReply(ReplyVM replyVM)
     //{
     //    var ByUser = GetUserId();
-    //    if (ByUser is null) return RedirectToAction("LogIn","SiginUp");
+    //    if (ByUser is null) return RedirectToAction("LogIn", "SiginUp");
 
     //    CReply cReply = new()
     //    {
@@ -129,7 +130,33 @@ public class CourseDetailsController : Controller
     //}
 
 
-    public async Task<IActionResult> CommentsPage(int id, string User, string sortOrder)
+    [HttpPost]
+    public async Task<IActionResult> AddLike(string userId, int commentId)
+    {
+        if (!User.Identity.IsAuthenticated) return RedirectToAction("LogIn", "SiginUp");
+        if (userId is null && commentId == 0) return NotFound();
+        var ByUser = GetUserId();
+        var comment = await _context.CourseComments.FindAsync(commentId);
+
+        Like like = new()
+        {
+            UserId = ByUser,
+            CourseCommentId = comment.Id,
+            DateTime = DateTime.Now,
+            like_sum = 1
+        };
+
+        like.like_sum += 1;
+
+        ViewBag.LikeSum = like.like_sum;
+
+        await _context.Likes.AddAsync(like);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index", new { id = comment.CoursesId });
+    }
+
+
+    public async Task<IActionResult> CommentsPage(int id, string User, string sortOrder  = "")
     {
         if (id == 0) return NotFound();
         var cart = await _context.Coursess.FindAsync(id);

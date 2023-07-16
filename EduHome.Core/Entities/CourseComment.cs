@@ -14,10 +14,10 @@ namespace EduHome.Core.Entities
         public User User { get; set; }
 
         public int CoursesId { get; set; }
-        [ForeignKey("CourseId")]
+        [ForeignKey("CoursesId")]
         public Courses Courses { get; set; }
 
         public List<Like> Likes { get; set; }
-        public List<Reply> Replies { get; set; }
+        //public List<Reply> Replies { get; set; }
     }
 }

@@ -52,9 +52,10 @@
     //        return "1 year ago";
     //    }
     //    return string.Format("{0} years ago", Math.Round(timeSince.TotalDays / 365));
-    //}
+            //}
 
 }
+
 
 @foreach (var item in Model.courses)
 {
@@ -178,8 +179,16 @@
                                                     </div>
                                                 </div>
                                                 <div style="margin-right:20px;">
-                                                    <span class="like"><i class="fa-solid fa-thumbs-up"></i> Like the comment(0)</span>
+                                                    @*     @foreach (var like in Model.likes)
+                                        {*@
+                                                    <form id="likeForm" method="post" asp-action="AddLike">
+                                                        <input type="hidden" name="userId" value="@comment.UserId" />
+                                                        <input type="hidden" name="commentId" value="@comment.Id" />
+                                                        <span class="like"><i id="likeIcon" class="fa-solid fa-thumbs-up"></i> Like the comment(@ViewBag.LikeSum)</span>
+                                                    </form>
 
+                                                    @*   }
+                                        *@
                                                     @if (User.Identity.Name == comment.User.UserName)
                                                     {
                                                         <form method="post" asp-action="CommentEdit" asp-route-commentId="@comment.Id">
@@ -445,5 +454,14 @@
                 console.log(err);
             }
         }
+
+        var likeIcon = document.getElementById('likeIcon');
+        var likeForm = document.getElementById('likeForm');
+
+        likeIcon.addEventListener('click', function () {
+            likeForm.submit();
+        });
+
+
     </script>
 }

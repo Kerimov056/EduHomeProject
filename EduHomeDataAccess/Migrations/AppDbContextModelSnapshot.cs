@@ -46,7 +46,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Abouts", (string)null);
+                    b.ToTable("Abouts");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Blog", b =>
@@ -85,7 +85,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.CartDetail", b =>
@@ -114,7 +114,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasIndex("ShoppingCartId");
 
-                    b.ToTable("CartDetails", (string)null);
+                    b.ToTable("CartDetails");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Categories", b =>
@@ -132,7 +132,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categoriess", (string)null);
+                    b.ToTable("Categoriess");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.CourseComment", b =>
@@ -163,7 +163,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("CourseComments", (string)null);
+                    b.ToTable("CourseComments");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
@@ -196,7 +196,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasIndex("CategoriesId");
 
-                    b.ToTable("Coursess", (string)null);
+                    b.ToTable("Coursess");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.CoursesDetails", b =>
@@ -245,7 +245,7 @@ namespace EduHomeDataAccess.Migrations
                     b.HasIndex("CoursesId")
                         .IsUnique();
 
-                    b.ToTable("CoursesDetailss", (string)null);
+                    b.ToTable("CoursesDetailss");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Events", b =>
@@ -271,7 +271,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Eventss", (string)null);
+                    b.ToTable("Eventss");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Events_Speakers", b =>
@@ -289,7 +289,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasIndex("SpeakersId");
 
-                    b.ToTable("EventsDetails", (string)null);
+                    b.ToTable("EventsDetails");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.EventsDetails", b =>
@@ -318,7 +318,7 @@ namespace EduHomeDataAccess.Migrations
                     b.HasIndex("EventsId")
                         .IsUnique();
 
-                    b.ToTable("EventsDetailss", (string)null);
+                    b.ToTable("EventsDetailss");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Info", b =>
@@ -339,7 +339,37 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Infos", (string)null);
+                    b.ToTable("Infos");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.Like", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CourseCommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("like_sum")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseCommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Likes");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Notice", b =>
@@ -360,7 +390,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Notices", (string)null);
+                    b.ToTable("Notices");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Order", b =>
@@ -388,7 +418,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasIndex("OrderStatusId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.OrderDetail", b =>
@@ -417,7 +447,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderDetails", (string)null);
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.OrderStatus", b =>
@@ -438,7 +468,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OrderStatuss", (string)null);
+                    b.ToTable("OrderStatuss");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Setting", b =>
@@ -459,7 +489,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Settings", (string)null);
+                    b.ToTable("Settings");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.ShoppingCart", b =>
@@ -479,7 +509,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShoppingCarts", (string)null);
+                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Slider", b =>
@@ -508,7 +538,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders", (string)null);
+                    b.ToTable("Sliders");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Speakers", b =>
@@ -537,7 +567,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Speakerss", (string)null);
+                    b.ToTable("Speakerss");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Teacher", b =>
@@ -564,7 +594,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.TeacherDetails", b =>
@@ -639,7 +669,7 @@ namespace EduHomeDataAccess.Migrations
                     b.HasIndex("TeacherId")
                         .IsUnique();
 
-                    b.ToTable("TeacherDetails", (string)null);
+                    b.ToTable("TeacherDetails");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.User", b =>
@@ -741,7 +771,7 @@ namespace EduHomeDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Viewers", (string)null);
+                    b.ToTable("Viewers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -967,6 +997,25 @@ namespace EduHomeDataAccess.Migrations
                     b.Navigation("Events");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.Like", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.CourseComment", "CourseComment")
+                        .WithMany("Likes")
+                        .HasForeignKey("CourseCommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("CourseComment");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Order", b =>
                 {
                     b.HasOne("EduHome.Core.Entities.OrderStatus", "OrderStatus")
@@ -1062,6 +1111,11 @@ namespace EduHomeDataAccess.Migrations
             modelBuilder.Entity("EduHome.Core.Entities.Categories", b =>
                 {
                     b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("EduHome.Core.Entities.CourseComment", b =>
+                {
+                    b.Navigation("Likes");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>

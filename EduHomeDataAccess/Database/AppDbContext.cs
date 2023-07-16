@@ -25,6 +25,10 @@ public class AppDbContext : IdentityDbContext<User>
             .HasForeignKey(us => us.SpeakersId);
 
 
+        modelBuilder.Entity<Like>()
+            .HasOne(l => l.User)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Restrict);
 
         base.OnModelCreating(modelBuilder);
     }
@@ -61,7 +65,7 @@ public class AppDbContext : IdentityDbContext<User>
     //Like
     public DbSet<Like> Likes { get; set; }
     //Reply
-    public DbSet<Reply> Replies { get; set; }
+    //public DbSet<Reply> Replies { get; set; }
 
 
 }
