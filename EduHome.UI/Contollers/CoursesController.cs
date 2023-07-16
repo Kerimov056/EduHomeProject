@@ -45,7 +45,8 @@ public class CoursesController : Controller
         model.CurrentPage = currentPage;
         model.TotalPages = totalPages;
         model.PageSize = pageSize;
-        //model.Term = 
+        model.sTrem = sTrem;
+        model.catagoryId = catagoryId;
         return View(model);
     }
 

@@ -25,7 +25,7 @@ public class SearchService : ISearchServices
     }
     public async Task<IEnumerable<Courses>> GetCourses(string sTrem = "", int catagoryId = 0)
     {
-        sTrem = sTrem.ToLower();
+        //sTrem = sTrem.ToLower();
         IEnumerable<Courses> courses = await (from course in _context.Coursess
                                               join category in _context.Categoriess on course.CategoriesId equals category.Id
                                               join coursesDetails in _context.CoursesDetailss on course.Id equals coursesDetails.CoursesId
