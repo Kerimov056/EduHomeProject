@@ -40,4 +40,10 @@ public class HomeViewModel
     public IEnumerable<User> users { get; set; }
     public string sTrem { get; set; } = "";
     public int catagoryId { get; set; } = 0;
+
+    //Pagination
+    public int PageSize { get; set; }
+    public int CurrentPage { get; set; }
+    public int TotalPages { get; set; }
+    public string Term { get; set; }
 }

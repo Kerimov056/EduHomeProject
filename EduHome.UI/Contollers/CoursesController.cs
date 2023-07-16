@@ -23,7 +23,7 @@ public class CoursesController : Controller
         _searchServices = searchServices;
     }
 
-    public async Task<IActionResult> Index(string sTrem = "", int catagoryId = 0)
+    public async Task<IActionResult> Index(string sTrem = "", int catagoryId = 0,int currentPage = 1)
     {
         IEnumerable<Courses> cours = await _searchServices.GetCourses(sTrem, catagoryId);
         IEnumerable<Categories> categories = await _searchServices.Categories();
@@ -36,7 +36,16 @@ public class CoursesController : Controller
             sTrem = sTrem,
             catagoryId = catagoryId
         };
+        int totalRecords = model.courses.Count();
+        int pageSize = 3;
+        int totalPages = (int)Math.Ceiling(totalRecords/(double)pageSize);
+        model.courses = model.courses.Skip((currentPage - 1) * pageSize).Take(pageSize);
 
+        model.courses = model.courses;
+        model.CurrentPage = currentPage;
+        model.TotalPages = totalPages;
+        model.PageSize = pageSize;
+        //model.Term = 
         return View(model);
     }
 

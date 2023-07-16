@@ -147,6 +147,33 @@
                                 </div>
                             }
                         </div>
+                        <div style="margin-left:517px;margin-top:70px;">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    @for (int i = 1; i <= Model.TotalPages; i++)
+                                    {
+                                        if (i == Model.CurrentPage)
+                                        {
+                                            <li class="page-item"><a class="page-link active" href="/Courses/Index?sTrem=@Model.sTrem&amp;currentPage=@i">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="/Courses/Index?sTrem=@Model.sTrem&amp;currentPage=@i">@i</a></li>
+                                        }
+                                    }
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
 
@@ -248,13 +275,13 @@
         async function add(courseId) {
             //var usernameEl = document.getElementById("username");
             //if (usernameEl == null) {
-                                            
-            //}                         
-            try {                                   
-                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);                   
-                if (response.status == 200) {       
-                    var result = await response.json();                 
-                    var cartCountEl = document.getElementById("cartCount");                     
+
+            //}
+            try {
+                var response = await fetch(`/Cart/AddItem?courseId=${courseId}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
                     cartCountEl.innerHTML = result;
                     //window.location.href = "#cartCount"
                 }
