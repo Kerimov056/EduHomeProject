@@ -113,7 +113,7 @@ public class CourseDetailsController : Controller
 
         _context.CourseComments.Remove(courseComment);
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index", "CourseDetails");
+        return RedirectToAction("Index", new { id = courseComment.CoursesId });
     }
 
     [HttpPost]
