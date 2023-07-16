@@ -7,6 +7,6 @@ namespace EduHome.Core.Entities
     {
         public string Fullname { get; set; }
         public ICollection<CourseComment> CourseComments { get; set; }
-        //public ICollection<Reply> Replies { get; set; }
+        public ICollection<Reply> Replies { get; set; }
     }
 }

@@ -91,8 +91,8 @@
                             <button style="margin-left:-40px" type="submit"><i style="font-size:20px" class="fa fa-search"></i></button>
                         </form>
 
-                        <select id="Selectt" style="width:200px;" class="form-select" name="sortOrder" >
-                            <option value="newest" >The newest</option>
+                        <select id="Selectt" style="width:200px;" class="form-select" name="sortOrder">
+                            <option value="newest">The newest</option>
                             <option value="former">The former</option>
                         </select>
 
@@ -121,10 +121,42 @@
                                         </div>
                                     </div>
                                     <div style="margin-right:20px;">
-                                        <span class="like"><i class="fa-solid fa-thumbs-up"></i>(0)</span>
+                                        <span class="like">
+                                            <i id="likeIcon" class="fa-solid fa-thumbs-up"></i>
+                                            @{
+                                                int likeSum = 0;
+                                                foreach (var comLike in Model.likes)
+                                                {
+                                                    if (comLike.CourseCommentId == comment.Id)
+                                                    {
+                                                        likeSum++;
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            @likeSum
+                                            
+                                            </span>
                                     </div>
                                 </div>
-                                <hr />
+@*                                @foreach (var reply in comment.Replies)
+                                {
+                                    <br />
+                                    <span style="margin-right:15px;font-size:14px;color:green">
+                                        @reply.User.UserName sadsa
+                                    </span>
+                                    <span>
+                                        @reply.ReplyText   asdad
+                                    </span>
+                                }
+                                <form method="post" asp-action="PostReply">
+                                    <br />
+                                    <input type="text" name="Reply" />
+                                    <br />
+                                    <input type="hidden" asp-for="CID"/>
+                                    <input type="submit" style="padding-left:10px;padding-right:10px;" class="btn btn-success" asp-for="Reply">
+                                    <hr />
+                                </form>*@
                             }
                         </div>
                     </div>
@@ -300,7 +332,6 @@
                 console.log(err);
             }
         }
-
     </script>
 }
 

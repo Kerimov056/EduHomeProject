@@ -25,24 +25,23 @@ public class CourseDetailsController : Controller
 
     public async Task<IActionResult> Index(int id)
     {
-        if (id == 0)  return NotFound();
+        if (id == 0) return NotFound();
         var cart = await _context.Coursess.FindAsync(id);
-        if (cart is null)  return NotFound();
+        if (cart is null) return NotFound();
 
         ViewBag.Id = cart.Id;
 
         var comments = _context.CourseComments.Where(c => c.CoursesId == id).ToList();
         TempData["CommentsSum"] = comments.Count();
 
-
-        HomeViewModel homeViewModel = new() 
+        HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
             courses = await _context.Coursess
-                                .Include(c => c.CoursesDetails)
-                                .Include(c => c.CourseComments)
-                                .ThenInclude(u => u.User)
-                                .ToListAsync(),
+                    .Include(c => c.CoursesDetails)
+                    .Include(c => c.CourseComments)
+                    .ThenInclude(l => l.User)
+                    .ToListAsync(),
             categories = await _context.Categoriess.ToListAsync(),
             likes = await _context.Likes.ToListAsync()
         };
@@ -50,36 +49,42 @@ public class CourseDetailsController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddComment(int id, HomeViewModel homeViewModel)
+    public async Task<IActionResult> AddLike(string userId, int commentId)
     {
-        if (string.IsNullOrWhiteSpace(homeViewModel.Comments))
+        if (!User.Identity.IsAuthenticated) return RedirectToAction("LogIn", "SignUp");
+        if (string.IsNullOrEmpty(userId) || commentId == 0) return NotFound();
+
+        var ByUser = GetUserId();
+        var comment = await _context.CourseComments.FindAsync(commentId);
+
+        if (comment == null) return NotFound();
+
+        var existingLike = await _context.Likes.FirstOrDefaultAsync(l => l.UserId == ByUser && l.CourseCommentId == commentId);
+
+        if (existingLike != null)
         {
-            return Ok();
-        } 
-
-        if (!User.Identity.IsAuthenticated)
-        {
-            return RedirectToAction("LogIn", "SiginUp");
-        }
-
-
-        if (User.Identity.IsAuthenticated)
-        {
-            User user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            CourseComment comment = new CourseComment
-            {
-                CreatedDate = DateTime.Now,
-                Comment = homeViewModel.Comments,
-                CoursesId = id,
-                UserId = user.Id
-            };
-
-            _context.CourseComments.Add(comment);
+            _context.Likes.Remove(existingLike);
             await _context.SaveChangesAsync();
+            ViewBag.ErrorMessage = "You have already liked this comment.";
+            return RedirectToAction("Index", new { id = comment.CoursesId });
         }
-        return RedirectToAction("Index", new { id = id });
+
+        Like like = new Like
+        {
+            UserId = ByUser,
+            CourseCommentId = commentId,
+            DateTime = DateTime.Now,
+            like_sum = 1
+        };
+
+        ViewBag.LikeSum = like.like_sum;
+
+        await _context.Likes.AddAsync(like);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index", new { id = comment.CoursesId });
     }
+
 
     [HttpPost]
     public async Task<IActionResult> CommentEdit(int commentId, HomeViewModel homeViewModel)
@@ -111,52 +116,59 @@ public class CourseDetailsController : Controller
         return RedirectToAction("Index", "CourseDetails");
     }
 
-    //[HttpPost]
-    //public async Task<IActionResult> PostReply(ReplyVM replyVM)
-    //{
-    //    var ByUser = GetUserId();
-    //    if (ByUser is null) return RedirectToAction("LogIn", "SiginUp");
-
-    //    CReply cReply = new()
-    //    {
-    //        Reply = replyVM.Reply,
-    //        CourseCommentId = replyVM.CID,
-    //        UserId = ByUser,
-    //        DateTime = DateTime.Now,
-    //    };
-
-    //    return Ok();
-    //    //await _context.CReply.a
-    //}
-
-
     [HttpPost]
-    public async Task<IActionResult> AddLike(string userId, int commentId)
+    public async Task<IActionResult> PostReply(int CID, string Reply)
     {
-        if (!User.Identity.IsAuthenticated) return RedirectToAction("LogIn", "SiginUp");
-        if (userId is null && commentId == 0) return NotFound();
         var ByUser = GetUserId();
-        var comment = await _context.CourseComments.FindAsync(commentId);
+        if (ByUser is null) return RedirectToAction("LogIn", "SiginUp");
 
-        Like like = new()
+        Reply cReply = new()
         {
+            ReplyText = Reply,
+            CourseCommentId = CID,
             UserId = ByUser,
-            CourseCommentId = comment.Id,
-            DateTime = DateTime.Now,
-            like_sum = 1
+            DateTime = DateTime.Now
         };
 
-        like.like_sum += 1;
-
-        ViewBag.LikeSum = like.like_sum;
-
-        await _context.Likes.AddAsync(like);
+        await _context.Replies.AddAsync(cReply);
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index", new { id = comment.CoursesId });
+        return RedirectToAction("CommentsPage");
     }
 
 
-    public async Task<IActionResult> CommentsPage(int id, string User, string sortOrder  = "")
+   
+    [HttpPost]
+    public async Task<IActionResult> AddComment(int id, HomeViewModel homeViewModel)
+    {
+        if (string.IsNullOrWhiteSpace(homeViewModel.Comments))
+        {
+            return Ok();
+        }
+
+        if (!User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("LogIn", "SiginUp");
+        }
+
+
+        if (User.Identity.IsAuthenticated)
+        {
+            User user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            CourseComment comment = new CourseComment
+            {
+                CreatedDate = DateTime.Now,
+                Comment = homeViewModel.Comments,
+                CoursesId = id,
+                UserId = user.Id
+            };
+
+            _context.CourseComments.Add(comment);
+            await _context.SaveChangesAsync();
+        }
+        return RedirectToAction("Index", new { id = id });
+    }
+    public async Task<IActionResult> CommentsPage(int id, string User, string sortOrder = "")
     {
         if (id == 0) return NotFound();
         var cart = await _context.Coursess.FindAsync(id);
@@ -186,7 +198,6 @@ public class CourseDetailsController : Controller
                 commentsQuery = commentsQuery.OrderByDescending(c => c.CreatedDate);
                 break;
         }
-
         HomeViewModel homeViewModel = new()
         {
             blogs = await _context.Blogs.ToListAsync(),
@@ -196,7 +207,11 @@ public class CourseDetailsController : Controller
                                 .ThenInclude(u => u.User)
                                 .ToListAsync(),
             categories = await _context.Categoriess.ToListAsync(),
-            courseComments = commentsQuery
+            courseComments = await commentsQuery
+                                .Include(u => u.User)
+                                .Include(r => r.Replies)
+                                .ToListAsync(),
+            likes = await _context.Likes.ToListAsync()
         };
         return View(homeViewModel);
     }

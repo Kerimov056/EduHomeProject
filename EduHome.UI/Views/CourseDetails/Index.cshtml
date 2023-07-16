@@ -179,16 +179,28 @@
                                                     </div>
                                                 </div>
                                                 <div style="margin-right:20px;">
-                                                    @*     @foreach (var like in Model.likes)
-                                        {*@
+
                                                     <form id="likeForm" method="post" asp-action="AddLike">
                                                         <input type="hidden" name="userId" value="@comment.UserId" />
                                                         <input type="hidden" name="commentId" value="@comment.Id" />
-                                                        <span class="like"><i id="likeIcon" class="fa-solid fa-thumbs-up"></i> Like the comment(@ViewBag.LikeSum)</span>
+                                                        <span class="like">
+                                                            <i id="likeIcon" class="fa-solid fa-thumbs-up"></i>
+                                                            @{
+                                                                int likeSum = 0;
+                                                                foreach (var comLike in Model.likes)
+                                                                {
+                                                                    if (comLike.CourseCommentId == comment.Id)
+                                                                    {
+                                                                        likeSum++;
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            }
+                                                            @likeSum
+                                                        </span>
                                                     </form>
 
-                                                    @*   }
-                                        *@
+
                                                     @if (User.Identity.Name == comment.User.UserName)
                                                     {
                                                         <form method="post" asp-action="CommentEdit" asp-route-commentId="@comment.Id">
@@ -454,6 +466,7 @@
                 console.log(err);
             }
         }
+
 
         var likeIcon = document.getElementById('likeIcon');
         var likeForm = document.getElementById('likeForm');

@@ -471,6 +471,42 @@ namespace EduHomeDataAccess.Migrations
                     b.ToTable("OrderStatuss");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.Reply", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CourseCommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReplyText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseCommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("Replies");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -1046,6 +1082,29 @@ namespace EduHomeDataAccess.Migrations
                     b.Navigation("Order");
                 });
 
+            modelBuilder.Entity("EduHome.Core.Entities.Reply", b =>
+                {
+                    b.HasOne("EduHome.Core.Entities.CourseComment", "CourseComment")
+                        .WithMany("Replies")
+                        .HasForeignKey("CourseCommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("EduHome.Core.Entities.User", null)
+                        .WithMany("Replies")
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("CourseComment");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EduHome.Core.Entities.TeacherDetails", b =>
                 {
                     b.HasOne("EduHome.Core.Entities.Teacher", "Teacher")
@@ -1116,6 +1175,8 @@ namespace EduHomeDataAccess.Migrations
             modelBuilder.Entity("EduHome.Core.Entities.CourseComment", b =>
                 {
                     b.Navigation("Likes");
+
+                    b.Navigation("Replies");
                 });
 
             modelBuilder.Entity("EduHome.Core.Entities.Courses", b =>
@@ -1162,6 +1223,8 @@ namespace EduHomeDataAccess.Migrations
             modelBuilder.Entity("EduHome.Core.Entities.User", b =>
                 {
                     b.Navigation("CourseComments");
+
+                    b.Navigation("Replies");
                 });
 #pragma warning restore 612, 618
         }

@@ -18,6 +18,6 @@ namespace EduHome.Core.Entities
         public Courses Courses { get; set; }
 
         public List<Like> Likes { get; set; }
-        //public List<Reply> Replies { get; set; }
+        public List<Reply> Replies { get; set; }
     }
 }
