@@ -37,7 +37,7 @@ public class CoursesController : Controller
             catagoryId = catagoryId
         };
         int totalRecords = model.courses.Count();
-        int pageSize = 3;
+        int pageSize = 4;
         int totalPages = (int)Math.Ceiling(totalRecords/(double)pageSize);
         model.courses = model.courses.Skip((currentPage - 1) * pageSize).Take(pageSize);
 

@@ -96,13 +96,13 @@ builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 var app = builder.Build();
 
 //NotFound Page
-//app.UseStatusCodePagesWithRedirects("/Shared/NotFound?statusCode={0}");
-//app.UseStaticFiles();
-////app.UseAuthentication();
+app.UseStatusCodePagesWithRedirects("/Shared/NotFound?statusCode={0}");
+app.UseStaticFiles();
+//app.UseAuthentication();
 
-//app.UseExceptionHandler("/Home/Error");
-//app.UseStatusCodePages();
-//app.UseStatusCodePagesWithReExecute("/StatusCodeError/{0}");
+app.UseExceptionHandler("/Home/Error");
+app.UseStatusCodePages();
+app.UseStatusCodePagesWithReExecute("/StatusCodeError/{0}");
 //-----------------------------------------------------
 
 app.UseStaticFiles();
