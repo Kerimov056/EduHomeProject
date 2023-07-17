@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eRTy6EbkQx7rp5ukwlw684RSu9ibsogcBm/DzV/FKp4=",
+  "Hash": "ziDv2Tr+kD84XFt0bStIbKlFcRm/ykcQj78aHC5Jc3c=",
   "Source": "EduHome.UI",
   "BasePath": "_content/EduHome.UI",
   "Mode": "Default",
@@ -2176,6 +2176,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\2a7d1a6d-bc11-4a70-9b5d-b957deb47389Ekran görüntüsü 2023-03-04 044027.png"
     },
     {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\31d4edc3-9e85-427a-87f1-207508d73c4eevent11.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/31d4edc3-9e85-427a-87f1-207508d73c4eevent11.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\31d4edc3-9e85-427a-87f1-207508d73c4eevent11.jpg"
+    },
+    {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\31d85270-072a-4dfa-b9dc-3fb333158a09Ekran görüntüsü 2023-03-04 044027.png",
       "SourceId": "EduHome.UI",
       "SourceType": "Discovered",
@@ -2210,6 +2227,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\33c7a6f2-0572-4e39-8700-2218e877f293Ekran görüntüsü 2023-03-04 044041.png"
     },
     {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\37781d99-f38a-43f8-b4c6-bbbfb05fc1c6event5.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/37781d99-f38a-43f8-b4c6-bbbfb05fc1c6event5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\37781d99-f38a-43f8-b4c6-bbbfb05fc1c6event5.jpg"
+    },
+    {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\3a99d717-2667-4aba-afed-7e0dcf76772085be22a0-8955-40f5-96ce-bf790c07e6c7event10.jpg",
       "SourceId": "EduHome.UI",
       "SourceType": "Discovered",
@@ -2225,6 +2259,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\3a99d717-2667-4aba-afed-7e0dcf76772085be22a0-8955-40f5-96ce-bf790c07e6c7event10.jpg"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\3d4c82c8-517b-4e5e-8336-e2d54f4c012bevent2.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/3d4c82c8-517b-4e5e-8336-e2d54f4c012bevent2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\3d4c82c8-517b-4e5e-8336-e2d54f4c012bevent2.jpg"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\41bc35ce-e526-4d18-a246-2e72ed66a294us.jpg",
@@ -2312,6 +2363,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\4c3d2f27-3f49-4865-8aba-2ced2ba5c206sems.jpg"
     },
     {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\50b49e35-0e91-45aa-97d5-8370e3522d6eevent1.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/50b49e35-0e91-45aa-97d5-8370e3522d6eevent1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\50b49e35-0e91-45aa-97d5-8370e3522d6eevent1.jpg"
+    },
+    {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\51d3e9f0-9b22-4809-8657-074e08e02965Ekran görüntüsü 2023-03-04 044027.png",
       "SourceId": "EduHome.UI",
       "SourceType": "Discovered",
@@ -2361,6 +2429,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\53e24956-884f-483b-9ebf-925e2e4764acEkran görüntüsü 2023-03-04 044041.png"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\541d69a5-b30d-4ac7-b294-f39f09a1c4c5event11.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/541d69a5-b30d-4ac7-b294-f39f09a1c4c5event11.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\541d69a5-b30d-4ac7-b294-f39f09a1c4c5event11.jpg"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\54fce55f-6a45-4f6f-a8cb-74c34a5098fbEkran görüntüsü 2023-03-04 044041.png",
@@ -2429,6 +2514,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\57ac2b91-0513-4c63-a5c7-3a8eeba58b5aEkran görüntüsü 2023-03-04 044041.png"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\58897a64-8aa9-445f-bfdd-4f4ff7b0da95event5.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/58897a64-8aa9-445f-bfdd-4f4ff7b0da95event5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\58897a64-8aa9-445f-bfdd-4f4ff7b0da95event5.jpg"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\59adb2c3-36d8-4a81-8f39-f15b14d69062Ekran görüntüsü 2023-03-04 044041.png",
@@ -3111,6 +3213,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\b891977b-f2b5-45a3-a78b-baac800e685eEkran görüntüsü 2023-03-04 044027.png"
     },
     {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\b8d9e37b-e7a9-428f-8e36-cb86efe849e4event5.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/b8d9e37b-e7a9-428f-8e36-cb86efe849e4event5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\b8d9e37b-e7a9-428f-8e36-cb86efe849e4event5.jpg"
+    },
+    {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\ba832529-5f48-4b53-84df-3e1175ec1da2Ekran görüntüsü 2023-03-04 044027.png",
       "SourceId": "EduHome.UI",
       "SourceType": "Discovered",
@@ -3177,6 +3296,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\c2e8342d-133b-46e8-8530-62c6d42d67fb9f05cd74-c76c-4a57-b738-a266dff28f21Ekran görüntüsü 2023-03-04 044027.png"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\c7db4d84-c651-41f8-94b6-0a0eb1cf0d2fsss.jfif",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/c7db4d84-c651-41f8-94b6-0a0eb1cf0d2fsss.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\c7db4d84-c651-41f8-94b6-0a0eb1cf0d2fsss.jfif"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\c89bb113-4754-4588-9af3-73329af8b4faEkran görüntüsü 2023-03-04 044027.png",
@@ -3670,6 +3806,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\course\\ea740329-a204-4815-9088-59a7f324a1dablog8.jpg"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\ef9b0769-cd00-4abc-8b44-c36cc060cec9c#.jfif",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/course/ef9b0769-cd00-4abc-8b44-c36cc060cec9c#.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\course\\ef9b0769-cd00-4abc-8b44-c36cc060cec9c#.jfif"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\course\\f12d6be1-383a-4360-ba3b-e9fe2052786cEkran görüntüsü 2023-03-04 044027.png",
@@ -4452,6 +4605,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\event\\9392ba27-2ec8-444a-b42c-4376795a82daEkran görüntüsü 2023-03-04 044027.png"
+    },
+    {
+      "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\event\\945b33fe-61ad-4eb4-917c-4e3bc32d042aevent9.jpg",
+      "SourceId": "EduHome.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\",
+      "BasePath": "_content/EduHome.UI",
+      "RelativePath": "assets/img/event/945b33fe-61ad-4eb4-917c-4e3bc32d042aevent9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\event\\945b33fe-61ad-4eb4-917c-4e3bc32d042aevent9.jpg"
     },
     {
       "Identity": "D:\\work2\\Asp.net MVC\\EduHomeProject\\EduHome.UI\\wwwroot\\assets\\img\\event\\9cf2bb74-69d5-4e3b-8aaa-d1d051c4574eWIN_20230512_11_34_06_Pro.jpg",
