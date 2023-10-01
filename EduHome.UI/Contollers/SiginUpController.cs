@@ -1,15 +1,10 @@
-﻿using AutoMapper;
-using EduHome.Core.Entities;
+﻿using EduHome.Core.Entities;
 using EduHome.Core.Utilities;
 using EduHome.UI.Areas.Admin.Data.Services.Interfaces;
 using EduHome.UI.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Protocol.Plugins;
-using System.Security.Claims;
-using System.Security.Principal;
 
 namespace EduHome.UI.Contollers;
 
@@ -44,7 +39,8 @@ public class SiginUpController : Controller
     public async Task<IActionResult> Register(RegisterVM register)
     {
         if (!ModelState.IsValid)
-        {
+        { 
+
             return View();
         }
 
@@ -67,16 +63,6 @@ public class SiginUpController : Controller
         return RedirectToAction(nameof(LogIn));
     }
 
-    //public async Task<IActionResult> LogIn(string returnUrl)
-    //{
-    //    LoginVM loginVM = new LoginVM
-    //    {
-    //        ReturnUrl = returnUrl,
-    //        ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
-    //    };
-
-    //    return View(loginVM);
-    //}
     public async Task<IActionResult> LogIn()
     {
         if (User.Identity.IsAuthenticated)
@@ -305,7 +291,7 @@ public class SiginUpController : Controller
     public IActionResult ResetPassword(string token, string email)
     {
         var model = new ResetPasswordModel
-        {
+        {   
             Email = email,
             Token = token
         };

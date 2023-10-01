@@ -98,7 +98,7 @@ var app = builder.Build();
 //NotFound Page
 app.UseStatusCodePagesWithRedirects("/Shared/NotFound?statusCode={0}");
 app.UseStaticFiles();
-//app.UseAuthentication();
+app.UseAuthentication();
 
 app.UseExceptionHandler("/Home/Error");
 app.UseStatusCodePages();

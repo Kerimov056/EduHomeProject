@@ -36,6 +36,7 @@ public class CoursesController : Controller
             sTrem = sTrem,
             catagoryId = catagoryId
         };
+
         int totalRecords = model.courses.Count();
         int pageSize = 4;
         int totalPages = (int)Math.Ceiling(totalRecords/(double)pageSize);

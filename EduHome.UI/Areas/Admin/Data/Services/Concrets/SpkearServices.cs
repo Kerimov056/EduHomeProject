@@ -57,7 +57,7 @@ public class SpkearServices : ISpkearServices
                 SpeakersId = speakers.Id
             };
 
-            _context.EventsDetails.Add(events_speakers);
+            await _context.EventsDetails.AddAsync(events_speakers);
         }
         await _context.SaveChangesAsync();
 
